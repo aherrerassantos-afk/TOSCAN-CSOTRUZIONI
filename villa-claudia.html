@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Villa Claudia · Progetto Pilota · Toscan Costruzioni</title>
+<meta name="description" content="Villa Claudia, Montespertoli — il progetto pilota di Toscan Costruzioni. Segui il cantiere fase per fase: dal sopralluogo alla consegna delle chiavi." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --ink:         #0F0D0B;
+  --ink-muted:   #7A746D;
+  --ink-faint:   #ADA7A0;
+  --paper:       #FAFAF8;
+  --paper-warm:  #F4F0EB;
+  --paper-alt:   #EFEBE5;
+  --white:       #FFFFFF;
+  --accent:      #B85C38;
+  --rule:        #DDD8D0;
+  --rule-faint:  #EAE6E0;
+  --rule-strong: #C5BFB5;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Manrope', -apple-system, sans-serif;
+
+  --container: 1200px;
+  --gutter:    clamp(1.5rem, 5vw, 4rem);
+  --ease:      cubic-bezier(0.25, 0, 0, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule-faint);
+  transition: border-color 0.4s var(--ease);
+}
+.nav.scrolled { border-bottom-color: var(--rule); }
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.nav__brand em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.nav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  transition: color 0.3s;
+}
+.nav__back:hover { color: var(--ink); }
+.nav__back::before { content: '←'; font-size: 0.9rem; }
+
+.nav__lang {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+}
+.nav__lang span:first-child { color: var(--ink); }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  padding: 8rem var(--gutter) 5rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule-faint);
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: 'VC';
+  position: absolute;
+  right: -0.05em;
+  bottom: -0.2em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 30vw;
+  color: var(--rule-faint);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 3rem;
+  animation: fadeUp 0.6s var(--ease) both;
+}
+.hero__breadcrumb a { color: var(--ink-muted); transition: color 0.25s; }
+.hero__breadcrumb a:hover { color: var(--ink); }
+.hero__breadcrumb span { color: var(--rule-strong); }
+
+.hero__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.7s var(--ease) 0.1s both;
+}
+.hero__status::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s var(--ease) 0.2s both;
+}
+
+.hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s var(--ease) 0.35s both;
+}
+.hero__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hero__meta-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.hero__meta-value {
+  font-size: 0.88rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+.hero__meta-sep {
+  width: 1px;
+  height: 32px;
+  background: var(--rule);
+  flex-shrink: 0;
+}
+
+/* PROGRESS BAR */
+.progress-bar {
+  margin-top: 4rem;
+  animation: fadeUp 0.8s var(--ease) 0.5s both;
+}
+.progress-bar__label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+}
+.progress-bar__track {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+}
+.progress-bar__step {
+  height: 3px;
+  background: var(--rule);
+  position: relative;
+}
+.progress-bar__step--done { background: var(--ink); }
+.progress-bar__step--active { background: var(--accent); }
+.progress-bar__steps-labels {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  margin-top: 0.6rem;
+}
+.progress-bar__step-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+.progress-bar__step-label--active { color: var(--accent); font-weight: 600; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   SPECS GRID
+   ========================================================= */
+.specs {
+  padding: 0 var(--gutter);
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+}
+.specs__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--rule-faint);
+}
+.spec {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  transition: background 0.3s var(--ease);
+}
+.spec:hover { background: var(--paper); }
+.spec__label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.5rem;
+}
+.spec__value {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+  font-weight: 400;
+}
+.spec__value em { font-style: italic; color: var(--accent); }
+
+@media (max-width: 880px) { .specs__inner { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 540px) { .specs__inner { grid-template-columns: repeat(2, 1fr); } }
+
+/* =========================================================
+   GENERIC SECTION
+   ========================================================= */
+.section { padding: clamp(4rem, 8vw, 7rem) var(--gutter); }
+.section__inner { max-width: var(--container); margin: 0 auto; }
+
+.section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.section__label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+.section__title em { font-style: italic; color: var(--accent); }
+.section__lead {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+  max-width: 62ch;
+  margin-bottom: 3.5rem;
+}
+
+/* =========================================================
+   DESCRIZIONE PROGETTO
+   ========================================================= */
+.descrizione { background: var(--paper); }
+
+.descrizione__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+}
+.descrizione__aside {
+  position: sticky;
+  top: 6rem;
+}
+.descrizione__aside-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 8rem;
+  line-height: 1;
+  color: var(--rule);
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+.descrizione__aside-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 300;
+  border-left: 2px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+.descrizione__body p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.descrizione__body p:last-child { margin-bottom: 0; }
+.descrizione__body strong { color: var(--ink); font-weight: 500; }
+
+@media (max-width: 880px) {
+  .descrizione__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .descrizione__aside { position: static; }
+  .descrizione__aside-num { font-size: 5rem; }
+}
+
+/* =========================================================
+   FASI
+   ========================================================= */
+.fasi { background: var(--paper-warm); }
+
+.fase {
+  border-top: 1px solid var(--rule);
+  padding: 3.5rem 0;
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  transition: background 0.3s var(--ease);
+}
+.fase:last-child { border-bottom: 1px solid var(--rule); }
+
+.fase--active { background: var(--white); margin: 0 calc(-1 * var(--gutter)); padding-left: var(--gutter); padding-right: var(--gutter); }
+
+.fase__num-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.fase__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--ink-faint);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+.fase--active .fase__num { color: var(--accent); }
+
+.fase__badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--rule);
+  color: var(--ink-faint);
+}
+.fase__badge--active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.fase__badge--done {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.fase__title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+.fase__lead {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.fase__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.fase__detail {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+.fase__detail::before {
+  content: '—';
+  color: var(--rule-strong);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+}
+.fase--active .fase__detail::before { color: var(--accent); }
+
+@media (max-width: 880px) {
+  .fase { grid-template-columns: 80px 1fr; gap: 1.5rem; }
+  .fase__details { grid-column: 2; }
+  .fase--active { margin: 0 calc(-1 * var(--gutter) + 0.5rem); padding-left: calc(var(--gutter) - 0.5rem); padding-right: calc(var(--gutter) - 0.5rem); }
+}
+@media (max-width: 540px) {
+  .fase { grid-template-columns: 1fr; gap: 1rem; }
+  .fase__num-wrap { flex-direction: row; align-items: center; }
+}
+
+/* =========================================================
+   METODOLOGIA
+   ========================================================= */
+.metodologia { background: var(--white); }
+
+.metodologia__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-faint);
+  border: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+.metodo {
+  background: var(--white);
+  padding: 3rem 2.5rem;
+  transition: background 0.35s var(--ease);
+}
+.metodo:hover { background: var(--paper); }
+.metodo__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: var(--rule);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  transition: color 0.35s var(--ease);
+}
+.metodo:hover .metodo__num { color: var(--accent); }
+.metodo__title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.metodo__body { font-size: 0.88rem; line-height: 1.75; color: var(--ink-muted); }
+
+@media (max-width: 880px) { .metodologia__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   AGGIORNAMENTI
+   ========================================================= */
+.aggiornamenti { background: var(--paper); }
+
+.update {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule-faint);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.update:last-child { border-bottom: 1px solid var(--rule-faint); }
+.update__date {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  padding-top: 0.2rem;
+}
+.update__tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.update__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.update__body { font-size: 0.88rem; line-height: 1.7; color: var(--ink-muted); }
+
+@media (max-width: 600px) { .update { grid-template-columns: 1fr; gap: 0.75rem; } }
+
+/* =========================================================
+   PLACEHOLDER GALLERY
+   ========================================================= */
+.gallery { background: var(--paper-warm); }
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+.gallery__item {
+  background: var(--paper-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.gallery__item--large {
+  grid-row: span 2;
+  min-height: 420px;
+}
+.gallery__item-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--rule-strong);
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 1rem;
+}
+.gallery__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 23px, var(--rule-faint) 24px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 23px, var(--rule-faint) 24px);
+}
+
+@media (max-width: 600px) { .gallery__grid { grid-template-columns: 1fr; } .gallery__item--large { grid-row: span 1; min-height: 240px; } }
+
+/* =========================================================
+   CTA
+   ========================================================= */
+.cta-project {
+  background: var(--paper-warm);
+  padding: clamp(5rem, 10vw, 8rem) var(--gutter);
+  text-align: center;
+  border-top: 1px solid var(--rule);
+}
+.cta-project__inner { max-width: var(--container); margin: 0 auto; }
+.cta-project__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 24ch;
+  margin: 0 auto 1.25rem;
+}
+.cta-project__sub {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--ink-muted);
+  max-width: 50ch;
+  margin: 0 auto 2.5rem;
+}
+.cta-project__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.6rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.35s var(--ease);
+}
+.btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--primary:hover { background: transparent; color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
+.btn--ghost:hover { border-color: var(--ink); }
+.btn__arrow { transition: transform 0.3s var(--ease); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer { background: var(--ink); color: var(--paper); padding: 4rem var(--gutter) 2rem; }
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(250, 250, 248, 0.08);
+}
+.footer__brand-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+.footer__brand-name em { font-style: italic; color: var(--accent); }
+.footer__tag { font-family: var(--font-display); font-style: italic; font-size: 0.9rem; color: rgba(250,250,248,0.35); margin-bottom: 1.5rem; }
+.footer__desc { font-size: 0.85rem; line-height: 1.7; color: rgba(250,250,248,0.4); max-width: 30ch; }
+.footer__col h4 { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,250,248,0.35); font-weight: 600; margin-bottom: 1.25rem; }
+.footer__col ul { list-style: none; }
+.footer__col li { font-size: 0.85rem; line-height: 2.2; color: rgba(250,250,248,0.55); }
+.footer__col a:hover { color: var(--paper); }
+.footer__bottom {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: rgba(250,250,248,0.3);
+  letter-spacing: 0.06em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__bottom em { font-style: italic; }
+
+@media (max-width: 700px) { .footer__inner { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer__inner { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="web pague" class="nav__back">Tutti i progetti</a>
+  <a href="web pague" class="nav__brand">Toscan <em>Costruzioni</em></a>
+  <div class="nav__lang"><span>IT</span><span>·</span><span>EN</span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__breadcrumb">
+      <a href="web pague">Toscan Costruzioni</a>
+      <span>/</span>
+      Progetti in essere
+      <span>/</span>
+      Villa Claudia
+    </div>
+
+    <div class="hero__status">Cantiere in avvio · Fase 01 attiva</div>
+
+    <h1 class="hero__title">Villa Claudia</h1>
+
+    <div class="hero__meta">
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Comune</div>
+        <div class="hero__meta-value">Montespertoli (FI)</div>
+      </div>
+      <div class="hero__meta-sep"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Zona</div>
+        <div class="hero__meta-value">Chianti DOCG</div>
+      </div>
+      <div class="hero__meta-sep"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Tipologia</div>
+        <div class="hero__meta-value">Villa storica</div>
+      </div>
+      <div class="hero__meta-sep"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Anno avvio</div>
+        <div class="hero__meta-value">2026</div>
+      </div>
+      <div class="hero__meta-sep"></div>
+      <div class="hero__meta-item">
+        <div class="hero__meta-label">Ruolo</div>
+        <div class="hero__meta-value">General contractor</div>
+      </div>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-bar__label">Avanzamento progetto</div>
+      <div class="progress-bar__track">
+        <div class="progress-bar__step progress-bar__step--active"></div>
+        <div class="progress-bar__step"></div>
+        <div class="progress-bar__step"></div>
+        <div class="progress-bar__step"></div>
+        <div class="progress-bar__step"></div>
+        <div class="progress-bar__step"></div>
+      </div>
+      <div class="progress-bar__steps-labels">
+        <div class="progress-bar__step-label progress-bar__step-label--active">01 · Sopralluogo</div>
+        <div class="progress-bar__step-label">02 · Progetto</div>
+        <div class="progress-bar__step-label">03 · Cantiere</div>
+        <div class="progress-bar__step-label">04 · Strutture</div>
+        <div class="progress-bar__step-label">05 · Finiture</div>
+        <div class="progress-bar__step-label">06 · Consegna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<div class="specs">
+  <div class="specs__inner">
+    <div class="spec">
+      <div class="spec__label">Tipologia</div>
+      <div class="spec__value">Villa storica</div>
+    </div>
+    <div class="spec">
+      <div class="spec__label">Secolo</div>
+      <div class="spec__value"><em>XIX sec.</em></div>
+    </div>
+    <div class="spec">
+      <div class="spec__label">Comune</div>
+      <div class="spec__value">Montespertoli</div>
+    </div>
+    <div class="spec">
+      <div class="spec__label">Provincia</div>
+      <div class="spec__value">Firenze (FI)</div>
+    </div>
+    <div class="spec">
+      <div class="spec__label">Da Firenze</div>
+      <div class="spec__value">~25 km</div>
+    </div>
+    <div class="spec">
+      <div class="spec__label">Fase attiva</div>
+      <div class="spec__value"><em>01 / 06</em></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESCRIZIONE -->
+<section class="section descrizione">
+  <div class="section__inner">
+    <div class="descrizione__grid reveal">
+      <div class="descrizione__aside">
+        <div class="descrizione__aside-num">01</div>
+        <blockquote class="descrizione__aside-quote">
+          "Il primo cantiere in cui ogni nostro principio smette di essere teoria e diventa metro, mattone, firma."
+        </blockquote>
+      </div>
+      <div class="descrizione__body">
+        <div class="section__label">Il Progetto</div>
+        <h2 class="section__title">Il manifesto <em>costruito</em>.</h2>
+        <div>
+          <p>Villa Claudia è una villa storica situata nel comune di Montespertoli, nell'area del Chianti DOCG, a circa 25 chilometri da Firenze. L'immobile è una costruzione del XIX secolo con caratteristiche architettoniche tipiche della tradizione rurale toscana: facciata in pietra locale, logge, tetto in coppi, spazi interni articolati su più livelli.</p>
+          <p>Questo progetto ha per noi un significato che va al di là del singolo cantiere. È il <strong>progetto pilota di Toscan Costruzioni</strong>: il primo intervento in cui la nostra metodologia operativa viene messa in pratica nella sua interezza, testata, documentata e affinata. Ogni standard di processo che adotteremo nei cantieri futuri viene qui codificato per la prima volta.</p>
+          <p>L'approccio è quello che contraddistingue ogni nostro intervento: <strong>rispetto assoluto del patrimonio storico</strong>, ottimizzazione dei tempi e dei costi attraverso una pianificazione rigorosa, e documentazione sistematica di ogni fase. Prezzo bloccato dalla firma del contratto. Cronoprogramma vincolante con date certe.</p>
+          <p>Nelle pagine che seguono trovi il dettaglio di ogni fase, lo stato di avanzamento aggiornato e la metodologia applicata a questo specifico immobile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASI -->
+<section class="section fasi">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Il cantiere passo a passo</div>
+      <h2 class="section__title">Le sei fasi del <em>progetto</em>.</h2>
+      <p class="section__lead">Ogni fase è un impegno contrattuale. Qui puoi seguire lo stato reale del cantiere, aggiornato in tempo reale con ogni avanzamento significativo.</p>
+    </div>
+
+    <!-- FASE 01 -->
+    <div class="fase fase--active reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">01</div>
+        <div class="fase__badge fase__badge--active">In corso</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Sopralluogo e progettazione preliminare</h3>
+        <p class="fase__lead">La fase iniziale è dedicata alla conoscenza approfondita dell'immobile: rilievi tecnici, analisi strutturale, fotografia sistematica. Da qui nascono le prime decisioni progettuali e la bozza del cronoprogramma.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Analisi tecnica e rilievo geometrico dell'immobile</div>
+        <div class="fase__detail">Documentazione fotografica completa per stato di fatto</div>
+        <div class="fase__detail">Assessment strutturale di fondazioni, solai e copertura</div>
+        <div class="fase__detail">Identificazione dei vincoli paesaggistici e normativi locali</div>
+        <div class="fase__detail">Prima bozza del concept architettonico e degli spazi</div>
+        <div class="fase__detail">Stima preliminare dei costi e del cronoprogramma</div>
+      </div>
+    </div>
+
+    <!-- FASE 02 -->
+    <div class="fase reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">02</div>
+        <div class="fase__badge">Programmazione</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Progetto esecutivo e pratiche edilizie</h3>
+        <p class="fase__lead">Il progetto definitivo nella sua forma esecutiva: tavole architettoniche, computo metrico analitico, cronoprogramma vincolante. Parallelamente si avviano le pratiche burocratiche con il Comune di Montespertoli.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Progetto architettonico esecutivo con render degli spazi</div>
+        <div class="fase__detail">Progetto strutturale e calcoli statici</div>
+        <div class="fase__detail">Progetto impiantistico (elettrico, idraulico, termico)</div>
+        <div class="fase__detail">Computo metrico estimativo definitivo — prezzo bloccato</div>
+        <div class="fase__detail">Presentazione pratiche SCIA / Permesso di costruire</div>
+        <div class="fase__detail">Piano di sicurezza e coordinamento (PSC)</div>
+      </div>
+    </div>
+
+    <!-- FASE 03 -->
+    <div class="fase reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">03</div>
+        <div class="fase__badge">Programmazione</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Apertura cantiere</h3>
+        <p class="fase__lead">L'avvio formale del cantiere: allestimento dell'area, mobilizzazione dei fornitori, attivazione del sistema di monitoraggio e reportistica settimanale. Da questo momento il cronoprogramma è vincolante.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Allestimento cantiere, recinzioni e segnaletica</div>
+        <div class="fase__detail">Kick-off meeting con tutti i professionisti coinvolti</div>
+        <div class="fase__detail">Mobilizzazione fornitori principali e subappaltatori</div>
+        <div class="fase__detail">Attivazione sistema di monitoraggio e report settimanale</div>
+        <div class="fase__detail">Demolizioni selettive e rimozione materiali non conservabili</div>
+        <div class="fase__detail">Primo report fotografico dello stato di avanzamento</div>
+      </div>
+    </div>
+
+    <!-- FASE 04 -->
+    <div class="fase reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">04</div>
+        <div class="fase__badge">Programmazione</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Strutturali e impianti</h3>
+        <p class="fase__lead">Il cuore tecnico del cantiere: consolidamento strutturale dove necessario, rifacimento della copertura, posa di tutti gli impianti. Lavorazioni non visibili ma decisive per la durata e il comfort dell'immobile.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Consolidamento strutturale fondazioni e solai</div>
+        <div class="fase__detail">Rifacimento copertura con coppi toscani artigianali</div>
+        <div class="fase__detail">Posa impianto idraulico e scarichi</div>
+        <div class="fase__detail">Impianto elettrico e predisposizione domotica</div>
+        <div class="fase__detail">Impianto termoidraulico ad alta efficienza energetica</div>
+        <div class="fase__detail">Certificazioni materiali per ogni fornitura impiantistica</div>
+      </div>
+    </div>
+
+    <!-- FASE 05 -->
+    <div class="fase reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">05</div>
+        <div class="fase__badge">Programmazione</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Finiture</h3>
+        <p class="fase__lead">La fase in cui l'immobile acquista la sua identità definitiva. Ogni materiale è scelto in coerenza con la tradizione costruttiva toscana: cotto artigianale, intonaci a calce, falegnameria su misura.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Intonaci tradizionali: coccio pesto e grassello di calce</div>
+        <div class="fase__detail">Pavimentazione in cotto artigianale toscano</div>
+        <div class="fase__detail">Falegnameria su misura — porte, finestre, librerie</div>
+        <div class="fase__detail">Cucine, bagni e sanitari</div>
+        <div class="fase__detail">Sistemazione esterna: giardino, vialetto, recinzione</div>
+        <div class="fase__detail">Documentazione fotografica per fase di ogni lavorazione</div>
+      </div>
+    </div>
+
+    <!-- FASE 06 -->
+    <div class="fase reveal">
+      <div class="fase__num-wrap">
+        <div class="fase__num">06</div>
+        <div class="fase__badge">Programmazione</div>
+      </div>
+      <div>
+        <h3 class="fase__title">Collaudo e consegna</h3>
+        <p class="fase__lead">Il collaudo tecnico di tutti gli impianti e delle strutture, la produzione del fascicolo completo dell'edificio, e la consegna delle chiavi con garanzia decennale postuma di legge.</p>
+      </div>
+      <div class="fase__details">
+        <div class="fase__detail">Collaudo tecnico-funzionale di tutti gli impianti</div>
+        <div class="fase__detail">Fascicolo del fabbricato con documentazione completa</div>
+        <div class="fase__detail">Libro del cantiere — reportistica fotografica intero progetto</div>
+        <div class="fase__detail">Consegna chiavi con verbale firmato dalle parti</div>
+        <div class="fase__detail">Garanzia decennale postuma ai sensi del Codice Civile</div>
+        <div class="fase__detail">Piano di manutenzione programmata consegnato al cliente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+<section class="section metodologia">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Renaissance Efficiency · in cantiere</div>
+      <h2 class="section__title">Come i tre principi si <em>applicano</em> qui.</h2>
+      <p class="section__lead">Villa Claudia non è solo il primo cantiere. È la prova che la nostra metodologia funziona su un immobile storico reale.</p>
+    </div>
+    <div class="metodologia__grid reveal">
+      <div class="metodo">
+        <div class="metodo__num">I</div>
+        <h3 class="metodo__title">Rispetto Storico</h3>
+        <p class="metodo__body">Ogni intervento su Villa Claudia parte da un assioma: ciò che è originale si conserva, ciò che si sostituisce lo fa con materiali coerenti per epoca e area geografica. Coppi toscani, pietra locale, intonaci a calce. La villa resta una villa del Chianti, non un'abitazione contemporanea travestita.</p>
+      </div>
+      <div class="metodo">
+        <div class="metodo__num">II</div>
+        <h3 class="metodo__title">Ottimizzazione del Ciclo</h3>
+        <p class="metodo__body">Il cronoprogramma di Villa Claudia è il primo in cui il nostro sistema di project management viene applicato integralmente: milestones settimanali, dipendenze critiche mappate, buffer tecnici calcolati. La bellezza dell'immobile non rallenta le lavorazioni — le disciplina.</p>
+      </div>
+      <div class="metodo">
+        <div class="metodo__num">III</div>
+        <h3 class="metodo__title">Qualità Documentata</h3>
+        <p class="metodo__body">Ogni lavorazione su Villa Claudia viene documentata fotograficamente prima, durante e dopo. Ogni materiale ha la sua scheda tecnica archiviata. A fine cantiere, il cliente riceve un libro del cantiere completo — non solo le chiavi, ma la storia completa di ogni intervento effettuato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGGIORNAMENTI -->
+<section class="section aggiornamenti">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Diario di cantiere</div>
+      <h2 class="section__title">Aggiornamenti dal <em>progetto</em>.</h2>
+      <p class="section__lead">Ogni avanzamento significativo viene registrato qui. Trasparenza totale, in tempo reale.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="update">
+        <div class="update__date">Maggio 2026</div>
+        <div>
+          <div class="update__tag">Fase 01 · In corso</div>
+          <h3 class="update__title">Avvio del sopralluogo tecnico e dei rilievi</h3>
+          <p class="update__body">È iniziata la fase di analisi dell'immobile. Il team tecnico ha effettuato il primo sopralluogo approfondito: rilievo geometrico completo, documentazione fotografica dello stato di fatto, e prima valutazione delle condizioni strutturali della copertura e dei solai. Le prossime settimane saranno dedicate all'assessment strutturale e alla raccolta della documentazione catastale e urbanistica.</p>
+        </div>
+      </div>
+      <div class="update">
+        <div class="update__date">Aprile 2026</div>
+        <div>
+          <div class="update__tag">Pre-cantiere</div>
+          <h3 class="update__title">Villa Claudia diventa il progetto pilota di Toscan Costruzioni</h3>
+          <p class="update__body">Dopo la selezione tra diversi immobili candidati, Villa Claudia è stata scelta come progetto pilota per la sua rappresentatività tipologica — una villa storica del Chianti con tutte le caratteristiche e le complessità tipiche degli immobili toscani di pregio. Il contratto di affidamento è stato firmato con prezzo bloccato e cronoprogramma vincolante.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PLACEHOLDER -->
+<section class="section gallery">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Documentazione visiva</div>
+      <h2 class="section__title">Il cantiere in <em>immagini</em>.</h2>
+      <p class="section__lead">Le fotografie verranno pubblicate al completamento di ogni fase. Ogni immagine è parte del libro del cantiere che verrà consegnato al termine del progetto.</p>
+    </div>
+    <div class="gallery__grid reveal">
+      <div class="gallery__item gallery__item--large">
+        <div class="gallery__item-label">Vista frontale · Stato di fatto<br><small style="font-size:0.75rem;opacity:0.6;">Fotografie disponibili al termine della Fase 01</small></div>
+      </div>
+      <div class="gallery__item">
+        <div class="gallery__item-label">Copertura · Dettaglio</div>
+      </div>
+      <div class="gallery__item">
+        <div class="gallery__item-label">Interno · Piano terra</div>
+      </div>
+      <div class="gallery__item">
+        <div class="gallery__item-label">Loggia · Vista est</div>
+      </div>
+      <div class="gallery__item">
+        <div class="gallery__item-label">Giardino · Stato attuale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-project" id="contatti">
+  <div class="cta-project__inner">
+    <p class="cta-project__title reveal">Hai un immobile simile?<br><em>Parliamone.</em></p>
+    <p class="cta-project__sub reveal">Villa Claudia è la dimostrazione che questo approccio funziona. Se hai una villa, un casale o un appartamento storico in Toscana, il sopralluogo è gratuito.</p>
+    <div class="cta-project__btns reveal">
+      <a href="mailto:toscancostruzioni@bluearroyo.it" class="btn btn--primary">
+        Scrivi a toscancostruzioni@bluearroyo.it
+        <span class="btn__arrow">→</span>
+      </a>
+      <a href="tel:+393510380392" class="btn btn--ghost">351 038 0392</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <div class="footer__brand-name">Toscan <em>Costruzioni</em></div>
+      <div class="footer__tag">Renaissance Efficiency</div>
+      <p class="footer__desc">General contractor specializzato in ristrutturazioni chiavi in mano in Toscana. Prezzo bloccato, tempi garantiti, qualità documentata.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="web pague#chi-siamo">Chi Siamo</a></li>
+        <li><a href="web pague#servizi">Servizi</a></li>
+        <li><a href="web pague#fiscale">Fiscale</a></li>
+        <li><a href="web pague#aree">Aree</a></li>
+        <li><a href="villa-claudia.html">Villa Claudia</a></li>
+        <li><a href="web pague#blog">Risorse</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:toscancostruzioni@bluearroyo.it">toscancostruzioni@bluearroyo.it</a></li>
+        <li><a href="tel:+393510380392">351 038 0392</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Toscan Costruzioni S.r.l.</span>
+    <span><em>Renaissance Efficiency</em> · Toscana</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+</body>
+</html>
