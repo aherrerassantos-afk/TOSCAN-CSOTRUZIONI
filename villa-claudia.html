@@ -704,6 +704,156 @@ a { color: inherit; text-decoration: none; }
 }
 .footer__bottom em { font-style: italic; }
 
+/* =========================================================
+   INVESTIMENTO
+   ========================================================= */
+.investimento { background: var(--ink); color: var(--paper); }
+.investimento .section__label { color: rgba(250,250,248,0.4); }
+.investimento .section__label::before { background: var(--accent); }
+.investimento .section__title { color: var(--paper); max-width: 24ch; }
+.investimento .section__title em { color: var(--accent); }
+.investimento .section__lead { color: rgba(250,250,248,0.6); max-width: 62ch; }
+
+.inv-numeri {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.08);
+  margin-bottom: 4rem;
+}
+.inv-num {
+  padding: 2.5rem 2rem;
+  background: var(--ink);
+  transition: background 0.3s var(--ease);
+}
+.inv-num:hover { background: #1A1410; }
+.inv-num__val {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  color: var(--paper);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.inv-num__val em { font-style: italic; color: var(--accent); }
+.inv-num__lbl {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.4);
+}
+
+.inv-concept {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(250,250,248,0.08);
+}
+.inv-concept__text p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(250,250,248,0.65);
+  margin-bottom: 1.25rem;
+}
+.inv-concept__text p strong { color: var(--paper); font-weight: 500; }
+.inv-concept__text p em { font-style: italic; color: var(--accent); }
+
+.inv-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.inv-step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(250,250,248,0.08);
+  align-items: start;
+}
+.inv-step__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.inv-step__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 0.35rem;
+}
+.inv-step__body { font-size: 0.85rem; line-height: 1.65; color: rgba(250,250,248,0.55); }
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.08);
+  margin-bottom: 1.5rem;
+}
+.quota {
+  background: var(--ink);
+  padding: 1.75rem 1rem;
+  text-align: center;
+  transition: background 0.3s var(--ease);
+  cursor: default;
+}
+.quota:hover { background: #1A1410; }
+.quota__n {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: rgba(250,250,248,0.2);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.quota__price {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--paper);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.quota__status {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.quota__status--sold { color: rgba(250,250,248,0.3); }
+
+.inv-gestione {
+  padding: 2rem;
+  border: 1px solid rgba(250,250,248,0.08);
+  border-left: 2px solid var(--accent);
+  margin-top: 0.5rem;
+}
+.inv-gestione p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(250,250,248,0.55);
+}
+.inv-gestione strong { color: var(--paper); font-weight: 500; }
+
+@media (max-width: 880px) {
+  .inv-numeri { grid-template-columns: repeat(2, 1fr); }
+  .inv-concept { grid-template-columns: 1fr; gap: 2.5rem; }
+  .quote-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 540px) {
+  .quote-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 700px) { .footer__inner { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .footer__inner { grid-template-columns: 1fr; } }
 
@@ -1063,10 +1213,98 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
+<!-- MODELLO DI INVESTIMENTO -->
+<section class="section investimento" id="investimento">
+  <div class="section__inner">
+
+    <div class="reveal">
+      <div class="section__label">Modello di Investimento</div>
+      <h2 class="section__title">Il valore di <em>tre proprietà</em>.<br>Una sola quota.</h2>
+      <p class="section__lead">Villa Claudia viene suddivisa in otto quote da €300.000. Ogni quota garantisce il diritto di usufrutto personale per 4 settimane l'anno — e un flusso di reddito passivo per le restanti 48 settimane, gestito interamente da Prestige Living Srl.</p>
+    </div>
+
+    <div class="inv-numeri reveal">
+      <div class="inv-num">
+        <div class="inv-num__val"><em>€</em>300.000</div>
+        <div class="inv-num__lbl">Prezzo per quota</div>
+      </div>
+      <div class="inv-num">
+        <div class="inv-num__val">8</div>
+        <div class="inv-num__lbl">Quote totali</div>
+      </div>
+      <div class="inv-num">
+        <div class="inv-num__val">4 <em>sett.</em></div>
+        <div class="inv-num__lbl">Usufrutto personale / anno</div>
+      </div>
+      <div class="inv-num">
+        <div class="inv-num__val">48 <em>sett.</em></div>
+        <div class="inv-num__lbl">Reddito passivo / anno</div>
+      </div>
+    </div>
+
+    <div class="inv-concept reveal">
+      <div class="inv-concept__text">
+        <p>Con <strong>€300.000</strong> stai acquistando l'equivalente di <em>tre proprietà in una</em>: un asset immobiliare di pregio in Chianti, una casa vacanze esclusiva per 4 settimane all'anno, e un investimento a reddito per il resto del tempo.</p>
+        <p>Il valore di una quota in un'unica villa storica <strong>supera strutturalmente</strong> quello di tre appartamenti separati dello stesso importo: posizione unica, immobile irripetibile, gestione professionale inclusa.</p>
+        <p>La gestione operativa — prenotazioni, accoglienza, manutenzione, rendicontazione — è affidata interamente a <strong>Prestige Living Srl</strong>. Il proprietario riceve il suo reddito. Nient'altro.</p>
+      </div>
+
+      <div class="inv-steps">
+        <div class="inv-step">
+          <div class="inv-step__num">01</div>
+          <div>
+            <div class="inv-step__title">Acquisto della quota</div>
+            <div class="inv-step__body">Rogito notarile con acquisto di 1/8 della proprietà. Diritto reale, non un contratto di club o membership.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">02</div>
+          <div>
+            <div class="inv-step__title">4 settimane di usufrutto personale</div>
+            <div class="inv-step__body">Prenotazione del proprio periodo ogni anno. La villa è a tua completa disposizione — esclusiva, privata, con tutti i servizi.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">03</div>
+          <div>
+            <div class="inv-step__title">Reddito passivo le restanti 48</div>
+            <div class="inv-step__body">Prestige Living Srl gestisce gli affitti brevi del tuo periodo. Rendiconto trimestrale e bonifico automatico.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">04</div>
+          <div>
+            <div class="inv-step__title">Rivalutazione dell'asset</div>
+            <div class="inv-step__body">Una villa storica nel Chianti DOCG, dopo ristrutturazione certificata, è un asset che si rivaluta nel tempo. La quota è cedibile liberamente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section__label" style="margin-bottom:1.5rem;">Disponibilità quote</div>
+      <div class="quote-grid">
+        <div class="quota"><div class="quota__n">I</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">II</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">III</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">IV</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">V</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VI</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VII</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VIII</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+      </div>
+      <div class="inv-gestione">
+        <p><strong>Gestione hospitality:</strong> Prestige Living Srl — operatore specializzato in ville di pregio in Toscana. Tutte le attività operative, dalla manutenzione alle prenotazioni, sono delegate. Il proprietario di quota non gestisce nulla.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-project" id="contatti">
   <div class="cta-project__inner">
-    <p class="cta-project__title reveal">Hai un immobile simile?<br><em>Parliamone.</em></p>
+    <p class="cta-project__title reveal">Interessato a una quota?<br><em>Parliamone.</em></p>
     <p class="cta-project__sub reveal">Villa Claudia è la dimostrazione che questo approccio funziona. Se hai una villa, un casale o un appartamento storico in Toscana, il sopralluogo è gratuito.</p>
     <div class="cta-project__btns reveal">
       <a href="mailto:toscancostruzioni@bluearroyo.it" class="btn btn--primary">
