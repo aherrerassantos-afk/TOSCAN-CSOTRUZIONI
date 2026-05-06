@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Toscan Costruzioni · Renaissance Efficiency</title>
+<meta name="description" content="Ristrutturazioni chiavi in mano in Toscana con prezzo bloccato, tempi garantiti e qualità documentata." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   TOSCAN COSTRUZIONI · MINIMALIST EDITORIAL
+   ========================================================= */
+
+:root {
+  --ink:         #0F0D0B;
+  --ink-muted:   #7A746D;
+  --ink-faint:   #ADA7A0;
+  --paper:       #FAFAF8;
+  --paper-warm:  #F4F0EB;
+  --paper-alt:   #EFEBE5;
+  --white:       #FFFFFF;
+  --accent:      #B85C38;
+  --rule:        #DDD8D0;
+  --rule-faint:  #EAE6E0;
+  --rule-strong: #C5BFB5;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Manrope', -apple-system, sans-serif;
+
+  --container: 1200px;
+  --gutter:    clamp(1.5rem, 5vw, 4rem);
+  --ease:      cubic-bezier(0.25, 0, 0, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule-faint);
+  transition: border-color 0.4s var(--ease);
+}
+.nav.scrolled { border-bottom-color: var(--rule); }
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+.nav__brand em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.nav__menu {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+  align-items: center;
+}
+.nav__menu a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  position: relative;
+  transition: color 0.3s;
+}
+.nav__menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--ink);
+  transition: width 0.3s var(--ease);
+}
+.nav__menu a:hover { color: var(--ink); }
+.nav__menu a:hover::after { width: 100%; }
+
+.nav__lang {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+}
+.nav__lang span:first-child { color: var(--ink); }
+
+.nav__toggle {
+  display: none;
+  background: none; border: none;
+  width: 32px; height: 20px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nav__toggle span { display: block; width: 100%; height: 1px; background: var(--ink); }
+
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: 60px; left: 0; right: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  padding: 2rem var(--gutter);
+  z-index: 99;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.nav__mobile.is-open { display: flex; }
+.nav__mobile a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 980px) {
+  .nav__menu { display: none; }
+  .nav__toggle { display: flex; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 9rem var(--gutter) 6rem;
+  background: var(--paper);
+  position: relative;
+}
+.hero__bg { display: none; }
+
+.hero__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+}
+
+.hero__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.8s var(--ease) 0.1s both;
+}
+.hero__label::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+  line-height: 0.97;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.9s var(--ease) 0.2s both;
+}
+.hero__title em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.hero__sub {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+  max-width: 50ch;
+  margin-bottom: 3rem;
+  animation: fadeUp 0.9s var(--ease) 0.35s both;
+}
+
+.hero__cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.9s var(--ease) 0.5s both;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.6rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.35s var(--ease);
+}
+.btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--primary:hover { background: transparent; color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
+.btn--ghost:hover { border-color: var(--ink); }
+.btn__arrow { transition: transform 0.3s var(--ease); }
+.btn:hover .btn__arrow { transform: translateX(4px); }
+
+/* MANIFESTO */
+.hero__aside { animation: fadeUp 1s var(--ease) 0.65s both; }
+
+.manifesto {
+  border: 1px solid var(--rule);
+  padding: 3rem 2.5rem;
+  background: transparent;
+  position: relative;
+}
+.manifesto::before {
+  content: '\201C';
+  position: absolute;
+  top: -1.75rem; left: 2rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--accent);
+  line-height: 1;
+  font-style: italic;
+}
+.manifesto__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.75rem;
+}
+.manifesto__quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.manifesto__sig {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-faint);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeUp 1s var(--ease) 1.2s both;
+}
+.scroll-indicator::after {
+  content: '';
+  width: 1px; height: 36px;
+  background: var(--rule);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 980px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 3rem; }
+  .manifesto { padding: 2.5rem 2rem; }
+  .manifesto__quote { font-size: 1.25rem; }
+}
+
+/* =========================================================
+   SECTION — generic
+   ========================================================= */
+.section { padding: clamp(5rem, 10vw, 8rem) var(--gutter); position: relative; }
+.section__inner { max-width: var(--container); margin: 0 auto; }
+
+.section__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.section__label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  max-width: 20ch;
+}
+.section__title em { font-style: italic; color: var(--accent); }
+
+.section__lead {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+  max-width: 58ch;
+  margin-bottom: 4rem;
+}
+
+/* =========================================================
+   TRE CERTEZZE
+   ========================================================= */
+.certezze { background: var(--white); }
+.certezze::before { display: none; }
+
+.certezze__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-faint);
+  border-top: 1px solid var(--rule);
+  margin-top: 0;
+}
+
+.certezza {
+  background: var(--white);
+  padding: 3.5rem 2.5rem;
+  transition: background 0.4s var(--ease);
+}
+.certezza:hover { background: var(--paper); }
+
+.certezza__num {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--rule);
+  margin-bottom: 2rem;
+  display: block;
+  transition: color 0.4s var(--ease);
+}
+.certezza:hover .certezza__num { color: var(--accent); }
+
+.certezza__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.certezza__body { font-size: 0.9rem; line-height: 1.75; color: var(--ink-muted); }
+
+@media (max-width: 880px) { .certezze__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   CHI SIAMO
+   ========================================================= */
+.chi-siamo { background: var(--paper); }
+
+.chi-siamo__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.chi-siamo__media {
+  position: relative;
+  aspect-ratio: 4/5;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.chi-siamo__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 39px, var(--rule-faint) 40px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 39px, var(--rule-faint) 40px);
+}
+.chi-siamo__media-label {
+  position: absolute;
+  top: 2rem; left: 2.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+.chi-siamo__media-text {
+  position: absolute;
+  bottom: 2.5rem; left: 2.5rem; right: 2.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.assi { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+.asse {
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule-faint);
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.asse:last-child { border-bottom: 1px solid var(--rule-faint); }
+
+.asse__num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  line-height: 1;
+  padding-top: 0.2rem;
+}
+.asse__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.asse__body { font-size: 0.9rem; line-height: 1.7; color: var(--ink-muted); }
+
+@media (max-width: 880px) { .chi-siamo__grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+/* =========================================================
+   PROCESSO
+   ========================================================= */
+.processo { background: var(--paper-warm); }
+.processo .section__title { color: var(--ink); max-width: 20ch; }
+.processo .section__title em { color: var(--accent); }
+.processo .section__lead { color: var(--ink-muted); }
+.processo .section__label { color: var(--ink-muted); }
+.processo .section__label::before { background: var(--accent); }
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin-top: 2rem;
+  border: 1px solid var(--rule);
+}
+.flow__step {
+  padding: 2.5rem 1.5rem;
+  background: var(--paper-warm);
+  transition: background 0.35s var(--ease);
+}
+.flow__step:hover { background: var(--white); }
+.flow__step:hover .flow__step-num { color: var(--accent); }
+
+.flow__step-num {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 1.25rem;
+  transition: color 0.3s;
+}
+.flow__step-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.flow__step-body { font-size: 0.82rem; line-height: 1.6; color: var(--ink-muted); }
+
+@media (max-width: 980px) {
+  .flow { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) { .flow { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   PROFILI
+   ========================================================= */
+.profili { background: var(--white); }
+
+.profili__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.profilo {
+  background: var(--white);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.35s var(--ease);
+  overflow: hidden;
+}
+.profilo::before { display: none; }
+.profilo > * { position: relative; z-index: 1; }
+.profilo:hover { background: var(--paper); }
+.profilo:hover .profilo__arrow { transform: translateX(6px); color: var(--ink); }
+
+.profilo__index {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+.profilo__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+.profilo__title em { font-style: italic; color: var(--ink); }
+.profilo:hover .profilo__title em { color: var(--accent); }
+.profilo__body { font-size: 0.88rem; line-height: 1.65; color: var(--ink-muted); margin-bottom: 1.5rem; }
+.profilo__arrow {
+  font-size: 1rem;
+  color: var(--ink-faint);
+  align-self: flex-start;
+  transition: transform 0.3s var(--ease), color 0.3s;
+}
+
+@media (max-width: 880px) { .profili__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   FISCALE
+   ========================================================= */
+.fiscale { background: var(--paper); }
+
+.fiscale__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.fiscale__big {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  line-height: 0.92;
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+.fiscale__big em { font-style: italic; color: var(--accent); }
+.fiscale__big-sub {
+  display: block;
+  font-size: 0.38em;
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.bonus-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.bonus {
+  background: var(--white);
+  padding: 1.75rem;
+  transition: background 0.3s var(--ease);
+}
+.bonus:hover { background: var(--paper); }
+.bonus__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.bonus__desc { font-size: 0.82rem; line-height: 1.55; color: var(--ink-muted); }
+
+.disclaimer {
+  margin-top: 1px;
+  padding: 1.75rem;
+  background: var(--white);
+  border-left: 2px solid var(--accent);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+.disclaimer strong { color: var(--ink); font-weight: 500; }
+
+@media (max-width: 880px) {
+  .fiscale__main { grid-template-columns: 1fr; gap: 3rem; }
+  .bonus-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   AREE
+   ========================================================= */
+.aree { background: var(--paper-warm); }
+
+.aree__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-faint);
+  border: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+.area {
+  background: var(--paper-warm);
+  padding: 2.5rem 2rem;
+  transition: background 0.3s var(--ease);
+  border-top: none;
+}
+.area:hover { background: var(--white); }
+
+.area__tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.area__name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+.area__name em { font-style: italic; }
+.area__body { font-size: 0.85rem; line-height: 1.65; color: var(--ink-muted); }
+
+@media (max-width: 880px) { .aree__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   VILLA CLAUDIA
+   ========================================================= */
+.villa {
+  background: var(--paper-alt);
+  color: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+.villa::before {
+  content: 'Villa Claudia';
+  position: absolute;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 22vw;
+  color: var(--rule);
+  bottom: -2vw; right: -1vw;
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1;
+}
+.villa__inner { position: relative; z-index: 1; }
+.villa .section__title { color: var(--ink); }
+.villa .section__title em { color: var(--accent); }
+.villa .section__lead { color: var(--ink-muted); }
+.villa .section__label { color: var(--ink-muted); }
+.villa .section__label::before { background: var(--accent); }
+
+.villa__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+.villa__media {
+  aspect-ratio: 4/3;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  position: relative;
+}
+.villa__media-info {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.villa__chip {
+  align-self: flex-start;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  padding: 0.35rem 0.7rem;
+  font-weight: 600;
+  background: transparent;
+}
+.villa__name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.5rem;
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.villa__location {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.villa__phases { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
+.phase {
+  display: grid;
+  grid-template-columns: 44px 1fr 90px;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule-faint);
+}
+.phase__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-faint);
+  font-size: 1.1rem;
+}
+.phase__name { color: var(--ink); font-size: 0.88rem; }
+.phase__status {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: right;
+  font-weight: 500;
+}
+.phase__status--active { color: var(--accent); }
+
+@media (max-width: 880px) { .villa__grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+/* =========================================================
+   SERVIZI
+   ========================================================= */
+.servizi { background: var(--white); }
+
+.servizi__list {
+  margin-top: 2rem;
+  border-top: 1px solid var(--rule);
+}
+.servizio {
+  display: grid;
+  grid-template-columns: 70px 1fr 180px 24px;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--rule-faint);
+  cursor: pointer;
+  transition: padding 0.35s var(--ease);
+  text-decoration: none;
+  color: inherit;
+}
+.servizio:hover { padding-left: 0.75rem; }
+.servizio:hover .servizio__title { color: var(--accent); }
+.servizio:hover .servizio__arrow { transform: translateX(6px); color: var(--ink); }
+
+.servizio__num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-faint);
+  font-size: 1.2rem;
+}
+.servizio__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  transition: color 0.3s;
+}
+.servizio__cat {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+.servizio__arrow {
+  color: var(--ink-faint);
+  font-size: 1rem;
+  transition: all 0.3s var(--ease);
+  text-align: right;
+}
+
+@media (max-width: 880px) {
+  .servizio { grid-template-columns: 44px 1fr 20px; gap: 1rem; }
+  .servizio__cat { display: none; }
+  .servizio__title { font-size: 1.1rem; }
+}
+
+/* =========================================================
+   BLOG
+   ========================================================= */
+.blog { background: var(--paper); }
+
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 2rem;
+}
+.article {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.article:hover .article__media { opacity: 0.8; }
+.article:hover .article__title { color: var(--accent); }
+
+.article__media {
+  aspect-ratio: 16/11;
+  margin-bottom: 1.5rem;
+  background: var(--paper-warm);
+  border: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.35s var(--ease);
+}
+.article__media--1 { background: var(--paper-alt); }
+.article__media--2 { background: var(--paper-warm); }
+.article__media--3 { background: #EDE8E1; }
+.article__media-num {
+  position: absolute;
+  top: 1.25rem; left: 1.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--rule-strong);
+  font-weight: 300;
+}
+.article__cat {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.article__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s;
+}
+.article__date { font-size: 0.72rem; color: var(--ink-faint); letter-spacing: 0.06em; }
+
+@media (max-width: 880px) { .blog__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   CTA FINAL
+   ========================================================= */
+.cta-final {
+  background: var(--paper-warm);
+  padding: clamp(5rem, 10vw, 8rem) var(--gutter);
+  text-align: center;
+}
+.cta-final__inner { max-width: var(--container); margin: 0 auto; }
+.cta-final__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  max-width: 20ch;
+  margin: 0 auto 1.5rem;
+}
+.cta-final__sub {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-muted);
+  max-width: 52ch;
+  margin: 0 auto 3rem;
+}
+.cta-final__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cta-final .btn--primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.cta-final .btn--primary:hover { background: transparent; color: var(--ink); }
+.cta-final .btn--ghost { border-color: var(--rule-strong); color: var(--ink); }
+.cta-final .btn--ghost:hover { border-color: var(--ink); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer { background: var(--ink); color: var(--paper); padding: 5rem var(--gutter) 2rem; }
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid rgba(250, 250, 248, 0.08);
+}
+.footer__brand-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.footer__brand-name em { font-style: italic; color: var(--accent); }
+.footer__tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(250, 250, 248, 0.35);
+  margin-bottom: 2rem;
+}
+.footer__desc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(250, 250, 248, 0.4);
+  max-width: 30ch;
+}
+.footer__col h4 {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 248, 0.35);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+.footer__col ul { list-style: none; }
+.footer__col li { font-size: 0.88rem; line-height: 2.2; color: rgba(250, 250, 248, 0.55); }
+.footer__col a:hover { color: var(--paper); }
+.footer__bottom {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: rgba(250, 250, 248, 0.3);
+  letter-spacing: 0.06em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer__bottom em { font-style: italic; }
+
+@media (max-width: 880px) { .footer__inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+@media (max-width: 540px) { .footer__inner { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================================
+   INTRO OVERLAY — scroll-stopping opening
+   ========================================================= */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  pointer-events: none;
+}
+.intro.is-exiting {
+  animation: introExit 1.1s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+@keyframes introExit { to { transform: translateY(-100%); } }
+
+.intro__brand-wrap { overflow: hidden; }
+.intro__brand {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 6.5rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transform: translateY(110%);
+  animation: introUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+.intro__sub-wrap { overflow: hidden; }
+.intro__sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.4rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--accent);
+  transform: translateY(110%);
+  animation: introUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
+}
+.intro__line {
+  width: 0;
+  height: 1px;
+  background: var(--rule-strong);
+  margin: 2rem auto;
+  animation: introLine 0.8s var(--ease) 1.3s forwards;
+}
+.intro__tag {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 248, 0.35);
+  opacity: 0;
+  animation: introFade 0.6s ease 2.1s forwards;
+}
+@keyframes introUp   { to { transform: translateY(0); } }
+@keyframes introLine { to { width: 140px; } }
+@keyframes introFade { to { opacity: 1; } }
+
+/* =========================================================
+   SCROLL PROGRESS
+   ========================================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  z-index: 200;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* =========================================================
+   STAGGER — grid children
+   ========================================================= */
+.certezze__grid .certezza,
+.profili__grid .profilo,
+.aree__grid .area,
+.flow .flow__step {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease), background 0.4s var(--ease);
+}
+.certezze__grid.is-visible .certezza,
+.profili__grid.is-visible .profilo,
+.aree__grid.is-visible .area,
+.flow.is-visible .flow__step { opacity: 1; transform: translateY(0); }
+
+.certezze__grid.is-visible .certezza:nth-child(1) { transition-delay: 0.05s; }
+.certezze__grid.is-visible .certezza:nth-child(2) { transition-delay: 0.18s; }
+.certezze__grid.is-visible .certezza:nth-child(3) { transition-delay: 0.31s; }
+
+.profili__grid.is-visible .profilo:nth-child(1) { transition-delay: 0.04s; }
+.profili__grid.is-visible .profilo:nth-child(2) { transition-delay: 0.13s; }
+.profili__grid.is-visible .profilo:nth-child(3) { transition-delay: 0.22s; }
+.profili__grid.is-visible .profilo:nth-child(4) { transition-delay: 0.31s; }
+.profili__grid.is-visible .profilo:nth-child(5) { transition-delay: 0.40s; }
+.profili__grid.is-visible .profilo:nth-child(6) { transition-delay: 0.49s; }
+
+.aree__grid.is-visible .area:nth-child(1) { transition-delay: 0.04s; }
+.aree__grid.is-visible .area:nth-child(2) { transition-delay: 0.13s; }
+.aree__grid.is-visible .area:nth-child(3) { transition-delay: 0.22s; }
+.aree__grid.is-visible .area:nth-child(4) { transition-delay: 0.31s; }
+.aree__grid.is-visible .area:nth-child(5) { transition-delay: 0.40s; }
+.aree__grid.is-visible .area:nth-child(6) { transition-delay: 0.49s; }
+
+.flow.is-visible .flow__step:nth-child(1) { transition-delay: 0.04s; }
+.flow.is-visible .flow__step:nth-child(2) { transition-delay: 0.13s; }
+.flow.is-visible .flow__step:nth-child(3) { transition-delay: 0.22s; }
+.flow.is-visible .flow__step:nth-child(4) { transition-delay: 0.31s; }
+.flow.is-visible .flow__step:nth-child(5) { transition-delay: 0.40s; }
+.flow.is-visible .flow__step:nth-child(6) { transition-delay: 0.49s; }
+
+.servizi__list .servizio {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), padding 0.35s var(--ease);
+}
+.servizi__list.is-visible .servizio { opacity: 1; transform: translateX(0); }
+.servizi__list.is-visible .servizio:nth-child(1) { transition-delay: 0.04s; }
+.servizi__list.is-visible .servizio:nth-child(2) { transition-delay: 0.11s; }
+.servizi__list.is-visible .servizio:nth-child(3) { transition-delay: 0.18s; }
+.servizi__list.is-visible .servizio:nth-child(4) { transition-delay: 0.25s; }
+.servizi__list.is-visible .servizio:nth-child(5) { transition-delay: 0.32s; }
+.servizi__list.is-visible .servizio:nth-child(6) { transition-delay: 0.39s; }
+.servizi__list.is-visible .servizio:nth-child(7) { transition-delay: 0.46s; }
+
+/* =========================================================
+   REAL IMAGES
+   ========================================================= */
+.chi-siamo__media { background: var(--ink); }
+.chi-siamo__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.6s var(--ease), transform 0.8s var(--ease);
+}
+.chi-siamo__media:hover img { opacity: 1; transform: scale(1.03); }
+.chi-siamo__media::before { z-index: 1; opacity: 0.08; }
+.chi-siamo__media-label,
+.chi-siamo__media-text { z-index: 2; color: var(--cream); }
+.chi-siamo__media-label { color: var(--terracotta-light, #D17A52); }
+
+.villa__media { overflow: hidden; }
+.villa__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+  transition: transform 0.8s var(--ease);
+}
+.villa__media:hover .villa__media-img { transform: scale(1.04); }
+
+.article__media { position: relative; overflow: hidden; }
+.article__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease);
+}
+.article:hover .article__media img { transform: scale(1.05); }
+
+/* Ken Burns on chi-siamo image */
+@keyframes kenBurns {
+  0%   { transform: scale(1) translateX(0); }
+  100% { transform: scale(1.06) translateX(-1%); }
+}
+.chi-siamo__media.is-visible img {
+  animation: kenBurns 8s ease-in-out alternate infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<!-- INTRO OVERLAY -->
+<div class="intro" id="intro">
+  <div class="intro__brand-wrap"><div class="intro__brand">Toscan</div></div>
+  <div class="intro__sub-wrap"><div class="intro__sub">Costruzioni</div></div>
+  <div class="intro__line"></div>
+  <div class="intro__tag">Renaissance Efficiency · Firenze</div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="nav__brand">Toscan <em>Costruzioni</em></a>
+  <ul class="nav__menu">
+    <li><a href="#chi-siamo">Chi Siamo</a></li>
+    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#fiscale">Fiscale</a></li>
+    <li><a href="#aree">Aree</a></li>
+    <li><a href="#villa">Villa Claudia</a></li>
+    <li><a href="#blog">Risorse</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+  <div class="nav__lang"><span>IT</span><span>·</span><span>EN</span></div>
+  <button class="nav__toggle" aria-label="Menu" id="nav-toggle">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<nav class="nav__mobile" id="nav-mobile">
+  <a href="#chi-siamo">Chi Siamo</a>
+  <a href="#servizi">Servizi</a>
+  <a href="#fiscale">Fiscale</a>
+  <a href="#aree">Aree</a>
+  <a href="#villa">Villa Claudia</a>
+  <a href="#blog">Risorse</a>
+  <a href="#contatti">Contatti</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__bg"></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__label">Renaissance Efficiency · Firenze</div>
+      <h1 class="hero__title">
+        Il Rinascimento<br>
+        dell'<em>Efficienza</em><br>
+        nelle Ristrutturazioni<br>
+        Toscane.
+      </h1>
+      <p class="hero__sub">
+        Trasformiamo immobili in Toscana con prezzo bloccato, tempi garantiti e qualità documentata. Un unico interlocutore dal sopralluogo alla consegna delle chiavi.
+      </p>
+      <div class="hero__cta">
+        <a href="#contatti" class="btn btn--primary">
+          Richiedi preventivo
+          <span class="btn__arrow">→</span>
+        </a>
+        <a href="#villa" class="btn btn--ghost">Scopri Villa Claudia</a>
+      </div>
+    </div>
+
+    <aside class="hero__aside">
+      <div class="manifesto">
+        <div class="manifesto__label">Manifesto · I</div>
+        <p class="manifesto__quote">
+          "Dove altri scelgono tra velocità e bellezza, noi abbiamo progettato sistemi per consegnare entrambe simultaneamente."
+        </p>
+        <div class="manifesto__sig">
+          <span>La Direzione</span>
+          <span>Toscana · 2026</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+  <div class="scroll-indicator">SCROLL</div>
+</section>
+
+<!-- TRE CERTEZZE -->
+<section class="section certezze">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">La proposta commerciale</div>
+      <h2 class="section__title">Le Tre <em>Certezze</em></h2>
+      <p class="section__lead">
+        Non claim. Impegni contrattualizzati. Costituiscono il fil rouge che attraversa ogni preventivo, ogni cantiere, ogni comunicazione del marchio.
+      </p>
+    </div>
+    <div class="certezze__grid reveal">
+      <div class="certezza">
+        <span class="certezza__num">I</span>
+        <h3 class="certezza__title">Prezzo Bloccato</h3>
+        <p class="certezza__body">Il preventivo che firmi è il prezzo finale. Nessun extra a fine cantiere salvo varianti richieste e approvate per iscritto da te. Le sorprese di costo, semplicemente, non esistono nel nostro modello.</p>
+      </div>
+      <div class="certezza">
+        <span class="certezza__num">II</span>
+        <h3 class="certezza__title">Tempi Garantiti</h3>
+        <p class="certezza__body">Cronoprogramma vincolante con data di consegna certa. Penali contrattuali in caso di ritardo non giustificato. La certezza temporale è la vera valuta di chi investe o vive il progetto.</p>
+      </div>
+      <div class="certezza">
+        <span class="certezza__num">III</span>
+        <h3 class="certezza__title">Qualità Documentata</h3>
+        <p class="certezza__body">Materiali tracciati, lavorazioni documentate fase per fase, garanzia decennale postuma di legge. Ogni intervento è auditabile. La fiducia non si chiede: si dimostra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section class="section chi-siamo" id="chi-siamo">
+  <div class="section__inner">
+    <div class="chi-siamo__grid">
+      <div class="chi-siamo__media reveal">
+        <img src="assets/artigiano.png" alt="Artigiano al lavoro — intonaco a calce su pietra toscana" loading="lazy" />
+        <div class="chi-siamo__media-label">Filosofia</div>
+        <p class="chi-siamo__media-text">
+          Il Rinascimento è una metodologia, non una nostalgia.<br>Bellezza tramite metodo.
+        </p>
+      </div>
+      <div class="chi-siamo__text reveal">
+        <div class="section__label">Chi Siamo</div>
+        <h2 class="section__title">La filosofia in <em>tre assi</em>.</h2>
+        <p class="section__lead">
+          Toscan Costruzioni nasce dall'incontro tra la tradizione costruttiva toscana e i sistemi di project management contemporanei. Esistiamo per dimostrare che efficienza e bellezza non sono in conflitto.
+        </p>
+        <div class="assi">
+          <div class="asse">
+            <div class="asse__num">I</div>
+            <div>
+              <h3 class="asse__title">Rispetto Storico</h3>
+              <p class="asse__body">Conserviamo ciò che ha valore. Mai contro l'immobile, sempre con l'immobile. La Toscana non è un fondale: è patrimonio che si tramanda.</p>
+            </div>
+          </div>
+          <div class="asse">
+            <div class="asse__num">II</div>
+            <div>
+              <h3 class="asse__title">Ottimizzazione del Ciclo</h3>
+              <p class="asse__body">Industrializziamo i processi senza industrializzare l'estetica. Tempi industriali, cure artigianali. Velocità senza scorciatoie.</p>
+            </div>
+          </div>
+          <div class="asse">
+            <div class="asse__num">III</div>
+            <div>
+              <h3 class="asse__title">Qualità Documentata</h3>
+              <p class="asse__body">Documentazione fotografica per fase, certificazioni materiali, garanzie scritte. Niente promesse, solo prove.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="section processo">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Come lavoriamo</div>
+      <h2 class="section__title">Sei fasi. Un'unica <em>responsabilità</em>.</h2>
+      <p class="section__lead">Tu firmi un contratto. Noi gestiamo trenta fornitori. Tu ricevi un report settimanale. Noi gestiamo cento decisioni operative.</p>
+    </div>
+    <div class="flow reveal">
+      <div class="flow__step">
+        <div class="flow__step-num">01</div>
+        <h3 class="flow__step-title">Sopralluogo</h3>
+        <p class="flow__step-body">Visita gratuita e analisi tecnica dell'immobile.</p>
+      </div>
+      <div class="flow__step">
+        <div class="flow__step-num">02</div>
+        <h3 class="flow__step-title">Progetto</h3>
+        <p class="flow__step-body">Render, computo metrico, cronoprogramma vincolante.</p>
+      </div>
+      <div class="flow__step">
+        <div class="flow__step-num">03</div>
+        <h3 class="flow__step-title">Preventivo</h3>
+        <p class="flow__step-body">Prezzo bloccato e firma del contratto.</p>
+      </div>
+      <div class="flow__step">
+        <div class="flow__step-num">04</div>
+        <h3 class="flow__step-title">Cantiere</h3>
+        <p class="flow__step-body">Lavori monitorati con report settimanale.</p>
+      </div>
+      <div class="flow__step">
+        <div class="flow__step-num">05</div>
+        <h3 class="flow__step-title">Collaudo</h3>
+        <p class="flow__step-body">Verifiche tecniche e documentazione completa.</p>
+      </div>
+      <div class="flow__step">
+        <div class="flow__step-num">06</div>
+        <h3 class="flow__step-title">Chiavi</h3>
+        <p class="flow__step-body">Consegna e garanzia decennale postuma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILI -->
+<section class="section profili">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Tailor-Made</div>
+      <h2 class="section__title">Trova il tuo <em>percorso</em>.</h2>
+      <p class="section__lead">Ogni profilo legge solo la sua parte. Lessico, priorità, numeri calibrati su chi sei e cosa cerchi.</p>
+    </div>
+    <div class="profili__grid reveal">
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 01</div>
+        <h3 class="profilo__title">Sei un <em>investitore</em>?</h3>
+        <p class="profilo__body">ROI prevedibile, tempi certi, capex bloccato. Per chi compra per rivendere o mettere a reddito.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 02</div>
+        <h3 class="profilo__title">Sei un <em>host</em>?</h3>
+        <p class="profilo__body">Trasformiamo l'unità in macchina da reddito. Layout ottimizzati, estetica fotografabile, materiali resistenti al turnover.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 03</div>
+        <h3 class="profilo__title">Stai ristrutturando <em>casa</em>?</h3>
+        <p class="profilo__body">Bonus fiscali, prezzo certo e zero stress. Per chi vivrà nell'immobile con la propria famiglia.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 04</div>
+        <h3 class="profilo__title">Hai una <em>villa</em>?</h3>
+        <p class="profilo__body">Custodia del patrimonio, sartorialità d'eccellenza. Per ville storiche e casali di pregio.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 05</div>
+        <h3 class="profilo__title"><em>Buying</em> from abroad?</h3>
+        <p class="profilo__body">Full English service. Project management remoto, weekly reports, complete bureaucratic compliance.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+      <article class="profilo">
+        <div class="profilo__index">— Profilo 06</div>
+        <h3 class="profilo__title">Non sei <em>sicuro</em>?</h3>
+        <p class="profilo__body">Il sopralluogo è gratuito. In 48 ore una prima valutazione tecnica ed economica del tuo progetto.</p>
+        <div class="profilo__arrow">→</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FISCALE -->
+<section class="section fiscale" id="fiscale">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Ottimizzazione Fiscale</div>
+    </div>
+    <div class="fiscale__main">
+      <div class="reveal">
+        <h2 class="fiscale__big">
+          Ogni <em>euro</em><br>speso bene<br>lavora <em>due</em> volte.
+          <span class="fiscale__big-sub">— il principio</span>
+        </h2>
+        <p class="section__lead">Le ristrutturazioni in Italia godono di un sistema di detrazioni e agevolazioni che, se gestito correttamente, può ridurre il costo netto dal 30% al 65%. Toscan Costruzioni include la pre-valutazione fiscale nel servizio.</p>
+      </div>
+      <div class="reveal">
+        <div class="bonus-grid">
+          <div class="bonus">
+            <h3 class="bonus__name">Bonus Ristrutturazioni</h3>
+            <p class="bonus__desc">Detrazione IRPEF base sugli interventi di ristrutturazione edilizia. La misura più stabile e applicabile.</p>
+          </div>
+          <div class="bonus">
+            <h3 class="bonus__name">Ecobonus</h3>
+            <p class="bonus__desc">Detrazione su interventi di riqualificazione energetica: cappotto, caldaia, infissi, schermature.</p>
+          </div>
+          <div class="bonus">
+            <h3 class="bonus__name">Sismabonus</h3>
+            <p class="bonus__desc">Per interventi di adeguamento antisismico in zone classificate 1, 2 e 3.</p>
+          </div>
+          <div class="bonus">
+            <h3 class="bonus__name">Bonus Mobili</h3>
+            <p class="bonus__desc">Collegato alla ristrutturazione: detrazione su mobili e grandi elettrodomestici dell'unità ristrutturata.</p>
+          </div>
+          <div class="bonus">
+            <h3 class="bonus__name">Bonus Verde</h3>
+            <p class="bonus__desc">Sistemazione di aree verdi, terrazze, giardini, impianti di irrigazione.</p>
+          </div>
+          <div class="bonus">
+            <h3 class="bonus__name">Barriere Architettoniche</h3>
+            <p class="bonus__desc">Interventi di abbattimento delle barriere e accessibilità dell'immobile.</p>
+          </div>
+        </div>
+        <div class="disclaimer">
+          <strong>Quadro normativo in evoluzione.</strong> Aliquote, massimali e modalità di fruizione sono soggetti a modifica con ogni Legge di Bilancio. La valutazione puntuale del beneficio applicabile al tuo intervento avviene in fase di sopralluogo gratuito.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREE -->
+<section class="section aree" id="aree">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Aree Servite</div>
+      <h2 class="section__title">Operiamo in <em>Toscana</em>, con base a Firenze.</h2>
+      <p class="section__lead">Sede operativa a Firenze. La nostra rete logistica e i fornitori di fiducia coprono le principali zone del territorio toscano con tempi di intervento certi.</p>
+    </div>
+    <div class="aree__grid reveal">
+      <div class="area">
+        <div class="area__tag">Area primaria</div>
+        <h3 class="area__name">Firenze e <em>provincia</em></h3>
+        <p class="area__body">Centro storico UNESCO, restauri conservativi, appartamenti d'epoca. Provincia con comuni di pregio: Montespertoli, Greve, San Casciano, Fiesole.</p>
+      </div>
+      <div class="area">
+        <div class="area__tag">Area di pregio</div>
+        <h3 class="area__name">Chianti <em>fiorentino</em></h3>
+        <p class="area__body">Ville storiche, casali rurali, fattorie e tenute. Il nostro progetto pilota — Villa Claudia — si sviluppa qui, a Montespertoli.</p>
+      </div>
+      <div class="area">
+        <div class="area__tag">Patrimonio</div>
+        <h3 class="area__name">Siena e <em>Val d'Orcia</em></h3>
+        <p class="area__body">Borghi medievali, casali rurali, vincoli paesaggistici. Recupero di cascine e palazzi storici nei centri minori.</p>
+      </div>
+      <div class="area">
+        <div class="area__tag">Costa</div>
+        <h3 class="area__name">Pisa, Lucca, <em>Versilia</em></h3>
+        <p class="area__body">Ville liberty della costa, case coloniche dell'entroterra. Progetti per affitti brevi e seconde case.</p>
+      </div>
+      <div class="area">
+        <div class="area__tag">Rurale</div>
+        <h3 class="area__name">Arezzo e <em>Valdichiana</em></h3>
+        <p class="area__body">Casali di campagna, fattorie, immobili rurali. Spesso con cambio di destinazione d'uso e valorizzazione.</p>
+      </div>
+      <div class="area">
+        <div class="area__tag">Maremma</div>
+        <h3 class="area__name">Costa <em>d'Argento</em></h3>
+        <p class="area__body">Tenute, ville al mare, ex case coloniche. Sartorialità con materiali tradizionali: cotto, pietra, legno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VILLA CLAUDIA -->
+<section class="section villa" id="villa">
+  <div class="section__inner villa__inner">
+    <div class="reveal">
+      <div class="section__label">Progetto Pilota</div>
+      <h2 class="section__title">Villa <em>Claudia</em>.<br>Il manifesto costruito.</h2>
+      <p class="section__lead">Una villa storica nel cuore del Chianti fiorentino. Il primo progetto in cui Rispetto Storico, Ottimizzazione del Ciclo e Qualità Documentata si incontreranno in cantiere — e definiranno il nostro standard.</p>
+    </div>
+    <div class="villa__grid">
+      <div class="villa__media reveal">
+        <img src="assets/disegno-architettonico.png" alt="Disegno architettonico Villa Claudia" class="villa__media-img" loading="lazy" />
+        <div class="villa__media-info">
+          <div class="villa__chip">Cantiere in avvio</div>
+          <div>
+            <h3 class="villa__name"><em>Villa Claudia</em></h3>
+            <p class="villa__location">Montespertoli · Chianti fiorentino · 2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="villa__details reveal">
+        <p class="section__lead" style="margin-bottom:1.5rem;">Una villa storica situata nel comune di Montespertoli, a circa 25 minuti da Firenze, nell'area del Chianti DOCG. È il primo progetto di Toscan Costruzioni e inaugura la nostra metodologia operativa: ogni standard, ogni fase, ogni decisione progettuale che applicheremo nei cantieri futuri viene qui codificata e messa in pratica per la prima volta.</p>
+        <div class="villa__phases">
+          <div class="phase">
+            <div class="phase__num">01</div>
+            <div class="phase__name">Sopralluogo e progettazione preliminare</div>
+            <div class="phase__status phase__status--active">In corso</div>
+          </div>
+          <div class="phase">
+            <div class="phase__num">02</div>
+            <div class="phase__name">Progetto esecutivo e pratiche edilizie</div>
+            <div class="phase__status">Programmazione</div>
+          </div>
+          <div class="phase">
+            <div class="phase__num">03</div>
+            <div class="phase__name">Apertura cantiere</div>
+            <div class="phase__status">Programmazione</div>
+          </div>
+          <div class="phase">
+            <div class="phase__num">04</div>
+            <div class="phase__name">Strutturali e impianti</div>
+            <div class="phase__status">Programmazione</div>
+          </div>
+          <div class="phase">
+            <div class="phase__num">05</div>
+            <div class="phase__name">Finiture</div>
+            <div class="phase__status">Programmazione</div>
+          </div>
+          <div class="phase">
+            <div class="phase__num">06</div>
+            <div class="phase__name">Collaudo e consegna</div>
+            <div class="phase__status">Programmazione</div>
+          </div>
+        </div>
+        <a href="villa-claudia.html" class="btn btn--primary" style="margin-top:2.5rem;">
+          Scopri i nostri progetti in essere
+          <span class="btn__arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIZI -->
+<section class="section servizi" id="servizi">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Servizi</div>
+      <h2 class="section__title">Un unico contratto.<br>Tutto il <em>cantiere</em>.</h2>
+      <p class="section__lead">Toscan Costruzioni è il general contractor responsabile dell'intero ciclo di intervento, dalle pratiche edilizie alla consegna delle chiavi.</p>
+    </div>
+    <div class="servizi__list reveal">
+      <a class="servizio" href="#">
+        <div class="servizio__num">01</div>
+        <div class="servizio__title">Consulenza preliminare e fattibilità</div>
+        <div class="servizio__cat">Pre-cantiere</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">02</div>
+        <div class="servizio__title">Progettazione integrata</div>
+        <div class="servizio__cat">Progetto</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">03</div>
+        <div class="servizio__title">Pratiche edilizie e autorizzazioni</div>
+        <div class="servizio__cat">Burocrazia</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">04</div>
+        <div class="servizio__title">Cantiere e direzione lavori</div>
+        <div class="servizio__cat">Esecuzione</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">05</div>
+        <div class="servizio__title">Interior design e arredo</div>
+        <div class="servizio__cat">Su richiesta</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">06</div>
+        <div class="servizio__title">Consegna e garanzie</div>
+        <div class="servizio__cat">Post-cantiere</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+      <a class="servizio" href="#">
+        <div class="servizio__num">07</div>
+        <div class="servizio__title">Ottimizzazione fiscale</div>
+        <div class="servizio__cat">Detrazioni</div>
+        <div class="servizio__arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section blog" id="blog">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Risorse</div>
+      <h2 class="section__title">Guida <em>pratica</em> alla ristrutturazione.</h2>
+      <p class="section__lead">Articoli, guide fiscali e approfondimenti tecnici per chi vuole capire davvero il processo prima di firmare.</p>
+    </div>
+    <div class="blog__grid reveal">
+      <article class="article">
+        <div class="article__media article__media--1">
+          <img src="assets/interno-toscano.png" alt="Interno toscano ristrutturato" loading="lazy" />
+          <div class="article__media-num">01</div>
+        </div>
+        <div class="article__cat">Fiscale</div>
+        <h3 class="article__title">Bonus Ristrutturazioni 2026: guida completa alle detrazioni vigenti</h3>
+        <div class="article__date">Maggio 2026</div>
+      </article>
+      <article class="article">
+        <div class="article__media article__media--2">
+          <img src="assets/esploso-costruttivo.png" alt="Esploso costruttivo villa toscana" loading="lazy" />
+          <div class="article__media-num">02</div>
+        </div>
+        <div class="article__cat">Processo</div>
+        <h3 class="article__title">Prezzo bloccato: come funziona e perché cambia tutto nel rapporto con il costruttore</h3>
+        <div class="article__date">Aprile 2026</div>
+      </article>
+      <article class="article">
+        <div class="article__media article__media--3">
+          <img src="assets/artigiano.png" alt="Lavorazione artigianale toscana" loading="lazy" />
+          <div class="article__media-num">03</div>
+        </div>
+        <div class="article__cat">Patrimonio</div>
+        <h3 class="article__title">Ristrutturare un casale in Toscana: vincoli, permessi e opportunità nascoste</h3>
+        <div class="article__date">Marzo 2026</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contatti">
+  <div class="cta-final__inner">
+    <p class="cta-final__title reveal">Pronti a costruire qualcosa di <em>duraturo</em>?</p>
+    <p class="cta-final__sub reveal">Il sopralluogo è gratuito. In 48 ore avrai una prima valutazione tecnica ed economica del tuo progetto, senza impegno.</p>
+    <div class="cta-final__btns reveal">
+      <a href="mailto:toscancostruzioni@bluearroyo.it" class="btn btn--primary">
+        Richiedi sopralluogo gratuito
+        <span class="btn__arrow">→</span>
+      </a>
+      <a href="tel:+393510380392" class="btn btn--ghost">Chiamaci</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <div class="footer__brand-name">Toscan <em>Costruzioni</em></div>
+      <div class="footer__tag">Renaissance Efficiency</div>
+      <p class="footer__desc">General contractor specializzato in ristrutturazioni chiavi in mano in Toscana. Prezzo bloccato, tempi garantiti, qualità documentata.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="#chi-siamo">Chi Siamo</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="#fiscale">Fiscale</a></li>
+        <li><a href="#aree">Aree</a></li>
+        <li><a href="#villa">Villa Claudia</a></li>
+        <li><a href="#blog">Risorse</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Servizi</h4>
+      <ul>
+        <li>Consulenza preliminare</li>
+        <li>Progettazione integrata</li>
+        <li>Pratiche edilizie</li>
+        <li>Direzione lavori</li>
+        <li>Interior design</li>
+        <li>Garanzie post-cantiere</li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:toscancostruzioni@bluearroyo.it">toscancostruzioni@bluearroyo.it</a></li>
+        <li><a href="tel:+393510380392">351 038 0392</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Toscan Costruzioni S.r.l. · P.IVA 00000000000</span>
+    <span><em>Renaissance Efficiency</em> · Firenze</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+
+  /* ---- INTRO ---- */
+  var intro = document.getElementById('intro');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function () {
+    intro.classList.add('is-exiting');
+    setTimeout(function () {
+      intro.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 1100);
+  }, 2900);
+
+  /* ---- SCROLL PROGRESS ---- */
+  var bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', function () {
+    var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    bar.style.width = Math.min(pct * 100, 100) + '%';
+  }, { passive: true });
+
+  /* ---- SCROLL REVEAL ---- */
+  var reveals = document.querySelectorAll('.reveal');
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function (el) { revealObs.observe(el); });
+
+  /* ---- NAV SCROLL ---- */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- MOBILE NAV ---- */
+  var toggle = document.getElementById('nav-toggle');
+  var mobileNav = document.getElementById('nav-mobile');
+  toggle.addEventListener('click', function () {
+    mobileNav.classList.toggle('is-open');
+  });
+  mobileNav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { mobileNav.classList.remove('is-open'); });
+  });
+
+  /* ---- PARALLAX (subtle, only on desktop) ---- */
+  if (window.innerWidth > 880) {
+    var heroAside = document.querySelector('.hero__aside');
+    var heroBg    = document.querySelector('.hero__bg');
+    window.addEventListener('scroll', function () {
+      var sy = window.scrollY;
+      if (heroAside) heroAside.style.transform = 'translateY(' + sy * 0.06 + 'px)';
+      if (heroBg)    heroBg.style.transform    = 'translateY(' + sy * 0.12 + 'px)';
+    }, { passive: true });
+  }
+
+})();
+</script>
+</body>
+</html>
