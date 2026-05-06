@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "name": "toscan-costruzioni",
-  "projectId": "prj_hlcJMRHG79Ig05kWFJgiUivylruv",
   "routes": [
     { "src": "/villa-claudia", "dest": "/villa-claudia.html" },
     { "src": "/(.*)", "dest": "/$1" }
