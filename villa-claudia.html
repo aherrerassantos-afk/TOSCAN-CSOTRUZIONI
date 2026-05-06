@@ -845,10 +845,83 @@ a { color: inherit; text-decoration: none; }
 }
 .inv-gestione strong { color: var(--paper); font-weight: 500; }
 
+.inv-table {
+  width: 100%;
+  border: 1px solid rgba(250,250,248,0.08);
+}
+.inv-table__head {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 0;
+  background: rgba(250,250,248,0.04);
+  padding: 0.85rem 1.25rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.4);
+}
+.inv-table__row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  gap: 0;
+  padding: 1.1rem 1.25rem;
+  border-top: 1px solid rgba(250,250,248,0.08);
+  font-size: 0.9rem;
+  color: rgba(250,250,248,0.7);
+  transition: background 0.2s;
+}
+.inv-table__row:hover { background: rgba(250,250,248,0.03); }
+.inv-table__row--total {
+  color: var(--paper);
+  font-weight: 500;
+  background: rgba(250,250,248,0.04);
+}
+.inv-table__row span:first-child { color: var(--paper); }
+
+/* For light background tables */
+.section:not(.investimento) .inv-table { border-color: var(--rule); }
+.section:not(.investimento) .inv-table__head { background: var(--paper-alt); color: var(--ink-faint); }
+.section:not(.investimento) .inv-table__row { border-color: var(--rule-faint); color: var(--ink-muted); }
+.section:not(.investimento) .inv-table__row span:first-child { color: var(--ink); }
+.section:not(.investimento) .inv-table__row--total { background: var(--paper-alt); color: var(--ink); }
+
+.inv-includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(250,250,248,0.08);
+  border: 1px solid rgba(250,250,248,0.08);
+}
+.inv-include {
+  background: var(--ink);
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(250,250,248,0.65);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  transition: background 0.2s;
+}
+.inv-include::before {
+  content: '—';
+  color: var(--accent);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
+}
+.inv-include:hover { background: #1A1410; }
+
 @media (max-width: 880px) {
   .inv-numeri { grid-template-columns: repeat(2, 1fr); }
   .inv-concept { grid-template-columns: 1fr; gap: 2.5rem; }
   .quote-grid { grid-template-columns: repeat(4, 1fr); }
+  .inv-table__head,
+  .inv-table__row { grid-template-columns: 1.5fr 0.7fr 1fr; }
+  .inv-table__head span:nth-child(4),
+  .inv-table__row span:nth-child(4) { display: none; }
+  .inv-includes { grid-template-columns: 1fr; }
 }
 @media (max-width: 540px) {
   .quote-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1219,82 +1292,261 @@ a { color: inherit; text-decoration: none; }
 
     <div class="reveal">
       <div class="section__label">Modello di Investimento</div>
-      <h2 class="section__title">Il valore di <em>tre proprietà</em>.<br>Una sola quota.</h2>
-      <p class="section__lead">Villa Claudia viene suddivisa in otto quote da €300.000. Ogni quota garantisce il diritto di usufrutto personale per 4 settimane l'anno — e un flusso di reddito passivo per le restanti 48 settimane, gestito interamente da Prestige Living Srl.</p>
+      <h2 class="section__title">Tre residenze.<br><em>Otto quote.</em><br>Una rendita.</h2>
+      <p class="section__lead">Villa Claudia è un complesso di circa 403 m² suddiviso in 3 residenze indipendenti — Ulivo, Vite, Brunello — venduto in 8 quote indivise da €298.000. Ogni quotista acquista 1/8 dell'intero complesso: un asset reale, non una membership.</p>
     </div>
 
     <div class="inv-numeri reveal">
       <div class="inv-num">
-        <div class="inv-num__val"><em>€</em>300.000</div>
+        <div class="inv-num__val"><em>€</em>298.000</div>
         <div class="inv-num__lbl">Prezzo per quota</div>
       </div>
       <div class="inv-num">
-        <div class="inv-num__val">8</div>
-        <div class="inv-num__lbl">Quote totali</div>
+        <div class="inv-num__val"><em>€</em>2.384.000</div>
+        <div class="inv-num__lbl">Valore complessivo</div>
       </div>
       <div class="inv-num">
-        <div class="inv-num__val">4 <em>sett.</em></div>
-        <div class="inv-num__lbl">Usufrutto personale / anno</div>
+        <div class="inv-num__val">403 <em>m²</em></div>
+        <div class="inv-num__lbl">Superficie totale</div>
       </div>
       <div class="inv-num">
-        <div class="inv-num__val">48 <em>sett.</em></div>
-        <div class="inv-num__lbl">Reddito passivo / anno</div>
+        <div class="inv-num__val">12 <em>mesi</em></div>
+        <div class="inv-num__lbl">Consegna chiavi in mano</div>
+      </div>
+    </div>
+
+    <!-- LE TRE RESIDENZE -->
+    <div class="reveal" style="margin-bottom:4rem;">
+      <div class="section__label" style="margin-bottom:1.5rem;">Le tre residenze incluse</div>
+      <div class="inv-table">
+        <div class="inv-table__head">
+          <span>Residenza</span><span>Superficie</span><span>Piano</span>
+        </div>
+        <div class="inv-table__row">
+          <span><em>Ulivo</em></span><span>75 m²</span><span>Piano Terra</span>
+        </div>
+        <div class="inv-table__row">
+          <span><em>Vite</em></span><span>105 m²</span><span>Primo Piano</span>
+        </div>
+        <div class="inv-table__row">
+          <span><em>Brunello</em></span><span>223 m²</span><span>Piano 1° e 2°</span>
+        </div>
+        <div class="inv-table__row inv-table__row--total">
+          <span>Totale complesso</span><span>403 m²</span><span>—</span>
+        </div>
       </div>
     </div>
 
     <div class="inv-concept reveal">
       <div class="inv-concept__text">
-        <p>Con <strong>€300.000</strong> stai acquistando l'equivalente di <em>tre proprietà in una</em>: un asset immobiliare di pregio in Chianti, una casa vacanze esclusiva per 4 settimane all'anno, e un investimento a reddito per il resto del tempo.</p>
-        <p>Il valore di una quota in un'unica villa storica <strong>supera strutturalmente</strong> quello di tre appartamenti separati dello stesso importo: posizione unica, immobile irripetibile, gestione professionale inclusa.</p>
-        <p>La gestione operativa — prenotazioni, accoglienza, manutenzione, rendicontazione — è affidata interamente a <strong>Prestige Living Srl</strong>. Il proprietario riceve il suo reddito. Nient'altro.</p>
+        <p>Acquistando una quota, l'investitore diventa <strong>comproprietario pro-quota (1/8) delle tre residenze</strong> e di tutte le amenities condivise — piscina, sauna, jacuzzi, area relax esterna. Non si acquista una singola unità, ma una partecipazione all'intero complesso.</p>
+        <p>Durante le <strong>4 settimane di usufrutto personale</strong>, il quotista può scegliere quale delle tre residenze occupare in base alla disponibilità, con pieno accesso a tutti i servizi. Le settimane sono programmabili su alta, media o bassa stagione secondo un sistema di turnazione equo tra gli 8 quotisti.</p>
+        <p>Per le <strong>restanti 48 settimane</strong>, le tre residenze vengono messe a reddito tramite locazioni turistiche di alto profilo. I ricavi netti — dopo costi di gestione, pulizie, marketing e fee del gestore — vengono distribuiti in ottavi con rendiconto trimestrale e bonifico semestrale.</p>
       </div>
 
       <div class="inv-steps">
         <div class="inv-step">
           <div class="inv-step__num">01</div>
           <div>
-            <div class="inv-step__title">Acquisto della quota</div>
-            <div class="inv-step__body">Rogito notarile con acquisto di 1/8 della proprietà. Diritto reale, non un contratto di club o membership.</div>
+            <div class="inv-step__title">Acquisto quota indivisa</div>
+            <div class="inv-step__body">Rogito notarile di compravendita di quota indivisa (1/8), registrato e trascritto. Diritto reale, cedibile liberamente.</div>
           </div>
         </div>
         <div class="inv-step">
           <div class="inv-step__num">02</div>
           <div>
-            <div class="inv-step__title">4 settimane di usufrutto personale</div>
-            <div class="inv-step__body">Prenotazione del proprio periodo ogni anno. La villa è a tua completa disposizione — esclusiva, privata, con tutti i servizi.</div>
+            <div class="inv-step__title">4 settimane di usufrutto / anno</div>
+            <div class="inv-step__body">Accesso all'intero complesso — scelta della residenza (Ulivo, Vite o Brunello) e pieno utilizzo di piscina, sauna, jacuzzi.</div>
           </div>
         </div>
         <div class="inv-step">
           <div class="inv-step__num">03</div>
           <div>
-            <div class="inv-step__title">Reddito passivo le restanti 48</div>
-            <div class="inv-step__body">Prestige Living Srl gestisce gli affitti brevi del tuo periodo. Rendiconto trimestrale e bonifico automatico.</div>
+            <div class="inv-step__title">Rendita passiva 48 settimane</div>
+            <div class="inv-step__body">Gestione locativa affidata a Prestige Living Srl. Rendiconto trimestrale, bonifico semestrale dei ricavi netti pro-quota.</div>
           </div>
         </div>
         <div class="inv-step">
           <div class="inv-step__num">04</div>
           <div>
             <div class="inv-step__title">Rivalutazione dell'asset</div>
-            <div class="inv-step__body">Una villa storica nel Chianti DOCG, dopo ristrutturazione certificata, è un asset che si rivaluta nel tempo. La quota è cedibile liberamente.</div>
+            <div class="inv-step__body">Chianti DOCG, ristrutturazione certificata, APE classe A+. La quota è cedibile liberamente sul mercato secondario.</div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- COSA COMPRENDE OGNI QUOTA -->
+    <div class="reveal" style="margin-bottom:4rem; padding-top:3rem; border-top:1px solid rgba(250,250,248,0.08);">
+      <div class="section__label" style="margin-bottom:1.5rem;">Cosa comprende ogni quota</div>
+      <div class="inv-includes">
+        <div class="inv-include">Comproprietà pro-quota (1/8) delle tre residenze e delle aree comuni</div>
+        <div class="inv-include">Ristrutturazione integrale chiavi in mano: murature, intonaci, pavimenti, rivestimenti</div>
+        <div class="inv-include">Finiture di pregio: legno toscano, pietra naturale, ceramiche italiane di alta gamma</div>
+        <div class="inv-include">Impianti nuovi certificati: elettrico, idraulico, termotecnico, climatizzazione, domotica base</div>
+        <div class="inv-include">Cucine arredate su misura in tutte e tre le unità (capitolato standard incluso)</div>
+        <div class="inv-include">Bagni completi con sanitari di design e box doccia in cristallo</div>
+        <div class="inv-include">Serramenti in legno-alluminio a taglio termico, doppi vetri</div>
+        <div class="inv-include">Accesso pieno alle amenities: piscina, sauna, jacuzzi, area relax esterna</div>
+        <div class="inv-include">Certificazioni complete: APE, conformità impianti, agibilità</div>
+        <div class="inv-include">Garanzia decennale strutturale e biennale finiture/impianti</div>
+        <div class="inv-include">Contratto di mandato con Prestige Living Srl per la gestione locativa</div>
+      </div>
+    </div>
+
+    <!-- PIANO DI PAGAMENTO -->
+    <div class="reveal" style="margin-bottom:4rem; padding-top:3rem; border-top:1px solid rgba(250,250,248,0.08);">
+      <div class="section__label" style="margin-bottom:1.5rem;">Piano di pagamento</div>
+      <div class="inv-table">
+        <div class="inv-table__head">
+          <span>Fase</span><span>Quota %</span><span>Importo</span><span>Quando</span>
+        </div>
+        <div class="inv-table__row">
+          <span>Caparra Confirmatoria</span><span>20%</span><span>€59.600</span><span>Firma preliminare</span>
+        </div>
+        <div class="inv-table__row">
+          <span>Saldo al Rogito</span><span>60%</span><span>€178.800</span><span>Atto notarile (Mese 12)</span>
+        </div>
+        <div class="inv-table__row">
+          <span>Rate Post-Consegna</span><span>20%</span><span>€59.600</span><span>24 rate da ~€2.483/mese</span>
+        </div>
+        <div class="inv-table__row inv-table__row--total">
+          <span>Totale quota</span><span>100%</span><span>€298.000</span><span>—</span>
+        </div>
+      </div>
+      <div class="inv-gestione" style="margin-top:1px;">
+        <p>Pagamento integrale anticipato: <strong>sconto commerciale del 3%</strong> (€289.060 anziché €298.000). Possibilità di mutuo bancario fondiario e permuta immobiliare valutata caso per caso. Tutti gli importi sono al netto di IVA, oneri fiscali e spese notarili.</p>
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="reveal" style="margin-bottom:4rem; padding-top:3rem; border-top:1px solid rgba(250,250,248,0.08);">
+      <div class="section__label" style="margin-bottom:1.5rem;">Cronoprogramma — 12 mesi alla consegna</div>
+      <div class="inv-steps">
+        <div class="inv-step">
+          <div class="inv-step__num">M0</div>
+          <div>
+            <div class="inv-step__title">Sottoscrizione</div>
+            <div class="inv-step__body">Firma preliminare, caparra 20%, scelta personalizzazioni capitolato.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">M1–2</div>
+          <div>
+            <div class="inv-step__title">Avvio cantiere</div>
+            <div class="inv-step__body">Permessi comunali, capitolato definitivo, demolizioni e opere strutturali.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">M3–8</div>
+          <div>
+            <div class="inv-step__title">Costruzione</div>
+            <div class="inv-step__body">Murature, impianti, finiture interne, installazione piscina, sauna, jacuzzi.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">M9–11</div>
+          <div>
+            <div class="inv-step__title">Finitura e collaudi</div>
+            <div class="inv-step__body">Finiture finali, home staging, certificazioni energetiche, collaudi tecnici.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">M12</div>
+          <div>
+            <div class="inv-step__title">Consegna — rogito</div>
+            <div class="inv-step__body">Atto notarile, saldo 60%, attivazione gestione Prestige Living Srl.</div>
+          </div>
+        </div>
+        <div class="inv-step">
+          <div class="inv-step__num">M13+</div>
+          <div>
+            <div class="inv-step__title">Avvio rendita</div>
+            <div class="inv-step__body">Prima settimana di usufrutto disponibile, apertura locazioni turistiche, bonifici semestrali.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUOTE GRID -->
     <div class="reveal">
       <div class="section__label" style="margin-bottom:1.5rem;">Disponibilità quote</div>
       <div class="quote-grid">
-        <div class="quota"><div class="quota__n">I</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">II</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">III</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">IV</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">V</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">VI</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">VII</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
-        <div class="quota"><div class="quota__n">VIII</div><div class="quota__price">€ 300.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">I</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">II</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">III</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">IV</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">V</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VI</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VII</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
+        <div class="quota"><div class="quota__n">VIII</div><div class="quota__price">€298.000</div><div class="quota__status">Disponibile</div></div>
       </div>
       <div class="inv-gestione">
-        <p><strong>Gestione hospitality:</strong> Prestige Living Srl — operatore specializzato in ville di pregio in Toscana. Tutte le attività operative, dalla manutenzione alle prenotazioni, sono delegate. Il proprietario di quota non gestisce nulla.</p>
+        <p><strong>Referente commerciale:</strong> Giuliano · Toscan Costruzioni · <a href="mailto:toscancostruzioni@bluearroyo.it" style="color:var(--accent);">toscancostruzioni@bluearroyo.it</a> · +39 351 038 0392 · Lun–Ven 9:00–19:00 · Sabato su appuntamento</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRESTIGE LIVING -->
+<section class="section" style="background:var(--paper-warm); border-top:1px solid var(--rule);">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Il Partner Operativo</div>
+      <h2 class="section__title" style="max-width:28ch;">Prestige Living Srl.<br>Il modello che <em>trasforma</em><br>la terra in investimento.</h2>
+      <p class="section__lead">Prestige Living non è un gestore di affitti brevi. È un operatore che lavora a monte: il suo pubblico sono i <strong>proprietari di terreni e immobili</strong> — e il suo valore è costruire il progetto prima ancora di trovare chi lo compra.</p>
+    </div>
+
+    <div class="inv-concept reveal">
+      <div class="inv-concept__text" style="color:var(--ink);">
+        <p>Il modello di Prestige Living parte da un punto preciso: <strong>il proprietario ha un terreno o un immobile, non sa come valorizzarlo al massimo</strong>. Prestige Living entra in questa fase e lavora con lui per strutturare l'intera operazione — architettura del progetto, formula commerciale, target di acquirenti, modello di gestione.</p>
+        <p>Solo quando il progetto è completamente modellato — con la struttura delle quote, il piano finanziario, il capitolato e il modello di rendita definiti — <strong>Prestige Living trova gli acquirenti</strong>. Gli acquirenti non comprano solo una quota: comprano il progetto <em>insieme al terreno</em>.</p>
+        <p>Il risultato: <strong>il proprietario del terreno massimizza il valore del suo asset</strong> senza doversi occupare né della costruzione né della commercializzazione. Prestige Living gestisce tutto — dalla strutturazione iniziale alla gestione post-consegna degli affitti brevi.</p>
+      </div>
+
+      <div class="inv-steps" style="border-color:var(--rule-faint);">
+        <div class="inv-step" style="border-color:var(--rule-faint);">
+          <div class="inv-step__num" style="color:var(--accent);">01</div>
+          <div>
+            <div class="inv-step__title" style="color:var(--ink);">Il proprietario porta il terreno</div>
+            <div class="inv-step__body" style="color:var(--ink-muted);">Prestige Living valuta il potenziale dell'asset: posizione, metratura, vincoli, accesso al mercato del lusso locale.</div>
+          </div>
+        </div>
+        <div class="inv-step" style="border-color:var(--rule-faint);">
+          <div class="inv-step__num" style="color:var(--accent);">02</div>
+          <div>
+            <div class="inv-step__title" style="color:var(--ink);">Prestige Living modella il progetto</div>
+            <div class="inv-step__body" style="color:var(--ink-muted);">Formula commerciale, struttura quote, numero di residenze, capitolato finiture, modello di rendita. Il progetto viene costruito intorno al mercato, non il contrario.</div>
+          </div>
+        </div>
+        <div class="inv-step" style="border-color:var(--rule-faint);">
+          <div class="inv-step__num" style="color:var(--accent);">03</div>
+          <div>
+            <div class="inv-step__title" style="color:var(--ink);">Toscan Costruzioni realizza</div>
+            <div class="inv-step__body" style="color:var(--ink-muted);">Prezzo bloccato, tempi garantiti, qualità documentata. Il cantiere viene gestito con il metodo Toscan Costruzioni: un unico interlocutore dalla prima posa all'ultima firma.</div>
+          </div>
+        </div>
+        <div class="inv-step" style="border-color:var(--rule-faint);">
+          <div class="inv-step__num" style="color:var(--accent);">04</div>
+          <div>
+            <div class="inv-step__title" style="color:var(--ink);">Gli acquirenti comprano progetto + terreno</div>
+            <div class="inv-step__body" style="color:var(--ink-muted);">Prestige Living identifica e converte gli investitori. Ogni acquirente entra in un asset completo, non una promessa: struttura legale, gestione operativa e rendita già attiva.</div>
+          </div>
+        </div>
+        <div class="inv-step" style="border-color:var(--rule-faint);">
+          <div class="inv-step__num" style="color:var(--accent);">05</div>
+          <div>
+            <div class="inv-step__title" style="color:var(--ink);">Gestione post-consegna</div>
+            <div class="inv-step__body" style="color:var(--ink-muted);">Prenotazioni, check-in/out, pulizie, manutenzione, pricing dinamico, reportistica trimestrale, bonifici semestrali. Il quotista non gestisce nulla.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;">
+      <div class="inv-gestione" style="background:var(--white); border-color:var(--rule); border-left-color:var(--accent);">
+        <p style="color:var(--ink-muted);"><strong style="color:var(--ink);">Sei un proprietario di terreno o immobile in Toscana?</strong> Prestige Living valuta il potenziale del tuo asset e struttura il progetto senza costi iniziali. Il modello si remunera sul valore creato. Contatta Giuliano: <a href="mailto:toscancostruzioni@bluearroyo.it" style="color:var(--accent);">toscancostruzioni@bluearroyo.it</a> · +39 351 038 0392</p>
       </div>
     </div>
 
