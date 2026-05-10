@@ -1109,16 +1109,14 @@ a { color: inherit; text-decoration: none; }
 /* =========================================================
    VIDEO COMPONENTS
    ========================================================= */
-.video-showcase { position:relative; width:100%; border:1px solid var(--rule); background:var(--ink); overflow:hidden; }
-.video-showcase video { width:100%; height:auto; display:block; }
-.video-showcase__caption { padding:1rem 1.5rem; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); border-top:1px solid var(--rule-faint); background:var(--white); display:flex; justify-content:space-between; }
-.video-showcase__caption em { font-style:italic; color:var(--accent); letter-spacing:0; text-transform:none; }
-.video-wrap { position:relative; cursor:pointer; }
-.video-wrap__play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(15,13,11,0.3); transition:opacity 0.3s; pointer-events:none; z-index:2; }
-.video-wrap__play-btn { width:60px; height:60px; border:1.5px solid rgba(250,250,248,0.8); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:transform 0.3s, background 0.3s; }
-.video-wrap__play-btn::after { content:''; width:0; height:0; border-style:solid; border-width:9px 0 9px 16px; border-color:transparent transparent transparent rgba(250,250,248,0.9); margin-left:4px; }
-.video-wrap:hover .video-wrap__play-btn { transform:scale(1.08); background:rgba(184,92,56,0.55); }
-.video-wrap.is-playing .video-wrap__play { opacity:0; }
+.video-frame { border:1px solid var(--rule); overflow:hidden; background:var(--ink); }
+.video-frame__ratio { position:relative; width:100%; aspect-ratio:16/9; }
+.video-frame__ratio iframe { position:absolute; inset:0; width:100%; height:100%; border:none; display:block; }
+.video-frame__caption { padding:1rem 1.5rem; font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); border-top:1px solid var(--rule-faint); background:var(--white); display:flex; justify-content:space-between; }
+.video-frame__caption em { font-style:italic; color:var(--accent); letter-spacing:0; text-transform:none; }
+.video-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); }
+.video-grid .video-frame { border:none; }
+@media(max-width:700px){.video-grid{grid-template-columns:1fr;}}
 
 /* =========================================================
    STAGGER — grid children
@@ -1192,7 +1190,7 @@ a { color: inherit; text-decoration: none; }
 .chi-siamo__media::before { z-index: 1; opacity: 0.08; }
 .chi-siamo__media-label,
 .chi-siamo__media-text { z-index: 2; color: var(--cream); }
-.chi-siamo__media-label { color: var(--terracotta-light, #D17A52); }
+.chi-siamo__media-label { color: var(--accent); }
 
 .villa__media { overflow: hidden; }
 .villa__media-img {
@@ -1832,18 +1830,6 @@ a { color: inherit; text-decoration: none; }
   });
   mobileNav.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () { mobileNav.classList.remove('is-open'); });
-  });
-
-  /* ---- VIDEO PLAY OVERLAY ---- */
-  document.querySelectorAll('.video-wrap').forEach(function (wrap) {
-    var video = wrap.querySelector('video');
-    if (!video) return;
-    wrap.addEventListener('click', function () {
-      if (video.paused) { video.play(); wrap.classList.add('is-playing'); }
-      else { video.pause(); wrap.classList.remove('is-playing'); }
-    });
-    video.addEventListener('ended', function () { wrap.classList.remove('is-playing'); });
-    video.addEventListener('pause', function () { wrap.classList.remove('is-playing'); });
   });
 
   /* ---- i18n ---- */
