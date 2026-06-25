@@ -2079,5 +2079,28 @@ a { color: inherit; text-decoration: none; }
 
 })();
 </script>
+
+<script>
+// MILA LEADS — Toscan Costruzioni
+(function(){
+  document.addEventListener('submit', function(e){
+    var form = e.target;
+    e.preventDefault();
+    var data = {
+      nome: form.querySelector('[name*="nome"],[name*="name"],input[type="text"]')?.value || '',
+      email: form.querySelector('[type="email"]')?.value || '',
+      telefono: form.querySelector('[type="tel"],[name*="phone"],[name*="tel"]')?.value || '',
+      budget: form.querySelector('[name*="budget"],select')?.value || '',
+      zona: form.querySelector('[name*="zona"],select')?.value || '',
+      note: form.querySelector('textarea')?.value || ''
+    };
+    fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+      method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
+    }).catch(function(){});
+    var btn = form.querySelector('button[type="submit"],input[type="submit"]');
+    if(btn){ btn.textContent='✅ Richiesta inviata!'; btn.disabled=true; }
+  });
+})();
+</script>
 </body>
 </html>
