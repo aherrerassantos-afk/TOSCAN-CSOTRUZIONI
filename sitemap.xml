@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage IT -->
+  <url>
+    <loc>https://toscancostruzioni.it/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toscancostruzioni.it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toscancostruzioni.it/tuscany-renovation-contractor.html"/>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pagine SEO principali IT -->
+  <url>
+    <loc>https://toscancostruzioni.it/ristrutturazione-toscana.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://toscancostruzioni.it/ristrutturazione-casale-toscano.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://toscancostruzioni.it/general-contractor-firenze.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://toscancostruzioni.it/bonus-ristrutturazione-2026.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://toscancostruzioni.it/affitti-brevi-toscana.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://toscancostruzioni.it/lavori-cartongesso-toscana.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Villa Claudia — progetto showcase -->
+  <url>
+    <loc>https://toscancostruzioni.it/villa-claudia.html</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Pagina EN — English service for foreign buyers -->
+  <url>
+    <loc>https://toscancostruzioni.it/tuscany-renovation-contractor.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toscancostruzioni.it/tuscany-renovation-contractor.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toscancostruzioni.it/"/>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>

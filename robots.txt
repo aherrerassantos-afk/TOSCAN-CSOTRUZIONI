@@ -1,0 +1,28 @@
+# Toscan Costruzioni — toscancostruzioni.it
+# robots.txt — updated 2025-06
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /bob/
+Disallow: /business/
+Disallow: /social/
+
+# AI Crawlers — welcome for GEO indexing
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://toscancostruzioni.it/sitemap.xml
+Sitemap: https://toscancostruzioni.it/sitemap-en.xml
