@@ -575,6 +575,8 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 .profilo::before { display: none; }
+a.profilo { text-decoration: none; color: inherit; display: flex; }
+
 .profilo > * { position: relative; z-index: 1; }
 .profilo:hover { background: var(--paper); }
 .profilo:hover .profilo__arrow { transform: translateX(6px); color: var(--ink); }
@@ -1451,42 +1453,42 @@ a { color: inherit; text-decoration: none; }
       <p class="section__lead">Ogni profilo legge solo la sua parte. Lessico, priorità, numeri calibrati su chi sei e cosa cerchi.</p>
     </div>
     <div class="profili__grid reveal">
-      <article class="profilo">
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Sono un investitore. Vorrei ricevere informazioni su ROI e tempistiche.'},100)">
         <div class="profilo__index">— Profilo 01</div>
         <h3 class="profilo__title">Sei un <em>investitore</em>?</h3>
         <p class="profilo__body">ROI prevedibile, tempi certi, capex bloccato. Per chi compra per rivendere o mettere a reddito.</p>
         <div class="profilo__arrow">→</div>
-      </article>
-      <article class="profilo">
+      </a>
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Sono un host Airbnb. Vorrei ottimizzare la mia unità per massimizzare il reddito.'},100)">
         <div class="profilo__index">— Profilo 02</div>
         <h3 class="profilo__title">Sei un <em>host</em>?</h3>
         <p class="profilo__body">Trasformiamo l'unità in macchina da reddito. Layout ottimizzati, estetica fotografabile, materiali resistenti al turnover.</p>
         <div class="profilo__arrow">→</div>
-      </article>
-      <article class="profilo">
+      </a>
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Sto ristrutturando la mia casa. Vorrei informazioni su bonus fiscali e prezzi.'},100)">
         <div class="profilo__index">— Profilo 03</div>
         <h3 class="profilo__title">Stai ristrutturando <em>casa</em>?</h3>
         <p class="profilo__body">Bonus fiscali, prezzo certo e zero stress. Per chi vivrà nell'immobile con la propria famiglia.</p>
         <div class="profilo__arrow">→</div>
-      </article>
-      <article class="profilo">
+      </a>
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Ho una villa storica e cerco un partner per la sua ristrutturazione e valorizzazione.'},100)">
         <div class="profilo__index">— Profilo 04</div>
         <h3 class="profilo__title">Hai una <em>villa</em>?</h3>
         <p class="profilo__body">Custodia del patrimonio, sartorialità d'eccellenza. Per ville storiche e casali di pregio.</p>
         <div class="profilo__arrow">→</div>
-      </article>
-      <article class="profilo">
+      </a>
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='I am buying a property in Tuscany from abroad and need full project management support.'},100)">
         <div class="profilo__index">— Profilo 05</div>
         <h3 class="profilo__title"><em>Buying</em> from abroad?</h3>
         <p class="profilo__body">Full English service. Project management remoto, weekly reports, complete bureaucratic compliance.</p>
         <div class="profilo__arrow">→</div>
-      </article>
-      <article class="profilo">
+      </a>
+      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Non sono ancora sicuro del progetto. Vorrei richiedere un sopralluogo gratuito.'},100)">
         <div class="profilo__index">— Profilo 06</div>
         <h3 class="profilo__title">Non sei <em>sicuro</em>?</h3>
         <p class="profilo__body">Il sopralluogo è gratuito. In 48 ore una prima valutazione tecnica ed economica del tuo progetto.</p>
         <div class="profilo__arrow">→</div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
