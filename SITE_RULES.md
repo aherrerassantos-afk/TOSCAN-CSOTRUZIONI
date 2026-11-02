@@ -113,7 +113,21 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 
 ## 5. Architettura Ufficiale del Gruppo Blue Arroyo (4 Aziende Autonome × 3 General Directors)
 
-Ogni azienda del **Gruppo Blue Arroyo** cresce in totale autonomia risolvendo il problema specifico del proprio cliente target, guidata dai propri **3 General Directors (`1. GD Operatività`, `2. GD Amministrazione`, `3. GD Vendite`)**, ma collabora in sinergia con le altre aziende del gruppo lungo la catena del valore:
+### Il Ciclo Virtuoso del Gruppo (Manifesto Ufficiale in 4 Passi)
+```text
+1. TOSCAN COSTRUZIONI crea il bene
+   └─► Consegna un appartamento nuovo, cablato e collaudato che non ha bisogno di riparazioni per anni.
+        │
+2. ITASSISTANCE lo protegge
+   └─► Lo rende immediatamente conforme alla legge (Questura e Comune) e ne ottimizza le tariffe dinamiche.
+        │
+3. BLUE ARROYO CLEANING lo allestisce
+   └─► Lo trasforma in una suite d'albergo con biancheria a 60°C, kit biologici e spugne sigillate a costo zero per il PM.
+        │
+4. SMARTSBOOKINGS lo riempie di turisti
+   └─► Vende le notti senza regalare il 20% alle multinazionali OTA, restituisce il 15% di cashback all'ospite e bonifica l'85% al proprietario.
+```
+Ogni General Director (`1. GD Operatività`, `2. GD Amministrazione`, `3. GD Vendite`) ha il suo cruscotto, i suoi numeri e i suoi obiettivi autonomi, **ma tutto il valore rimane all'interno del Gruppo Blue Arroyo**:
 
 | Ordine | Azienda del Gruppo | Cliente Target Primario | Problema Risolto & Output Specifico | I 3 General Directors (Autonomia) | Come Aiuta / Riceve Aiuto nel Gruppo (Sinergia) |
 | :-: | :--- | :--- | :--- | :--- | :--- |
