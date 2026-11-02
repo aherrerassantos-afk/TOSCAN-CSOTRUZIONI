@@ -72,3 +72,34 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 ## 3. Pagina `/styleguide` e SEO/GEO
 - Mantenere attiva `/styleguide` (`styleguide.html`, `noindex`) con i design token e tutti i componenti riutilizzabili (`Button`, `ProjectCard`, `BeforeAfter`, `Timeline`, `Chip`, `FormStep`, `FAQ`, `Testimonial`).
 - Applicare la regola SEO/GEO del gruppo su tutte le pagine pubbliche (HTML leggibile senza JS, JSON-LD `HomeAndConstructionBusiness`/`GeneralContractor`, `Service`, `FAQPage`, `BreadcrumbList`, NAP coerente: `Toscan Costruzioni · Blue Arroyo Group | Firenze | +39 351 038 0392 | toscancostruzioni@bluearroyo.it`).
+
+---
+
+## 4. Metodo Permanente "Piano degli Input" (5 Fasi) & Matrice Ruoli × Attività
+
+### Metodo Operativo in 5 Fasi (Ordine Obbligatorio)
+1. **PRIMA i ruoli interni (Team/Azienda):** 1. Direzione/Admin (`?role=dir`), 2. Vendite (`?role=sales`), 3. Operativo/Field (`?role=tech`, mobile-first), 4. Amministrazione (`?role=admin`, desktop), 5. Assistenza & Ospiti Blue Arroyo (`?role=hosp`).
+2. **POI i ruoli esterni:** Prospect Committente (capisce → si educa → acquista in 3 clic), Cliente Attivo, Ospite Finale, Partner/Fornitore.
+3. **Le 5 Fasi sequenziali:**
+   - **FASE 1 – CONTROLLA (Audit):** misura clic/tap, campi a mano, schermate, tempo, duplicati e blocchi.
+   - **FASE 2 – TOGLI:** elimina il superfluo, rendi facoltativo ciò che non blocca, applica la regola **"Ogni dato si inserisce una sola volta"** (`localStorage` `tc_active_commessa_v1` + parametri URL `?type=&city=&sqm=&cliente=` tra Console, `/preventivo-tipo`, `/data-room` e `/#contatti`).
+   - **FASE 3 – OTTIMIZZA:** una "Home" pulita per ruolo, chip a 1 tap al posto di testo libero o `<select>`.
+   - **FASE 4 – VELOCIZZA:** obiettivo misurabile **−50% di clic e di tempo** rispetto alla Fase 1 (azioni combinate in 1 tap: WhatsApp + CRM insieme).
+   - **FASE 5 – CREA:** aggiungi nuove funzioni solo se risolvono un bisogno reale non coperto dalle fasi 2–4, indicando ruolo, clic/tempo risparmiati e costo di sviluppo.
+
+### Matrice Permanente Ruoli × Attività (Prima vs Dopo Fasi 2–4)
+
+| Ruolo | Attività Ricorrente | Route / Strumento | PRIMA (Clic · Campi · Tempo) | DOPO (Clic · Campi · Tempo) | Risparmio |
+| :--- | :--- | :--- | :---: | :---: | :---: |
+| **1. Direzione / Admin** | Controllo KPI commessa e approvazione preventivo/contratto | `/kit-commerciale?role=dir` | 12 clic · 3 campi · 10 min | **1 tap · 0 campi · 15 sec** | **−92% clic / −97% tempo** |
+| **1. Direzione / Admin** | Autorizzazione emissione fattura SAL / fee Partner | `/kit-commerciale?role=dir` | 10 clic · 4 campi · 10 min | **1 tap · 0 campi · 15 sec** | **−90% clic / −97% tempo** |
+| **2. Vendite (Giuliano)** | Da qualifica / lead inbound a Preventivo PDF + WA + CRM | `/kit-commerciale?role=sales` | 9–11 clic · 5 campi · 4 min | **2 tap · 0–1 campo · 20 sec** | **−80% clic / −91% tempo** |
+| **2. Vendite (Giuliano)** | Invio messaggio Outbound Partner pre-intestato (4 canali) | `/kit-commerciale?role=sales` | 7 clic · 2 correzioni · 3 min | **2 tap · 0 campi · 20 sec** | **−71% clic / −89% tempo** |
+| **3. Operativo / Field** | Invio Report Fotografico del Venerdì + aggiornamento SAL | `/kit-commerciale?role=tech` | 8 clic · 2 campi · 5 min | **2 tap · 0 campi (chip) · 30 sec** | **−75% clic / −90% tempo** |
+| **3. Operativo / Field** | Segnalazione urgente cantiere (materiali / variante / sblocco SAL) | `/kit-commerciale?role=tech` | 10+ clic · testo · 6 min | **1 tap (chip) · 0 campi · 15 sec** | **−90% clic / −95% tempo** |
+| **4. Amministrazione** | Generazione Contratto Tipo con i 5 SAL calcolati in Euro | `/kit-commerciale?role=admin` → `/data-room` | 14 clic · 8+ campi · 22 min | **2 clic · 0 campi · 30 sec** | **−86% clic / −97% tempo** |
+| **4. Amministrazione** | Invio avviso emissione fattura SAL + conferma DURC al cliente | `/kit-commerciale?role=admin` | 10 clic · 5 campi · 10 min | **1 tap · 0 campi · 20 sec** | **−90% clic / −96% tempo** |
+| **5. Assistenza & Ospiti** | Passaggio Cantiere → Ospiti Blue Arroyo + messaggio al proprietario | `/kit-commerciale?role=hosp` | 7 clic · testo statico · 4 min | **1 tap · 0 campi · 20 sec** | **−85% clic / −91% tempo** |
+| **5. Assistenza & Ospiti** | Assegnazione ticket assistenza post-cantiere al Direttore Tecnico | `/kit-commerciale?role=hosp` | 9 clic · testo libero · 8 min | **1 tap (chip) · 0 campi · 15 sec** | **−89% clic / −96% tempo** |
+| **Esterno: Prospect** | Stima €/m² → Distinta PDF → Richiesta studio gratuito in 48h | `/#stima-rapida` → `/preventivo-tipo` → `/#contatti` | 9 clic · 7 campi · 3,5 min | **3 clic · 2 campi (`Nome`+`Tel`) · 35 sec** | **−67% clic / −83% tempo** |
+

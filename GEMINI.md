@@ -13,15 +13,16 @@
 
 ---
 
-## 1. Regola Post-Deploy: Check & Prossimo Passo Strategico (Obbligatoria dopo ogni deploy)
+## 1. Regola Post-Deploy: Check, Prima/Dopo Ruoli & Step Consigliato (Obbligatoria dopo ogni deploy)
 **Dopo ogni deploy** (su Vercel, GitHub o qualsiasi ambiente di produzione/staging), devi **sempre** concludere la risposta con:
 
-1. **Check di Cosa è Stato Fatto (`✅ Check Stato Attuale`):**
-   - Riepiloga sinteticamente cosa è appena andato live, verificando che rispetti [SITE_RULES.md](file:///Users/julianherrera/Downloads/toscan%20costruzioni/SITE_RULES.md) (focus su Proprietari/Albergatori committenti, compliance legale punto 0, design token "Toscana Contemporanea", zero gergo inglese inutile).
-2. **Stato SEO/GEO (`🔍 SEO/GEO: OK`):**
-   - Esegui la checklist del punto 2 qui sotto e riporta `🔍 SEO/GEO: OK` (o l'elenco dei problemi trovati/risolti).
-3. **Proposta del Passaggio Successivo (`🚀 Prossimo Passo Consigliato`):**
-   - Suggerisci proattivamente **il passaggio successivo più efficace** in base alla checklist CEO.
+1. **Cosa è cambiato e per quali ruoli (`✅ Check Stato Attuale & Ruoli Toccati`):**
+   - Riepiloga sinteticamente cosa è cambiato, per quali ruoli (interni: `Direzione`, `Vendite`, `Operativo/Field`, `Amministrazione`, `Assistenza/Ospiti`; esterni: `Prospect`, `Cliente Attivo`, `Ospite`, `Partner/Fornitore`) e verifica il rispetto di [SITE_RULES.md](file:///Users/julianherrera/Downloads/toscan%20costruzioni/SITE_RULES.md).
+2. **Prima / Dopo in Clic, Campi e Tempo (`⚡ Impatto Misurabile Prima/Dopo`):**
+   - Riporta il confronto numerico in **clic, campi e tempo** per le attività toccate (obiettivo: `−50%` di clic e di tempo rispetto alla Fase 1), più lo stato **`🔍 SEO/GEO: OK`**.
+3. **Prossimo Passo Consigliato (`🚀 Prossimo Passo Consigliato`):**
+   - Scegli tra: **(a) controllare quanto fatto**, **(b) implementare una nuova funzione**, oppure **(c) chiarire o semplificare il percorso verso il risultato più efficace**, spiegando **in una riga perché**.
+   - Mantieni sempre aggiornata la **Matrice del Piano degli Input** in [SITE_RULES.md](file:///Users/julianherrera/Downloads/toscan%20costruzioni/SITE_RULES.md).
 
 ---
 

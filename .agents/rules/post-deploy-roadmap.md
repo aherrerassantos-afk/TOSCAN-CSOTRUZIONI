@@ -1,10 +1,6 @@
----
-trigger: always_on
-description: Dopo ogni deploy suggerisci il passaggio successivo in base alla visione finale, facendo un check di quanto fatto e proponendo nuove funzioni o la strada più efficace.
----
-
-# Regola Generale Post-Deploy
+# Regola Generale Post-Deploy & Piano degli Input
 
 Dopo ogni deploy completato, fornisci sempre:
-1. **Check Stato Attuale (`✅ Cosa è stato fatto e verificato`)**: Sintesi chiara di ciò che è live rispetto alla visione complessiva.
-2. **Passaggio Successivo Strategico (`🚀 Prossimo Passo Consigliato`)**: Suggerisci il prossimo step concreto (implementazione di nuove funzioni, test/ottimizzazione del funnel o chiarimento sulla strada più efficace per arrivare all'obiettivo finale).
+1. **Cosa è cambiato e per quali ruoli (`✅ Check Stato Attuale & Ruoli Toccati`)**: Sintesi chiara di ciò che è andato live e per quali ruoli interni (`Direzione`, `Vendite`, `Operativo/Field`, `Amministrazione`, `Assistenza & Ospiti`) o esterni (`Prospect`, `Cliente Attivo`, `Ospite`, `Partner/Fornitore`).
+2. **Prima / Dopo in Clic, Campi e Tempo (`⚡ Impatto Misurabile Prima/Dopo` + `🔍 SEO/GEO: OK`)**: Tabella o sintesi del risparmio ottenuto in clic, campi e tempo rispetto alla Fase 1 (obiettivo `−50%`).
+3. **Prossimo Passo Consigliato (`🚀 Prossimo Passo Consigliato`)**: Scegli tra *controllare quanto fatto*, *implementare una nuova funzione* o *chiarire/semplificare il percorso verso il risultato più efficace*, spiegando **in una riga perché**.

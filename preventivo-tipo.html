@@ -220,7 +220,7 @@
         <small>Blue Arroyo Group · Firenze</small>
       </a>
       <div style="display:flex;gap:12px;" class="no-print">
-        <a href="/data-room" class="btn btn-secondary">Contratto Tipo</a>
+        <a href="/data-room" id="pt-to-contract" class="btn btn-secondary">Contratto Tipo &amp; 5 SAL</a>
         <button type="button" onclick="window.print()" class="btn btn-primary">Stampa / Salva in PDF</button>
       </div>
     </div>
@@ -478,6 +478,12 @@
           var qs = '?citta=' + encodeURIComponent(city) + '&mq=' + encodeURIComponent(sqm);
           if (client) qs += '&cliente=' + encodeURIComponent(client);
           bookLink.href = '/' + qs + '#contatti';
+        }
+        var cLink = document.getElementById('pt-to-contract');
+        if (cLink) {
+          var cqs = '?type=' + encodeURIComponent(state.type) + '&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
+          if (client) cqs += '&cliente=' + encodeURIComponent(client);
+          cLink.href = '/data-room' + cqs;
         }
       }
 

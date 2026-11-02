@@ -227,7 +227,37 @@
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;" class="no-print">
         <button type="button" onclick="window.print()" class="btn btn-primary">Scarica / Stampa il Contratto Tipo (PDF)</button>
-        <a href="/#contatti" class="btn btn-secondary">Richiedi il preventivo sul tuo immobile</a>
+        <a href="/preventivo-tipo" id="dr-to-quote" class="btn btn-secondary">Apri il Computo Analitico (7 Categorie)</a>
+        <a href="/#contatti" id="dr-to-book" class="btn btn-secondary">Richiedi il preventivo sul tuo immobile</a>
+      </div>
+
+      <!-- CARTIGLIO CONTRATTUALE PRE-COMPILATO DA URL / PREVENTIVO (ZERO DOPPIO INPUT) -->
+      <div style="background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--ink);padding:24px;margin-top:28px;border-radius:var(--radius);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);">
+          <div>
+            <span class="eyebrow" style="margin:0;">Estremi del Contratto d'Appalto a Corpo</span>
+            <h3 id="dr-client-title" style="margin-top:4px;">Prospetto Contrattuale Standard — Firenze (280 m²)</h3>
+          </div>
+          <span style="font-size:0.82rem;color:var(--olive);font-weight:600;">Prezzo Fisso Bloccato · Penale Giornaliera Inclusa</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px;font-size:0.9rem;">
+          <div>
+            <span style="color:var(--muted);font-size:0.8rem;display:block;">Committente / Riferimento</span>
+            <strong id="dr-meta-client">Proprietario / Committente</strong>
+          </div>
+          <div>
+            <span style="color:var(--muted);font-size:0.8rem;display:block;">Immobile e Tipologia</span>
+            <strong id="dr-meta-prop">Firenze · 280 m² (Appartamenti)</strong>
+          </div>
+          <div>
+            <span style="color:var(--muted);font-size:0.8rem;display:block;">Corrispettivo a Corpo Stimato</span>
+            <strong id="dr-meta-total" style="color:var(--terracotta);font-size:1.05rem;">434.000 € + IVA</strong>
+          </div>
+          <div>
+            <span style="color:var(--muted);font-size:0.8rem;display:block;">Termine Consegna e Penale</span>
+            <strong id="dr-meta-months">5 – 7 mesi (Penale 250 €/gg)</strong>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -297,7 +327,8 @@
           <tr>
             <th>Fase</th>
             <th>Traguardo verificato in cantiere</th>
-            <th>Quota contrattuale</th>
+            <th>Quota</th>
+            <th>Importo a Corpo (€)</th>
             <th>Documentazione consegnata</th>
           </tr>
         </thead>
@@ -306,30 +337,35 @@
             <td><strong>Acconto all'avvio</strong></td>
             <td>Firma contratto, deposito pratiche edilizie, allestimento ponteggi e cantiere</td>
             <td><strong>15%</strong></td>
+            <td><strong id="dr-sal-1" style="color:var(--terracotta);">65.100 €</strong></td>
             <td>Contratto firmato, Polizza CAR/RC, DURC, Cronoprogramma</td>
           </tr>
           <tr>
             <td><strong>1° SAL</strong></td>
             <td>Demolizioni, consolidamenti strutturali e tracciamento impianti completati</td>
             <td><strong>25%</strong></td>
+            <td><strong id="dr-sal-2">108.500 €</strong></td>
             <td>Verbale 1° SAL, report fotografico, DURC in corso di validità</td>
           </tr>
           <tr>
             <td><strong>2° SAL</strong></td>
             <td>Impianti (idrico, elettrico, climatizzazione), massetti, intonaci e cartongessi</td>
             <td><strong>25%</strong></td>
+            <td><strong id="dr-sal-3">108.500 €</strong></td>
             <td>Verbale 2° SAL, prove di tenuta impianti, report fotografico</td>
           </tr>
           <tr>
             <td><strong>3° SAL</strong></td>
             <td>Posa pavimenti, rivestimenti bagni, infissi, tinteggiature e porte interne</td>
             <td><strong>25%</strong></td>
+            <td><strong id="dr-sal-4">108.500 €</strong></td>
             <td>Verbale 3° SAL, schede tecniche materiali posati</td>
           </tr>
           <tr>
             <td><strong>Saldo al Collaudo</strong></td>
             <td>Montaggio arredi, collaudo finale congiunto, pulizia profonda e consegna chiavi</td>
             <td><strong>10%</strong></td>
+            <td><strong id="dr-sal-5">43.400 €</strong></td>
             <td>Verbale di collaudo, Dichiarazioni di Conformità, Garanzia Decennale</td>
           </tr>
         </tbody>
@@ -389,5 +425,55 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      var rates = {
+        appartamenti: { rate: 1550, months: '5 – 7 mesi', label: 'Appartamenti affitti brevi' },
+        agriturismo:  { rate: 1950, months: '8 – 11 mesi', label: 'Agriturismo / Casale' },
+        hotel:        { rate: 2150, months: '9 – 12 mesi', label: 'Hotel / Boutique hotel' },
+        studenti:     { rate: 1600, months: '5 – 8 mesi', label: 'Residenza studenti' }
+      };
+
+      var cfg = { type: 'appartamenti', city: 'Firenze', sqm: 280, client: '' };
+      try {
+        var saved = JSON.parse(localStorage.getItem('tc_active_commessa_v1') || 'null');
+        if (saved && typeof saved === 'object') {
+          if (saved.type && rates[saved.type]) cfg.type = saved.type;
+          if (saved.city) cfg.city = saved.city;
+          if (saved.sqm) cfg.sqm = parseInt(saved.sqm, 10) || 280;
+          if (saved.client) cfg.client = saved.client;
+        }
+      } catch (e) {}
+
+      var p = new URLSearchParams(window.location.search);
+      if (p.get('type') && rates[p.get('type')]) cfg.type = p.get('type');
+      if (p.get('city') || p.get('citta')) cfg.city = p.get('city') || p.get('citta');
+      if (p.get('sqm') || p.get('mq')) cfg.sqm = Math.max(40, parseInt(p.get('sqm') || p.get('mq'), 10) || 280);
+      if (p.get('cliente') || p.get('client')) cfg.client = p.get('cliente') || p.get('client');
+
+      var info = rates[cfg.type] || rates.appartamenti;
+      var total = cfg.sqm * info.rate;
+      function fmt(n) { return Math.round(n).toLocaleString('it-IT') + ' €'; }
+
+      document.getElementById('dr-client-title').textContent =
+        cfg.client ? ('Contratto d\'Appalto a Corpo — ' + cfg.client + ' (' + cfg.city + ')') : ('Prospetto Contrattuale Standard — ' + cfg.city + ' (' + cfg.sqm + ' m²)');
+      document.getElementById('dr-meta-client').textContent = cfg.client || 'Da intestare al Committente';
+      document.getElementById('dr-meta-prop').textContent = cfg.city + ' · ' + cfg.sqm + ' m² (' + info.label + ')';
+      document.getElementById('dr-meta-total').textContent = fmt(total) + ' + IVA';
+      document.getElementById('dr-meta-months').textContent = info.months + ' (Penale 250 €/gg)';
+
+      document.getElementById('dr-sal-1').textContent = fmt(total * 0.15);
+      document.getElementById('dr-sal-2').textContent = fmt(total * 0.25);
+      document.getElementById('dr-sal-3').textContent = fmt(total * 0.25);
+      document.getElementById('dr-sal-4').textContent = fmt(total * 0.25);
+      document.getElementById('dr-sal-5').textContent = fmt(total * 0.10);
+
+      var qLink = document.getElementById('dr-to-quote');
+      var bLink = document.getElementById('dr-to-book');
+      var query = '?type=' + encodeURIComponent(cfg.type) + '&city=' + encodeURIComponent(cfg.city) + '&sqm=' + encodeURIComponent(cfg.sqm) + (cfg.client ? '&cliente=' + encodeURIComponent(cfg.client) : '');
+      if (qLink) qLink.href = '/preventivo-tipo' + query;
+      if (bLink) bLink.href = '/?citta=' + encodeURIComponent(cfg.city) + '&mq=' + encodeURIComponent(cfg.sqm) + (cfg.client ? '&cliente=' + encodeURIComponent(cfg.client) : '') + '#contatti';
+    })();
+  </script>
 </body>
 </html>

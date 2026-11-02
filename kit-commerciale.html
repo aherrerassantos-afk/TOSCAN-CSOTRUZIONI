@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Piatto degli Input & Console Operativa per Ruolo | Toscan Costruzioni</title>
-  <meta name="description" content="Console operativa interna di Toscan Costruzioni · Blue Arroyo Group: il Piatto degli Input strutturato per i 4 ruoli aziendali (Vendite & CRM, Tecnico & Cantiere, Amministrazione & Contratti, Gestione Ospiti Blue Arroyo) e per il flusso cliente in 3 clic." />
+  <title>Console Operativa per Ruolo — Piano degli Input | Toscan Costruzioni</title>
+  <meta name="description" content="Console operativa interna di Toscan Costruzioni · Blue Arroyo Group: una Home dedicata per ciascuno dei 5 ruoli interni (Direzione, Vendite, Operativo/Cantiere, Amministrazione, Assistenza & Ospiti) con dato inserito una sola volta e azioni in 1 tap." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,45 +26,73 @@
       --max-w: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
+    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(0.98rem, 0.94rem + 0.18vw, 1.08rem); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
     h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
-    h1 { font-size: clamp(2.1rem, 1.7rem + 2vw, 3.3rem); }
-    h2 { font-size: clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem); }
-    h3 { font-size: clamp(1.2rem, 1.05rem + 0.4vw, 1.5rem); }
+    h1 { font-size: clamp(1.9rem, 1.5rem + 1.8vw, 2.8rem); }
+    h2 { font-size: clamp(1.5rem, 1.25rem + 1vw, 2.1rem); }
+    h3 { font-size: clamp(1.25rem, 1.1rem + 0.4vw, 1.55rem); }
     p { max-width: 70ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
-    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-    header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 16px; }
-    .brand { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 600; }
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+    header { background: rgba(246, 241, 233, 0.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 68px; gap: 12px; flex-wrap: wrap; }
+    .brand { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 600; }
     .brand em { color: var(--terracotta); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: var(--radius); font-size: 0.88rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 44px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 18px; border-radius: var(--radius); font-size: 0.88rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 44px; font-family: var(--font-sans); transition: background 0.15s; }
     .btn-primary { background: var(--terracotta); color: #FFF; }
     .btn-primary:hover { background: var(--terracotta-dark); }
     .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
-    section { padding: 56px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 10px; }
+    .btn-olive { background: var(--olive); color: #FFF; }
+    section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: inline-block; font-size: 0.73rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 6px; }
 
-    /* TABS DEI 4 RUOLI UMANI DEL TEAM */
+    /* BARRA UNICA COMMESSA ATTIVA (OGNI DATO SI INSERISCE UNA SOLA VOLTA) */
+    .shared-bar {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--terracotta);
+      padding: 18px 20px;
+      border-radius: var(--radius);
+      margin-top: 16px;
+    }
+    .shared-bar-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .shared-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1.1fr 1fr 0.8fr 1.2fr;
+      gap: 10px;
+      align-items: end;
+    }
+    @media (max-width: 900px) { .shared-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .shared-grid { grid-template-columns: 1fr; } }
+
+    /* SELETTORE 5 RUOLI INTERNI */
     .role-tabs {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 24px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 18px;
     }
-    @media (max-width: 860px) { .role-tabs { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 960px) { .role-tabs { grid-template-columns: repeat(2, 1fr); } }
     .role-tab {
       background: var(--paper);
       border: 1px solid var(--line);
-      padding: 16px;
+      padding: 13px 14px;
       border-radius: var(--radius);
       text-align: left;
       cursor: pointer;
       font-family: var(--font-sans);
+      min-height: 48px;
     }
-    .role-tab strong { display: block; font-size: 0.94rem; color: var(--ink); }
-    .role-tab span { font-size: 0.78rem; color: var(--muted); }
+    .role-tab strong { display: block; font-size: 0.88rem; color: var(--ink); }
+    .role-tab span { font-size: 0.74rem; color: var(--muted); display: block; margin-top: 2px; }
     .role-tab.is-active {
       border-color: var(--terracotta);
       border-top: 3px solid var(--terracotta);
@@ -74,27 +102,40 @@
       display: none;
       background: var(--paper);
       border: 1px solid var(--line);
-      padding: 32px;
-      margin-top: 16px;
+      padding: 28px;
+      margin-top: 14px;
       border-radius: var(--radius);
     }
+    @media (max-width: 640px) { .role-panel { padding: 18px; } }
     .role-panel.is-active { display: block; }
 
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 20px; }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
     @media (max-width: 860px) { .grid-2, .grid-4 { grid-template-columns: 1fr; } }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 12px; }
-    .field-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-    .input-text { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); background: var(--stone); font-family: var(--font-sans); font-size: 0.92rem; border-radius: var(--radius); color: var(--ink); }
-    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip-btn { min-height: 40px; padding: 8px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.84rem; font-weight: 500; cursor: pointer; }
+    .card { background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .kpi-card { background: var(--stone); border: 1px solid var(--line); padding: 14px 16px; border-radius: var(--radius); }
+    .kpi-card strong { display: block; font-family: var(--font-serif); font-size: 1.55rem; color: var(--ink); line-height: 1.1; }
+    .kpi-card span { font-size: 0.76rem; color: var(--muted); }
+    .field-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .input-text { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); background: var(--stone); font-family: var(--font-sans); font-size: 0.9rem; border-radius: var(--radius); color: var(--ink); }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip-btn { min-height: 40px; padding: 7px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.82rem; font-weight: 500; cursor: pointer; font-family: var(--font-sans); color: var(--ink); }
     .chip-btn.is-active { border-color: var(--terracotta); background: rgba(180,83,42,0.12); font-weight: 600; }
-    pre { background: #F6F1E9; border: 1px solid var(--line); padding: 14px; font-family: var(--font-sans); font-size: 0.85rem; white-space: pre-wrap; color: var(--ink); line-height: 1.5; border-radius: var(--radius); }
-    .check-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.9rem; font-weight: 500; }
+    pre { background: #F6F1E9; border: 1px solid var(--line); padding: 14px; font-family: var(--font-sans); font-size: 0.84rem; white-space: pre-wrap; color: var(--ink); line-height: 1.5; border-radius: var(--radius); }
+    .check-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.88rem; font-weight: 500; cursor: pointer; min-height: 44px; }
     .check-row input { width: 18px; height: 18px; accent-color: var(--terracotta); }
-    footer { padding: 40px 0; font-size: 0.86rem; color: var(--muted); }
+    .status-toast { font-size: 0.84rem; color: var(--olive); font-weight: 600; min-height: 20px; margin-top: 6px; }
+    details.drawer { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--stone); padding: 12px 16px; }
+    details.drawer summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+    .sal-mini-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 8px; background: #FFF; }
+    .sal-mini-table th, .sal-mini-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+    .sal-mini-table td.num, .sal-mini-table th.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+    #accordo-partner { display: none; }
+    #accordo-partner.is-visible { display: block; }
+    footer { padding: 32px 0; font-size: 0.84rem; color: var(--muted); }
     @media print {
       header, .no-print, footer { display: none !important; }
+      #accordo-partner { display: block !important; border: none; padding: 0; }
       body { background: #FFF; }
     }
   </style>
@@ -103,299 +144,369 @@
 
   <header>
     <div class="container nav-bar">
-      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Console Ruoli &amp; Input</a>
-      <div style="display:flex;gap:10px;" class="no-print">
-        <a href="/preventivo-tipo" class="btn btn-secondary">Preventivo PDF</a>
-        <a href="/data-room" class="btn btn-secondary">Contratto Tipo</a>
-        <button type="button" onclick="window.print()" class="btn btn-primary">Stampa Accordo Partner</button>
+      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Console Ruoli</a>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;" class="no-print">
+        <a href="/preventivo-tipo" id="nav-quote-link" class="btn btn-secondary">Preventivo PDF</a>
+        <a href="/data-room" id="nav-contract-link" class="btn btn-secondary">Contratto &amp; 5 SAL</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- 1. IL PIATTO DEGLI INPUT: PRIMA IL TEAM INTERNO (4 RUOLI), POI GLI ESTERNI -->
     <section class="no-print">
-      <span class="eyebrow">Sistema operativo umano</span>
-      <h1>Il Piatto degli <em>Input</em> per ruolo (Team &amp; Clienti)</h1>
-      <p style="margin-top:6px;color:var(--ink);">
-        Ogni persona interagisce con il sistema inserendo <strong>solo i dati essenziali del proprio ruolo</strong> per generare il documento o il passaggio successivo nel minor numero possibile di clic.
-      </p>
+      <span class="eyebrow">Regola: Ogni dato si inserisce una sola volta</span>
+      <h1>Home Operativa per <em>Ruolo</em></h1>
 
-      <!-- SELETTORE DEI 4 RUOLI AZIENDALI -->
-      <div class="role-tabs" role="tablist" aria-label="Ruoli del team Toscan Costruzioni e Blue Arroyo">
-        <button type="button" class="role-tab is-active" data-role-tab="role-sales">
-          <strong>1. Vendite &amp; Sviluppo</strong>
-          <span>Giuliano · Qualifica &amp; Offerta in 1 clic</span>
+      <!-- BARRA UNICA DELLA COMMESSA ATTIVA (CONDIVISA TRA TUTTI I 5 RUOLI E LE PAGINE PDF) -->
+      <div class="shared-bar" aria-label="Dati condivisi della commessa attiva">
+        <div class="shared-bar-head">
+          <div>
+            <strong style="font-size:0.92rem;">Commessa Attiva Condivisa</strong>
+            <span style="font-size:0.8rem;color:var(--muted);margin-left:8px;">Modifica qui una sola volta: aggiorna automaticamente Preventivo, Contratto, SAL, Report e Avvio Ospiti.</span>
+          </div>
+          <div class="chips-row" aria-label="Commessa rapida">
+            <button type="button" class="chip-btn" data-preset-client="Lorenzo Medici" data-preset-city="Firenze" data-preset-sqm="280" data-preset-type="appartamenti" data-preset-phone="+393331234567">Firenze · 280 m²</button>
+            <button type="button" class="chip-btn" data-preset-client="Famiglia Rinaldi" data-preset-city="Greve in Chianti" data-preset-sqm="460" data-preset-type="agriturismo" data-preset-phone="+393357654321">Chianti · 460 m²</button>
+            <button type="button" class="chip-btn" data-preset-client="Hotel Savoia" data-preset-city="Lucca" data-preset-sqm="650" data-preset-type="hotel" data-preset-phone="+393481122334">Hotel · 650 m²</button>
+          </div>
+        </div>
+
+        <div class="shared-grid">
+          <div>
+            <label class="field-label" for="s-client">Cliente / Struttura</label>
+            <input type="text" id="s-client" class="input-text" value="Lorenzo Medici" />
+          </div>
+          <div>
+            <label class="field-label" for="s-phone">Telefono WhatsApp (opz.)</label>
+            <input type="tel" id="s-phone" class="input-text" placeholder="+39 333 1234567" />
+          </div>
+          <div>
+            <label class="field-label" for="s-city">Comune immobile</label>
+            <input type="text" id="s-city" class="input-text" value="Firenze" />
+          </div>
+          <div>
+            <label class="field-label" for="s-sqm">Metratura (m²)</label>
+            <input type="number" id="s-sqm" class="input-text" value="280" min="40" max="5000" step="10" />
+          </div>
+          <div>
+            <span class="field-label">Tipologia (1 tap)</span>
+            <div class="chips-row" id="shared-type-chips">
+              <button type="button" class="chip-btn is-active" data-s-type="appartamenti" data-rate="1550" data-months="5–7 mesi">Appartamenti</button>
+              <button type="button" class="chip-btn" data-s-type="agriturismo" data-rate="1950" data-months="8–11 mesi">Casale</button>
+              <button type="button" class="chip-btn" data-s-type="hotel" data-rate="2150" data-months="9–12 mesi">Hotel</button>
+              <button type="button" class="chip-btn" data-s-type="studenti" data-rate="1600" data-months="5–8 mesi">Studenti</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BARRA DEI 5 RUOLI INTERNI (OGNUNO VEDE SOLO IL LAVORO DI OGGI) -->
+      <div class="role-tabs" role="tablist" aria-label="Seleziona il tuo ruolo aziendale">
+        <button type="button" class="role-tab" data-role-tab="role-dir" data-role-slug="dir">
+          <strong>1. Direzione / Admin</strong>
+          <span>Numeri, Approvazioni &amp; SAL</span>
         </button>
-        <button type="button" class="role-tab" data-role-tab="role-tech">
-          <strong>2. Tecnico &amp; Cantiere</strong>
-          <span>Direttore Tecnico · Sopralluogo &amp; Report Venerdì</span>
+        <button type="button" class="role-tab is-active" data-role-tab="role-sales" data-role-slug="sales">
+          <strong>2. Vendite &amp; Sviluppo</strong>
+          <span>Preventivo + WA + CRM in 1 tap</span>
         </button>
-        <button type="button" class="role-tab" data-role-tab="role-admin">
-          <strong>3. Amministrazione &amp; Legale</strong>
-          <span>Back-Office · Polizze, DURC &amp; Contratto</span>
+        <button type="button" class="role-tab" data-role-tab="role-tech" data-role-slug="tech">
+          <strong>3. Operativo / Field</strong>
+          <span>Report Venerdì &amp; Segnalazioni</span>
         </button>
-        <button type="button" class="role-tab" data-role-tab="role-hosp">
-          <strong>4. Gestione Ospiti</strong>
-          <span>Blue Arroyo · Passaggio Cantiere → Ospiti</span>
+        <button type="button" class="role-tab" data-role-tab="role-admin" data-role-slug="admin">
+          <strong>4. Amministrazione</strong>
+          <span>DURC, Contratto &amp; Fatture SAL</span>
+        </button>
+        <button type="button" class="role-tab" data-role-tab="role-hosp" data-role-slug="hosp">
+          <strong>5. Assistenza &amp; Ospiti</strong>
+          <span>Avvio Blue Arroyo &amp; Garanzie</span>
         </button>
       </div>
 
-      <!-- PANNELLO RUOLO 1: VENDITE & CRM (GIULIANO) -->
+      <!-- =================================================================
+           RUOLO 1: DIREZIONE / ADMIN (VISION, NUMERI & APPROVAZIONI IN 1 TAP)
+           ================================================================= -->
+      <div class="role-panel" id="role-dir">
+        <h3>Home Direzione: Quadro Economico e Approvazioni in <em>1 tap</em></h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Zero campi da compilare: tutti gli indicatori sono calcolati in tempo reale dalla Commessa Attiva.</p>
+
+        <div class="grid-4">
+          <div class="kpi-card">
+            <strong id="dir-kpi-total">434.000 €</strong>
+            <span id="dir-kpi-rate">Valore a corpo (1.550 €/m²)</span>
+          </div>
+          <div class="kpi-card">
+            <strong id="dir-kpi-sal">1° SAL (40%)</strong>
+            <span id="dir-kpi-months">Durata garantita: 5–7 mesi</span>
+          </div>
+          <div class="kpi-card">
+            <strong id="dir-kpi-docs">5 / 5 Pronti</strong>
+            <span>Documenti Pre-Firma (DURC/CAR)</span>
+          </div>
+          <div class="kpi-card">
+            <strong id="dir-kpi-fee">10.850 €</strong>
+            <span>Accantonamento Fee Partner (2,5%)</span>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>1. Approva Preventivo &amp; Sblocca Contratto</h4>
+            <p style="font-size:0.85rem;">Valida il prezzo a corpo e invia il via libera a Vendite e Amministrazione con il link al Contratto pre-compilato.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+              <button type="button" class="btn btn-primary" id="btn-dir-approve">Approva Offerta &amp; Sblocca Contratto (1 tap) →</button>
+              <a href="/data-room" class="btn btn-secondary" id="dir-open-contract">Vedi Contratto Compilato</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>2. Autorizza Emissione SAL / Liquidazione Partner</h4>
+            <p style="font-size:0.85rem;">Autorizza l'Amministrazione a emettere la fattura del SAL corrente o a liquidare la tranche al Partner segnalatore.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+              <button type="button" class="btn btn-olive" id="btn-dir-sal-ok">Autorizza Fattura SAL Corrente (1 tap) →</button>
+            </div>
+          </div>
+        </div>
+        <div id="dir-status" class="status-toast"></div>
+      </div>
+
+      <!-- =================================================================
+           RUOLO 2: VENDITE & SVILUPPO (GIULIANO — 1 TAP WA + CRM)
+           ================================================================= -->
       <div class="role-panel is-active" id="role-sales">
-        <h3>Console Vendite: da chiamata conoscitiva a Preventivo Personalizzato in <em>1 clic</em></h3>
-        <p style="font-size:0.9rem;margin-top:4px;">Inserisci i 4 dati raccolti nella chiamata di 15 minuti per creare il link del preventivo intestato al cliente, inviarlo su WhatsApp e registrare il contatto nel CRM n8n.</p>
+        <h3>Home Vendite: Preventivo Intestato + Invio WhatsApp + CRM in <em>1 solo tap</em></h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Scegli o ritocca i dati nella barra sopra e premi un solo bottone: invia il link personalizzato su WhatsApp e salva contemporaneamente il lead su n8n.</p>
 
         <div class="grid-2">
-          <div style="display:grid;gap:12px;">
+          <div class="card">
+            <h4>1. Selezione Rapida Città e Taglio (Zero Digitazione)</h4>
             <div>
-              <span class="field-label">Tipologia immobile del cliente</span>
-              <div class="chips-row" id="sales-type-chips">
-                <button type="button" class="chip-btn is-active" data-s-type="appartamenti">Appartamenti affitti brevi</button>
-                <button type="button" class="chip-btn" data-s-type="agriturismo">Agriturismo / Casale</button>
-                <button type="button" class="chip-btn" data-s-type="hotel">Hotel / Boutique hotel</button>
-                <button type="button" class="chip-btn" data-s-type="studenti">Residenza studenti / Cambio d'uso</button>
+              <span class="field-label">Città frequenti (1 tap)</span>
+              <div class="chips-row">
+                <button type="button" class="chip-btn" data-quick-city="Firenze">Firenze</button>
+                <button type="button" class="chip-btn" data-quick-city="Greve in Chianti">Chianti</button>
+                <button type="button" class="chip-btn" data-quick-city="Siena">Siena / Val d'Orcia</button>
+                <button type="button" class="chip-btn" data-quick-city="Lucca">Lucca / Versilia</button>
+                <button type="button" class="chip-btn" data-quick-city="Arezzo">Arezzo / Maremma</button>
               </div>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div>
-                <label class="field-label" for="s-client">Nome del Cliente / Società</label>
-                <input type="text" id="s-client" class="input-text" value="Lorenzo Medici" />
-              </div>
-              <div>
-                <label class="field-label" for="s-phone">Telefono WhatsApp Cliente</label>
-                <input type="tel" id="s-phone" class="input-text" placeholder="+39 333 1234567" />
-              </div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-              <div>
-                <label class="field-label" for="s-city">Comune immobile</label>
-                <input type="text" id="s-city" class="input-text" value="Firenze" />
-              </div>
-              <div>
-                <label class="field-label" for="s-sqm">Metri quadri (m²)</label>
-                <input type="number" id="s-sqm" class="input-text" value="280" />
+            <div>
+              <span class="field-label">Superficie rapida (1 tap)</span>
+              <div class="chips-row">
+                <button type="button" class="chip-btn" data-quick-sqm="160">160 m²</button>
+                <button type="button" class="chip-btn" data-quick-sqm="280">280 m²</button>
+                <button type="button" class="chip-btn" data-quick-sqm="450">450 m²</button>
+                <button type="button" class="chip-btn" data-quick-sqm="650">650 m²</button>
               </div>
             </div>
           </div>
 
-          <div style="background:var(--stone);border:1px solid var(--line);padding:20px;border-radius:var(--radius);display:flex;flex-direction:column;justify-content:space-between;gap:12px;">
+          <div class="card" style="justify-content:space-between;">
             <div>
-              <strong style="font-size:0.9rem;display:block;margin-bottom:6px;">Link Preventivo PDF Pre-Compilato per il Cliente:</strong>
-              <input type="text" id="s-out-url" class="input-text" style="background:#FFF;font-size:0.82rem;" readonly />
+              <span class="eyebrow">Azione unica (Eliminato doppio clic)</span>
+              <h4 id="sales-summary-title">Lorenzo Medici · Firenze (280 m²)</h4>
+              <p style="font-size:0.86rem;margin-top:4px;" id="sales-summary-sub">Stima a corpo: <strong>434.000 €</strong> (1.550 €/m²) · Durata: 5–7 mesi con penali.</p>
             </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-              <button type="button" class="btn btn-primary" id="btn-sales-wa">Invia ora su WhatsApp →</button>
-              <a href="/preventivo-tipo" target="_blank" class="btn btn-secondary" id="btn-sales-open">Apri Preventivo PDF</a>
-              <button type="button" class="btn btn-secondary" id="btn-sales-copy">Copia Link Cliente</button>
-              <button type="button" class="btn btn-secondary" id="btn-sales-crm">Salva nel CRM (n8n)</button>
-            </div>
-            <div id="sales-status" style="font-size:0.82rem;color:var(--olive);font-weight:600;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PANNELLO RUOLO 2: TECNICO & CANTIERE -->
-      <div class="role-panel" id="role-tech">
-        <h3>Console Tecnica: Report di Cantiere del <em>Venerdì</em> e Stato SAL in 30 secondi</h3>
-        <p style="font-size:0.9rem;margin-top:4px;">Compila i 3 campi dal cantiere per generare il messaggio strutturato del venerdì da inviare su WhatsApp o via email al proprietario.</p>
-
-        <div class="grid-2">
-          <div style="display:grid;gap:12px;">
-            <div>
-              <label class="field-label" for="t-cantiere">Cantiere e Committente</label>
-              <input type="text" id="t-cantiere" class="input-text" value="Cantiere Firenze Oltrarno — Sig. Lorenzo" />
-            </div>
-            <div>
-              <span class="field-label">Stato di Avanzamento Lavori (SAL) attuale</span>
-              <div class="chips-row" id="tech-sal-chips">
-                <button type="button" class="chip-btn" data-t-sal="Avvio Cantiere e Demolizioni (15%)">Avvio (15%)</button>
-                <button type="button" class="chip-btn is-active" data-t-sal="1° SAL · Opere Murarie e Strutture (40%)">1° SAL (40%)</button>
-                <button type="button" class="chip-btn" data-t-sal="2° SAL · Impianti, Massetti e Acustica (65%)">2° SAL (65%)</button>
-                <button type="button" class="chip-btn" data-t-sal="3° SAL · Pavimenti, Bagni e Infissi (90%)">3° SAL (90%)</button>
-                <button type="button" class="chip-btn" data-t-sal="Collaudo Finale e Montaggio Arredi (100%)">Collaudo (100%)</button>
-              </div>
-            </div>
-            <div>
-              <label class="field-label" for="t-notes">Lavorazioni eseguite questa settimana</label>
-              <input type="text" id="t-notes" class="input-text" value="Completato tracciamento impianti idrici/elettrici e posa pannelli fonoisolanti tra le unità." />
-            </div>
-          </div>
-
-          <div>
-            <pre id="t-out-msg"></pre>
-            <div style="display:flex;gap:10px;margin-top:10px;">
-              <button type="button" class="btn btn-primary" onclick="copyTpl('t-out-msg', this)">Copia Report del Venerdì</button>
-              <a href="/preventivo-tipo" class="btn btn-secondary">Apri Computo 7 Categorie</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PANNELLO RUOLO 3: AMMINISTRAZIONE & CONTRATTI -->
-      <div class="role-panel" id="role-admin">
-        <h3>Console Amministrazione: Checklist Documentale <em>Pre-Firma</em> e SAL</h3>
-        <p style="font-size:0.9rem;margin-top:4px;">Spunta i 5 documenti obbligatori da allegare al Contratto Tipo a Prezzo Fisso prima dell'apertura del cantiere.</p>
-
-        <div class="grid-2">
-          <div style="display:grid;gap:8px;">
-            <label class="check-row"><input type="checkbox" checked /> 1. DURC in corso di validità (Regolarità Contributiva)</label>
-            <label class="check-row"><input type="checkbox" checked /> 2. Attestazione iscrizione Cassa Edile</label>
-            <label class="check-row"><input type="checkbox" checked /> 3. Polizza CAR (Tutti i rischi del cantiere) + RC Professionale</label>
-            <label class="check-row"><input type="checkbox" checked /> 4. Cronoprogramma allegato con clausola penali giornaliere</label>
-            <label class="check-row"><input type="checkbox" checked /> 5. Tabella dei 5 SAL (15% · 25% · 25% · 25% · 10%) e Computo a corpo</label>
-          </div>
-          <div class="card" style="background:var(--stone);justify-content:center;">
-            <h4>Documenti Ufficiali Pronti per la Stampa PDF</h4>
-            <p style="font-size:0.88rem;">Tutti i modelli usano un'unica veste grafica per Toscan Costruzioni · Blue Arroyo Group.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
-              <a href="/data-room" class="btn btn-primary">Apri Contratto Tipo e SAL (PDF) →</a>
-              <a href="#accordo-partner" class="btn btn-secondary">Vai all'Accordo Partner ↓</a>
+              <button type="button" class="btn btn-primary" id="btn-sales-one-tap">Invia Preventivo su WhatsApp + Salva CRM →</button>
+              <a href="/preventivo-tipo" target="_blank" class="btn btn-secondary" id="btn-sales-open">Anteprima PDF</a>
+              <button type="button" class="btn btn-secondary" id="btn-sales-copy">Copia Link</button>
+            </div>
+            <div id="sales-status" class="status-toast"></div>
+          </div>
+        </div>
+
+        <!-- CASSETTO A 1 TAP PER OUTBOUND PARTNER (NASCOSTO DI DEFAULT E PRE-COMPILATO) -->
+        <details class="drawer">
+          <summary>Messaggi Outbound Pre-Compilati &amp; Accordo Partner (Clienti Gruppo, Architetti, Agenzie, Hotel)</summary>
+          <p style="font-size:0.84rem;margin-top:6px;">Ogni messaggio inserisce in automatico il nome (<strong id="out-tpl-name">Lorenzo Medici</strong>) e la città (<strong id="out-tpl-city">Firenze</strong>) senza dover correggere parentesi quadre a mano.</p>
+          <div class="grid-2" style="margin-top:12px;">
+            <div class="card" style="background:#FFF;">
+              <strong>1. Proprietario già cliente Gruppo Blue Arroyo</strong>
+              <pre id="tpl-1"></pre>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-1">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-1', this)">Copia</button>
+              </div>
+            </div>
+            <div class="card" style="background:#FFF;">
+              <strong>2. Studio di Architettura / Geometra / Ingegnere</strong>
+              <pre id="tpl-2"></pre>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-2">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-2', this)">Copia</button>
+              </div>
+            </div>
+            <div class="card" style="background:#FFF;">
+              <strong>3. Agenzia Immobiliare (Sblocco Rogito in 48h)</strong>
+              <pre id="tpl-3"></pre>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-3">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-3', this)">Copia</button>
+              </div>
+            </div>
+            <div class="card" style="background:#FFF;">
+              <strong>4. Titolare di Hotel / Agriturismo da Rinnovare</strong>
+              <pre id="tpl-4"></pre>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-4">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-4', this)">Copia</button>
+              </div>
             </div>
           </div>
-        </div>
+          <div style="margin-top:12px;">
+            <button type="button" class="btn btn-secondary" id="btn-toggle-partner-doc">Mostra / Stampa Accordo di Segnalazione Partner (2–3%)</button>
+          </div>
+        </details>
       </div>
 
-      <!-- PANNELLO RUOLO 4: GESTIONE OSPITI BLUE ARROYO -->
-      <div class="role-panel" id="role-hosp">
-        <h3>Console Blue Arroyo: Passaggio dal Cantiere agli <em>Ospiti</em></h3>
-        <p style="font-size:0.9rem;margin-top:4px;">Verifica finale tra Direttore Tecnico (Toscan Costruzioni) e Account Manager (Blue Arroyo) per mettere l'immobile online a zero giorni dalla fine lavori.</p>
+      <!-- =================================================================
+           RUOLO 3: OPERATIVO / FIELD (MOBILE-FIRST DA CANTIERE IN 1 TAP)
+           ================================================================= -->
+      <div class="role-panel" id="role-tech">
+        <h3>Home Cantiere (Mobile-First): Report del <em>Venerdì</em> e Segnalazioni in 1 tap</h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Il nome del cantiere è già preso dalla barra sopra. Tocca il SAL e il chip delle lavorazioni per inviare il report senza scrivere testo al freddo.</p>
 
         <div class="grid-2">
-          <div style="display:grid;gap:8px;">
-            <label class="check-row"><input type="checkbox" checked /> 1. Dichiarazioni di Conformità Impianti (DM 37/08), APE e Agibilità</label>
-            <label class="check-row"><input type="checkbox" checked /> 2. Serrature elettroniche per check-in automatico collaudate</label>
-            <label class="check-row"><input type="checkbox" checked /> 3. Rete Wi-Fi cablata e spegnimento automatico clima attivi</label>
-            <label class="check-row"><input type="checkbox" checked /> 4. Pratica SUAP / CIN e portale Alloggiati Web configurati</label>
-            <label class="check-row"><input type="checkbox" checked /> 5. Pulizia profonda fine cantiere, corredo tessile e servizio fotografico</label>
+          <div class="card">
+            <div>
+              <span class="field-label">1. Stato Avanzamento Lavori (SAL) raggiunto</span>
+              <div class="chips-row" id="tech-sal-chips">
+                <button type="button" class="chip-btn" data-t-sal="Avvio Cantiere (15%)" data-t-default="Allestimento cantiere, messa in sicurezza, demolizioni selettive e smaltimento a discarica autorizzata completati.">Avvio (15%)</button>
+                <button type="button" class="chip-btn is-active" data-t-sal="1° SAL · Strutture e Murature (40%)" data-t-default="Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati.">1° SAL (40%)</button>
+                <button type="button" class="chip-btn" data-t-sal="2° SAL · Impianti e Isolamento (65%)" data-t-default="Posa tubazioni, quadri elettrici domotici, contropareti acustiche certificate e massetti completati.">2° SAL (65%)</button>
+                <button type="button" class="chip-btn" data-t-sal="3° SAL · Finiture, Bagni e Infissi (90%)" data-t-default="Posa pavimenti, rivestimenti bagni, sanitari, infissi esterni e tinteggiature a calce completati.">3° SAL (90%)</button>
+                <button type="button" class="chip-btn" data-t-sal="Collaudo Finale e Arredi (100%)" data-t-default="Montaggio arredi su misura, serrature smart, pulizia profonda e collaudo impianti DM 37/08 completati.">Collaudo (100%)</button>
+              </div>
+            </div>
+
+            <div>
+              <span class="field-label">2. Nota rapida lavorazioni (precompilata dal SAL o modificabile)</span>
+              <input type="text" id="t-notes" class="input-text" style="background:#FFF;" value="Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati." />
+            </div>
+
+            <div>
+              <span class="field-label">3. Segnalazione urgente da cantiere a Direzione/Acquisti (1 tap)</span>
+              <div class="chips-row">
+                <button type="button" class="chip-btn" data-tech-alert="Ordine urgente materiale / forniture di cantiere">Ordine materiale</button>
+                <button type="button" class="chip-btn" data-tech-alert="Richiesta variante da approvare con il Committente">Variante cliente</button>
+                <button type="button" class="chip-btn" data-tech-alert="SAL completato: procedere con emissione fattura">Sblocca Fattura SAL</button>
+              </div>
+            </div>
           </div>
-          <div>
-            <pre id="h-welcome-msg">Gentile Proprietario,
-il collaudo finale del cantiere Toscan Costruzioni è stato completato con successo e tutte le certificazioni degli impianti sono depositate.
 
-Da oggi la divisione ospitalità di Blue Arroyo ha preso in carico le unità: serrature elettroniche, rete Wi-Fi, servizio fotografico e annunci sono attivi per accogliere i primi ospiti. Riceverà il rendiconto mensile degli incassi direttamente dalla nostra amministrazione.</pre>
-            <button type="button" class="btn btn-primary" style="margin-top:10px;" onclick="copyTpl('h-welcome-msg', this)">Copia messaggio di avvio gestione</button>
+          <div class="card" style="justify-content:space-between;">
+            <pre id="t-out-msg" style="background:#FFF;"></pre>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" id="btn-tech-wa">Invia Report Venerdì (WhatsApp + CRM) →</button>
+              <button type="button" class="btn btn-secondary" onclick="copyTpl('t-out-msg', this)">Copia Testo</button>
+            </div>
+            <div id="tech-status" class="status-toast"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           RUOLO 4: AMMINISTRAZIONE & LEGALE (CONTRATTO, DURC & 5 SAL IN €)
+           ================================================================= -->
+      <div class="role-panel" id="role-admin">
+        <h3>Home Amministrazione: Conformità Pre-Firma, <em>Contratto</em> e 5 SAL Calcolati</h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Gli importi dei 5 SAL sono già calcolati in Euro sul valore della Commessa Attiva e passano automaticamente al Contratto Tipo (`/data-room`).</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h4>1. Checklist Pre-Firma (<span id="admin-check-count">5/5</span> verificati)</h4>
+              <span style="font-size:0.78rem;color:var(--olive);font-weight:600;">Salvato in automatico</span>
+            </div>
+            <label class="check-row"><input type="checkbox" class="admin-chk" data-chk="durc" checked /> 1. DURC in corso di validità (Regolarità Contributiva)</label>
+            <label class="check-row"><input type="checkbox" class="admin-chk" data-chk="cassa" checked /> 2. Attestazione iscrizione Cassa Edile</label>
+            <label class="check-row"><input type="checkbox" class="admin-chk" data-chk="car" checked /> 3. Polizza CAR (Tutti i rischi cantiere) + RC Professionale</label>
+            <label class="check-row"><input type="checkbox" class="admin-chk" data-chk="crono" checked /> 4. Cronoprogramma allegato con penale giornaliera</label>
+            <label class="check-row"><input type="checkbox" class="admin-chk" data-chk="sal" checked /> 5. Tabella 5 SAL e Computo a corpo sottoscritti</label>
+          </div>
+
+          <div class="card" style="justify-content:space-between;">
+            <div>
+              <h4>2. Piano Fatturazione 5 SAL (Calcolato in automatico)</h4>
+              <table class="sal-mini-table">
+                <thead>
+                  <tr><th>Traguardo SAL</th><th>Quota</th><th class="num">Importo Imponibile</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Acconto all'Avvio Cantiere</td><td>15%</td><td class="num" id="adm-sal-1">65.100 €</td></tr>
+                  <tr><td>1° SAL · Strutture e Murature</td><td>25%</td><td class="num" id="adm-sal-2">108.500 €</td></tr>
+                  <tr><td>2° SAL · Impianti e Massetti</td><td>25%</td><td class="num" id="adm-sal-3">108.500 €</td></tr>
+                  <tr><td>3° SAL · Pavimenti, Bagni e Infissi</td><td>25%</td><td class="num" id="adm-sal-4">108.500 €</td></tr>
+                  <tr><td>Saldo al Collaudo e Chiavi</td><td>10%</td><td class="num" id="adm-sal-5">43.400 €</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+              <a href="/data-room" class="btn btn-primary" id="btn-admin-contract">Apri Contratto Pre-Compilato con i 5 SAL →</a>
+              <button type="button" class="btn btn-secondary" id="btn-admin-invoice-wa">Invia Avviso Fattura SAL al Cliente →</button>
+              <button type="button" class="btn btn-secondary" id="btn-admin-partner-doc">Stampa Accordo Partner</button>
+            </div>
+            <div id="admin-status" class="status-toast"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           RUOLO 5: ASSISTENZA CLIENTI & OSPITI (TEAM BLUE ARROYO)
+           ================================================================= -->
+      <div class="role-panel" id="role-hosp">
+        <h3>Home Blue Arroyo: Passaggio Cantiere → <em>Ospiti</em> e Assistenza Post-Consegna</h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Il messaggio di avvio gestione è già intestato al cliente e all'immobile attivo.</p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h4>1. Prontezza Operativa Ospiti (<span id="hosp-check-count">5/5</span> pronti)</h4>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 1. Dichiarazioni Conformità Impianti (DM 37/08), APE e Agibilità</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 2. Serrature elettroniche per self check-in collaudate</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. Rete Wi-Fi cablata e contatto magnetico clima attivi</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 4. Pratica SUAP / CIN e portale Alloggiati Web attivi</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 5. Pulizia fine cantiere, corredo alberghiero e foto professionali</label>
+
+            <div style="margin-top:6px;">
+              <span class="field-label">Assegna ticket assistenza post-cantiere al Tecnico (1 tap)</span>
+              <div class="chips-row">
+                <button type="button" class="chip-btn" data-hosp-ticket="Verifica e taratura impianto climatizzazione / pompa di calore">Clima / Termico</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="Controllo serratura elettronica / codice accesso ospite">Serratura Smart</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="Regolazione infissi / scarico bagno in garanzia">Idraulica / Infissi</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="justify-content:space-between;">
+            <pre id="h-welcome-msg" style="background:#FFF;"></pre>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" id="btn-hosp-wa">Invia Avvio Gestione al Proprietario (WA + CRM) →</button>
+              <button type="button" class="btn btn-secondary" onclick="copyTpl('h-welcome-msg', this)">Copia Testo</button>
+            </div>
+            <div id="hosp-status" class="status-toast"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. SINTESI DEL FLUSSO ESTERNO (CLIENTE / PROSPECT IN 3 CLIC) -->
-    <section class="no-print">
-      <span class="eyebrow">Esperienza cliente ottimizzata</span>
-      <h2>Come interagisce il <em>Committente</em> in soli 3 clic</h2>
-      <div class="grid-4">
-        <div class="card">
-          <strong style="color:var(--terracotta);font-size:0.82rem;">CLIC 1 · CAPISCE E CALCOLA</strong>
-          <h4>Stima rapida in Home</h4>
-          <p style="font-size:0.86rem;">Sceglie tipo immobile con 1 chip e scorre i m²: vede subito fascia €/m², durata e link alla distinta PDF.</p>
-        </div>
-        <div class="card">
-          <strong style="color:var(--terracotta);font-size:0.82rem;">CLIC 2 · NESSUN DOPPIO INPUT</strong>
-          <h4>Modulo già pre-compilato</h4>
-          <p style="font-size:0.86rem;">Cliccando "Ricevi lo studio gratuito", i m² e la tipologia passano da soli al modulo finale.</p>
-        </div>
-        <div class="card">
-          <strong style="color:var(--terracotta);font-size:0.82rem;">CLIC 3 · SOLO 2 CAMPI OBBLIGATORI</strong>
-          <h4>Invio senza attrito</h4>
-          <p style="font-size:0.86rem;">Inserisce solo Nome e Telefono/WhatsApp (email e note facoltative) e invia la richiesta al CRM.</p>
-        </div>
-        <div class="card">
-          <strong style="color:var(--olive);font-size:0.82rem;">RISPOSTA · LINK PERSONALIZZATO</strong>
-          <h4>Preventivo e Contratto in PDF</h4>
-          <p style="font-size:0.86rem;">Riceve dal team il link <code>/preventivo-tipo?cliente=...</code> già intestato a lui e il Contratto Tipo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. TEMPLATE OUTBOUND (COPIA IN 1 CLIC) -->
-    <section class="no-print">
-      <span class="eyebrow">Messaggi pronti</span>
-      <h2>Template Outbound per i 4 canali <em>prioritari</em></h2>
-
-      <div class="grid-2">
-        <article class="card">
-          <h3>1. Clienti attuali del Gruppo (Blue Arroyo, SmartsBookings, itassistance)</h3>
-          <pre id="tpl-1">Oggetto: Riqualificazione invernale a prezzo fisso per aumentare la resa del tuo immobile
-
-Gentile [Nome Proprietario],
-dai dati di gestione del nostro gruppo vediamo che gli immobili dotati di secondo bagno, aria condizionata moderna, insonorizzazione e arredi rinnovati ottengono tariffe giornaliere fino al 25–35% superiori e recensioni migliori.
-
-Con Toscan Costruzioni (la divisione edile del Gruppo Blue Arroyo) abbiamo riservato ai nostri proprietari uno Studio di Fattibilità Gratuito in 48 ore per interventi nei mesi di bassa stagione, con prezzo fisso bloccato a contratto e penale a nostro carico per ogni settimana di ritardo prima della riapertura primaverile.
-
-Possiamo sentirci 10 minuti questa settimana per valutare insieme se ci sono migliorie utili sul tuo immobile?
-
-Un cordiale saluto,
-Giuliano — Toscan Costruzioni · Blue Arroyo Group
-Tel / WhatsApp: +39 351 038 0392
-https://toscancostruzioni.it/partner</pre>
-          <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-1', this)">Copia messaggio Clienti Gruppo</button>
-        </article>
-
-        <article class="card">
-          <h3>2. Studi di Architettura, Ingegneria e Geometri</h3>
-          <pre id="tpl-2">Oggetto: Impresa edile strutturata a Firenze e Toscana per i vostri progetti esecutivi
-
-Gentile Arch. / Geom. [Cognome],
-sappiamo quanto sia complesso per uno studio di progettazione trovare un'impresa edile puntuale che rispetti i disegni esecutivi, i tempi di consegna e la regolarità documentale.
-
-Toscan Costruzioni (Blue Arroyo Group, Firenze) opera esclusivamente con DURC e Cassa Edile regolari, Polizza CAR/RC di cantiere, capocantiere dedicato e contratti a prezzo fisso con penali per ritardo. Voi mantenete per intero la Progettazione e la Direzione Artistica; noi quotiamo i vostri computi metrici entro 5 giorni lavorativi.
-
-Le fa piacere se passiamo in studio per 15 minuti a lasciarle il nostro capitolato e lo schema di accordo partner?
-
-Un cordiale saluto,
-Direzione Tecnica — Toscan Costruzioni
-Tel: +39 351 038 0392 · https://toscancostruzioni.it/partner</pre>
-          <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-2', this)">Copia messaggio Architetti</button>
-        </article>
-
-        <article class="card">
-          <h3>3. Agenzie Immobiliari di Fascia Alta (Casali, Palazzi, Appartamenti da Ristrutturare)</h3>
-          <pre id="tpl-3">Oggetto: Sbloccare le trattative sugli immobili da ristrutturare in 48 ore (Accordo Agenzie)
-
-Gentile [Nome Agente / Titolare Agenzia],
-spesso l'acquirente di un casale, di un palazzo o di un appartamento grande si blocca prima della proposta perché teme l'incertezza sui costi e sui tempi di ristrutturazione.
-
-Con Toscan Costruzioni (Blue Arroyo Group) vi affianchiamo gratuitamente durante le visite con i vostri clienti (anche in inglese) e consegniamo in 48 ore uno studio di fattibilità con fascia di costo chiavi in mano garantita a contratto, oltre alla possibilità di gestione affitti post-cantiere. Prevediamo inoltre un accordo scritto di segnalazione con commissione dedicata per l'agenzia.
-
-Possiamo fissare una breve chiamata conoscitiva questa settimana?
-
-Un cordiale saluto,
-Giuliano — Toscan Costruzioni · Blue Arroyo Group
-Tel / WhatsApp: +39 351 038 0392 · https://toscancostruzioni.it/partner</pre>
-          <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-3', this)">Copia messaggio Agenzie</button>
-        </article>
-
-        <article class="card">
-          <h3>4. Proprietari di Hotel, Agriturismi e B&amp;B da Rinnovare</h3>
-          <pre id="tpl-4">Oggetto: Studio di fattibilità gratuito in 48h per riqualificazione camere e impianti a prezzo fisso
-
-Gentile Titolare di [Nome Struttura],
-trasformiamo e riqualifichiamo hotel, boutique hotel e agriturismi in Toscana con un'unica formula che tutela l'albergatore: prezzo fisso bloccato a contratto (1.350–2.400 €/m²), cantiere programmato nei mesi di chiusura stagionale e penali giornaliere a nostro carico per ogni ritardo sulla riapertura.
-
-Può consultare il nostro Contratto Tipo e il Preventivo Standard direttamente su:
-https://toscancostruzioni.it/data-room
-
-Se sta valutando il rinnovo di camere, bagni, impianti o area benessere per la prossima stagione, effettuiamo volentieri un sopralluogo tecnico gratuito e senza impegno.
-
-Un cordiale saluto,
-Toscan Costruzioni · Blue Arroyo Group (Firenze)
-Tel / WhatsApp: +39 351 038 0392</pre>
-          <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-4', this)">Copia messaggio Albergatori</button>
-        </article>
-      </div>
-    </section>
-
-    <!-- 4. ACCORDO DI SEGNALAZIONE STAMPABILE IN PDF -->
+    <!-- ACCORDO DI SEGNALAZIONE PARTNER (NASCOSTO DI DEFAULT, VISIBILE SOLO QUANDO RICHIESTO O IN STAMPA) -->
     <section id="accordo-partner">
-      <div class="card" style="padding:40px;">
-        <span class="eyebrow">Allegato partner</span>
-        <h2>Schema di Accordo di Segnalazione Commerciale <em>Partner</em></h2>
+      <div class="card" style="background:#FFF;padding:36px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+          <div>
+            <span class="eyebrow">Allegato Partner B2B</span>
+            <h2>Accordo di Segnalazione Commerciale <em>Partner</em></h2>
+          </div>
+          <button type="button" onclick="window.print()" class="btn btn-primary no-print">Stampa / Salva PDF</button>
+        </div>
         <p style="margin-top:6px;color:var(--ink);">
-          Accordo trasparente riservato a Studi Tecnici, Agenzie Immobiliari, Property Manager e Consulenti che presentano un committente a Toscan Costruzioni (Blue Arroyo Group).
+          Accordo riservato a Studi Tecnici, Agenzie Immobiliari, Property Manager e Consulenti — Partner di riferimento: <strong id="partner-doc-name">Lorenzo Medici</strong> (<span id="partner-doc-city">Firenze</span>).
         </p>
 
-        <div style="margin-top:20px;display:grid;gap:14px;font-size:0.92rem;color:var(--ink);">
+        <div style="margin-top:18px;display:grid;gap:12px;font-size:0.9rem;color:var(--ink);">
           <div>
             <strong>1. Oggetto della Segnalazione:</strong> Il Partner presenta a Toscan Costruzioni un proprietario di immobile o albergatore interessato a lavori di ristrutturazione, frazionamento o riconversione ricettiva in Toscana (importo minimo lavori: 120.000 € oltre IVA).
           </div>
@@ -410,14 +521,14 @@ Tel / WhatsApp: +39 351 038 0392</pre>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px;padding-top:24px;border-top:1px solid var(--line);font-size:0.86rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:0.85rem;">
           <div>
             <strong>Per Toscan Costruzioni · Blue Arroyo Group</strong>
-            <div style="margin-top:36px;border-bottom:1px solid var(--ink);padding-bottom:6px;color:var(--muted);">Data e Firma Direzione</div>
+            <div style="margin-top:34px;border-bottom:1px solid var(--ink);padding-bottom:6px;color:var(--muted);">Data e Firma Direzione</div>
           </div>
           <div>
             <strong>Per il Partner Professionale / Agenzia</strong>
-            <div style="margin-top:36px;border-bottom:1px solid var(--ink);padding-bottom:6px;color:var(--muted);">Data, Timbro e Firma del Partner</div>
+            <div style="margin-top:34px;border-bottom:1px solid var(--ink);padding-bottom:6px;color:var(--muted);">Data, Timbro e Firma del Partner</div>
           </div>
         </div>
       </div>
@@ -426,7 +537,7 @@ Tel / WhatsApp: +39 351 038 0392</pre>
 
   <footer>
     <div class="container">
-      Toscan Costruzioni · Blue Arroyo Group — Console Operativa per Ruolo · <a href="/" style="text-decoration:underline;">Torna alla Home</a>
+      Toscan Costruzioni · Blue Arroyo Group — Piano degli Input &amp; Console Ruoli · <a href="/" style="text-decoration:underline;">Torna alla Home</a>
     </div>
   </footer>
 
@@ -435,115 +546,375 @@ Tel / WhatsApp: +39 351 038 0392</pre>
       var text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text).then(function() {
         var orig = btn.textContent;
-        btn.textContent = '✓ Copiato negli appunti!';
-        setTimeout(function() { btn.textContent = orig; }, 2200);
+        btn.textContent = '✓ Copiato!';
+        setTimeout(function() { btn.textContent = orig; }, 2000);
       });
     }
 
     (function() {
-      /* 1. TABS DEI 4 RUOLI */
-      document.querySelectorAll('[data-role-tab]').forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          document.querySelectorAll('[data-role-tab]').forEach(function(t) { t.classList.remove('is-active'); });
-          document.querySelectorAll('.role-panel').forEach(function(p) { p.classList.remove('is-active'); });
-          tab.classList.add('is-active');
-          var panel = document.getElementById(tab.getAttribute('data-role-tab'));
-          if (panel) panel.classList.add('is-active');
-        });
-      });
+      var STORAGE_KEY = 'tc_active_commessa_v1';
+      var WEBHOOK_URL = 'https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni';
 
-      /* 2. CONSOLE VENDITE (GIULIANO) */
-      var salesType = 'appartamenti';
+      var rates = {
+        appartamenti: { rate: 1550, months: '5–7 mesi', label: 'Appartamenti per affitti brevi' },
+        agriturismo:  { rate: 1950, months: '8–11 mesi', label: 'Agriturismo / Casale in pietra' },
+        hotel:        { rate: 2150, months: '9–12 mesi', label: 'Hotel / Boutique hotel' },
+        studenti:     { rate: 1600, months: '5–8 mesi', label: 'Residenza studenti / Cambio d\'uso' }
+      };
+
+      var state = {
+        role: 'sales',
+        client: 'Lorenzo Medici',
+        phone: '',
+        city: 'Firenze',
+        sqm: 280,
+        type: 'appartamenti',
+        sal: '1° SAL · Strutture e Murature (40%)',
+        notes: 'Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati.'
+      };
+
+      /* Carica stato da localStorage e poi sovrascrive con eventuali parametri URL */
+      try {
+        var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        if (saved && typeof saved === 'object') {
+          Object.keys(saved).forEach(function(k) { if (saved[k]) state[k] = saved[k]; });
+        }
+      } catch (e) {}
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('role')) state.role = params.get('role');
+      if (params.get('cliente') || params.get('client')) state.client = params.get('cliente') || params.get('client');
+      if (params.get('phone') || params.get('tel')) state.phone = params.get('phone') || params.get('tel');
+      if (params.get('city') || params.get('citta')) state.city = params.get('city') || params.get('citta');
+      if (params.get('sqm') || params.get('mq')) state.sqm = parseInt(params.get('sqm') || params.get('mq'), 10) || 280;
+      if (params.get('type') && rates[params.get('type')]) state.type = params.get('type');
+      if (window.location.hash === '#accordo-partner') {
+        document.getElementById('accordo-partner').classList.add('is-visible');
+      }
+
       var sClient = document.getElementById('s-client');
       var sPhone = document.getElementById('s-phone');
       var sCity = document.getElementById('s-city');
       var sSqm = document.getElementById('s-sqm');
-      var sOutUrl = document.getElementById('s-out-url');
-      var sOpen = document.getElementById('btn-sales-open');
-      var sStatus = document.getElementById('sales-status');
+      var tNotes = document.getElementById('t-notes');
 
-      function updateSalesLink() {
-        var path = '/preventivo-tipo?type=' + encodeURIComponent(salesType) +
-                   '&city=' + encodeURIComponent(sCity.value.trim() || 'Firenze') +
-                   '&sqm=' + encodeURIComponent(sSqm.value.trim() || '250');
-        if (sClient.value.trim()) {
-          path += '&cliente=' + encodeURIComponent(sClient.value.trim());
-        }
-        var fullUrl = 'https://toscancostruzioni.it' + path;
-        sOutUrl.value = fullUrl;
-        sOpen.href = path;
+      sClient.value = state.client;
+      sPhone.value = state.phone;
+      sCity.value = state.city;
+      sSqm.value = state.sqm;
+      tNotes.value = state.notes;
+
+      function fmtEur(n) {
+        return Math.round(n).toLocaleString('it-IT') + ' €';
       }
 
-      document.querySelectorAll('[data-s-type]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('[data-s-type]').forEach(function(b) { b.classList.remove('is-active'); });
-          btn.classList.add('is-active');
-          salesType = btn.getAttribute('data-s-type');
-          updateSalesLink();
-        });
-      });
-      [sClient, sPhone, sCity, sSqm].forEach(function(el) { el.addEventListener('input', updateSalesLink); });
-      updateSalesLink();
-
-      document.getElementById('btn-sales-copy').addEventListener('click', function() {
-        navigator.clipboard.writeText(sOutUrl.value).then(function() {
-          sStatus.textContent = '✓ Link personalizzato copiato negli appunti!';
-        });
-      });
-
-      document.getElementById('btn-sales-wa').addEventListener('click', function() {
-        var name = sClient.value.trim() || 'Cliente';
-        var msg = 'Buongiorno ' + name + ', come concordato ecco la stima analitica chiavi in mano preparata per il Suo immobile a ' +
-                  (sCity.value.trim() || 'Firenze') + ' (' + (sSqm.value.trim() || '250') + ' m²): ' + sOutUrl.value +
-                  ' — Resto a disposizione per il sopralluogo tecnico gratuito. Giuliano · Toscan Costruzioni';
-        var cleanPhone = (sPhone.value || '').replace(/[^0-9]/g, '');
-        var waBase = cleanPhone ? ('https://wa.me/' + cleanPhone) : 'https://wa.me/';
-        window.open(waBase + '?text=' + encodeURIComponent(msg), '_blank');
-      });
-
-      document.getElementById('btn-sales-crm').addEventListener('click', function() {
+      function sendCrm(actionLabel, extraNote) {
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
         var payload = {
-          nome: sClient.value.trim() || 'Lead da Console Vendite',
-          telefono: sPhone.value.trim() || 'Da telefono',
-          email: 'Inserito da Console Vendite',
-          zona: (sCity.value.trim() || 'Firenze') + ' (' + (sSqm.value.trim() || '250') + ' m²)',
-          budget: 'Preventivo inviato: ' + sOutUrl.value,
-          note: '[CONSOLE VENDITE] Tipologia: ' + salesType
+          source: 'console_ruoli_' + state.role,
+          azione: actionLabel,
+          nome: state.client,
+          telefono: state.phone || 'Da console interna',
+          citta: state.city,
+          mq: state.sqm,
+          tipologia: info.label,
+          importo_stimato: total,
+          sal_attuale: state.sal,
+          note: extraNote || ''
         };
-        fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+        fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         }).catch(function(){});
-        sStatus.textContent = '✓ Contatto registrato nel CRM (n8n)!';
-      });
-
-      /* 3. CONSOLE TECNICA (REPORT DEL VENERDÌ) */
-      var techSal = '1° SAL · Opere Murarie e Strutture (40%)';
-      var tCantiere = document.getElementById('t-cantiere');
-      var tNotes = document.getElementById('t-notes');
-      var tOutMsg = document.getElementById('t-out-msg');
-
-      function updateTechMsg() {
-        tOutMsg.textContent = 'REPORT AVANZAMENTO CANTIERE DEL VENERDÌ\n' +
-          'Commessa: ' + (tCantiere.value || '-') + '\n' +
-          'Stato attuale: ' + techSal + '\n' +
-          'Opere eseguite in settimana: ' + (tNotes.value || '-') + '\n' +
-          'Cronoprogramma: In linea con la data di consegna contrattuale.\n' +
-          'Documentazione: Foto allegate e DURC regolare.\n' +
-          '— Direzione Tecnica Toscan Costruzioni · Blue Arroyo Group';
       }
 
+      function openWhatsApp(text, useClientPhone) {
+        var cleanPhone = useClientPhone ? (state.phone || '').replace(/[^0-9]/g, '') : '393510380392';
+        var base = cleanPhone ? ('https://wa.me/' + cleanPhone) : 'https://wa.me/';
+        window.open(base + '?text=' + encodeURIComponent(text), '_blank');
+      }
+
+      function activateRole(slug) {
+        state.role = slug;
+        document.querySelectorAll('[data-role-tab]').forEach(function(t) {
+          var isMatch = t.getAttribute('data-role-slug') === slug;
+          t.classList.toggle('is-active', isMatch);
+        });
+        document.querySelectorAll('.role-panel').forEach(function(p) {
+          p.classList.toggle('is-active', p.id === 'role-' + slug);
+        });
+        saveAndRender();
+      }
+
+      function saveAndRender() {
+        state.client = sClient.value.trim() || 'Cliente';
+        state.phone = sPhone.value.trim();
+        state.city = sCity.value.trim() || 'Firenze';
+        state.sqm = Math.max(40, parseInt(sSqm.value, 10) || 250);
+        state.notes = tNotes.value.trim();
+
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
+
+        /* Chip tipologia attivi */
+        document.querySelectorAll('[data-s-type]').forEach(function(b) {
+          b.classList.toggle('is-active', b.getAttribute('data-s-type') === state.type);
+        });
+
+        /* URL condivisi per Preventivo PDF e Contratto Data-Room */
+        var qQuery = '?type=' + encodeURIComponent(state.type) +
+                     '&city=' + encodeURIComponent(state.city) +
+                     '&sqm=' + encodeURIComponent(state.sqm) +
+                     '&cliente=' + encodeURIComponent(state.client);
+        var quotePath = '/preventivo-tipo' + qQuery;
+        var contractPath = '/data-room' + qQuery;
+
+        document.getElementById('nav-quote-link').href = quotePath;
+        document.getElementById('nav-contract-link').href = contractPath;
+        document.getElementById('btn-sales-open').href = quotePath;
+        document.getElementById('dir-open-contract').href = contractPath;
+        document.getElementById('btn-admin-contract').href = contractPath;
+
+        /* 1. Render Direzione */
+        document.getElementById('dir-kpi-total').textContent = fmtEur(total);
+        document.getElementById('dir-kpi-rate').textContent = 'Prezzo fisso a corpo (' + info.rate + ' €/m²)';
+        document.getElementById('dir-kpi-sal').textContent = state.sal.split('·')[0].trim();
+        document.getElementById('dir-kpi-months').textContent = 'Durata garantita: ' + info.months;
+        document.getElementById('dir-kpi-fee').textContent = fmtEur(total * 0.025);
+
+        /* 2. Render Vendite + Outbound precompilati */
+        document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' (' + state.sqm + ' m²)';
+        document.getElementById('sales-summary-sub').innerHTML =
+          'Importo a corpo: <strong>' + fmtEur(total) + '</strong> (' + info.rate + ' €/m²) · Durata: <strong>' + info.months + '</strong> con penali.';
+        document.getElementById('out-tpl-name').textContent = state.client;
+        document.getElementById('out-tpl-city').textContent = state.city;
+        document.getElementById('partner-doc-name').textContent = state.client;
+        document.getElementById('partner-doc-city').textContent = state.city;
+
+        document.getElementById('tpl-1').textContent =
+          'Gentile ' + state.client + ',\ndai dati di gestione del nostro gruppo su ' + state.city + ' vediamo che gli immobili dotati di secondo bagno, aria condizionata moderna, insonorizzazione e arredi rinnovati ottengono tariffe giornaliere fino al 25–35% superiori.\n\nCon Toscan Costruzioni (Gruppo Blue Arroyo) abbiamo riservato ai nostri proprietari uno Studio di Fattibilità Gratuito in 48 ore con prezzo fisso bloccato a contratto e penale per ogni settimana di ritardo.\n\nPossiamo sentirci 10 minuti questa settimana?\nGiuliano — Toscan Costruzioni (+39 351 038 0392)';
+
+        document.getElementById('tpl-2').textContent =
+          'Gentile ' + state.client + ',\nsappiamo quanto sia importante per uno studio tecnico a ' + state.city + ' affiancarsi a un\'impresa edile puntuale che rispetti i disegni esecutivi e i tempi di consegna.\n\nToscan Costruzioni (Blue Arroyo Group) opera con DURC e Cassa Edile regolari, Polizza CAR/RC e contratti a prezzo fisso con penali. Voi mantenete Progettazione e Direzione Lavori; noi quotiamo i vostri computi entro 5 giorni lavorativi con accordo partner dedicato (2–3%).\n\nPassiamo volentieri in studio per 15 minuti: https://toscancostruzioni.it/partner';
+
+        document.getElementById('tpl-3').textContent =
+          'Gentile ' + state.client + ',\nspesso l\'acquirente di un immobile da ristrutturare a ' + state.city + ' si blocca prima della proposta per il timore di costi e tempi incerti.\n\nCon Toscan Costruzioni vi affianchiamo gratuitamente in visita e consegniamo in 48 ore uno studio di fattibilità con fascia di costo chiavi in mano garantita a contratto, più accordo di segnalazione scritto (2–3%) per l\'agenzia.\n\nFissiamo una breve chiamata questa settimana? Giuliano (+39 351 038 0392)';
+
+        document.getElementById('tpl-4').textContent =
+          'Gentile Titolare di ' + state.client + ' (' + state.city + '),\nriqualifichiamo hotel, boutique hotel e agriturismi in Toscana con prezzo fisso bloccato a contratto (' + info.rate + ' €/m² per ' + state.sqm + ' m² = ' + fmtEur(total) + '), cantiere nei mesi di bassa stagione e penali giornaliere a nostro carico per ogni ritardo sulla riapertura.\n\nEcco la distinta analitica pre-compilata per la Sua struttura: https://toscancostruzioni.it' + quotePath;
+
+        /* 3. Render Tecnico / Cantiere */
+        document.getElementById('t-out-msg').textContent =
+          'REPORT AVANZAMENTO CANTIERE DEL VENERDÌ\n' +
+          'Commessa: ' + state.client + ' — ' + state.city + ' (' + state.sqm + ' m²)\n' +
+          'Stato attuale: ' + state.sal + '\n' +
+          'Lavorazioni eseguite: ' + state.notes + '\n' +
+          'Cronoprogramma: In linea con la consegna contrattuale (' + info.months + ').\n' +
+          'Documentazione: Foto allegate e DURC regolare.\n' +
+          '— Direzione Tecnica Toscan Costruzioni · Blue Arroyo Group';
+
+        /* 4. Render Amministrazione (5 SAL in Euro) */
+        document.getElementById('adm-sal-1').textContent = fmtEur(total * 0.15);
+        document.getElementById('adm-sal-2').textContent = fmtEur(total * 0.25);
+        document.getElementById('adm-sal-3').textContent = fmtEur(total * 0.25);
+        document.getElementById('adm-sal-4').textContent = fmtEur(total * 0.25);
+        document.getElementById('adm-sal-5').textContent = fmtEur(total * 0.10);
+
+        /* 5. Render Gestione Ospiti Blue Arroyo */
+        document.getElementById('h-welcome-msg').textContent =
+          'Gentile ' + state.client + ',\n' +
+          'il collaudo finale del cantiere Toscan Costruzioni per l\'immobile di ' + state.city + ' (' + state.sqm + ' m²) è stato completato con successo e tutte le certificazioni degli impianti (DM 37/08, APE e agibilità) sono depositate.\n\n' +
+          'Da oggi la divisione ospitalità di Blue Arroyo ha preso in carico la struttura: serrature elettroniche, rete Wi-Fi, servizio fotografico e annunci sono attivi per accogliere i primi ospiti.';
+      }
+
+      /* Eventi cambio ruolo */
+      document.querySelectorAll('[data-role-tab]').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          activateRole(tab.getAttribute('data-role-slug'));
+        });
+      });
+
+      /* Eventi preset commessa rapida */
+      document.querySelectorAll('[data-preset-client]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          sClient.value = btn.getAttribute('data-preset-client');
+          sCity.value = btn.getAttribute('data-preset-city');
+          sSqm.value = btn.getAttribute('data-preset-sqm');
+          sPhone.value = btn.getAttribute('data-preset-phone') || '';
+          state.type = btn.getAttribute('data-preset-type') || 'appartamenti';
+          saveAndRender();
+        });
+      });
+
+      /* Eventi input barra condivisa */
+      [sClient, sPhone, sCity, sSqm, tNotes].forEach(function(el) {
+        el.addEventListener('input', saveAndRender);
+      });
+
+      document.querySelectorAll('[data-s-type]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.type = btn.getAttribute('data-s-type');
+          saveAndRender();
+        });
+      });
+
+      /* Chip rapidi Città e m² in Vendite */
+      document.querySelectorAll('[data-quick-city]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          sCity.value = btn.getAttribute('data-quick-city');
+          saveAndRender();
+        });
+      });
+      document.querySelectorAll('[data-quick-sqm]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          sSqm.value = btn.getAttribute('data-quick-sqm');
+          saveAndRender();
+        });
+      });
+
+      /* AZIONE 1-TAP VENDITE: WHATSAPP + CRM INSIEME */
+      document.getElementById('btn-sales-one-tap').addEventListener('click', function() {
+        saveAndRender();
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
+        var fullUrl = 'https://toscancostruzioni.it/preventivo-tipo?type=' + encodeURIComponent(state.type) +
+                      '&city=' + encodeURIComponent(state.city) +
+                      '&sqm=' + encodeURIComponent(state.sqm) +
+                      '&cliente=' + encodeURIComponent(state.client);
+        sendCrm('preventivo_inviato_wa_1tap', fullUrl);
+        document.getElementById('sales-status').textContent = '✓ Salvato nel CRM (n8n) e aperto su WhatsApp!';
+        var msg = 'Buongiorno ' + state.client + ', come concordato ecco la stima analitica chiavi in mano preparata per il Suo immobile a ' +
+                  state.city + ' (' + state.sqm + ' m² — importo a corpo ' + fmtEur(total) + ', durata ' + info.months + '): ' + fullUrl +
+                  ' — Resto a disposizione per il sopralluogo tecnico gratuito. Giuliano · Toscan Costruzioni';
+        openWhatsApp(msg, true);
+      });
+
+      document.getElementById('btn-sales-copy').addEventListener('click', function() {
+        var fullUrl = 'https://toscancostruzioni.it' + document.getElementById('btn-sales-open').getAttribute('href');
+        navigator.clipboard.writeText(fullUrl).then(function() {
+          document.getElementById('sales-status').textContent = '✓ Link cliente copiato negli appunti!';
+        });
+      });
+
+      /* Bottoni 1-tap Outbound WhatsApp */
+      document.querySelectorAll('[data-wa-tpl]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-wa-tpl');
+          var text = document.getElementById(id).textContent;
+          sendCrm('outbound_partner_wa', id);
+          openWhatsApp(text, true);
+        });
+      });
+
+      /* AZIONI 1-TAP DIREZIONE */
+      document.getElementById('btn-dir-approve').addEventListener('click', function() {
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
+        var contractUrl = 'https://toscancostruzioni.it' + document.getElementById('dir-open-contract').getAttribute('href');
+        sendCrm('direzione_approva_contratto', contractUrl);
+        document.getElementById('dir-status').textContent = '✓ Offerta approvata e Contratto sbloccato nel CRM!';
+        openWhatsApp('APPROVAZIONE DIREZIONE — Commessa ' + state.client + ' (' + state.city + ', ' + state.sqm + ' m²): approvato prezzo fisso a corpo di ' + fmtEur(total) + '. Procedere con invio Contratto Tipo: ' + contractUrl, false);
+      });
+
+      document.getElementById('btn-dir-sal-ok').addEventListener('click', function() {
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
+        sendCrm('direzione_autorizza_sal', state.sal);
+        document.getElementById('dir-status').textContent = '✓ Autorizzazione SAL inviata ad Amministrazione!';
+        openWhatsApp('NULLA OSTA DIREZIONE SAL — Commessa ' + state.client + ' (' + state.city + '): autorizzata emissione fattura per ' + state.sal + ' su contratto da ' + fmtEur(total) + '.', false);
+      });
+
+      /* AZIONI 1-TAP TECNICO / CANTIERE */
       document.querySelectorAll('[data-t-sal]').forEach(function(btn) {
         btn.addEventListener('click', function() {
           document.querySelectorAll('[data-t-sal]').forEach(function(b) { b.classList.remove('is-active'); });
           btn.classList.add('is-active');
-          techSal = btn.getAttribute('data-t-sal');
-          updateTechMsg();
+          state.sal = btn.getAttribute('data-t-sal');
+          tNotes.value = btn.getAttribute('data-t-default') || tNotes.value;
+          saveAndRender();
         });
       });
-      [tCantiere, tNotes].forEach(function(el) { el.addEventListener('input', updateTechMsg); });
-      updateTechMsg();
+
+      document.getElementById('btn-tech-wa').addEventListener('click', function() {
+        var msg = document.getElementById('t-out-msg').textContent;
+        sendCrm('report_venerdi_cantiere', state.sal);
+        document.getElementById('tech-status').textContent = '✓ Report del Venerdì registrato nel CRM e pronto su WhatsApp!';
+        openWhatsApp(msg, true);
+      });
+
+      document.querySelectorAll('[data-tech-alert]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var issue = btn.getAttribute('data-tech-alert');
+          sendCrm('segnalazione_cantiere_urgente', issue);
+          document.getElementById('tech-status').textContent = '✓ Segnalazione inviata a Direzione e Amministrazione!';
+          openWhatsApp('SEGNALAZIONE CANTIERE [' + state.client + ' · ' + state.city + ' — ' + state.sal + ']: ' + issue, false);
+        });
+      });
+
+      /* AZIONI 1-TAP AMMINISTRAZIONE */
+      function updateAdminCount() {
+        var totalChk = document.querySelectorAll('.admin-chk').length;
+        var checked = document.querySelectorAll('.admin-chk:checked').length;
+        document.getElementById('admin-check-count').textContent = checked + '/' + totalChk;
+        document.getElementById('dir-kpi-docs').textContent = checked + ' / ' + totalChk + ' Pronti';
+      }
+      document.querySelectorAll('.admin-chk').forEach(function(c) {
+        c.addEventListener('change', updateAdminCount);
+      });
+
+      document.getElementById('btn-admin-invoice-wa').addEventListener('click', function() {
+        var info = rates[state.type] || rates.appartamenti;
+        var total = state.sqm * info.rate;
+        var quotaSal = fmtEur(total * 0.25);
+        sendCrm('avviso_emissione_fattura_sal', state.sal);
+        document.getElementById('admin-status').textContent = '✓ Avviso emissione SAL registrato e pronto per il cliente!';
+        openWhatsApp(
+          'Gentile ' + state.client + ', in seguito alla certificazione del traguardo "' + state.sal + '" per il cantiere di ' + state.city + ', Le confermiamo la regolarità del DURC aggiornato e l\'emissione della relativa rata contrattuale (' + quotaSal + ' oltre IVA di legge). — Amministrazione Toscan Costruzioni · Blue Arroyo Group',
+          true
+        );
+      });
+
+      function togglePartnerSection() {
+        var sec = document.getElementById('accordo-partner');
+        sec.classList.toggle('is-visible');
+        if (sec.classList.contains('is-visible')) {
+          sec.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      document.getElementById('btn-toggle-partner-doc').addEventListener('click', togglePartnerSection);
+      document.getElementById('btn-admin-partner-doc').addEventListener('click', togglePartnerSection);
+
+      /* AZIONI 1-TAP GESTIONE OSPITI BLUE ARROYO */
+      document.querySelectorAll('.hosp-chk').forEach(function(c) {
+        c.addEventListener('change', function() {
+          var tot = document.querySelectorAll('.hosp-chk').length;
+          var chk = document.querySelectorAll('.hosp-chk:checked').length;
+          document.getElementById('hosp-check-count').textContent = chk + '/' + tot;
+        });
+      });
+
+      document.getElementById('btn-hosp-wa').addEventListener('click', function() {
+        var msg = document.getElementById('h-welcome-msg').textContent;
+        sendCrm('avvio_gestione_ospiti_blue_arroyo', '100% Collaudato');
+        document.getElementById('hosp-status').textContent = '✓ Passaggio Cantiere → Ospiti registrato e inviato!';
+        openWhatsApp(msg, true);
+      });
+
+      document.querySelectorAll('[data-hosp-ticket]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var t = btn.getAttribute('data-hosp-ticket');
+          sendCrm('ticket_assistenza_post_cantiere', t);
+          document.getElementById('hosp-status').textContent = '✓ Ticket assistenza assegnato alla Direzione Tecnica!';
+          openWhatsApp('TICKET ASSISTENZA POST-CANTIERE [' + state.client + ' · ' + state.city + ']: ' + t, false);
+        });
+      });
+
+      /* Avvio iniziale sul ruolo richiesto */
+      activateRole(state.role);
     })();
   </script>
 </body>
