@@ -28,6 +28,22 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Preventivo Standard in PDF -->
+  <url>
+    <loc>https://toscancostruzioni.it/preventivo-tipo.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Programma Partner: Architetti, Agenzie, Property Manager e Clienti Blue Arroyo -->
+  <url>
+    <loc>https://toscancostruzioni.it/partner-architetti-agenzie-property-manager-toscana.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <!-- Cambio Destinazione d'Uso Hotel, Student Housing & Short-Medium Term Toscana -->
   <url>
     <loc>https://toscancostruzioni.it/cambio-destinazione-uso-hotel-short-term-toscana.html</loc>
