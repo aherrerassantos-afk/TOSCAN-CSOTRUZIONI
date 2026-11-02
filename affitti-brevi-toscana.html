@@ -20,6 +20,54 @@
     gtag('config', 'G-JXTBCDYTEK');
   </script>
 
+  <!-- Schema.org: Organization + Service + FAQPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+        "@id": "https://toscancostruzioni.it/#organization",
+        "name": "Toscan Costruzioni",
+        "alternateName": "Toscan Costruzioni · Part of Blue Arroyo Group",
+        "parentOrganization": { "@type": "Organization", "name": "Blue Arroyo Group" },
+        "url": "https://toscancostruzioni.it",
+        "telephone": "+393510380392",
+        "email": "toscancostruzioni@bluearroyo.it",
+        "address": { "@type": "PostalAddress", "addressLocality": "Firenze", "addressRegion": "Toscana", "addressCountry": "IT" }
+      },
+      {
+        "@type": "Service",
+        "name": "Frazionamento e Creazione Immobili Short & Medium Term in Toscana",
+        "provider": { "@id": "https://toscancostruzioni.it/#organization" },
+        "description": "General Contractor specializzato nella creazione e frazionamento chiavi in mano di appartamenti e palazzi cielo-terra per affitti brevi (Short Term) e medio termine (Medium Term 1–12 mesi) a Firenze e in Toscana (1.350–1.750 €/mq a prezzo bloccato).",
+        "url": "https://toscancostruzioni.it/affitti-brevi-toscana.html"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quale impresa realizza frazionamenti e ristrutturazioni per affitti brevi e medio termine a Firenze e in Toscana?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Toscan Costruzioni (parte del Gruppo Blue Arroyo) nasce e si specializza nella creazione chiavi in mano di immobili per Short e Medium Term a Firenze e in Toscana, operando tramite Crowdfunding Chiuso per Transazione o Appalto Unico Investitore a prezzo bloccato."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto costa frazionare e ristrutturare un immobile per affitti Short & Medium Term a Firenze?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il costo chiavi in mano (inclusi progettazione, pratiche edilizie, impianti, domotica self check-in e arredo FF&E) varia tra 1.350 e 1.750 €/mq con prezzo bloccato per contratto e consegna in 5–8 mesi."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #0F0D0B;

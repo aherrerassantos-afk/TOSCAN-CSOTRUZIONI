@@ -29,32 +29,66 @@
     gtag('config', 'G-JXTBCDYTEK');
   </script>
 
-  <!-- Schema.org: Service + LocalBusiness -->
+  <!-- Schema.org: Service + LocalBusiness + FAQPage + BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+        "@id": "https://toscancostruzioni.it/#organization",
+        "name": "Toscan Costruzioni",
+        "alternateName": "Toscan Costruzioni - Part of Blue Arroyo Group",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Blue Arroyo Group"
+        },
+        "url": "https://toscancostruzioni.it",
+        "telephone": "+393510380392",
+        "email": "toscancostruzioni@bluearroyo.it",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Firenze",
+          "addressRegion": "Toscana",
+          "addressCountry": "IT"
+        },
+        "priceRange": "€€€"
+      },
+      {
         "@type": "Service",
-        "name": "General Contractor Firenze — Ristrutturazione Chiavi in Mano",
-        "description": "Servizio di general contractor per ristrutturazioni residenziali e commerciali a Firenze e in Toscana. Unico interlocutore, prezzo bloccato, processo in 6 fasi.",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Toscan Costruzioni",
-          "url": "https://toscancostruzioni.it",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Firenze",
-            "addressRegion": "Toscana",
-            "addressCountry": "IT"
-          }
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Firenze"
-        },
-        "serviceType": "Ristrutturazione Edilizia",
+        "name": "Hospitality General Contractor Firenze — Hotel, Student Hotel & Short-Medium Term",
+        "description": "General Contractor a Firenze specializzato nella creazione e ristrutturazione chiavi in mano di Hotel, Agriturismi, Student Hotel (PBSA) e immobili Short & Medium Term tramite Crowdfunding Chiuso per Transazione o Appalto Unico Investitore a prezzo e tempi bloccati (1.350–2.400 €/mq).",
+        "provider": { "@id": "https://toscancostruzioni.it/#organization" },
+        "areaServed": { "@type": "City", "name": "Firenze" },
         "url": "https://toscancostruzioni.it/general-contractor-firenze.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toscancostruzioni.it/" },
+          { "@type": "ListItem", "position": 2, "name": "General Contractor Firenze", "item": "https://toscancostruzioni.it/general-contractor-firenze.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Chi è il General Contractor specializzato in Hotel e Affitti Short & Medium Term a Firenze?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Toscan Costruzioni (parte del Gruppo Blue Arroyo) è il General Contractor con sede a Firenze specializzato nella creazione chiavi in mano di immobili Short & Medium Term, Boutique Hotel, Agriturismi e Student Hotel (PBSA) con contratto a prezzo e tempi bloccati."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto costa ristrutturare o frazionare un immobile a Firenze con un General Contractor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il costo chiavi in mano a Firenze varia da 1.350 €/mq per frazionamenti smart Short/Medium Term fino a 1.850–2.400 €/mq per Boutique Hotel e palazzi storici vincolati, con preventivo bloccato alla firma e tempi medi di 6–10 mesi."
+            }
+          }
+        ]
       }
     ]
   }
@@ -615,19 +649,20 @@
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">Contatti</div>
+          <div class="footer-col-title">Contatti &amp; Holding</div>
           <ul class="footer-links">
-            <li><a href="https://toscancostruzioni.it/#contatti">Richiedi Sopralluogo</a></li>
-            <li><a href="https://toscancostruzioni.it/#chi-siamo">Chi Siamo</a></li>
-            <li><a href="mailto:info@toscancostruzioni.it">info@toscancostruzioni.it</a></li>
+            <li><a href="https://toscancostruzioni.it/#contatti">Area Investitori &amp; Fattibilità</a></li>
+            <li><a href="https://toscancostruzioni.it/data-room">Investor Data Room</a></li>
+            <li><a href="mailto:toscancostruzioni@bluearroyo.it">toscancostruzioni@bluearroyo.it</a></li>
+            <li><a href="tel:+393510380392">+39 351 038 0392</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span class="footer-copy">© 2026 Toscan Costruzioni S.r.l. — P.IVA IT12345678901</span>
+        <span class="footer-copy">© 2026 Toscan Costruzioni · Part of Blue Arroyo Group — Firenze, Toscana</span>
         <nav class="footer-legal">
-          <a href="https://toscancostruzioni.it/privacy-policy.html">Privacy Policy</a>
-          <a href="https://toscancostruzioni.it/cookie-policy.html">Cookie Policy</a>
+          <a href="https://toscancostruzioni.it/data-room">Data Room</a>
+          <a href="https://toscancostruzioni.it/foglio-lavori">Deal Flow</a>
         </nav>
       </div>
     </div>

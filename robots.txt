@@ -1,5 +1,6 @@
-# Toscan Costruzioni — toscancostruzioni.it
-# robots.txt — updated 2025-06
+# Toscan Costruzioni · Part of Blue Arroyo Group — toscancostruzioni.it
+# robots.txt — SEO + GEO (AI Search & Citation Optimized)
+# Updated: 2026-11-02
 
 User-agent: *
 Allow: /
@@ -8,21 +9,50 @@ Disallow: /bob/
 Disallow: /business/
 Disallow: /social/
 
-# AI Crawlers — welcome for GEO indexing
-User-agent: GPTBot
+# Classical Search Engines
+User-agent: Googlebot
 Allow: /
 
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Anthropic-ai
-Allow: /
-
-User-agent: PerplexityBot
+User-agent: Bingbot
 Allow: /
 
 User-agent: Applebot
 Allow: /
 
+# AI Search & Citation Bots (Explicitly Allowed for GEO)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# AI Training & Knowledge Base Bots (Approved by Blue Arroyo Group)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Canonical XML Sitemap
 Sitemap: https://toscancostruzioni.it/sitemap.xml
-Sitemap: https://toscancostruzioni.it/sitemap-en.xml
