@@ -1380,6 +1380,7 @@
                 *Nota importante: questa è una <strong>stima parametrica indicativa</strong> basata sui nostri cantieri in Toscana e non costituisce un preventivo contrattuale. Il prezzo fisso viene definito solo dopo il sopralluogo gratuito.
               </p>
               <a href="#contatti" class="btn btn--primary" id="est-cta-btn" style="width:100%;">Ricevi lo studio di fattibilità gratuito</a>
+              <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow" style="display:inline-flex;margin-top:12px;font-size:0.88rem;">Apri la distinta voci in PDF per 300 m² →</a>
             </div>
           </div>
         </div>
@@ -1659,7 +1660,7 @@
             <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Continua con i tuoi recapiti →</button>
           </div>
 
-          <!-- STEP 2: I CONTATTI -->
+          <!-- STEP 2: I CONTATTI (Solo 2 campi obbligatori per ridurre l'attrito al minimo) -->
           <div id="form-step-2" style="display:none;">
             <div class="input-row">
               <div>
@@ -1674,21 +1675,17 @@
 
             <div class="input-row">
               <div>
-                <label class="field-label" for="f-email">A quale indirizzo email inviamo lo studio preliminare? *</label>
-                <input type="email" id="f-email" name="email" class="input-text" required placeholder="nome@azienda.it" />
+                <label class="field-label" for="f-email">A quale indirizzo email inviamo lo studio preliminare? (facoltativo)</label>
+                <input type="email" id="f-email" name="email" class="input-text" placeholder="nome@azienda.it" />
               </div>
               <div>
-                <label class="field-label" for="f-budget">Fascia di budget prevista (facoltativo)</label>
-                <input type="text" id="f-budget" name="budget" class="input-text" placeholder="Es. 300.000 € – 600.000 €" />
+                <label class="field-label" for="f-note">Vuoi aggiungere qualche dettaglio? (facoltativo)</label>
+                <input type="text" id="f-note" name="note" class="input-text" placeholder="Es. immobile già di proprietà, orario preferito..." />
               </div>
             </div>
+            <input type="hidden" id="f-budget" name="budget" value="" />
 
-            <div class="field-group">
-              <label class="field-label" for="f-note">Vuoi aggiungere qualche dettaglio? (facoltativo)</label>
-              <textarea id="f-note" name="note" class="input-text" rows="3" placeholder="Indica se l'immobile è già di tua proprietà o se desideri essere richiamato in una fascia oraria precisa..."></textarea>
-            </div>
-
-            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--space-3);">
               <button type="button" class="btn btn--secondary" id="btn-back-step-1">← Indietro</button>
               <button type="submit" class="btn btn--primary" id="btn-submit-form" style="flex:1;">Richiedi lo studio gratuito</button>
             </div>
@@ -1834,6 +1831,11 @@
         document.getElementById('est-range-sqm').textContent = minSqm.toLocaleString('it-IT') + ' – ' + maxSqm.toLocaleString('it-IT') + ' €/m²';
         document.getElementById('est-total-cost').textContent = 'Fascia complessiva stimata: ' + minTot.toLocaleString('it-IT') + ' € – ' + maxTot.toLocaleString('it-IT') + ' €';
         document.getElementById('est-months').textContent = mStart + ' – ' + (mStart + 2) + ' mesi';
+        var pdfLink = document.getElementById('est-pdf-link');
+        if (pdfLink) {
+          pdfLink.href = '/preventivo-tipo?type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm);
+          pdfLink.textContent = 'Apri la distinta voci in PDF per ' + estState.sqm + ' m² →';
+        }
       }
 
       document.querySelectorAll('[data-est-type]').forEach(function(btn) {
@@ -1867,16 +1869,56 @@
         estCta.addEventListener('click', function() {
           var mqField = document.getElementById('f-mq');
           if (mqField) mqField.value = estState.sqm;
+          var budgetField = document.getElementById('f-budget');
+          if (budgetField) budgetField.value = document.getElementById('est-total-cost').textContent;
+          var mapTipo = {
+            appartamenti: 'Appartamento da dividere',
+            hotel: 'Hotel o boutique hotel',
+            agriturismo: 'Casale o agriturismo',
+            studenti: 'Ufficio o locale per cambio d\'uso'
+          };
+          var mapped = mapTipo[estState.type];
+          if (mapped) {
+            document.getElementById('f-tipo').value = mapped;
+            document.querySelectorAll('[data-f-tipo]').forEach(function(b) {
+              b.classList.toggle('is-active', b.getAttribute('data-f-tipo') === mapped);
+            });
+          }
+          setTimeout(function() {
+            var cittaField = document.getElementById('f-citta');
+            if (cittaField && !cittaField.value.trim()) cittaField.focus();
+          }, 350);
         });
       }
 
-      /* 4. FORM IN 2 STEP & CHIP SELEZIONABILI */
+      /* 4. FORM IN 2 STEP, PRECOMPILAZIONE URL & CHIP SELEZIONABILI */
       window.prefillForm = function(tipo, citta, mq, obiettivo) {
         if (citta) document.getElementById('f-citta').value = citta;
         if (mq) document.getElementById('f-mq').value = mq;
         if (tipo) document.getElementById('f-tipo').value = tipo;
         if (obiettivo) document.getElementById('f-obiettivo').value = obiettivo;
+        if (citta && mq) {
+          document.getElementById('form-step-1').style.display = 'none';
+          document.getElementById('form-step-2').style.display = 'block';
+          document.getElementById('pill-step-1').classList.remove('is-active');
+          document.getElementById('pill-step-2').classList.add('is-active');
+          setTimeout(function() { document.getElementById('f-nome').focus(); }, 300);
+        }
       };
+
+      (function applyUrlParams() {
+        var params = new URLSearchParams(window.location.search);
+        var pCitta = params.get('citta') || params.get('city');
+        var pMq = params.get('mq') || params.get('sqm');
+        var pTipo = params.get('tipo') || params.get('type');
+        var pNome = params.get('cliente') || params.get('nome');
+        if (pNome && document.getElementById('f-nome')) {
+          document.getElementById('f-nome').value = pNome;
+        }
+        if (pCitta || pMq || pTipo) {
+          window.prefillForm(pTipo, pCitta, pMq, null);
+        }
+      })();
 
       document.querySelectorAll('[data-f-tipo]').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -1924,12 +1966,13 @@
         var nome = document.getElementById('f-nome').value.trim();
         var tel = document.getElementById('f-telefono').value.trim();
         var email = document.getElementById('f-email').value.trim();
-        if (!nome || !tel || !email) return;
+        if (!nome) { document.getElementById('f-nome').focus(); return; }
+        if (!tel && !email) { document.getElementById('f-telefono').focus(); return; }
 
         var payload = {
           nome: nome,
-          email: email,
-          telefono: tel,
+          email: email || 'Non indicata (contatto telefonico/WhatsApp)',
+          telefono: tel || 'Non indicato',
           budget: document.getElementById('f-budget').value || 'Da definire nello studio di fattibilità',
           zona: document.getElementById('f-citta').value + ' (' + document.getElementById('f-mq').value + ' m²)',
           note: '[COMMITTENTE - STUDIO FATTIBILITÀ 48H] Immobile: ' + document.getElementById('f-tipo').value +

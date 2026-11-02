@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modello di Preventivo Standard in PDF e Computo Chiavi in Mano | Toscan Costruzioni</title>
-  <meta name="description" content="Consulta, personalizza e scarica in PDF il Preventivo Standard Chiavi in Mano di Toscan Costruzioni (Gruppo Blue Arroyo): modello grafico unico con suddivisione analitica dei costi €/m², inclusi, esclusi, tempi garantiti e SAL." />
+  <meta name="description" content="Consulta, personalizza e scarica in PDF il Preventivo Standard Chiavi in Mano di Toscan Costruzioni (Blue Arroyo Group): modello grafico unico con suddivisione analitica dei costi €/m², inclusi, esclusi, tempi garantiti e SAL." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://toscancostruzioni.it/preventivo-tipo" />
   <link rel="alternate" hreflang="it" href="https://toscancostruzioni.it/preventivo-tipo" />
@@ -18,7 +18,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "HomeAndConstructionBusiness",
+        "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
         "@id": "https://toscancostruzioni.it/#organization",
         "name": "Toscan Costruzioni",
         "url": "https://toscancostruzioni.it/",
@@ -48,6 +48,7 @@
   </script>
 
   <style>
+    @view-transition { navigation: auto; }
     :root {
       --stone: #F6F1E9;
       --paper: #FFFFFF;
@@ -95,12 +96,60 @@
       font-weight: 600;
       border: 1px solid transparent;
       cursor: pointer;
+      min-height: 44px;
     }
     .btn-primary { background: var(--terracotta); color: #FFF; }
     .btn-primary:hover { background: var(--terracotta-dark); }
     .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
     section { padding: 64px 0; border-bottom: 1px solid var(--line); }
     .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 10px; }
+
+    /* BARRA INPUT RAPIDI CON CHIP (Zero <select>) */
+    .controls-bar {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-top: 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip-btn {
+      min-height: 44px;
+      padding: 9px 14px;
+      background: var(--stone);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .chip-btn.is-active {
+      border-color: var(--terracotta);
+      background: rgba(180, 83, 42, 0.1);
+      font-weight: 600;
+    }
+    .inputs-inline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) auto;
+      gap: 14px;
+      align-items: end;
+    }
+    @media (max-width: 860px) { .inputs-inline { grid-template-columns: 1fr; } }
+    .control-group { display: flex; flex-direction: column; gap: 6px; font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+    .control-group input {
+      min-height: 44px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--stone);
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      border-radius: var(--radius);
+      color: var(--ink);
+    }
 
     /* DOCUMENTO PDF SHEET */
     .quote-sheet {
@@ -118,7 +167,7 @@
       align-items: flex-start;
       flex-wrap: wrap;
       gap: 24px;
-      padding-bottom: 28px;
+      padding-bottom: 24px;
       border-bottom: 2px solid var(--ink);
     }
     .sheet-meta-grid {
@@ -131,38 +180,8 @@
     }
     @media (max-width: 760px) { .sheet-meta-grid { grid-template-columns: repeat(2, 1fr); } }
     .sheet-meta-grid strong { display: block; color: var(--ink); font-size: 0.95rem; }
-    .controls-bar {
-      background: #EFE8DC;
-      border: 1px solid var(--line);
-      padding: 20px 24px;
-      border-radius: var(--radius);
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .control-group { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; font-weight: 600; }
-    .control-group select, .control-group input {
-      padding: 9px 12px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      font-family: var(--font-sans);
-      font-size: 0.92rem;
-      border-radius: var(--radius);
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 24px;
-    }
-    th, td {
-      padding: 14px 16px;
-      text-align: left;
-      border-bottom: 1px solid var(--line);
-      font-size: 0.9rem;
-    }
+    table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
     th { background: #EFE8DC; font-weight: 600; color: var(--ink); }
     td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
     .total-row td {
@@ -182,12 +201,7 @@
       font-size: 0.85rem;
     }
     @media (max-width: 760px) { .signature-grid { grid-template-columns: 1fr; } }
-    .sig-line {
-      margin-top: 40px;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 6px;
-      color: var(--muted);
-    }
+    .sig-line { margin-top: 40px; border-bottom: 1px solid var(--ink); padding-bottom: 6px; color: var(--muted); }
     footer { padding: 48px 0; font-size: 0.88rem; color: var(--muted); }
     @media print {
       header, .no-print, footer { display: none !important; }
@@ -203,11 +217,11 @@
     <div class="container nav-bar">
       <a href="/" class="brand">
         Toscan <em>Costruzioni</em>
-        <small>Gruppo Blue Arroyo · Firenze</small>
+        <small>Blue Arroyo Group · Firenze</small>
       </a>
       <div style="display:flex;gap:12px;" class="no-print">
         <a href="/data-room" class="btn btn-secondary">Contratto Tipo</a>
-        <button type="button" onclick="window.print()" class="btn btn-primary">Stampa / Scarica Preventivo (PDF)</button>
+        <button type="button" onclick="window.print()" class="btn btn-primary">Stampa / Salva in PDF</button>
       </div>
     </div>
   </header>
@@ -215,33 +229,41 @@
   <main class="container">
     <section>
       <div class="no-print">
-        <span class="eyebrow">Standard Unico di Gruppo</span>
-        <h1>Modello di <em>Preventivo</em> Standard Chiavi in Mano (PDF)</h1>
+        <span class="eyebrow">Preventivo standard</span>
+        <h1>Modello di <em>preventivo</em> analitico chiavi in mano</h1>
         <p style="margin-top:8px;color:var(--ink);">
-          Ogni committente riceve un preventivo analitico redatto su un unico modello grafico per tutto il gruppo <strong>Toscan Costruzioni · Blue Arroyo Group</strong>, suddiviso nelle 7 categorie di lavoro con peso percentuale, prezzo fisso a corpo e tempi garantiti.
+          Seleziona la tipologia di intervento e inserisci i metri quadri per vedere subito la ripartizione analitica nelle 7 categorie di lavoro e scaricare il PDF, oppure passa in <strong>1 clic</strong> alla richiesta del sopralluogo gratuito.
         </p>
 
         <div class="controls-bar">
-          <div style="display:flex;gap:16px;flex-wrap:wrap;">
-            <div class="control-group">
-              <label for="q-type">Tipologia di intervento</label>
-              <select id="q-type">
-                <option value="appartamenti" data-rate="1550" data-months="5 – 7 mesi">Appartamenti per affitti brevi (1.550 €/m² base)</option>
-                <option value="agriturismo" data-rate="1950" data-months="8 – 11 mesi">Agriturismo / Casale toscano (1.950 €/m² base)</option>
-                <option value="hotel" data-rate="2150" data-months="9 – 12 mesi">Hotel / Boutique hotel (2.150 €/m² base)</option>
-                <option value="residenziale" data-rate="1600" data-months="5 – 8 mesi">Ristrutturazione residenziale / Cambio d'uso (1.600 €/m² base)</option>
-              </select>
+          <div class="control-group">
+            <span>1. Che tipo di struttura vuoi realizzare?</span>
+            <div class="chips-row" role="radiogroup" aria-label="Tipologia di intervento">
+              <button type="button" class="chip-btn is-active" data-q-type="appartamenti" data-rate="1550" data-months="5 – 7 mesi" data-label="Appartamenti per affitti brevi">Appartamenti per affitti brevi (1.550 €/m²)</button>
+              <button type="button" class="chip-btn" data-q-type="agriturismo" data-rate="1950" data-months="8 – 11 mesi" data-label="Agriturismo o casale in pietra">Agriturismo o casale in pietra (1.950 €/m²)</button>
+              <button type="button" class="chip-btn" data-q-type="hotel" data-rate="2150" data-months="9 – 12 mesi" data-label="Hotel o boutique hotel">Hotel o boutique hotel (2.150 €/m²)</button>
+              <button type="button" class="chip-btn" data-q-type="studenti" data-rate="1600" data-months="5 – 8 mesi" data-label="Residenza studenti / cambio d'uso">Residenza studenti / cambio d'uso (1.600 €/m²)</button>
             </div>
+          </div>
+
+          <div class="inputs-inline">
             <div class="control-group">
-              <label for="q-sqm">Superficie (m²)</label>
+              <label for="q-sqm">2. Superficie (m²)</label>
               <input type="number" id="q-sqm" value="220" min="50" max="3000" step="10" />
             </div>
             <div class="control-group">
-              <label for="q-city">Comune dell'immobile</label>
-              <input type="text" id="q-city" value="Firenze (FI)" />
+              <label for="q-city">3. Comune dell'immobile</label>
+              <input type="text" id="q-city" value="Firenze" />
+            </div>
+            <div class="control-group">
+              <label for="q-client">Intestato a (opzionale)</label>
+              <input type="text" id="q-client" placeholder="Nome Proprietario / Società" />
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button type="button" onclick="window.print()" class="btn btn-secondary">Scarica PDF</button>
+              <a href="/?citta=Firenze&amp;mq=220#contatti" id="one-click-book" class="btn btn-primary">Richiedi lo studio gratuito →</a>
             </div>
           </div>
-          <button type="button" onclick="window.print()" class="btn btn-primary">Esporta questo modello in PDF</button>
         </div>
       </div>
 
@@ -251,14 +273,14 @@
           <div>
             <div style="font-family:var(--font-serif);font-size:1.9rem;font-weight:600;">Toscan <em style="color:var(--terracotta);">Costruzioni</em></div>
             <div style="font-size:0.82rem;color:var(--muted);margin-top:2px;">
-              Part of Blue Arroyo Group · General Contractor Strutture Ricettive e Dimore di Pregio<br />
+              Blue Arroyo Group · General Contractor Strutture Ricettive e Dimore di Pregio<br />
               Sede: Firenze, Toscana · Tel: +39 351 038 0392 · Email: toscancostruzioni@bluearroyo.it
             </div>
           </div>
           <div style="text-align:right;font-size:0.84rem;">
             <strong style="display:block;font-size:1rem;color:var(--ink);">SCHEMA DI PREVENTIVO ESECUTIVO A CORPO</strong>
-            <span>Modello Standard Gruppo Blue Arroyo · Rev. 2026</span><br />
-            <span>Validità offerta tipo: 30 giorni dalla data di sopralluogo</span>
+            <span id="out-client-line" style="display:block;color:var(--terracotta);font-weight:600;">Modello Standard Gruppo Blue Arroyo · Rev. 2026</span>
+            <span>Stima parametrica soggetta a sopralluogo tecnico gratuito</span>
           </div>
         </div>
 
@@ -269,7 +291,7 @@
           </div>
           <div>
             <span>Località Immobile</span>
-            <strong id="out-city">Firenze (FI)</strong>
+            <strong id="out-city">Firenze</strong>
           </div>
           <div>
             <span>Superficie Commerciale</span>
@@ -316,7 +338,7 @@
               <td><strong>03</strong></td>
               <td>
                 <strong>Impianti Meccanici, Climatizzazione, Idrico-Sanitario ed Elettrico Domotico</strong><br />
-                <span style="font-size:0.8rem;color:var(--muted);">Pompa di calore/VRF, quadri elettrici per singola unità, Wi-Fi cablato, serrature smart per self check-in.</span>
+                <span style="font-size:0.8rem;color:var(--muted);">Pompa di calore, quadri elettrici per singola unità, Wi-Fi cablato, serrature elettroniche per check-in automatico.</span>
               </td>
               <td class="num">26%</td>
               <td class="num" id="r3-unit">403 €/m²</td>
@@ -363,7 +385,7 @@
               <td class="num" id="r7-tot">13.640 €</td>
             </tr>
             <tr class="total-row">
-              <td colspan="2">TOTALE INDICATIVO CHIAVI IN MANO A CORPO (IVA e oneri comunali esclusi)</td>
+              <td colspan="2">STIMA TOTALE INDICATIVA CHIAVI IN MANO A CORPO (IVA e oneri comunali esclusi)</td>
               <td class="num">100%</td>
               <td class="num" id="tot-unit">1.550 €/m²</td>
               <td class="num" id="tot-sum">341.000 €</td>
@@ -386,30 +408,22 @@
 
         <div class="signature-grid">
           <div>
-            <strong>Per Toscan Costruzioni · Gruppo Blue Arroyo</strong>
+            <strong>Per Toscan Costruzioni · Blue Arroyo Group</strong>
             <div class="sig-line">Direzione Tecnica &amp; Sviluppo Commesse</div>
           </div>
           <div>
             <strong>Per Presa Visione del Committente</strong>
-            <div class="sig-line">Firma del Proprietario / Committente</div>
+            <div class="sig-line" id="out-sig-client">Firma del Proprietario / Committente</div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section style="text-align:center;" class="no-print">
-      <h2>Vuoi ricevere il preventivo esecutivo sul <em>tuo</em> immobile?</h2>
-      <p style="margin:10px auto 24px;">
-        Dopo una chiamata di 15 minuti e il sopralluogo gratuito, ti consegniamo il preventivo analitico redatto su questo modello ufficiale con prezzo fisso a contratto.
-      </p>
-      <a href="/#contatti" class="btn btn-primary">Richiedi lo studio di fattibilità gratuito in 48h</a>
     </section>
   </main>
 
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
       <div>
-        <strong style="color:var(--ink);">Toscan Costruzioni · Part of Blue Arroyo Group</strong><br />
+        <strong style="color:var(--ink);">Toscan Costruzioni · Blue Arroyo Group</strong><br />
         Firenze, Toscana · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
       </div>
       <div><a href="/" style="text-decoration:underline;">Torna alla Home</a></div>
@@ -418,39 +432,81 @@
 
   <script>
     (function() {
-      var selType = document.getElementById('q-type');
+      var state = {
+        type: 'appartamenti',
+        rate: 1550,
+        months: '5 – 7 mesi',
+        label: 'Appartamenti per affitti brevi'
+      };
       var inpSqm = document.getElementById('q-sqm');
       var inpCity = document.getElementById('q-city');
+      var inpClient = document.getElementById('q-client');
       var weights = [0.08, 0.22, 0.26, 0.12, 0.16, 0.12, 0.04];
 
       function fmt(n) { return Math.round(n).toLocaleString('it-IT'); }
 
       function recalc() {
-        var opt = selType.options[selType.selectedIndex];
-        var rate = parseFloat(opt.getAttribute('data-rate')) || 1550;
-        var months = opt.getAttribute('data-months') || '5 – 7 mesi';
         var sqm = Math.max(30, parseFloat(inpSqm.value) || 220);
-        var city = inpCity.value || 'Firenze (FI)';
+        var city = inpCity.value.trim() || 'Firenze';
+        var client = inpClient.value.trim();
 
-        document.getElementById('out-type').textContent = opt.text.split('(')[0].trim();
+        document.getElementById('out-type').textContent = state.label;
         document.getElementById('out-city').textContent = city;
         document.getElementById('out-sqm').textContent = fmt(sqm) + ' m²';
-        document.getElementById('out-months').textContent = months + ' (con penali)';
+        document.getElementById('out-months').textContent = state.months + ' (con penali)';
 
-        var total = rate * sqm;
+        if (client) {
+          document.getElementById('out-client-line').textContent = 'Riservato a: ' + client;
+          document.getElementById('out-sig-client').textContent = client;
+        } else {
+          document.getElementById('out-client-line').textContent = 'Modello Standard Gruppo Blue Arroyo · Rev. 2026';
+          document.getElementById('out-sig-client').textContent = 'Firma del Proprietario / Committente';
+        }
+
+        var total = state.rate * sqm;
         for (var i = 0; i < weights.length; i++) {
-          var u = rate * weights[i];
+          var u = state.rate * weights[i];
           var t = total * weights[i];
           document.getElementById('r' + (i + 1) + '-unit').textContent = fmt(u) + ' €/m²';
           document.getElementById('r' + (i + 1) + '-tot').textContent = fmt(t) + ' €';
         }
-        document.getElementById('tot-unit').textContent = fmt(rate) + ' €/m²';
+        document.getElementById('tot-unit').textContent = fmt(state.rate) + ' €/m²';
         document.getElementById('tot-sum').textContent = fmt(total) + ' €';
+
+        var bookLink = document.getElementById('one-click-book');
+        if (bookLink) {
+          var qs = '?citta=' + encodeURIComponent(city) + '&mq=' + encodeURIComponent(sqm);
+          if (client) qs += '&cliente=' + encodeURIComponent(client);
+          bookLink.href = '/' + qs + '#contatti';
+        }
       }
 
-      selType.addEventListener('change', recalc);
+      document.querySelectorAll('[data-q-type]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-q-type]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          state.type = btn.getAttribute('data-q-type');
+          state.rate = parseFloat(btn.getAttribute('data-rate')) || 1550;
+          state.months = btn.getAttribute('data-months') || '5 – 7 mesi';
+          state.label = btn.getAttribute('data-label') || 'Appartamenti per affitti brevi';
+          recalc();
+        });
+      });
+
       inpSqm.addEventListener('input', recalc);
       inpCity.addEventListener('input', recalc);
+      inpClient.addEventListener('input', recalc);
+
+      /* Leggi parametri URL per pre-compilare in 0 clic */
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('sqm') || params.get('mq')) inpSqm.value = params.get('sqm') || params.get('mq');
+      if (params.get('city') || params.get('citta')) inpCity.value = params.get('city') || params.get('citta');
+      if (params.get('cliente') || params.get('client')) inpClient.value = params.get('cliente') || params.get('client');
+      var pType = params.get('type') || params.get('tipo');
+      if (pType) {
+        var targetBtn = document.querySelector('[data-q-type="' + pType + '"]');
+        if (targetBtn) targetBtn.click();
+      }
       recalc();
     })();
   </script>
