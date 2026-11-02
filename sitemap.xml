@@ -44,6 +44,24 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Agriturismi & Resort Arezzo, Cortona, Maremma e Argentario -->
+  <url>
+    <loc>https://toscancostruzioni.it/agriturismo-resort-arezzo-maremma-grosseto.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Tuscany Hospitality Investment & Turnkey EPC (EN) -->
+  <url>
+    <loc>https://toscancostruzioni.it/tuscany-hospitality-investment-general-contractor.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toscancostruzioni.it/tuscany-hospitality-investment-general-contractor.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html"/>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Pagine SEO principali IT -->
   <url>
     <loc>https://toscancostruzioni.it/ristrutturazione-toscana.html</loc>
