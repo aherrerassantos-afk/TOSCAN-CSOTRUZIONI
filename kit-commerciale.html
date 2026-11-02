@@ -474,27 +474,28 @@
       </div>
 
       <!-- =================================================================
-           RUOLO 5: ASSISTENZA CLIENTI & OSPITI (TEAM BLUE ARROYO)
+           RUOLO 5: PASSAGGIO ALLE 3 AZIENDE DEL GRUPPO BLUE ARROYO
            ================================================================= -->
       <div class="role-panel" id="role-hosp">
-        <h3>Home Blue Arroyo: Passaggio Cantiere → <em>Ospiti</em> e Assistenza Post-Consegna</h3>
-        <p style="font-size:0.88rem;margin-top:4px;">Il messaggio di avvio gestione è già intestato al cliente e all'immobile attivo.</p>
+        <h3>Home Ecosistema Gruppo: Passaggio da Cantiere a <em>itassistance</em>, <em>PBA</em> e <em>SmartsBookings</em></h3>
+        <p style="font-size:0.88rem;margin-top:4px;">Coordina in 1 tap il passaggio dell'immobile finito alle 3 divisioni sorelle del Gruppo Blue Arroyo (a zero giorni dal collaudo).</p>
 
         <div class="grid-2">
           <div class="card">
-            <h4>1. Prontezza Operativa Ospiti (<span id="hosp-check-count">5/5</span> pronti)</h4>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 1. Dichiarazioni Conformità Impianti (DM 37/08), APE e Agibilità</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 2. Serrature elettroniche per self check-in collaudate</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. Rete Wi-Fi cablata e contatto magnetico clima attivi</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 4. Pratica SUAP / CIN e portale Alloggiati Web attivi</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 5. Pulizia fine cantiere, corredo alberghiero e foto professionali</label>
+            <h4>1. Checklist Passaggio Cantiere → Gruppo (<span id="hosp-check-count">5/5</span> pronti)</h4>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 1. <strong>Per itassistance / itsdreamteam:</strong> DM 37/08, APE, Agibilità, CIN e Dotazioni Sicurezza (Cartello A4 + Alloggiati Web / Ross1000)</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 2. <strong>Per SmartsBookings:</strong> Serrature Smart Keyless, Wi-Fi cablato e vano bagagli Runner attivi (Payout 85% entro le 12:00)</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. <strong>Per Palazzo Blue Arroyo (PBA):</strong> Pulizia fine cantiere, Biancheria 60°C, Kit Bagno/Cucina sigillati e Dossier Foto SHA-256</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 4. <strong>Revenue &amp; Prezzi:</strong> Scheda immobile caricata su Matrice 14gg (Floor/Cap e sblocco notti orfane +420 €/mese)</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 5. <strong>Garanzia Post-Cantiere:</strong> Copertura manutenzioni e verbali danni AirCover collegati alla Direzione Tecnica</label>
 
             <div style="margin-top:6px;">
-              <span class="field-label">Assegna ticket assistenza post-cantiere al Tecnico (1 tap)</span>
+              <span class="field-label">Invia ordine rapido tra le aziende del Gruppo (1 tap)</span>
               <div class="chips-row">
-                <button type="button" class="chip-btn" data-hosp-ticket="Verifica e taratura impianto climatizzazione / pompa di calore">Clima / Termico</button>
-                <button type="button" class="chip-btn" data-hosp-ticket="Controllo serratura elettronica / codice accesso ospite">Serratura Smart</button>
-                <button type="button" class="chip-btn" data-hosp-ticket="Regolazione infissi / scarico bagno in garanzia">Idraulica / Infissi</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="[PBA · Palazzo Blue Arroyo] Attivare pulizia profonda fine cantiere + Fornitura Biancheria 60°C, Kit Bagno/Cucina e Dossier SHA-256">1 · Attiva PBA (Pulizie &amp; Kit)</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="[itassistance · itsdreamteam] Attivare Cartello A4 CIN, Alloggiati Web, ISTAT Ross1000, Matrice Prezzi 14gg e Report ore 08:00">2 · Attiva itassistance (PM &amp; CIN)</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="[SmartsBookings] Inserire immobile nel Canale Chiuso (Payout 85% h12:00, Cashback 15% ospite e logistica Runner valigie)">3 · Attiva SmartsBookings</button>
+                <button type="button" class="chip-btn" data-hosp-ticket="[Toscan Costruzioni · Manutenzione/AirCover] Intervento tecnico rapido o preventivo ripristino danni per unità del Gruppo">4 · Intervento Tecnico / AirCover</button>
               </div>
             </div>
           </div>
@@ -502,7 +503,7 @@
           <div class="card" style="justify-content:space-between;">
             <pre id="h-welcome-msg" style="background:#FFF;"></pre>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary" id="btn-hosp-wa">Invia Avvio Gestione al Proprietario (WA + CRM) →</button>
+              <button type="button" class="btn btn-primary" id="btn-hosp-wa">Invia Avvio Ecosistema al Proprietario (WA + CRM) →</button>
               <button type="button" class="btn btn-secondary" onclick="copyTpl('h-welcome-msg', this)">Copia Testo</button>
             </div>
             <div id="hosp-status" class="status-toast"></div>
@@ -747,11 +748,14 @@
         document.getElementById('adm-sal-4').textContent = fmtEur(total * 0.25);
         document.getElementById('adm-sal-5').textContent = fmtEur(total * 0.10);
 
-        /* 5. Render Gestione Ospiti Blue Arroyo */
+        /* 5. Render Gestione Ospiti Blue Arroyo (Ponte 3 Aziende del Gruppo) */
         document.getElementById('h-welcome-msg').textContent =
           'Gentile ' + state.client + ',\n' +
-          'il collaudo finale del cantiere Toscan Costruzioni per l\'immobile di ' + state.city + ' (' + state.sqm + ' m²) è stato completato con successo e tutte le certificazioni degli impianti (DM 37/08, APE e agibilità) sono depositate.\n\n' +
-          'Da oggi la divisione ospitalità di Blue Arroyo ha preso in carico la struttura: serrature elettroniche, rete Wi-Fi, servizio fotografico e annunci sono attivi per accogliere i primi ospiti.';
+          'il collaudo finale del cantiere Toscan Costruzioni per l\'immobile di ' + state.city + ' (' + state.sqm + ' m²) è completato con tutte le certificazioni (DM 37/08, APE, Agibilità e CIN).\n\n' +
+          'Da oggi l\'immobile è attivo nell\'ecosistema integrato del Gruppo Blue Arroyo:\n' +
+          '1. itassistance (itsdreamteam.com): gestione completa Zero Sanzioni (Alloggiati Web, ISTAT Ross1000, Tassa Soggiorno), Matrice Prezzi 14gg (+420 €/mese) e Report giornaliero alle ore 08:00.\n' +
+          '2. Palazzo Blue Arroyo (PBA): turnover garantiti entro le 15:00 dai 3 hub in ZTL, biancheria igienizzata a 60°C, forniture bagno/cucina gratuite e Dossier Fotografico SHA-256 anti-rimborsi.\n' +
+          '3. SmartsBookings.com: accesso al Canale Chiuso del Turismo (+15–25% margine netto senza commissioni OTA, Payout 85% entro le 12:00 del check-out e Runner valigie per gli ospiti).';
       }
 
       /* Eventi cambio ruolo */

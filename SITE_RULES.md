@@ -109,3 +109,20 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 | **Interno: Vendite (F5.1)** | Presa in carico lead inbound da notifica `n8n` a Console già compilata | `link_console_vendite_1tap` → `/kit-commerciale` | 11 clic · 5 campi ridigitati · 4 min | **1 tap su link notifica · 0 campi · 10 sec** | **−91% clic / −96% tempo** |
 | **Esterno: Partner / Fornitore** | Segnalazione immobile e generazione Accordo Partner (2–3%) | `/partner#attiva-partner` | 9 clic · 7 campi impropri · 4 min | **2 tap · 2 campi (`Studio`+`Tel`) · 25 sec** | **−78% clic / −90% tempo** |
 
+---
+
+## 5. Architettura Integrata delle 4 Aziende del Gruppo Blue Arroyo
+
+**Toscan Costruzioni** è il braccio di **General Contractor & Sviluppo Immobiliare** del gruppo e interagisce in modo bidirezionale con le altre **3 aziende sorelle**:
+
+1. **itassistance / `itsdreamteam.com` (Property Management, Revenue & Burocrazia Zero Sanzioni):**
+   - **Da `itassistance` a `Toscan Costruzioni` (Input):** Segnala gli immobili già gestiti che necessitano di riqualificazione invernale (secondo bagno, clima, acustica, arredi) o ripristino danni AirCover per alzare la tariffa media (`+420 €/mese`).
+   - **Da `Toscan Costruzioni` a `itassistance` (Output):** Consegna a fine cantiere l'immobile già completo di conformità DM 37/08, APE, Agibilità, Codice CIN, dotazioni di sicurezza (Cartello A4) e serrature smart, pronto per l'invio automatico di Alloggiati Web `.TXT`, ISTAT Ross1000, Imposta di Soggiorno (`5,50 €/notte`), Matrice Prezzi 14gg e Report Mattutino delle ore `08:00`.
+2. **Palazzo Blue Arroyo — `PBA` (Pulizie Industriali, Biancheria 60°C, Forniture & 3 Hub ZTL):**
+   - **Da `PBA` a `Toscan Costruzioni` (Input):** Fornisce i requisiti costruttivi "Pro-Cleaner" (superfici lavabili, armadiature per kit sigillati), esegue la pulizia profonda di fine cantiere e porta i **Property Manager B2B clienti di PBA** che devono ristrutturare nuovi appartamenti in ZTL.
+   - **Da `Toscan Costruzioni` a `PBA` (Output):** Consegna nuove unità ricettive progettate per **100% turnover chiusi entro le 15:00**, pronte per il servizio continuativo di biancheria igienizzata a `60°C`, forniture bagno/cucina gratuite (`232 €/mese` risparmiati dal PM), sigillo WC e **Dossier Fotografico Certificato SHA-256** (zero truffe da rimborso OTA) con fattura unica SDI.
+3. **SmartsBookings — `smartsbookings.com` (Canale Chiuso del Turismo, Payout 85% & Runner Bagagli):**
+   - **Da `SmartsBookings` a `Toscan Costruzioni` (Input):** Offre al proprietario che valuta i lavori la leva commerciale decisiva: **+15–25% di margine netto in tasca** (zero commissioni OTA) e **Payout dell'85% accreditato entro le 12:00 del giorno del check-out**.
+   - **Da `Toscan Costruzioni` a `SmartsBookings` (Output):** Immette nel circuito immobili ristrutturati di fascia alta, dotati di domotica e accesso per i **Runner bagagli** (esperienza a mani libere per l'ospite + **15% di cashback reale** 48h dopo il soggiorno).
+
+
