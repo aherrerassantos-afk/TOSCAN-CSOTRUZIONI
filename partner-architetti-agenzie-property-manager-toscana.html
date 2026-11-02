@@ -101,7 +101,7 @@
       <a href="/" class="brand">Toscan <em>Costruzioni</em></a>
       <div style="display:flex;gap:12px;">
         <a href="/preventivo-tipo" class="btn btn-secondary">Preventivo Standard PDF</a>
-        <a href="/#contatti" class="btn btn-primary">Proponi una collaborazione</a>
+        <a href="#attiva-partner" class="btn btn-primary">Attiva Partnership (2 tap)</a>
       </div>
     </div>
   </header>
@@ -180,15 +180,44 @@
       </div>
     </section>
 
-    <section style="text-align:center;">
-      <h2>Fissiamo un incontro conoscitivo di <em>20 minuti</em></h2>
-      <p style="margin:12px auto 24px;">
-        Scrivici o chiamaci per ricevere la bozza dell'accordo di segnalazione e il nostro capitolato standard di gruppo.
-      </p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="/kit-commerciale#accordo-partner" class="btn btn-primary">Scarica lo Schema di Accordo Partner (PDF)</a>
-        <a href="mailto:toscancostruzioni@bluearroyo.it?subject=Partnership%20Professionale%20Toscan%20Costruzioni" class="btn btn-secondary">Scrivi a toscancostruzioni@bluearroyo.it</a>
-        <a href="https://wa.me/393510380392?text=Buongiorno%20Toscan%20Costruzioni%2C%20vorrei%20fissare%20una%20chiamata%20per%20una%20partnership%20professionale." target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp Direzione (+39 351 038 0392)</a>
+    <section id="attiva-partner">
+      <div class="card" style="padding:36px;border-left:4px solid var(--terracotta);">
+        <span class="eyebrow">Attivazione rapida in 2 tap (Zero moduli lunghi)</span>
+        <h2>Segnala un immobile o scarica l'Accordo Partner <em>intestato</em> al tuo Studio</h2>
+        <p style="margin-top:6px;color:var(--ink);">
+          Scegli il tuo profilo, inserisci il nome dello studio e il recapito: generiamo subito lo schema di accordo con provvigione protetta (2,0% – 3,0%) e registriamo la tua segnalazione prioritaria.
+        </p>
+
+        <div style="margin-top:16px;">
+          <span style="display:block;font-size:0.84rem;font-weight:600;color:var(--ink);margin-bottom:8px;">1. Qual è il tuo ruolo professionale?</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;" id="p-role-chips">
+            <button type="button" class="btn btn-secondary p-chip is-active" data-p-role="Studio Architettura / Geometra" style="padding:9px 14px;font-size:0.86rem;border-color:var(--terracotta);background:rgba(180,83,42,0.1);">Studio Architettura / Geometra</button>
+            <button type="button" class="btn btn-secondary p-chip" data-p-role="Agenzia Immobiliare" style="padding:9px 14px;font-size:0.86rem;">Agenzia Immobiliare</button>
+            <button type="button" class="btn btn-secondary p-chip" data-p-role="Property Manager / Albergatore" style="padding:9px 14px;font-size:0.86rem;">Property Manager / Albergatore</button>
+            <button type="button" class="btn btn-secondary p-chip" data-p-role="Proprietario Circuito Blue Arroyo" style="padding:9px 14px;font-size:0.86rem;">Proprietario Circuito Blue Arroyo</button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px;">
+          <div>
+            <label for="p-name" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">2. Nome Professionista o Studio *</label>
+            <input type="text" id="p-name" placeholder="Es. Studio Arch. Rossi" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+          <div>
+            <label for="p-phone" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">3. Telefono o WhatsApp *</label>
+            <input type="tel" id="p-phone" placeholder="+39 333 1234567" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+          <div>
+            <label for="p-city" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">Città / Immobile da valutare (opz.)</label>
+            <input type="text" id="p-city" value="Firenze" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;align-items:center;">
+          <button type="button" class="btn btn-primary" id="btn-partner-1tap">Attiva Partnership &amp; Apri Accordo PDF (1 tap) →</button>
+          <a href="/kit-commerciale#accordo-partner" id="p-direct-pdf" class="btn btn-secondary">Vedi Bozza Accordo Standard</a>
+        </div>
+        <div id="p-status" style="font-size:0.88rem;color:var(--olive);font-weight:600;display:none;margin-top:8px;"></div>
       </div>
     </section>
   </main>
@@ -203,5 +232,47 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      var role = 'Studio Architettura / Geometra';
+      document.querySelectorAll('.p-chip').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.p-chip').forEach(function(b) {
+            b.style.borderColor = 'var(--ink)';
+            b.style.background = 'var(--paper)';
+          });
+          btn.style.borderColor = 'var(--terracotta)';
+          btn.style.background = 'rgba(180,83,42,0.1)';
+          role = btn.getAttribute('data-p-role');
+        });
+      });
+
+      document.getElementById('btn-partner-1tap').addEventListener('click', function() {
+        var name = document.getElementById('p-name').value.trim() || 'Partner Professionale';
+        var phone = document.getElementById('p-phone').value.trim();
+        var city = document.getElementById('p-city').value.trim() || 'Firenze';
+
+        fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'partner_page_1tap',
+            profilo_partner: role,
+            nome: name,
+            telefono: phone || 'Non inserito',
+            citta: city
+          })
+        }).catch(function(){});
+
+        var docUrl = '/kit-commerciale?cliente=' + encodeURIComponent(name + ' (' + role + ')') + '&city=' + encodeURIComponent(city) + '#accordo-partner';
+        var st = document.getElementById('p-status');
+        st.style.display = 'block';
+        st.innerHTML = '✓ Richiesta registrata! <a href="' + docUrl + '" style="text-decoration:underline;color:var(--terracotta);margin-left:6px;">Clicca qui per stampare il tuo Accordo Partner intestato →</a>';
+
+        var waMsg = 'Buongiorno Toscan Costruzioni, sono ' + name + ' (' + role + ' — ' + city + '). Vorrei attivare l\'accordo di segnalazione partner / valutare un immobile.';
+        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
+      });
+    })();
+  </script>
 </body>
 </html>

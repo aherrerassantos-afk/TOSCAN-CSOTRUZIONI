@@ -370,6 +370,20 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- BARRA AZIONE RAPIDA 1-TAP PER COMMITTENTE E CLIENTE ATTIVO (F5.2) -->
+      <div class="no-print" style="margin-top:24px;padding:22px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="eyebrow" style="margin:0;">Azione rapida Committente (1 clic)</span>
+          <h3 style="margin-top:4px;font-size:1.25rem;">Conferma il piano a 5 SAL o richiedi la documentazione di cantiere</h3>
+          <p style="font-size:0.88rem;margin-top:4px;">Se sei un nuovo committente blocca lo schema a prezzo fisso; se hai già un cantiere attivo richiedi in 1 tap il verbale SAL e il DURC aggiornato.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary" id="btn-dr-accept-contract">✓ Approva Schema Contrattuale e Richiedi Stesura (1 tap) →</button>
+          <button type="button" class="btn btn-secondary" id="btn-dr-active-client">Cliente Attivo: Richiedi Verbale SAL &amp; DURC →</button>
+        </div>
+        <div id="dr-action-feedback" style="width:100%;font-size:0.88rem;color:var(--olive);font-weight:600;display:none;"></div>
+      </div>
     </section>
 
     <section id="capitolato">
@@ -473,6 +487,50 @@
       var query = '?type=' + encodeURIComponent(cfg.type) + '&city=' + encodeURIComponent(cfg.city) + '&sqm=' + encodeURIComponent(cfg.sqm) + (cfg.client ? '&cliente=' + encodeURIComponent(cfg.client) : '');
       if (qLink) qLink.href = '/preventivo-tipo' + query;
       if (bLink) bLink.href = '/?citta=' + encodeURIComponent(cfg.city) + '&mq=' + encodeURIComponent(cfg.sqm) + (cfg.client ? '&cliente=' + encodeURIComponent(cfg.client) : '') + '#contatti';
+
+      var fb = document.getElementById('dr-action-feedback');
+      var btnAccept = document.getElementById('btn-dr-accept-contract');
+      if (btnAccept) {
+        btnAccept.addEventListener('click', function() {
+          fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source: 'data_room_accettazione_contratto_1tap',
+              nome: cfg.client || 'Committente da Data Room',
+              citta: cfg.city,
+              mq: cfg.sqm,
+              tipologia: info.label,
+              importo_a_corpo: total
+            })
+          }).catch(function(){});
+          fb.style.display = 'block';
+          fb.textContent = '✓ Richiesta di stesura Contratto Definitivo registrata! Apertura conferma diretta su WhatsApp...';
+          var msg = 'Buongiorno Toscan Costruzioni, confermo lo schema contrattuale a 5 SAL per l\'immobile di ' + cfg.city + ' (' + cfg.sqm + ' m² — ' + fmt(total) + ' a corpo' + (cfg.client ? ', rif. ' + cfg.client : '') + ') e richiedo la stesura esecutiva.';
+          window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
+        });
+      }
+
+      var btnActive = document.getElementById('btn-dr-active-client');
+      if (btnActive) {
+        btnActive.addEventListener('click', function() {
+          fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source: 'cliente_attivo_richiesta_sal_durc',
+              nome: cfg.client || 'Cliente Attivo',
+              citta: cfg.city,
+              mq: cfg.sqm,
+              importo_a_corpo: total
+            })
+          }).catch(function(){});
+          fb.style.display = 'block';
+          fb.textContent = '✓ Richiesta Verbale SAL e DURC inviata all\'Amministrazione!';
+          var msg = 'Buongiorno Amministrazione Toscan Costruzioni, per il cantiere attivo di ' + cfg.city + (cfg.client ? ' (' + cfg.client + ')' : '') + ' richiedo l\'invio del verbale SAL aggiornato e del DURC in corso di validità.';
+          window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
+        });
+      }
     })();
   </script>
 </body>

@@ -416,6 +416,20 @@
             <div class="sig-line" id="out-sig-client">Firma del Proprietario / Committente</div>
           </div>
         </div>
+
+        <!-- BOX ACCETTAZIONE DIGITALE IN 1 TAP (F5.2 — ZERO ATTRITO PER IL PROSPECT) -->
+        <div class="no-print" style="margin-top:28px;padding:22px;background:#F6F1E9;border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+          <div>
+            <span class="eyebrow" style="margin:0;">Conferma digitale in 1 clic</span>
+            <h3 style="margin-top:4px;font-size:1.3rem;">Approva questa stima preliminare e blocca il <em>sopralluogo gratuito</em></h3>
+            <p style="font-size:0.88rem;margin-top:4px;">Con 1 tap registri la tua approvazione preliminare, sblocchi il Contratto Tipo con i 5 SAL in Euro e fissi il rilievo in 48h senza impegno.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+            <input type="tel" id="q-accept-phone" placeholder="Tuo Telefono / WhatsApp (opz.)" style="min-height:44px;padding:10px 12px;border:1px solid var(--line);background:#FFF;border-radius:var(--radius);font-family:var(--font-sans);font-size:0.9rem;" />
+            <button type="button" class="btn btn-primary" id="btn-accept-quote-1tap">✓ Approva Stima e Blocca Sopralluogo (1 tap) →</button>
+          </div>
+          <div id="accept-quote-feedback" style="width:100%;font-size:0.88rem;color:var(--olive);font-weight:600;display:none;"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -503,17 +517,61 @@
       inpCity.addEventListener('input', recalc);
       inpClient.addEventListener('input', recalc);
 
-      /* Leggi parametri URL per pre-compilare in 0 clic */
       var params = new URLSearchParams(window.location.search);
       if (params.get('sqm') || params.get('mq')) inpSqm.value = params.get('sqm') || params.get('mq');
       if (params.get('city') || params.get('citta')) inpCity.value = params.get('city') || params.get('citta');
       if (params.get('cliente') || params.get('client')) inpClient.value = params.get('cliente') || params.get('client');
+      var accPhone = document.getElementById('q-accept-phone');
+      if (accPhone && (params.get('phone') || params.get('tel'))) accPhone.value = params.get('phone') || params.get('tel');
       var pType = params.get('type') || params.get('tipo');
       if (pType) {
         var targetBtn = document.querySelector('[data-q-type="' + pType + '"]');
         if (targetBtn) targetBtn.click();
       }
       recalc();
+
+      /* F5.2: Accettazione Digitale Preventivo in 1 Tap */
+      var btnAccept = document.getElementById('btn-accept-quote-1tap');
+      if (btnAccept) {
+        btnAccept.addEventListener('click', function() {
+          var sqm = Math.max(30, parseFloat(inpSqm.value) || 220);
+          var city = inpCity.value.trim() || 'Firenze';
+          var client = inpClient.value.trim() || 'Committente';
+          var phone = accPhone ? accPhone.value.trim() : '';
+          var total = state.rate * sqm;
+          var nowStr = new Date().toLocaleDateString('it-IT');
+
+          document.getElementById('out-sig-client').textContent = '✓ Approvato digitalmente da ' + client + ' in data ' + nowStr;
+          try {
+            localStorage.setItem('tc_active_commessa_v1', JSON.stringify({
+              client: client, phone: phone, city: city, sqm: sqm, type: state.type, sal: 'Avvio Cantiere (15%)'
+            }));
+          } catch (e) {}
+
+          fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source: 'accettazione_preventivo_1tap',
+              nome: client,
+              telefono: phone || 'Approvazione da link preventivo',
+              citta: city,
+              mq: sqm,
+              tipologia: state.label,
+              importo_accettato: total,
+              data_approvazione: nowStr
+            })
+          }).catch(function(){});
+
+          var cUrl = document.getElementById('pt-to-contract').getAttribute('href');
+          var fb = document.getElementById('accept-quote-feedback');
+          fb.style.display = 'block';
+          fb.innerHTML = '✓ Stima approvata e registrata! <a href="' + cUrl + '" style="text-decoration:underline;margin-left:8px;color:var(--terracotta);">Apri ora il tuo Contratto Tipo con i 5 SAL in Euro →</a>';
+
+          var waMsg = 'Buongiorno Toscan Costruzioni, confermo l\'approvazione preliminare della stima per l\'immobile di ' + city + ' (' + sqm + ' m² — ' + fmt(total) + ' € a corpo, rif. ' + client + ') e richiedo il sopralluogo tecnico gratuito.';
+          window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
+        });
+      }
     })();
   </script>
 </body>

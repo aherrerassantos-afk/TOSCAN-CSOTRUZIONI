@@ -102,4 +102,8 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 | **5. Assistenza & Ospiti** | Passaggio Cantiere → Ospiti Blue Arroyo + messaggio al proprietario | `/kit-commerciale?role=hosp` | 7 clic · testo statico · 4 min | **1 tap · 0 campi · 20 sec** | **−85% clic / −91% tempo** |
 | **5. Assistenza & Ospiti** | Assegnazione ticket assistenza post-cantiere al Direttore Tecnico | `/kit-commerciale?role=hosp` | 9 clic · testo libero · 8 min | **1 tap (chip) · 0 campi · 15 sec** | **−89% clic / −96% tempo** |
 | **Esterno: Prospect** | Stima €/m² → Distinta PDF → Richiesta studio gratuito in 48h | `/#stima-rapida` → `/preventivo-tipo` → `/#contatti` | 9 clic · 7 campi · 3,5 min | **3 clic · 2 campi (`Nome`+`Tel`) · 35 sec** | **−67% clic / −83% tempo** |
+| **Esterno: Prospect (F5.2)** | Accettazione digitale stima preliminare da link inviato da Vendite | `/preventivo-tipo?cliente=...` | 8 clic · 4 campi · 10 min | **1 tap · 0–1 campo · 15 sec** | **−88% clic / −97% tempo** |
+| **Esterno: Prospect / Cliente** | Approvazione schema contrattuale a 5 SAL in Euro | `/data-room?cliente=...` | 10 clic · email esterna · 15 min | **1 tap · 0 campi · 15 sec** | **−90% clic / −98% tempo** |
+| **Esterno: Cliente Attivo** | Controllo piano 5 SAL in € e richiesta verbale SAL + DURC | `/data-room?cliente=...` | 7 clic · messaggio manuale · 5 min | **1 tap · 0 campi · 15 sec** | **−86% clic / −95% tempo** |
+| **Esterno: Partner / Fornitore** | Segnalazione immobile e generazione Accordo Partner (2–3%) | `/partner#attiva-partner` | 9 clic · 7 campi impropri · 4 min | **2 tap · 2 campi (`Studio`+`Tel`) · 25 sec** | **−78% clic / −90% tempo** |
 
