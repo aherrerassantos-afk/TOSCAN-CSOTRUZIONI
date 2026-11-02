@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stato Avanzamento Cantiere e SAL | Toscan Costruzioni · Blue Arroyo Group</title>
+  <meta name="description" content="Portale Committente di Toscan Costruzioni (Blue Arroyo Group): stato di avanzamento lavori (5 SAL), report del venerdì, verifica regolarità DURC e polizza CAR/RC, e passaggio diretto alla gestione ospiti." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --stone: #F6F1E9;
+      --paper: #FFFFFF;
+      --ink: #1F1B16;
+      --muted: #6E665C;
+      --terracotta: #B4532A;
+      --terracotta-dark: #93401D;
+      --olive: #6B7048;
+      --line: #E4DCCF;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 2px;
+      --max-w: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.1rem); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
+    h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
+    h1 { font-size: clamp(2rem, 1.6rem + 2vw, 3.2rem); }
+    h2 { font-size: clamp(1.55rem, 1.3rem + 1vw, 2.2rem); }
+    h3 { font-size: clamp(1.25rem, 1.1rem + 0.4vw, 1.55rem); }
+    p { max-width: 70ch; color: var(--muted); }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 72px; gap: 12px; flex-wrap: wrap; }
+    .brand { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 600; }
+    .brand em { color: var(--terracotta); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 44px; font-family: var(--font-sans); }
+    .btn-primary { background: var(--terracotta); color: #FFF; }
+    .btn-primary:hover { background: var(--terracotta-dark); }
+    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+    .btn-olive { background: var(--olive); color: #FFF; }
+    section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: inline-block; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 8px; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
+    @media (max-width: 860px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    .kpi-box { background: var(--paper); border: 1px solid var(--line); padding: 18px; border-radius: var(--radius); }
+    .kpi-box strong { display: block; font-family: var(--font-serif); font-size: 1.65rem; color: var(--ink); line-height: 1.1; }
+    .kpi-box span { font-size: 0.8rem; color: var(--muted); }
+
+    /* STEPPER 5 SAL */
+    .sal-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
+    @media (max-width: 900px) { .sal-steps { grid-template-columns: 1fr; } }
+    .sal-step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 18px;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .sal-step.is-done { border-top: 4px solid var(--olive); background: #FAF8F3; }
+    .sal-step.is-current { border: 2px solid var(--terracotta); border-top: 4px solid var(--terracotta); background: #FFF; }
+    .sal-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: var(--radius); width: fit-content; }
+    .sal-step.is-done .sal-badge { background: var(--olive); color: #FFF; }
+    .sal-step.is-current .sal-badge { background: var(--terracotta); color: #FFF; }
+    .sal-step.is-future .sal-badge { background: var(--line); color: var(--ink); }
+
+    .grid-2 { display: grid; grid-template-columns: 7fr 5fr; gap: 24px; margin-top: 24px; }
+    @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+    footer { padding: 40px 0; font-size: 0.86rem; color: var(--muted); }
+    @media print {
+      header, .no-print, footer { display: none !important; }
+      body { background: #FFF; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Portale Committente</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;" class="no-print">
+        <a href="/preventivo-tipo" id="sc-to-quote" class="btn btn-secondary">Computo 7 Categorie</a>
+        <a href="/data-room" id="sc-to-contract" class="btn btn-secondary">Contratto &amp; Polizze</a>
+        <button type="button" onclick="window.print()" class="btn btn-primary">Stampa Stato SAL (PDF)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <span class="eyebrow">Trasparenza in tempo reale · Cliente Attivo</span>
+      <h1 id="sc-title">Stato avanzamento <em>cantiere</em> e SAL</h1>
+      <p style="margin-top:6px;color:var(--ink);">
+        Riepilogo aggiornato delle lavorazioni eseguite, della regolarità contributiva/assicurativa (DURC, Cassa Edile, Polizza CAR) e degli Stati di Avanzamento Lavori (SAL) certificati.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi-box">
+          <strong id="sc-kpi-client">Lorenzo Medici</strong>
+          <span id="sc-kpi-loc">Firenze · 280 m²</span>
+        </div>
+        <div class="kpi-box">
+          <strong id="sc-kpi-total">434.000 €</strong>
+          <span id="sc-kpi-rate">Prezzo Fisso Bloccato a Corpo</span>
+        </div>
+        <div class="kpi-box">
+          <strong id="sc-kpi-sal-label" style="color:var(--terracotta);">1° SAL (40%)</strong>
+          <span id="sc-kpi-months">Cronoprogramma: In linea (5–7 mesi)</span>
+        </div>
+        <div class="kpi-box">
+          <strong style="color:var(--olive);">DURC &amp; CAR OK</strong>
+          <span>Polizza Cantiere e Cassa Edile Regolari</span>
+        </div>
+      </div>
+
+      <!-- BARRA INTERATTIVA DEI 5 SAL -->
+      <div style="margin-top:32px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h2>Avanzamento dei <em>5 SAL</em> contrattuali</h2>
+          <span style="font-size:0.82rem;color:var(--muted);" class="no-print">Tocca uno Stato di Avanzamento per vederne il dettaglio</span>
+        </div>
+
+        <div class="sal-steps" id="sc-sal-grid">
+          <div class="sal-step is-done" data-sal-idx="1">
+            <div>
+              <span class="sal-badge" id="badge-sal-1">✓ Completato</span>
+              <h4 style="margin-top:8px;">1. Avvio Cantiere (15%)</h4>
+              <p style="font-size:0.8rem;margin-top:4px;">Pratiche edilizie, ponteggi, demolizioni e smaltimento.</p>
+            </div>
+            <strong id="amt-sal-1" style="font-size:1.1rem;color:var(--ink);">65.100 €</strong>
+          </div>
+
+          <div class="sal-step is-current" data-sal-idx="2">
+            <div>
+              <span class="sal-badge" id="badge-sal-2">● SAL Attuale</span>
+              <h4 style="margin-top:8px;">2. 1° SAL · Murarie (25%)</h4>
+              <p style="font-size:0.8rem;margin-top:4px;">Consolidamenti, tramezzature e tracciamento impianti.</p>
+            </div>
+            <strong id="amt-sal-2" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
+          </div>
+
+          <div class="sal-step is-future" data-sal-idx="3">
+            <div>
+              <span class="sal-badge" id="badge-sal-3">○ Programmato</span>
+              <h4 style="margin-top:8px;">3. 2° SAL · Impianti (25%)</h4>
+              <p style="font-size:0.8rem;margin-top:4px;">Impianti completi, isolamento acustico, massetti e intonaci.</p>
+            </div>
+            <strong id="amt-sal-3" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
+          </div>
+
+          <div class="sal-step is-future" data-sal-idx="4">
+            <div>
+              <span class="sal-badge" id="badge-sal-4">○ Programmato</span>
+              <h4 style="margin-top:8px;">4. 3° SAL · Finiture (25%)</h4>
+              <p style="font-size:0.8rem;margin-top:4px;">Pavimenti, rivestimenti bagni, sanitari, infissi e porte.</p>
+            </div>
+            <strong id="amt-sal-4" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
+          </div>
+
+          <div class="sal-step is-future" data-sal-idx="5">
+            <div>
+              <span class="sal-badge" id="badge-sal-5">○ Programmato</span>
+              <h4 style="margin-top:8px;">5. Collaudo &amp; Ospiti (10%)</h4>
+              <p style="font-size:0.8rem;margin-top:4px;">Montaggio arredi, DM 37/08, pulizia e avvio Blue Arroyo.</p>
+            </div>
+            <strong id="amt-sal-5" style="font-size:1.1rem;color:var(--ink);">43.400 €</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- REPORT DEL VENERDÌ & AZIONI IN 1 TAP DEL CLIENTE ATTIVO -->
+      <div class="grid-2">
+        <div class="card">
+          <span class="eyebrow">Aggiornamento Settimanale Direzione Tecnica</span>
+          <h3>Ultimo Report del <em>Venerdì</em></h3>
+          <p id="sc-report-notes" style="margin-top:10px;color:var(--ink);font-size:0.95rem;background:var(--stone);padding:16px;border-left:3px solid var(--terracotta);">
+            Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati. Cantiere in linea con la data di consegna garantita a contratto.
+          </p>
+          <div style="margin-top:16px;font-size:0.85rem;color:var(--muted);">
+            <strong>Documentazione allegata e verificata:</strong> DURC regolare in corso di validità · Attestazione Cassa Edile · Polizza CAR/RC attiva · Penale ritardo contrattuale: 250 €/giorno a tutela del Committente.
+          </div>
+        </div>
+
+        <div class="card no-print" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+          <div>
+            <span class="eyebrow">Azioni rapide Committente (1 tap)</span>
+            <h3>Gestisci il tuo cantiere senza attese</h3>
+            <p style="font-size:0.86rem;margin-top:4px;">Seleziona l'azione desiderata: invia automaticamente la richiesta all'Amministrazione o al Direttore Tecnico.</p>
+          </div>
+
+          <div style="display:grid;gap:10px;">
+            <button type="button" class="btn btn-primary" id="btn-sc-approve-sal">✓ Approva SAL Corrente e Richiedi Fattura + DURC (1 tap) →</button>
+            <button type="button" class="btn btn-secondary" id="btn-sc-tech-note">Chiedi Chiarimento / Variante al Direttore Tecnico →</button>
+            <button type="button" class="btn btn-olive" id="btn-sc-hosp-start">Attiva Pre-Allestimento Gestione Ospiti Blue Arroyo →</button>
+          </div>
+          <div id="sc-feedback" style="font-size:0.86rem;color:var(--olive);font-weight:600;display:none;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <strong style="color:var(--ink);">Toscan Costruzioni · Blue Arroyo Group</strong><br />
+        Firenze, Toscana · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
+      </div>
+      <div><a href="/" style="text-decoration:underline;">Torna alla Home</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var rates = {
+        appartamenti: { rate: 1550, months: '5–7 mesi', label: 'Appartamenti affitti brevi' },
+        agriturismo:  { rate: 1950, months: '8–11 mesi', label: 'Agriturismo / Casale' },
+        hotel:        { rate: 2150, months: '9–12 mesi', label: 'Hotel / Boutique hotel' },
+        studenti:     { rate: 1600, months: '5–8 mesi', label: 'Residenza studenti' }
+      };
+      var salNames = [
+        'Avvio Cantiere (15%)',
+        '1° SAL · Opere Murarie (40%)',
+        '2° SAL · Impianti e Massetti (65%)',
+        '3° SAL · Finiture e Bagni (90%)',
+        'Collaudo Finale e Ospiti (100%)'
+      ];
+
+      var cfg = {
+        type: 'appartamenti',
+        city: 'Firenze',
+        sqm: 280,
+        client: 'Lorenzo Medici',
+        salIdx: 2,
+        notes: 'Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati.'
+      };
+
+      try {
+        var saved = JSON.parse(localStorage.getItem('tc_active_commessa_v1') || 'null');
+        if (saved && typeof saved === 'object') {
+          if (saved.type && rates[saved.type]) cfg.type = saved.type;
+          if (saved.city) cfg.city = saved.city;
+          if (saved.sqm) cfg.sqm = parseInt(saved.sqm, 10) || 280;
+          if (saved.client) cfg.client = saved.client;
+          if (saved.notes) cfg.notes = saved.notes;
+        }
+      } catch (e) {}
+
+      var p = new URLSearchParams(window.location.search);
+      if (p.get('type') && rates[p.get('type')]) cfg.type = p.get('type');
+      if (p.get('city') || p.get('citta')) cfg.city = p.get('city') || p.get('citta');
+      if (p.get('sqm') || p.get('mq')) cfg.sqm = Math.max(40, parseInt(p.get('sqm') || p.get('mq'), 10) || 280);
+      if (p.get('cliente') || p.get('client')) cfg.client = p.get('cliente') || p.get('client');
+      if (p.get('sal')) cfg.salIdx = Math.min(5, Math.max(1, parseInt(p.get('sal'), 10) || 2));
+      if (p.get('note')) cfg.notes = p.get('note');
+
+      function fmt(n) { return Math.round(n).toLocaleString('it-IT') + ' €'; }
+
+      function render() {
+        var info = rates[cfg.type] || rates.appartamenti;
+        var total = cfg.sqm * info.rate;
+
+        document.getElementById('sc-title').innerHTML = 'Stato avanzamento <em>cantiere</em> — ' + cfg.client;
+        document.getElementById('sc-kpi-client').textContent = cfg.client;
+        document.getElementById('sc-kpi-loc').textContent = cfg.city + ' · ' + cfg.sqm + ' m² (' + info.label + ')';
+        document.getElementById('sc-kpi-total').textContent = fmt(total);
+        document.getElementById('sc-kpi-rate').textContent = 'Prezzo Fisso Bloccato (' + info.rate + ' €/m²)';
+        document.getElementById('sc-kpi-sal-label').textContent = salNames[cfg.salIdx - 1];
+        document.getElementById('sc-kpi-months').textContent = 'Consegna garantita: ' + info.months;
+        document.getElementById('sc-report-notes').textContent = cfg.notes;
+
+        document.getElementById('amt-sal-1').textContent = fmt(total * 0.15);
+        document.getElementById('amt-sal-2').textContent = fmt(total * 0.25);
+        document.getElementById('amt-sal-3').textContent = fmt(total * 0.25);
+        document.getElementById('amt-sal-4').textContent = fmt(total * 0.25);
+        document.getElementById('amt-sal-5').textContent = fmt(total * 0.10);
+
+        document.querySelectorAll('.sal-step').forEach(function(step) {
+          var idx = parseInt(step.getAttribute('data-sal-idx'), 10);
+          step.classList.remove('is-done', 'is-current', 'is-future');
+          var badge = document.getElementById('badge-sal-' + idx);
+          if (idx < cfg.salIdx) {
+            step.classList.add('is-done');
+            badge.textContent = '✓ Completato';
+          } else if (idx === cfg.salIdx) {
+            step.classList.add('is-current');
+            badge.textContent = '● SAL Attuale';
+          } else {
+            step.classList.add('is-future');
+            badge.textContent = '○ Programmato';
+          }
+        });
+
+        var qStr = '?type=' + encodeURIComponent(cfg.type) + '&city=' + encodeURIComponent(cfg.city) + '&sqm=' + encodeURIComponent(cfg.sqm) + '&cliente=' + encodeURIComponent(cfg.client);
+        document.getElementById('sc-to-quote').href = '/preventivo-tipo' + qStr;
+        document.getElementById('sc-to-contract').href = '/data-room' + qStr;
+      }
+
+      document.querySelectorAll('.sal-step').forEach(function(step) {
+        step.addEventListener('click', function() {
+          cfg.salIdx = parseInt(step.getAttribute('data-sal-idx'), 10);
+          render();
+        });
+      });
+
+      function sendAction(source, label, waText) {
+        var info = rates[cfg.type] || rates.appartamenti;
+        fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: source,
+            azione: label,
+            nome: cfg.client,
+            citta: cfg.city,
+            mq: cfg.sqm,
+            sal_attuale: salNames[cfg.salIdx - 1],
+            importo_a_corpo: cfg.sqm * info.rate
+          })
+        }).catch(function(){});
+        var fb = document.getElementById('sc-feedback');
+        fb.style.display = 'block';
+        fb.textContent = '✓ ' + label + ' registrata con successo!';
+        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waText), '_blank');
+      }
+
+      document.getElementById('btn-sc-approve-sal').addEventListener('click', function() {
+        sendAction(
+          'portale_cliente_approva_sal',
+          'Approvazione ' + salNames[cfg.salIdx - 1],
+          'Buongiorno Amministrazione Toscan Costruzioni, confermo la presa visione e approvazione del traguardo "' + salNames[cfg.salIdx - 1] + '" per il cantiere di ' + cfg.city + ' (' + cfg.client + '). Potete procedere con l\'invio della fattura SAL e del DURC aggiornato.'
+        );
+      });
+
+      document.getElementById('btn-sc-tech-note').addEventListener('click', function() {
+        sendAction(
+          'portale_cliente_quesito_tecnico',
+          'Richiesta al Direttore Tecnico',
+          'Buongiorno Direzione Tecnica Toscan Costruzioni, in merito al cantiere di ' + cfg.city + ' (' + cfg.client + ' — ' + salNames[cfg.salIdx - 1] + ') vorrei concordare un dettaglio tecnico/variante:'
+        );
+      });
+
+      document.getElementById('btn-sc-hosp-start').addEventListener('click', function() {
+        sendAction(
+          'portale_cliente_avvio_blue_arroyo',
+          'Attivazione Pre-Allestimento Ospiti Blue Arroyo',
+          'Buongiorno Team Blue Arroyo, per il cantiere di ' + cfg.city + ' (' + cfg.client + ', ' + cfg.sqm + ' m²) richiedo di programmare il pre-allestimento per la gestione ricettiva (shooting fotografico, serrature smart, pratica CIN e portali).'
+        );
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>

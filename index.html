@@ -1969,16 +1969,42 @@
         if (!nome) { document.getElementById('f-nome').focus(); return; }
         if (!tel && !email) { document.getElementById('f-telefono').focus(); return; }
 
+        var cittaVal = document.getElementById('f-citta').value.trim() || 'Firenze';
+        var mqVal = document.getElementById('f-mq').value.trim() || '250';
+        var tipoRaw = document.getElementById('f-tipo').value || 'Appartamenti per affitti brevi';
+        var typeSlug = tipoRaw.toLowerCase().indexOf('hotel') !== -1 ? 'hotel' :
+                       (tipoRaw.toLowerCase().indexOf('casale') !== -1 || tipoRaw.toLowerCase().indexOf('agriturismo') !== -1 ? 'agriturismo' : 'appartamenti');
+
+        var linkConsole1Tap = 'https://toscancostruzioni.it/kit-commerciale?role=sales&type=' + encodeURIComponent(typeSlug) +
+                              '&city=' + encodeURIComponent(cittaVal) +
+                              '&sqm=' + encodeURIComponent(mqVal) +
+                              '&cliente=' + encodeURIComponent(nome) +
+                              '&phone=' + encodeURIComponent(tel);
+        var linkPreventivoPdf = 'https://toscancostruzioni.it/preventivo-tipo?type=' + encodeURIComponent(typeSlug) +
+                                '&city=' + encodeURIComponent(cittaVal) +
+                                '&sqm=' + encodeURIComponent(mqVal) +
+                                '&cliente=' + encodeURIComponent(nome);
+
         var payload = {
+          source: 'website_form_committente',
           nome: nome,
           email: email || 'Non indicata (contatto telefonico/WhatsApp)',
           telefono: tel || 'Non indicato',
           budget: document.getElementById('f-budget').value || 'Da definire nello studio di fattibilità',
-          zona: document.getElementById('f-citta').value + ' (' + document.getElementById('f-mq').value + ' m²)',
-          note: '[COMMITTENTE - STUDIO FATTIBILITÀ 48H] Immobile: ' + document.getElementById('f-tipo').value +
+          zona: cittaVal + ' (' + mqVal + ' m²)',
+          link_console_vendite_1tap: linkConsole1Tap,
+          link_preventivo_cliente_pdf: linkPreventivoPdf,
+          note: '[COMMITTENTE - STUDIO FATTIBILITÀ 48H] Immobile: ' + tipoRaw +
                 ' | Obiettivo: ' + document.getElementById('f-obiettivo').value +
-                ' | Note: ' + (document.getElementById('f-note').value || '-')
+                ' | Note: ' + (document.getElementById('f-note').value || '-') +
+                ' | Presa in carico 1-Tap: ' + linkConsole1Tap
         };
+
+        try {
+          localStorage.setItem('tc_active_commessa_v1', JSON.stringify({
+            client: nome, phone: tel, city: cittaVal, sqm: parseInt(mqVal, 10) || 250, type: typeSlug, sal: 'Avvio Cantiere (15%)'
+          }));
+        } catch (err) {}
 
         fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
           method: 'POST',
