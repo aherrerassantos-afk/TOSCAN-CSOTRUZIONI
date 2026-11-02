@@ -1647,15 +1647,401 @@ a.area { cursor: pointer; }
 @media (max-width: 600px)  { .asset__grid { grid-template-columns: 1fr; } }
 
 /* =========================================================
-   EDITORIAL CONTACT FORM
+   HERO INVESTOR KPI STRIP
+   ========================================================= */
+.hero-kpis {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  animation: fadeUp 1s var(--ease) 0.7s both;
+}
+.hero-kpi__val {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.3vw, 2.1rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.05;
+  margin-bottom: 0.35rem;
+}
+.hero-kpi__val em { font-style: italic; color: var(--accent); }
+.hero-kpi__lbl {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+@media (max-width: 760px) {
+  .hero-kpis { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+
+/* =========================================================
+   SIMULATORE ROI, CAPEX & RENDIMENTO INVESTITORE
+   ========================================================= */
+.sim-section {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.sim-wrap {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.sim-controls {
+  background: var(--paper);
+  padding: clamp(2rem, 4vw, 3.25rem);
+}
+.sim-output {
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(2rem, 4vw, 3.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sim-step-label {
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.sim-Path-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+.sim-tab {
+  padding: 1rem 1.1rem;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.sim-tab.is-active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.sim-tab__eyebrow {
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.sim-tab__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.sim-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+.sim-pill {
+  padding: 0.75rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s var(--ease);
+}
+.sim-pill.is-active {
+  border-color: var(--accent);
+  background: rgba(184, 106, 53, 0.08);
+  color: var(--ink);
+  font-weight: 600;
+}
+.sim-range-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+.sim-range-val {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.sim-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.sim-select-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.sim-select-row select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  outline: none;
+}
+.sim-out__tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.sim-out__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--paper);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+.sim-out__big-box {
+  padding: 1.35rem 0;
+  border-top: 1px solid rgba(250, 250, 248, 0.12);
+  border-bottom: 1px solid rgba(250, 250, 248, 0.12);
+  margin-bottom: 1.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.sim-out__big-lbl {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(250, 250, 248, 0.55);
+}
+.sim-out__big-val {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1;
+}
+.sim-metrics {
+  list-style: none;
+  margin-bottom: 1.75rem;
+}
+.sim-metrics li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(250, 250, 248, 0.08);
+  font-size: 0.83rem;
+}
+.sim-metrics li span { color: rgba(250, 250, 248, 0.55); }
+.sim-metrics li strong { color: var(--paper); font-weight: 500; }
+.sim-out__note {
+  font-size: 0.72rem;
+  color: rgba(250, 250, 248, 0.45);
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
+}
+@media (max-width: 920px) {
+  .sim-wrap { grid-template-columns: 1fr; }
+  .sim-select-row, .sim-Path-tabs, .sim-pills { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   DEAL FLOW & OPERAZIONI INVESTITORI
+   ========================================================= */
+.dealflow-section { background: var(--paper); }
+.dealflow__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+.deal-card {
+  background: var(--white);
+  padding: 2.75rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.35s var(--ease);
+}
+.deal-card:hover { background: var(--paper-warm); }
+.deal-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.deal-badge {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.7rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.deal-badge--live {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.deal-model-tag {
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.deal-card__title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.deal-card__title em { font-style: italic; color: var(--accent); }
+.deal-card__loc {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1.1rem;
+}
+.deal-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.68;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.deal-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--rule-faint);
+  border-bottom: 1px solid var(--rule-faint);
+  margin-bottom: 1.5rem;
+}
+.deal-kpi span {
+  display: block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+  margin-bottom: 0.2rem;
+}
+.deal-kpi strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+@media (max-width: 880px) { .dealflow__grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   GUIDED INVESTOR FUNNEL FORM (#contatti)
    ========================================================= */
 .lead-form {
-  max-width: 760px;
+  max-width: 860px;
   margin: 0 auto 2.5rem;
   text-align: left;
   background: var(--white);
   border: 1px solid var(--rule);
-  padding: clamp(2rem, 4vw, 3.25rem);
+  padding: clamp(2rem, 4vw, 3.5rem);
+  box-shadow: 0 24px 60px rgba(26, 23, 20, 0.06);
+}
+.funnel-steps-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-faint);
+}
+.funnel-step-pill {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.funnel-step-pill strong {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  flex-shrink: 0;
+}
+.funnel-model-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.funnel-model-card {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 1.1rem 1rem;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.funnel-model-card.is-selected {
+  border-color: var(--accent);
+  background: rgba(184, 106, 53, 0.08);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.funnel-model-card__tag {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+.funnel-model-card__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+.funnel-model-card__sub {
+  font-size: 0.74rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
 }
 .lead-form__row {
   display: grid;
@@ -1691,7 +2077,84 @@ a.area { cursor: pointer; }
   border-color: var(--accent);
   background: var(--white);
 }
-@media (max-width: 640px) { .lead-form__row { grid-template-columns: 1fr; } }
+.funnel-guarantees {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule-faint);
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+}
+@media (max-width: 720px) {
+  .lead-form__row, .funnel-model-cards, .funnel-steps-bar { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   STICKY INVESTOR CONCIERGE BAR
+   ========================================================= */
+.investor-bar {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 990;
+  background: rgba(26, 23, 20, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(250, 250, 248, 0.14);
+  padding: 0.65rem 0.85rem 0.65rem 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  transition: transform 0.45s var(--ease);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  max-width: 94vw;
+}
+.investor-bar.is-visible {
+  transform: translateX(-50%) translateY(0);
+}
+.investor-bar__label {
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 248, 0.78);
+  white-space: nowrap;
+}
+.investor-bar__label strong { color: var(--accent); font-weight: 600; }
+.investor-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.investor-bar__btn {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  border: 1px solid rgba(250, 250, 248, 0.2);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s;
+}
+.investor-bar__btn:hover { border-color: var(--paper); }
+.investor-bar__btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+.investor-bar__btn--primary:hover {
+  background: transparent;
+  color: var(--paper);
+}
+@media (max-width: 760px) {
+  .investor-bar__label { display: none; }
+  .investor-bar { padding: 0.5rem; gap: 0.4rem; }
+}
 </style>
 </head>
 
@@ -1712,13 +2175,13 @@ a.area { cursor: pointer; }
 <nav class="nav" id="nav">
   <a href="#top" class="nav__brand">Toscan <em>Costruzioni</em> <span class="nav__brand-sub">Blue Arroyo Group</span></a>
   <ul class="nav__menu">
-    <li><a href="#chi-siamo">Il Gruppo</a></li>
     <li><a href="#modelli">I 2 Modelli</a></li>
+    <li><a href="#simulatore">Simulatore ROI</a></li>
+    <li><a href="#dealflow">Deal Flow</a></li>
     <li><a href="#asset-class">Asset Class</a></li>
-    <li><a href="#servizi">Servizi</a></li>
+    <li><a href="#chi-siamo">Il Gruppo</a></li>
     <li><a href="#villa">Villa Claudia</a></li>
-    <li><a href="#fiscale">Fiscale</a></li>
-    <li><a href="#contatti">Contatti</a></li>
+    <li><a href="#contatti">Area Investitori</a></li>
   </ul>
   <div class="nav__lang"><span>IT</span><span>·</span><span>EN</span></div>
   <button class="nav__toggle" aria-label="Menu" id="nav-toggle">
@@ -1727,13 +2190,13 @@ a.area { cursor: pointer; }
 </nav>
 
 <nav class="nav__mobile" id="nav-mobile">
-  <a href="#chi-siamo">Il Gruppo</a>
   <a href="#modelli">I 2 Modelli</a>
+  <a href="#simulatore">Simulatore ROI</a>
+  <a href="#dealflow">Deal Flow</a>
   <a href="#asset-class">Asset Class</a>
-  <a href="#servizi">Servizi</a>
+  <a href="#chi-siamo">Il Gruppo</a>
   <a href="#villa">Villa Claudia</a>
-  <a href="#fiscale">Fiscale</a>
-  <a href="#contatti">Contatti</a>
+  <a href="#contatti">Area Investitori</a>
 </nav>
 
 <!-- HERO -->
@@ -1752,11 +2215,30 @@ a.area { cursor: pointer; }
         Toscan Costruzioni, parte del Gruppo Blue Arroyo, nasce e si specializza nella creazione chiavi in mano di asset ricettivi e immobili per Short e Medium Term in Toscana. Il General Contractor che rende questo possibile attraverso due modelli di business: <strong>Crowdfunding Chiuso per Transazione</strong> oppure <strong>Unico Investitore</strong> dalla visione alla realizzazione.
       </p>
       <div class="hero__cta">
-        <a href="#modelli" class="btn btn--primary">
-          Scopri i 2 Modelli di Business
+        <a href="#simulatore" class="btn btn--primary">
+          Simula ROI &amp; Capex Operazione
           <span class="btn__arrow">→</span>
         </a>
-        <a href="#contatti" class="btn btn--ghost">Avvia la tua Operazione</a>
+        <a href="#dealflow" class="btn btn--ghost">Esplora il Deal Flow Attivo</a>
+      </div>
+
+      <div class="hero-kpis">
+        <div class="hero-kpi">
+          <div class="hero-kpi__val">€18.4<em>M+</em></div>
+          <div class="hero-kpi__lbl">Track Record &amp; Pipeline Hospitality Toscana</div>
+        </div>
+        <div class="hero-kpi">
+          <div class="hero-kpi__val">14–18<em>%</em></div>
+          <div class="hero-kpi__lbl">IRR Target Annuo Operazioni Club Deal SPV</div>
+        </div>
+        <div class="hero-kpi">
+          <div class="hero-kpi__val">100<em>%</em></div>
+          <div class="hero-kpi__lbl">Capex &amp; Cronoprogramma Bloccati a Contratto</div>
+        </div>
+        <div class="hero-kpi">
+          <div class="hero-kpi__val">48<em>h</em></div>
+          <div class="hero-kpi__lbl">Studio di Fattibilità &amp; Business Plan Dedicato</div>
+        </div>
       </div>
     </div>
 
@@ -1798,12 +2280,13 @@ a.area { cursor: pointer; }
           </p>
           <ul class="modello__points">
             <li><span>Struttura</span><strong>Crowdfunding Chiuso su Singola Transazione / SPV</strong></li>
+            <li><span>Ticket &amp; Ritorno</span><strong>Da €100k · IRR Target 14.5% – 18.2%</strong></li>
             <li><span>Esecuzione</span><strong>Capex &amp; Cronoprogramma Bloccati da Toscan Costruzioni</strong></li>
             <li><span>Asset Target</span><strong>Immobili Short &amp; Medium Term · Student Hotel · Ville in Quote</strong></li>
           </ul>
         </div>
-        <a href="#contatti" class="btn btn--primary" onclick="setTimeout(()=>{const b=document.getElementById('f-modello');if(b)b.value='Crowdfunding Chiuso per Transazione';const m=document.getElementById('msg');if(m)m.value='Vorrei ricevere informazioni per partecipare a un’operazione in Crowdfunding Chiuso per Transazione (Gruppo Blue Arroyo).';},100)">
-          Partecipa a una Transazione Chiusa
+        <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Crowdfunding Chiuso per Transazione','Short & Medium Term','€100k – €300k (Ticket Club Deal / SPV)','Vorrei ricevere il Deal Memo e accedere alla Data Room per partecipare a un’operazione in Crowdfunding Chiuso per Transazione (Gruppo Blue Arroyo).')">
+          Accedi alle Transazioni Chiuse
           <span class="btn__arrow">→</span>
         </a>
       </div>
@@ -1819,13 +2302,235 @@ a.area { cursor: pointer; }
           </p>
           <ul class="modello__points">
             <li><span>Servizio</span><strong>Dalla Visione &amp; Concept alla Realizzazione Chiavi in Mano</strong></li>
+            <li><span>Rendimento</span><strong>Yield Operativo Annuo 9.5% – 14.2% a Regime</strong></li>
             <li><span>Garanzie</span><strong>Prezzo Bloccato · Penali Ritardo · Garanzia Decennale</strong></li>
             <li><span>Asset Target</span><strong>Nuovi Hotel · Agriturismi · Student Hotel · Stabili Short/Mid Term</strong></li>
           </ul>
         </div>
-        <a href="#contatti" class="btn btn--primary" onclick="setTimeout(()=>{const b=document.getElementById('f-modello');if(b)b.value='Unico Investitore (Visione & Realizzazione)';const m=document.getElementById('msg');if(m)m.value='Sono un Unico Investitore e vorrei appaltare la visione e realizzazione del mio nuovo Hotel / Agriturismo / Immobile Short-Medium Term.';},100)">
+        <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Hotel / Boutique Hotel','€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)','Sono un Unico Investitore e vorrei richiedere uno Studio di Fattibilità in 48h per appaltare la visione e realizzazione del mio nuovo Hotel / Agriturismo / Immobile Short-Medium Term.')">
           Appalta la Tua Visione &amp; Realizzazione
           <span class="btn__arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATORE ROI, CAPEX & RENDIMENTO PER PROSPECT INVESTITORI -->
+<section class="section sim-section" id="simulatore">
+  <div class="section__inner">
+    <div class="reveal">
+      <div class="section__label">Strumento per Prospect Investitori</div>
+      <h2 class="section__title">Simulatore <em>Capex, Yield &amp; IRR</em>.</h2>
+      <p class="section__lead">
+        Configura la tua operazione secondo i nostri due modelli di business: calcola in tempo reale l'investimento chiavi in mano a prezzo bloccato, il numero di unità/camere ricavabili e il ritorno economico atteso.
+      </p>
+    </div>
+
+    <div class="sim-wrap reveal">
+      <div class="sim-controls">
+        <span class="sim-step-label">01 · Scegli il Modello di Business</span>
+        <div class="sim-Path-tabs">
+          <button type="button" class="sim-tab is-active" data-sim-model="unico" id="sim-tab-unico">
+            <span class="sim-tab__eyebrow">Modello 02 · Turnkey EPC</span>
+            <div class="sim-tab__title">Unico Investitore (Visione &amp; Realizzazione)</div>
+          </button>
+          <button type="button" class="sim-tab" data-sim-model="crowdfunding" id="sim-tab-crowd">
+            <span class="sim-tab__eyebrow">Modello 01 · Club Deal SPV</span>
+            <div class="sim-tab__title">Crowdfunding Chiuso per Transazione</div>
+          </button>
+        </div>
+
+        <span class="sim-step-label">02 · Seleziona l'Asset Class Ricettiva</span>
+        <div class="sim-pills">
+          <button type="button" class="sim-pill is-active" data-sim-asset="short">01 · Immobili Short &amp; Medium Term</button>
+          <button type="button" class="sim-pill" data-sim-asset="hotel">02 · Hotel &amp; Boutique Hotel</button>
+          <button type="button" class="sim-pill" data-sim-asset="agriturismo">03 · Agriturismo &amp; Wine Resort</button>
+          <button type="button" class="sim-pill" data-sim-asset="student">04 · Student Hotel (PBSA)</button>
+        </div>
+
+        <span class="sim-step-label" id="sim-slider-lbl">03 · Superficie Immobile da Sviluppare (MQ)</span>
+        <div class="sim-range-head">
+          <span style="font-size:0.78rem;color:var(--ink-muted);" id="sim-slider-sub">Dimensione intervento chiavi in mano</span>
+          <span class="sim-range-val" id="sim-sqm-display">450 mq</span>
+        </div>
+        <input type="range" class="sim-slider" id="sim-sqm" min="120" max="2500" step="30" value="450" />
+
+        <div class="sim-select-row">
+          <div>
+            <span class="sim-step-label">04 · Area Geografica Toscana</span>
+            <select id="sim-loc">
+              <option value="firenze">Firenze Centro UNESCO &amp; Colline</option>
+              <option value="chianti">Chianti Classico &amp; Val d'Orcia</option>
+              <option value="pisa">Pisa / Siena (Poli Universitari &amp; Arte)</option>
+              <option value="costa">Versilia, Lucca &amp; Costa Toscana</option>
+            </select>
+          </div>
+          <div>
+            <span class="sim-step-label">05 · Livello Intervento &amp; FF&amp;E</span>
+            <select id="sim-grade">
+              <option value="turnkey">Riconversione Turnkey + Arredo FF&amp;E</option>
+              <option value="luxury">Luxury Hospitality 5★ + SPA / Piscina</option>
+              <option value="smart">Frazionamento Smart Short/Mid Term</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-output">
+        <div>
+          <div class="sim-out__tag" id="sim-out-tag">Proiezione Finanziaria · Unico Investitore</div>
+          <h3 class="sim-out__title" id="sim-out-title">Sviluppo Immobili <em>Short &amp; Medium Term</em></h3>
+
+          <div class="sim-out__big-box">
+            <div>
+              <div class="sim-out__big-lbl" id="sim-out-main-lbl">Capex Chiavi in Mano (Prezzo Bloccato)</div>
+              <div style="font-size:0.72rem;color:rgba(250,250,248,0.45);margin-top:0.2rem;" id="sim-out-sub-lbl">Inclusi progetto, pratiche, impianti e FF&amp;E</div>
+            </div>
+            <div class="sim-out__big-val" id="sim-out-capex">€ 695.000</div>
+          </div>
+
+          <ul class="sim-metrics">
+            <li>
+              <span id="sim-m1-lbl">Unità / Camere Ricavabili Ottimizzate</span>
+              <strong id="sim-m1-val">9 Unità Short/Mid Term</strong>
+            </li>
+            <li>
+              <span id="sim-m2-lbl">Ricavo Operativo Annuo Lordo Stimato</span>
+              <strong id="sim-m2-val">€ 248.000 / anno</strong>
+            </li>
+            <li>
+              <span id="sim-m3-lbl">Yield Operativo / IRR Atteso</span>
+              <strong id="sim-m3-val" style="color:var(--accent);">13.8% Yield Annuo</strong>
+            </li>
+            <li>
+              <span id="sim-m4-lbl">Beneficio Fiscale &amp; Ottimizzazione Capex</span>
+              <strong id="sim-m4-val">Fino a € 96.000 / unità</strong>
+            </li>
+            <li>
+              <span id="sim-m5-lbl">Cronoprogramma Garantito con Penali</span>
+              <strong id="sim-m5-val">7 Mesi Chiavi in Mano</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="sim-out__note">
+            *Stima parametrica basata sui benchmark operativi del Gruppo Blue Arroyo e Toscan Costruzioni in Toscana. Il preventivo definitivo viene bloccato contrattualmente dopo lo studio di fattibilità gratuito in 48h.
+          </p>
+          <a href="#contatti" class="btn btn--primary" id="sim-cta-btn" style="width:100%;justify-content:center;background:var(--accent);border-color:var(--accent);color:var(--white);">
+            Ricevi il Business Plan di questa Simulazione
+            <span class="btn__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL FLOW & OPERAZIONI PER INVESTITORI -->
+<section class="section dealflow-section" id="dealflow">
+  <div class="section__inner">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem;">
+      <div>
+        <div class="section__label">Pipeline &amp; Track Record · Blue Arroyo Group</div>
+        <h2 class="section__title" style="margin-bottom:0.5rem;">Deal Flow &amp; Operazioni <em>Selezionate</em>.</h2>
+        <p class="section__lead" style="margin-bottom:0;">
+          Operazioni in Crowdfunding Chiuso per Transazione aperte a co-investitori qualificati e progetti modello per Unico Investitore.
+        </p>
+      </div>
+      <a href="/foglio-lavori" class="btn btn--ghost">Apri il Foglio Lavori &amp; Database Completo →</a>
+    </div>
+
+    <div class="dealflow__grid reveal">
+      <div class="deal-card">
+        <div>
+          <div class="deal-card__top">
+            <span class="deal-badge deal-badge--live">● In Raccolta · 8 Quote</span>
+            <span class="deal-model-tag">Modello 01 · Crowdfunding Chiuso / Quote</span>
+          </div>
+          <h3 class="deal-card__title">Villa <em>Claudia</em> · Luxury Co-Ownership &amp; Short-Term</h3>
+          <div class="deal-card__loc">Montespertoli · Chianti Fiorentino DOCG</div>
+          <p class="deal-card__desc">
+            Villa storica con parco e piscina nel Chianti strutturata in 8 quote da €298.000. Ogni investitore ottiene proprietà reale, 4 settimane di utilizzo esclusivo all'anno e 48 settimane di messa a reddito Short-Term Luxury gestita chiavi in mano.
+          </p>
+          <div class="deal-kpis">
+            <div class="deal-kpi"><span>Ticket Quota</span><strong>€ 298.000</strong></div>
+            <div class="deal-kpi"><span>Yield + Rivalut.</span><strong>11.4% – 15.2%</strong></div>
+            <div class="deal-kpi"><span>Cantiere</span><strong>Capex Bloccato</strong></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Crowdfunding Chiuso per Transazione','Villa Storica / Villa Claudia','€100k – €300k (Ticket Club Deal / SPV)','Richiedo il Dossier Investitore e l’accesso alla Data Room per l’operazione Villa Claudia (Quota €298.000 · Chianti DOCG).')">
+            Richiedi Dossier Villa Claudia <span class="btn__arrow">→</span>
+          </a>
+          <a href="/villa-claudia" class="btn btn--ghost">Scheda Progetto</a>
+        </div>
+      </div>
+
+      <div class="deal-card">
+        <div>
+          <div class="deal-card__top">
+            <span class="deal-badge">● Club Deal SPV / Unico Investitore</span>
+            <span class="deal-model-tag">Core Focus · Short &amp; Medium Term</span>
+          </div>
+          <h3 class="deal-card__title">Palazzo <em>Fiorentino</em> · 10 Serviced Apartments</h3>
+          <div class="deal-card__loc">Firenze · Hub Storico &amp; Polimoda / Stazione</div>
+          <p class="deal-card__desc">
+            Frazionamento e riconversione di piano nobile/cielo-terra in 10 unità indipendenti progettate per affitti brevi alto-spendenti e soggiorni medio termine (1–12 mesi). Domotica self check-in, insonorizzazione certificata e arredo FF&amp;E completo.
+          </p>
+          <div class="deal-kpis">
+            <div class="deal-kpi"><span>Capex Cantiere</span><strong>€ 780.000</strong></div>
+            <div class="deal-kpi"><span>IRR Target SPV</span><strong>16.8% Annuo</strong></div>
+            <div class="deal-kpi"><span>Durata Lavori</span><strong>7 Mesi Garantiti</strong></div>
+          </div>
+        </div>
+        <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Crowdfunding Chiuso per Transazione','Short & Medium Term','€300k – €1M (Frazionamento / Operazione Diretta)','Vorrei ricevere il Deal Memo sulle operazioni di frazionamento Short & Medium Term a Firenze (Club Deal SPV o Unico Investitore).')">
+          Richiedi Teaser &amp; Business Plan <span class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="deal-card">
+        <div>
+          <div class="deal-card__top">
+            <span class="deal-badge">● Modello Turnkey EPC</span>
+            <span class="deal-model-tag">Modello 02 · Unico Investitore</span>
+          </div>
+          <h3 class="deal-card__title">Creazione <em>Boutique Hotel</em> &amp; Agriturismo</h3>
+          <div class="deal-card__loc">Chianti · Siena · Val d'Orcia · Lucca</div>
+          <p class="deal-card__desc">
+            Format chiavi in mano per investitori singoli e family office che acquisiscono un casale o palazzo storico e appaltano a Toscan Costruzioni l'intero sviluppo: cambio destinazione d'uso ricettiva, 12–24 suite, bio-piscina, SPA e messa a reddito.
+          </p>
+          <div class="deal-kpis">
+            <div class="deal-kpi"><span>Taglia Capex</span><strong>€ 1.2M – € 3.5M</strong></div>
+            <div class="deal-kpi"><span>Yield a Regime</span><strong>10.8% – 13.5%</strong></div>
+            <div class="deal-kpi"><span>Contratto</span><strong>Prezzo Bloccato</strong></div>
+          </div>
+        </div>
+        <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Hotel / Boutique Hotel','€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)','Sono interessato al format Unico Investitore per la creazione chiavi in mano di un Boutique Hotel o Agriturismo in Toscana. Richiedo call con il Board.')">
+          Prenota Studio Fattibilità 48h <span class="btn__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="deal-card">
+        <div>
+          <div class="deal-card__top">
+            <span class="deal-badge">● Alta Domanda Istituzionale</span>
+            <span class="deal-model-tag">PBSA · Student Housing &amp; Mid-Term</span>
+          </div>
+          <h3 class="deal-card__title"><em>Student Hotel</em> &amp; Co-Living Hub</h3>
+          <div class="deal-card__loc">Firenze Novoli/Careggi · Pisa · Siena</div>
+          <p class="deal-card__desc">
+            Riconversione di immobili direzionali o ex-alberghieri in residenze universitarie moderne ad alta densità (25–60 camere con bagno privato, aree studio, palestra, lavanderia smart e co-working) con occupazione storica superiore al 96%.
+          </p>
+          <div class="deal-kpis">
+            <div class="deal-kpi"><span>Occupazione</span><strong>96% – 99%</strong></div>
+            <div class="deal-kpi"><span>IRR Target</span><strong>15.4% Annuo</strong></div>
+            <div class="deal-kpi"><span>Modello</span><strong>SPV o Turnkey</strong></div>
+          </div>
+        </div>
+        <a href="#contatti" class="btn btn--primary" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Student Hotel (PBSA)','Oltre €3M (Family Office / Istituzionale)','Vorrei ricevere il dossier sullo sviluppo di Student Hotel (PBSA) e Co-Living Hub nei poli universitari toscani.')">
+          Richiedi Dossier Student Hotel <span class="btn__arrow">→</span>
         </a>
       </div>
     </div>
@@ -2006,37 +2711,37 @@ a.area { cursor: pointer; }
       <p class="section__lead">Seleziona il tuo profilo per configurare la richiesta diretta al nostro team di sviluppo e general contracting.</p>
     </div>
     <div class="profili__grid reveal">
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const b=document.getElementById('f-modello');if(b)b.value='Crowdfunding Chiuso per Transazione';const m=document.getElementById('msg');if(m)m.value='Sono interessato al modello Crowdfunding Chiuso per Transazione. Vorrei ricevere il dossier sulle prossime operazioni Short/Medium Term e Hospitality.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Crowdfunding Chiuso per Transazione','Short & Medium Term','€100k – €300k (Ticket Club Deal / SPV)','Sono interessato al modello Crowdfunding Chiuso per Transazione. Vorrei ricevere il dossier sulle prossime operazioni Short/Medium Term e Hospitality.')">
         <div class="profilo__index">— Profilo 01 · Modello Crowdfunding Chiuso</div>
         <h3 class="profilo__title">Investi in <em>Club Deal</em>?</h3>
         <p class="profilo__body">Partecipa a operazioni immobiliari chiuse per singola transazione strutturate con il Gruppo Blue Arroyo, con Capex bloccato e ROI target elevato.</p>
         <div class="profilo__arrow">→</div>
       </a>
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const b=document.getElementById('f-modello');if(b)b.value='Unico Investitore (Visione & Realizzazione)';const m=document.getElementById('msg');if(m)m.value='Sono un Unico Investitore. Vorrei appaltare a Toscan Costruzioni la visione e realizzazione del mio nuovo Hotel / Agriturismo / Student Hotel.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Hotel / Boutique Hotel','€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)','Sono un Unico Investitore. Vorrei appaltare a Toscan Costruzioni la visione e realizzazione del mio nuovo Hotel / Agriturismo / Student Hotel.')">
         <div class="profilo__index">— Profilo 02 · Modello Unico Investitore</div>
         <h3 class="profilo__title">Crei il tuo <em>Hotel</em>?</h3>
         <p class="profilo__body">Sei un unico investitore o family office: appalta a noi visione, progettazione e realizzazione chiavi in mano del tuo nuovo Hotel, Agriturismo o Student Hub.</p>
         <div class="profilo__arrow">→</div>
       </a>
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const z=document.getElementById('f-asset');if(z)z.value='Short & Medium Term';const m=document.getElementById('msg');if(m)m.value='Vorrei sviluppare o frazionare un immobile per affitti Short e Medium Term ad alta redditività.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Short & Medium Term','€300k – €1M (Frazionamento / Operazione Diretta)','Vorrei sviluppare o frazionare un immobile per affitti Short e Medium Term ad alta redditività.')">
         <div class="profilo__index">— Profilo 03 · Core Specialization</div>
         <h3 class="profilo__title">Sviluppi <em>Short &amp; Mid Term</em>?</h3>
         <p class="profilo__body">Frazioniamo e trasformiamo appartamenti e stabili cielo-terra in macchine da reddito per affitti brevi e soggiorni medio termine (1–12 mesi).</p>
         <div class="profilo__arrow">→</div>
       </a>
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const z=document.getElementById('f-asset');if(z)z.value='Agriturismo & Resort';const m=document.getElementById('msg');if(m)m.value='Ho una tenuta / casale e cerco il General Contractor per trasformarlo in Agriturismo o Country Resort.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Agriturismo & Resort','€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)','Ho una tenuta / casale e cerco il General Contractor per trasformarlo in Agriturismo, Resort o Student Hotel.')">
         <div class="profilo__index">— Profilo 04 · Country &amp; Student</div>
         <h3 class="profilo__title"><em>Agriturismo</em> o Student Hotel?</h3>
         <p class="profilo__body">Dalle tenute rurali in Toscana alle residenze universitarie (PBSA): progettiamo e costruiamo strutture ricettive complete e durevoli.</p>
         <div class="profilo__arrow">→</div>
       </a>
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='I am an international investor / buyer looking for turnkey hospitality or short-medium term development in Tuscany.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Unico Investitore (Visione & Realizzazione)','Short & Medium Term','€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)','I am an international investor / family office looking for turnkey hospitality or short-medium term development in Tuscany.')">
         <div class="profilo__index">— Profilo 05 · International Desk</div>
         <h3 class="profilo__title"><em>International</em> Investor?</h3>
         <p class="profilo__body">Full English &amp; Spanish service for foreign investors and family offices. Remote project management, weekly SAL reports, complete compliance.</p>
         <div class="profilo__arrow">→</div>
       </a>
-      <a class="profilo" href="#contatti" onclick="setTimeout(()=>{const m=document.getElementById('msg');if(m)m.value='Ho un immobile da valorizzare e vorrei una valutazione gratuita in 48h per riconversione ricettiva o short-term.'},100)">
+      <a class="profilo" href="#contatti" onclick="selectFunnelModel('Proposta Immobile / Joint Venture','Short & Medium Term','€300k – €1M (Frazionamento / Operazione Diretta)','Ho un immobile da valorizzare e vorrei una valutazione gratuita in 48h per riconversione ricettiva o inserimento in una transazione Blue Arroyo.')">
         <div class="profilo__index">— Profilo 06 · Scouting &amp; Fattibilità</div>
         <h3 class="profilo__title">Hai un <em>immobile</em> da proporre?</h3>
         <p class="profilo__body">In 48 ore valutiamo gratuitamente la fattibilità tecnica ed economica per trasformare il tuo immobile o inserirlo in una transazione Blue Arroyo.</p>
@@ -2342,37 +3047,59 @@ a.area { cursor: pointer; }
   </div>
 </section>
 
-<!-- CTA FINAL & FORM OPERAZIONI -->
+<!-- CTA FINAL & GUIDED INVESTOR FUNNEL -->
 <section class="cta-final" id="contatti">
   <div class="cta-final__inner">
-    <p class="cta-final__title reveal">Avvia la tua <em>Operazione</em> con noi.</p>
-    <p class="cta-final__sub reveal">Che tu voglia partecipare a un Crowdfunding Chiuso per Transazione o appaltare la visione e realizzazione del tuo nuovo Hotel, Agriturismo, Student Hotel o immobile Short/Medium Term, ti rispondiamo entro 48 ore.</p>
+    <p class="cta-final__title reveal">Candidatura Operazione &amp; <em>Area Investitori</em>.</p>
+    <p class="cta-final__sub reveal">Accedi alla Data Room delle operazioni in Crowdfunding Chiuso per Transazione o richiedi in 48 ore lo Studio di Fattibilità &amp; Capex Bloccato per la realizzazione del tuo nuovo Hotel, Agriturismo, Student Hotel o immobile Short/Medium Term.</p>
 
     <form class="lead-form reveal" id="lead-form">
-      <div class="lead-form__row">
-        <div class="lead-form__field">
-          <label for="f-nome">Nome / Società / Family Office *</label>
-          <input type="text" id="f-nome" name="nome" required placeholder="Nome e Cognome o Ragione Sociale" />
+      <div class="funnel-steps-bar">
+        <div class="funnel-step-pill"><strong>1</strong> Percorso Investitore</div>
+        <div class="funnel-step-pill"><strong>2</strong> Asset, Ticket &amp; Dossier</div>
+        <div class="funnel-step-pill"><strong>3</strong> Accesso Board &amp; Data Room</div>
+      </div>
+
+      <span class="sim-step-label">Passo 01 · Seleziona il tuo Percorso Operativo</span>
+      <div class="funnel-model-cards" id="funnel-cards">
+        <div class="funnel-model-card is-selected" data-model-val="Unico Investitore (Visione & Realizzazione)">
+          <div class="funnel-model-card__tag">Modello 02 · Turnkey EPC</div>
+          <div class="funnel-model-card__title">Unico Investitore</div>
+          <div class="funnel-model-card__sub">Appalto visione e realizzazione chiavi in mano del mio Hotel / Asset</div>
         </div>
-        <div class="lead-form__field">
-          <label for="f-email">Email *</label>
-          <input type="email" id="f-email" name="email" required placeholder="nome@azienda.com" />
+        <div class="funnel-model-card" data-model-val="Crowdfunding Chiuso per Transazione">
+          <div class="funnel-model-card__tag">Modello 01 · Club Deal SPV</div>
+          <div class="funnel-model-card__title">Crowdfunding Chiuso</div>
+          <div class="funnel-model-card__sub">Co-investo in una singola transazione immobiliare Blue Arroyo</div>
+        </div>
+        <div class="funnel-model-card" data-model-val="Proposta Immobile / Joint Venture">
+          <div class="funnel-model-card__tag">Scouting · Off-Market</div>
+          <div class="funnel-model-card__title">Propongo un Immobile</div>
+          <div class="funnel-model-card__sub">Ho un cielo-terra, hotel o casale da riconvertire o valorizzare</div>
         </div>
       </div>
+
+      <span class="sim-step-label">Passo 02 · Configura Operazione, Capitale &amp; Output Richiesto</span>
       <div class="lead-form__row">
         <div class="lead-form__field">
-          <label for="f-tel">Telefono / WhatsApp *</label>
-          <input type="tel" id="f-tel" name="telefono" required placeholder="+39 333 123 4567" />
-        </div>
-        <div class="lead-form__field">
-          <label for="f-modello">Modello di Business *</label>
+          <label for="f-modello">Modello di Business Selezionato *</label>
           <select id="f-modello" name="budget">
             <option value="Unico Investitore (Visione & Realizzazione)">Unico Investitore — Appalto Visione &amp; Realizzazione</option>
             <option value="Crowdfunding Chiuso per Transazione">Crowdfunding Chiuso per Transazione (Club Deal SPV)</option>
-            <option value="Proposta Immobile da Valorizzare">Propongo un Immobile da Riconvertire / Valorizzare</option>
+            <option value="Proposta Immobile / Joint Venture">Propongo un Immobile da Riconvertire / Joint Venture</option>
+          </select>
+        </div>
+        <div class="lead-form__field">
+          <label for="f-ticket">Fascia di Capitale / Capex Operazione *</label>
+          <select id="f-ticket" name="ticket">
+            <option value="€100k – €300k (Ticket Club Deal / SPV)">€100k – €300k (Ticket Club Deal / Quota SPV)</option>
+            <option value="€300k – €1M (Frazionamento / Operazione Diretta)" selected>€300k – €1M (Frazionamento Short-Mid Term / Cantiere)</option>
+            <option value="€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)">€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)</option>
+            <option value="Oltre €3M (Family Office / Istituzionale)">Oltre €3M (Family Office / Sviluppo Istituzionale)</option>
           </select>
         </div>
       </div>
+
       <div class="lead-form__row">
         <div class="lead-form__field">
           <label for="f-asset">Asset Class d'Interesse *</label>
@@ -2385,21 +3112,58 @@ a.area { cursor: pointer; }
           </select>
         </div>
         <div class="lead-form__field">
+          <label for="f-output">Dossier / Primo Step Desiderato *</label>
+          <select id="f-output" name="output_richiesto">
+            <option value="Studio di Fattibilità & Capex in 48h">Studio di Fattibilità &amp; Capex Bloccato in 48h</option>
+            <option value="Accesso Data Room & Deal Memo PDF">Accesso Data Room &amp; Deal Memo Operazioni Chiuse</option>
+            <option value="Call Strategica 1-to-1 con il Board Blue Arroyo">Call Strategica 1-to-1 con il Board Blue Arroyo</option>
+          </select>
+        </div>
+      </div>
+
+      <span class="sim-step-label" style="margin-top:0.5rem;">Passo 03 · Dati di Accreditamento Investitore</span>
+      <div class="lead-form__row">
+        <div class="lead-form__field">
+          <label for="f-nome">Nome / Società / Family Office *</label>
+          <input type="text" id="f-nome" name="nome" required placeholder="Nome e Cognome o Ragione Sociale" />
+        </div>
+        <div class="lead-form__field">
+          <label for="f-email">Email Istituzionale / Personale *</label>
+          <input type="email" id="f-email" name="email" required placeholder="nome@azienda.com" />
+        </div>
+      </div>
+      <div class="lead-form__row">
+        <div class="lead-form__field">
+          <label for="f-tel">Telefono / WhatsApp Diretto *</label>
+          <input type="tel" id="f-tel" name="telefono" required placeholder="+39 333 123 4567" />
+        </div>
+        <div class="lead-form__field">
           <label for="f-citta">Località Immobile / Area Target</label>
           <input type="text" id="f-citta" name="citta" placeholder="Firenze, Chianti, Siena, Pisa..." />
         </div>
       </div>
+
       <div class="lead-form__field" style="margin-bottom:1.5rem;">
-        <label for="msg">Dettagli del Progetto o Obiettivo d'Investimento</label>
+        <label for="msg">Dettagli Operazione, Immobile o Obiettivo di Rendimento</label>
         <textarea id="msg" name="note" rows="3" placeholder="Descrivi la tua visione, l'immobile da realizzare/riconvertire o il capitale che desideri allocare..."></textarea>
       </div>
-      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;">
-        Invia Richiesta al Board Operativo
+
+      <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center;padding:1.1rem 2rem;font-size:0.78rem;">
+        Richiedi Dossier &amp; Prenota Analisi con il Board Blue Arroyo
         <span class="btn__arrow">→</span>
       </button>
+
+      <div class="funnel-guarantees">
+        <span>✓ Riservatezza &amp; NDA Garantiti</span>
+        <span>✓ Risposta dal Board entro 24/48h</span>
+        <span>✓ Capex &amp; Tempi Bloccati per Contratto</span>
+      </div>
     </form>
 
     <div class="cta-final__btns reveal">
+      <a href="https://wa.me/393510380392?text=Salve%20Toscan%20Costruzioni%20%2F%20Blue%20Arroyo%20Group%2C%20vorrei%20parlare%20con%20l%27Investor%20Desk%20per%20un%27operazione%20immobiliare." target="_blank" rel="noopener" class="btn btn--primary" style="background:#1F5E3B;border-color:#1F5E3B;">
+        Linea Diretta WhatsApp Investor Desk →
+      </a>
       <a href="mailto:toscancostruzioni@bluearroyo.it" class="btn btn--ghost">
         toscancostruzioni@bluearroyo.it
       </a>
@@ -2407,6 +3171,18 @@ a.area { cursor: pointer; }
     </div>
   </div>
 </section>
+
+<!-- STICKY INVESTOR CONCIERGE BAR -->
+<div class="investor-bar" id="investor-bar">
+  <div class="investor-bar__label">
+    <strong>Blue Arroyo Investor Desk</strong> · Crowdfunding Chiuso &amp; Turnkey EPC
+  </div>
+  <div class="investor-bar__actions">
+    <a href="#simulatore" class="investor-bar__btn">Simula ROI</a>
+    <a href="#dealflow" class="investor-bar__btn">Deal Flow</a>
+    <a href="#contatti" class="investor-bar__btn investor-bar__btn--primary">Accedi Data Room →</a>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -2455,6 +3231,23 @@ a.area { cursor: pointer; }
 </footer>
 
 <script>
+/* ---- GLOBAL FUNNEL HELPER FOR PROSPECT INVESTORS ---- */
+window.selectFunnelModel = function(modelVal, assetVal, ticketVal, customMsg) {
+  setTimeout(function() {
+    var mSel = document.getElementById('f-modello');
+    var aSel = document.getElementById('f-asset');
+    var tSel = document.getElementById('f-ticket');
+    var msg  = document.getElementById('msg');
+    if (mSel && modelVal) mSel.value = modelVal;
+    if (aSel && assetVal) aSel.value = assetVal;
+    if (tSel && ticketVal) tSel.value = ticketVal;
+    if (msg && customMsg) msg.value = customMsg;
+    document.querySelectorAll('.funnel-model-card').forEach(function(c) {
+      c.classList.toggle('is-selected', c.getAttribute('data-model-val') === modelVal);
+    });
+  }, 80);
+};
+
 (function () {
 
   /* ---- INTRO ---- */
@@ -2468,12 +3261,218 @@ a.area { cursor: pointer; }
     }, 1100);
   }, 2900);
 
-  /* ---- SCROLL PROGRESS ---- */
+  /* ---- SCROLL PROGRESS & STICKY INVESTOR BAR ---- */
   var bar = document.getElementById('scroll-progress');
+  var invBar = document.getElementById('investor-bar');
   window.addEventListener('scroll', function () {
     var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
     bar.style.width = Math.min(pct * 100, 100) + '%';
+    if (invBar) {
+      var showBar = window.scrollY > 520 && (window.scrollY < document.documentElement.scrollHeight - window.innerHeight - 500);
+      invBar.classList.toggle('is-visible', showBar);
+    }
   }, { passive: true });
+
+  /* ---- INTERACTIVE CAPEX, YIELD & IRR SIMULATOR ---- */
+  var simState = {
+    model: 'unico',
+    asset: 'short',
+    sqm: 450,
+    loc: 'firenze',
+    grade: 'turnkey'
+  };
+
+  var ASSET_CFG = {
+    short: {
+      name: 'Immobili <em>Short &amp; Medium Term</em>',
+      formVal: 'Short & Medium Term',
+      sqmPerUnit: 48,
+      unitLabel: 'Unità Short/Mid Term',
+      baseCapexSqm: 1450,
+      revPerUnit: 29500,
+      baseYield: 13.8,
+      crowdIrr: 16.8,
+      monthsBase: 6
+    },
+    hotel: {
+      name: 'Creazione <em>Hotel &amp; Boutique Hotel</em>',
+      formVal: 'Hotel / Boutique Hotel',
+      sqmPerUnit: 38,
+      unitLabel: 'Suite / Camere Hotel',
+      baseCapexSqm: 1850,
+      revPerUnit: 44000,
+      baseYield: 12.2,
+      crowdIrr: 15.6,
+      monthsBase: 9
+    },
+    agriturismo: {
+      name: '<em>Agriturismo</em> &amp; Wine Resort',
+      formVal: 'Agriturismo & Resort',
+      sqmPerUnit: 55,
+      unitLabel: 'Suite &amp; Appartamenti Resort',
+      baseCapexSqm: 1680,
+      revPerUnit: 38000,
+      baseYield: 11.6,
+      crowdIrr: 15.1,
+      monthsBase: 8
+    },
+    student: {
+      name: '<em>Student Hotel</em> &amp; Co-Living (PBSA)',
+      formVal: 'Student Hotel (PBSA)',
+      sqmPerUnit: 26,
+      unitLabel: 'Camere All-Inclusive PBSA',
+      baseCapexSqm: 1380,
+      revPerUnit: 13200,
+      baseYield: 12.9,
+      crowdIrr: 15.9,
+      monthsBase: 7
+    }
+  };
+
+  var LOC_MULT = { firenze: 1.12, chianti: 1.06, pisa: 0.96, costa: 1.08 };
+  var GRADE_MULT = { turnkey: 1.0, luxury: 1.24, smart: 0.88 };
+
+  function fmtEuro(n) {
+    return '€ ' + Math.round(n).toLocaleString('it-IT');
+  }
+
+  function updateSimulator() {
+    var cfg = ASSET_CFG[simState.asset] || ASSET_CFG.short;
+    var locM = LOC_MULT[simState.loc] || 1;
+    var grdM = GRADE_MULT[simState.grade] || 1;
+    var sqm  = simState.sqm;
+
+    var units = Math.max(2, Math.round(sqm / cfg.sqmPerUnit));
+    var capexTotal = Math.round((sqm * cfg.baseCapexSqm * locM * grdM) / 5000) * 5000;
+    var grossRev = Math.round((units * cfg.revPerUnit * locM * (simState.grade === 'luxury' ? 1.18 : 1.0)) / 1000) * 1000;
+    var months = Math.min(16, Math.max(4, Math.round(cfg.monthsBase + (sqm / 450) * 1.6)));
+    var taxBenefit = Math.min(units * 48000, Math.round(capexTotal * 0.36));
+
+    document.getElementById('sim-sqm-display').textContent = sqm + ' mq';
+    document.getElementById('sim-out-title').innerHTML = cfg.name;
+
+    if (simState.model === 'crowdfunding') {
+      var ticketSuggested = Math.max(100000, Math.min(500000, Math.round((capexTotal * 0.25) / 10000) * 10000));
+      var irr = (cfg.crowdIrr + (simState.loc === 'firenze' ? 0.8 : 0)).toFixed(1);
+      var profitProjection = Math.round(ticketSuggested * (parseFloat(irr) / 100) * 1.5);
+      document.getElementById('sim-out-tag').textContent = 'Proiezione Finanziaria · Modello 01 Crowdfunding Chiuso';
+      document.getElementById('sim-out-main-lbl').textContent = 'Capex Cantiere SPV (Prezzo Bloccato)';
+      document.getElementById('sim-out-sub-lbl').textContent = 'Ticket medio co-investitore consigliato: ' + fmtEuro(ticketSuggested);
+      document.getElementById('sim-out-capex').textContent = fmtEuro(capexTotal);
+      document.getElementById('sim-m1-lbl').textContent = 'Unità Ricettive dell\'Operazione SPV';
+      document.getElementById('sim-m1-val').innerHTML = units + ' ' + cfg.unitLabel;
+      document.getElementById('sim-m2-lbl').textContent = 'Utile Stimato su Ticket ' + fmtEuro(ticketSuggested) + ' (18 mesi)';
+      document.getElementById('sim-m2-val').textContent = '+ ' + fmtEuro(profitProjection);
+      document.getElementById('sim-m3-lbl').textContent = 'IRR Annuo Target Transazione Chiusa';
+      document.getElementById('sim-m3-val').textContent = irr + '% IRR Target';
+      document.getElementById('sim-m4-lbl').textContent = 'Garanzia Costruttiva Toscan Costruzioni';
+      document.getElementById('sim-m4-val').textContent = 'Capex & Tempi Bloccati';
+      document.getElementById('sim-m5-lbl').textContent = 'Durata Ciclo Cantiere + Messa a Reddito';
+      document.getElementById('sim-m5-val').textContent = months + ' Mesi Cantiere';
+    } else {
+      var yld = (cfg.baseYield * (simState.loc === 'firenze' ? 1.05 : 1.0)).toFixed(1);
+      document.getElementById('sim-out-tag').textContent = 'Proiezione Finanziaria · Modello 02 Unico Investitore';
+      document.getElementById('sim-out-main-lbl').textContent = 'Capex Chiavi in Mano (Prezzo Bloccato)';
+      document.getElementById('sim-out-sub-lbl').textContent = 'Inclusi progetto, pratiche, impianti e FF&E';
+      document.getElementById('sim-out-capex').textContent = fmtEuro(capexTotal);
+      document.getElementById('sim-m1-lbl').textContent = 'Unità / Camere Ricavabili Ottimizzate';
+      document.getElementById('sim-m1-val').innerHTML = units + ' ' + cfg.unitLabel;
+      document.getElementById('sim-m2-lbl').textContent = 'Ricavo Operativo Annuo Lordo a Regime';
+      document.getElementById('sim-m2-val').textContent = fmtEuro(grossRev) + ' / anno';
+      document.getElementById('sim-m3-lbl').textContent = 'Yield Operativo Annuo Stimato';
+      document.getElementById('sim-m3-val').textContent = yld + '% Yield Annuo';
+      document.getElementById('sim-m4-lbl').textContent = 'Ottimizzazione Fiscale & Detrazioni Capex';
+      document.getElementById('sim-m4-val').textContent = 'Fino a ' + fmtEuro(taxBenefit);
+      document.getElementById('sim-m5-lbl').textContent = 'Cronoprogramma Garantito con Penali';
+      document.getElementById('sim-m5-val').textContent = months + ' Mesi Chiavi in Mano';
+    }
+
+    var ctaBtn = document.getElementById('sim-cta-btn');
+    if (ctaBtn) {
+      ctaBtn.onclick = function() {
+        var modelSelectVal = simState.model === 'crowdfunding'
+          ? 'Crowdfunding Chiuso per Transazione'
+          : 'Unico Investitore (Visione & Realizzazione)';
+        var ticketSelectVal = capexTotal < 350000
+          ? '€100k – €300k (Ticket Club Deal / SPV)'
+          : (capexTotal <= 1000000 ? '€300k – €1M (Frazionamento / Operazione Diretta)' : (capexTotal <= 3000000 ? '€1M – €3M (Sviluppo Cielo-Terra / Hotel / Casale)' : 'Oltre €3M (Family Office / Istituzionale)'));
+        var summaryNote = '[SIMULAZIONE INVESTITORE] Modello: ' + modelSelectVal +
+          ' | Asset: ' + cfg.formVal +
+          ' | Superficie: ' + sqm + ' mq (' + units + ' unità/camere)' +
+          ' | Capex Stimato: ' + fmtEuro(capexTotal) +
+          ' | Area: ' + simState.loc.toUpperCase() +
+          '. Richiedo il Business Plan dettagliato e lo studio di fattibilità.';
+        window.selectFunnelModel(modelSelectVal, cfg.formVal, ticketSelectVal, summaryNote);
+      };
+    }
+  }
+
+  document.querySelectorAll('.sim-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.sim-tab').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      simState.model = btn.getAttribute('data-sim-model');
+      updateSimulator();
+    });
+  });
+
+  document.querySelectorAll('.sim-pill').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.sim-pill').forEach(function(b){ b.classList.remove('is-active'); });
+      btn.classList.add('is-active');
+      simState.asset = btn.getAttribute('data-sim-asset');
+      updateSimulator();
+    });
+  });
+
+  var sqmInput = document.getElementById('sim-sqm');
+  if (sqmInput) {
+    sqmInput.addEventListener('input', function() {
+      simState.sqm = parseInt(sqmInput.value, 10) || 450;
+      updateSimulator();
+    });
+  }
+  var locInput = document.getElementById('sim-loc');
+  if (locInput) {
+    locInput.addEventListener('change', function() {
+      simState.loc = locInput.value;
+      updateSimulator();
+    });
+  }
+  var gradeInput = document.getElementById('sim-grade');
+  if (gradeInput) {
+    gradeInput.addEventListener('change', function() {
+      simState.grade = gradeInput.value;
+      updateSimulator();
+    });
+  }
+  updateSimulator();
+
+  /* ---- FUNNEL STEP 1 CARDS ---- */
+  document.querySelectorAll('.funnel-model-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var val = card.getAttribute('data-model-val');
+      document.querySelectorAll('.funnel-model-card').forEach(function(c){ c.classList.remove('is-selected'); });
+      card.classList.add('is-selected');
+      var sel = document.getElementById('f-modello');
+      if (sel) sel.value = val;
+      var outSel = document.getElementById('f-output');
+      if (outSel) {
+        if (val === 'Crowdfunding Chiuso per Transazione') outSel.value = 'Accesso Data Room & Deal Memo PDF';
+        else if (val === 'Unico Investitore (Visione & Realizzazione)') outSel.value = 'Studio di Fattibilità & Capex in 48h';
+        else outSel.value = 'Call Strategica 1-to-1 con il Board Blue Arroyo';
+      }
+    });
+  });
+
+  var fModelloSelect = document.getElementById('f-modello');
+  if (fModelloSelect) {
+    fModelloSelect.addEventListener('change', function() {
+      document.querySelectorAll('.funnel-model-card').forEach(function(c) {
+        c.classList.toggle('is-selected', c.getAttribute('data-model-val') === fModelloSelect.value);
+      });
+    });
+  }
 
   /* ---- SCROLL REVEAL ---- */
   var reveals = document.querySelectorAll('.reveal');
@@ -2506,11 +3505,11 @@ a.area { cursor: pointer; }
   /* ---- i18n ---- */
   var T = {
     it: {
-      'n1':'Il Gruppo','n2':'I 2 Modelli','n3':'Asset Class','n4':'Servizi','n5':'Villa Claudia','n6':'Fiscale','n7':'Contatti',
+      'n1':'I 2 Modelli','n2':'Simulatore ROI','n3':'Deal Flow','n4':'Asset Class','n5':'Il Gruppo','n6':'Villa Claudia','n7':'Area Investitori',
       'hero.lbl':'Part of Blue Arroyo Group · Hospitality General Contractor',
       'hero.ttl':'Creiamo <em>Hotel</em>,<br>Agriturismi, Student<br>&amp; Immobili <em>Short-Medium</em><br>Term.',
       'hero.sub':'Toscan Costruzioni, parte del Gruppo Blue Arroyo, nasce e si specializza nella creazione chiavi in mano di asset ricettivi e immobili per Short e Medium Term in Toscana. Il General Contractor che rende questo possibile attraverso due modelli di business: Crowdfunding Chiuso per Transazione oppure Unico Investitore dalla visione alla realizzazione.',
-      'hero.b1':'Scopri i 2 Modelli di Business <span class="btn__arrow">→</span>','hero.b2':'Avvia la tua Operazione',
+      'hero.b1':'Simula ROI &amp; Capex Operazione <span class="btn__arrow">→</span>','hero.b2':'Esplora il Deal Flow Attivo',
       'mani.lbl':'Manifesto · Blue Arroyo Group','mani.q':'«Non ristrutturiamo semplici mura: diamo vita a Hotel, Agriturismi, Student Hub e unità Short & Medium Term progettati per generare reddito dal primo giorno.»','mani.s1':'Toscan Costruzioni · Blue Arroyo','mani.s2':'Firenze · Toscana',
       'c.lbl':'Il patto esecutivo','c.ttl':'Le Tre <em>Certezze</em>','c.lead':'Che si tratti di una transazione in Crowdfunding Chiuso o di un appalto per Unico Investitore, il nostro impegno è blindato contrattualmente.',
       'c1t':'Prezzo Bloccato','c1b':'Il Capex che firmi è il prezzo finale. Nessun extra a fine cantiere salvo varianti richieste per iscritto. Fondamentale per proteggere il ROI del business plan ricettivo.',
@@ -2565,17 +3564,17 @@ a.area { cursor: pointer; }
       'ar1c':'Fiscale','ar1t':'Bonus Ristrutturazioni 2026: guida completa alle detrazioni vigenti','ar1d':'Maggio 2026',
       'ar2c':'General Contractor','ar2t':'Prezzo bloccato: perché è decisivo nelle operazioni Hotel e Short/Medium Term','ar2d':'Aprile 2026',
       'ar3c':'Agriturismi & Casali','ar3t':'Trasformare un casale in Toscana in resort ricettivo: vincoli e permessi','ar3d':'Marzo 2026',
-      'ct.ttl':'Avvia la tua <em>Operazione</em> con noi.','ct.sub':'Che tu voglia partecipare a un Crowdfunding Chiuso per Transazione o appaltare la visione e realizzazione del tuo nuovo Hotel, Agriturismo, Student Hotel o immobile Short/Medium Term, ti rispondiamo entro 48 ore.',
+      'ct.ttl':'Candidatura Operazione &amp; <em>Area Investitori</em>.','ct.sub':'Accedi alla Data Room delle operazioni in Crowdfunding Chiuso per Transazione o richiedi in 48 ore lo Studio di Fattibilità & Capex Bloccato per la realizzazione del tuo nuovo Hotel, Agriturismo, Student Hotel o immobile Short/Medium Term.',
       'ft.tag':'Part of Blue Arroyo Group · Firenze','ft.desc':'General Contractor specializzato nella creazione di Hotel, Agriturismi, Student Hotel e immobili Short & Medium Term tramite Crowdfunding Chiuso per Transazione o Appalto Unico Investitore.',
       'ft.n':'Navigazione','ft.s':'Specializzazioni','ft.c':'Contatti & Holding',
       'fs1':'Immobili Short & Medium Term','fs2':'Hotel & Boutique Hotel','fs3':'Agriturismi & Wine Resort','fs4':'Student Hotel & PBSA','fs5':'Crowdfunding Chiuso (SPV)','fs6':'Appalto Unico Investitore'
     },
     en: {
-      'n1':'The Group','n2':'2 Business Models','n3':'Asset Classes','n4':'Services','n5':'Villa Claudia','n6':'Tax','n7':'Contact',
+      'n1':'2 Business Models','n2':'ROI Simulator','n3':'Deal Flow','n4':'Asset Classes','n5':'The Group','n6':'Villa Claudia','n7':'Investor Desk',
       'hero.lbl':'Part of Blue Arroyo Group · Hospitality General Contractor',
       'hero.ttl':'We Create <em>Hotels</em>,<br>Agriturismi, Student<br>&amp; <em>Short-Medium</em> Term<br>Assets.',
       'hero.sub':'Toscan Costruzioni, part of Blue Arroyo Group, was born and specialises in the turnkey creation of Hospitality assets and Short & Medium Term properties in Tuscany. The General Contractor making this possible through two business models: Closed Crowdfunding per Transaction or Single Investor Turnkey EPC from vision to keys.',
-      'hero.b1':'Explore the 2 Business Models <span class="btn__arrow">→</span>','hero.b2':'Start Your Operation',
+      'hero.b1':'Simulate ROI &amp; Operation Capex <span class="btn__arrow">→</span>','hero.b2':'Explore Active Deal Flow',
       'mani.lbl':'Manifesto · Blue Arroyo Group','mani.q':'"We don\'t just renovate walls: we engineer Hotels, Agriturismi, Student Hubs and Short & Medium Term units built to generate cash flow from day one."','mani.s1':'Toscan Costruzioni · Blue Arroyo','mani.s2':'Florence · Tuscany',
       'c.lbl':'Executive Covenant','c.ttl':'The Three <em>Certainties</em>','c.lead':'Whether in a Closed Crowdfunding transaction or a Single Investor turnkey contract, our commitment is contractually locked.',
       'c1t':'Locked Capex','c1b':'The quote you sign is the final price. No extras at completion except written variations. Essential to protect your hospitality business plan ROI.',
@@ -2630,7 +3629,7 @@ a.area { cursor: pointer; }
       'ar1c':'Tax','ar1t':'Renovation Bonus 2026: complete guide to current tax deductions','ar1d':'May 2026',
       'ar2c':'General Contractor','ar2t':'Locked Capex: why it is decisive in Hotel and Short/Medium Term deals','ar2d':'April 2026',
       'ar3c':'Agriturismi & Estates','ar3t':'Converting a Tuscan farmhouse into a hospitality resort: permits and ROI','ar3d':'March 2026',
-      'ct.ttl':'Start your <em>Operation</em> with us.','ct.sub':'Whether you want to join a Closed Crowdfunding Transaction or outsource the vision and construction of your new Hotel, Agriturismo, Student Hotel or Short/Medium Term property, we reply within 48 hours.',
+      'ct.ttl':'Operation Application &amp; <em>Investor Desk</em>.','ct.sub':'Access the Data Room for Closed Crowdfunding Transactions or request within 48 hours a Feasibility & Locked Capex Study for your new Hotel, Agriturismo, Student Hotel or Short/Medium Term property.',
       'ft.tag':'Part of Blue Arroyo Group · Florence','ft.desc':'General Contractor specialised in creating Hotels, Agriturismi, Student Hotels and Short & Medium Term properties via Closed Crowdfunding per Transaction or Single Investor Turnkey EPC.',
       'ft.n':'Navigation','ft.s':'Specialisations','ft.c':'Contact & Holding',
       'fs1':'Short & Medium Term Properties','fs2':'Hotels & Boutique Hotels','fs3':'Agriturismi & Wine Resorts','fs4':'Student Hotels & PBSA','fs5':'Closed Crowdfunding (SPV)','fs6':'Single Investor Turnkey EPC'
@@ -2749,51 +3748,72 @@ a.area { cursor: pointer; }
 </script>
 
 <script>
-// MILA LEADS — Toscan Costruzioni
+// MILA LEADS — Toscan Costruzioni (Investor Funnel Enriched Payload)
 (function(){
   document.addEventListener('submit', function(e){
     var form = e.target;
     e.preventDefault();
+    var modello = form.querySelector('#f-modello')?.value || '';
+    var ticket  = form.querySelector('#f-ticket')?.value || '';
+    var asset   = form.querySelector('#f-asset')?.value || '';
+    var output  = form.querySelector('#f-output')?.value || '';
+    var citta   = form.querySelector('#f-citta')?.value || '';
+    var rawNote = form.querySelector('textarea')?.value || '';
+
     var data = {
       nome: form.querySelector('[name*="nome"],[name*="name"],input[type="text"]')?.value || '',
       email: form.querySelector('[type="email"]')?.value || '',
       telefono: form.querySelector('[type="tel"],[name*="phone"],[name*="tel"]')?.value || '',
-      budget: form.querySelector('[name*="budget"],select')?.value || '',
-      zona: form.querySelector('[name*="zona"],select')?.value || '',
-      note: form.querySelector('textarea')?.value || ''
+      budget: modello + (ticket ? ' · ' + ticket : ''),
+      zona: asset + (citta ? ' (' + citta + ')' : ''),
+      note: '[Richiesta: ' + output + '] ' + rawNote
     };
     fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
       method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)
     }).catch(function(){});
     var btn = form.querySelector('button[type="submit"],input[type="submit"]');
-    if(btn){ milaShowThankyou(data.nome || data.name || '', 'Toscan Costruzioni'); btn.textContent='✅ Inviato!'; btn.disabled=true; }
+    if(btn){
+      milaShowThankyou(data.nome || '', 'Toscan Costruzioni · Blue Arroyo Group', data);
+      btn.textContent='✅ Dossier & Richiesta Inviati al Board!';
+      btn.disabled=true;
+    }
   });
 })();
 </script>
 
-<div id="mila-thankyou" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(8px);">
-  <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:48px 40px;max-width:480px;width:90%;text-align:center;animation:milaPop 0.4s ease;">
-    <div style="width:72px;height:72px;background:linear-gradient(135deg,#22c55e,#16a34a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;">✅</div>
-    <h2 style="color:#fff;font-size:1.6rem;margin:0 0 12px;font-family:Arial,sans-serif;">Richiesta inviata!</h2>
-    <p style="color:#94a3b8;line-height:1.6;margin:0 0 8px;font-family:Arial,sans-serif;" id="mila-ty-name"></p>
-    <p style="color:#64748b;font-size:0.9rem;line-height:1.6;margin:0 0 32px;font-family:Arial,sans-serif;">Ti contatteremo entro <strong style="color:#a5f3fc;">24 ore lavorative</strong>.<br>Controlla anche la tua email — ti abbiamo inviato un riepilogo.</p>
+<div id="mila-thankyou" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(18,16,14,0.92);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(8px);">
+  <div style="background:#1A1714;border:1px solid rgba(250,250,248,0.16);padding:48px 40px;max-width:540px;width:92%;text-align:center;animation:milaPop 0.4s ease;">
+    <div style="font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:#B86A35;margin-bottom:14px;font-weight:600;">Investor Desk · Blue Arroyo Group</div>
+    <h2 style="color:#F7F5F0;font-size:2rem;font-weight:400;margin:0 0 12px;font-family:'Cormorant Garamond',Georgia,serif;">Richiesta Accreditata con Successo</h2>
+    <p style="color:rgba(247,245,240,0.82);line-height:1.6;margin:0 0 10px;font-size:0.92rem;" id="mila-ty-name"></p>
+    <div id="mila-ty-summary" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:14px 16px;margin:16px 0 24px;text-align:left;font-size:0.8rem;color:rgba(247,245,240,0.75);line-height:1.6;"></div>
+    <p style="color:rgba(247,245,240,0.6);font-size:0.84rem;line-height:1.6;margin:0 0 28px;">Il nostro Board Operativo ti contatterà entro <strong style="color:#B86A35;">24 ore lavorative</strong> con il Dossier / Studio di Fattibilità richiesto.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://wa.me/393510380392?text=Ciao!%20Ho%20appena%20inviato%20una%20richiesta%20dal%20sito." target="_blank" style="background:#25D366;color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:0.9rem;font-family:Arial,sans-serif;">💬 Scrivi su WhatsApp</a>
-      <button onclick="document.getElementById('mila-thankyou').style.display='none'" style="background:rgba(255,255,255,0.08);color:#94a3b8;padding:12px 24px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);cursor:pointer;font-size:0.9rem;font-family:Arial,sans-serif;">Chiudi</button>
+      <a id="mila-wa-btn" href="https://wa.me/393510380392?text=Salve%20Toscan%20Costruzioni%2C%20ho%20appena%20inviato%20una%20richiesta%20dall%27Area%20Investitori." target="_blank" style="background:#B86A35;color:#fff;padding:13px 22px;text-decoration:none;font-weight:600;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;">💬 Fast-Track WhatsApp Board</a>
+      <a href="/foglio-lavori" style="background:transparent;color:#F7F5F0;padding:13px 20px;border:1px solid rgba(247,245,240,0.25);text-decoration:none;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;">📊 Apri Deal Flow Live</a>
+      <button onclick="document.getElementById('mila-thankyou').style.display='none'" style="background:transparent;color:rgba(247,245,240,0.55);padding:13px 18px;border:1px solid rgba(247,245,240,0.12);cursor:pointer;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;">Chiudi</button>
     </div>
   </div>
 </div>
 <style>
-@keyframes milaPop{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes milaPop{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
 </style>
 <script>
-function milaShowThankyou(nome, azienda) {
+function milaShowThankyou(nome, azienda, payload) {
   var el = document.getElementById('mila-thankyou');
   var nameEl = document.getElementById('mila-ty-name');
-  if (nameEl) nameEl.textContent = nome ? 'Grazie ' + nome + '! Il team di ' + (azienda||'Mila Collective') + ' ti risponderà presto.' : '';
+  var sumEl = document.getElementById('mila-ty-summary');
+  var waBtn = document.getElementById('mila-wa-btn');
+  if (nameEl) nameEl.textContent = nome ? 'Grazie ' + nome + '. La tua pratica è stata presa in carico dal team ' + (azienda||'Toscan Costruzioni') + '.' : '';
+  if (sumEl && payload) {
+    sumEl.innerHTML = '<strong>Percorso & Ticket:</strong> ' + (payload.budget || '-') + '<br><strong>Asset Class:</strong> ' + (payload.zona || '-') + '<br><strong>Dettagli:</strong> ' + (payload.note || '-');
+  }
+  if (waBtn && payload) {
+    var txt = 'Salve Toscan Costruzioni / Blue Arroyo Group, sono ' + (nome || 'un investitore') + '. Ho appena richiesto: ' + (payload.budget || '') + ' su ' + (payload.zona || '') + '.';
+    waBtn.href = 'https://wa.me/393510380392?text=' + encodeURIComponent(txt);
+  }
   if (el) { el.style.display = 'flex'; }
-  // Auto-hide after 30 seconds
-  setTimeout(function(){ if(el) el.style.display='none'; }, 30000);
+  setTimeout(function(){ if(el) el.style.display='none'; }, 45000);
 }
 </script>
 </body>
