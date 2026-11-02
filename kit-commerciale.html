@@ -318,10 +318,28 @@
           </div>
         </div>
 
-        <!-- CASSETTO A 1 TAP PER OUTBOUND PARTNER (NASCOSTO DI DEFAULT E PRE-COMPILATO) -->
-        <details class="drawer">
-          <summary>Messaggi Outbound Pre-Compilati &amp; Accordo Partner (Clienti Gruppo, Architetti, Agenzie, Hotel)</summary>
-          <p style="font-size:0.84rem;margin-top:6px;">Ogni messaggio inserisce in automatico il nome (<strong id="out-tpl-name">Lorenzo Medici</strong>) e la città (<strong id="out-tpl-city">Firenze</strong>) senza dover correggere parentesi quadre a mano.</p>
+        <!-- CASSETTO A 1 TAP PER SPRINT 10 CONTATTI OUTBOUND & ACCORDO PARTNER -->
+        <details class="drawer" open>
+          <summary>Sprint Giornaliero 10 Contatti Outbound (<span id="sprint-counter">0 / 10</span> inviati oggi) &amp; Messaggi Pre-Compilati</summary>
+          <p style="font-size:0.84rem;margin-top:6px;">
+            Obiettivo giornaliero Vendite: <strong>5 Proprietari Circuito Blue Arroyo</strong> + <strong>5 Studi Tecnici / Agenzie Firenze &amp; Chianti</strong>. Ogni invio WhatsApp spunta automaticamente 1 slot e aggiorna il CRM.
+          </p>
+
+          <!-- BARRA 10 SLOT GIORNALIERI A 1 TAP -->
+          <div class="chips-row" id="sprint-10-slots" style="margin-top:10px;">
+            <button type="button" class="chip-btn sprint-slot" data-slot="1">1 · Proprietario Gruppo</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="2">2 · Proprietario Gruppo</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="3">3 · Proprietario Gruppo</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="4">4 · Proprietario Gruppo</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="5">5 · Proprietario Gruppo</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="6">6 · Studio Arch. / Geom.</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="7">7 · Studio Arch. / Geom.</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="8">8 · Agenzia Immobiliare</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="9">9 · Agenzia Immobiliare</button>
+            <button type="button" class="chip-btn sprint-slot" data-slot="10">10 · Hotel / Agriturismo</button>
+          </div>
+
+          <p style="font-size:0.82rem;margin-top:10px;color:var(--muted);">Ogni messaggio qui sotto inserisce in automatico il nome (<strong id="out-tpl-name" style="color:var(--ink);">Lorenzo Medici</strong>) e la città (<strong id="out-tpl-city" style="color:var(--ink);">Firenze</strong>) dalla barra superiore:</p>
           <div class="grid-2" style="margin-top:12px;">
             <div class="card" style="background:#FFF;">
               <strong>1. Proprietario già cliente Gruppo Blue Arroyo</strong>
@@ -805,12 +823,47 @@
         });
       });
 
-      /* Bottoni 1-tap Outbound WhatsApp */
+      /* SPRINT 10 CONTATTI OUTBOUND GIORNALIERI + BOTTONI 1-TAP WHATSAPP */
+      var SPRINT_KEY = 'tc_sprint_10_v1';
+      var sprintDone = {};
+      try { sprintDone = JSON.parse(localStorage.getItem(SPRINT_KEY) || '{}') || {}; } catch (e) {}
+
+      function renderSprint() {
+        var count = 0;
+        document.querySelectorAll('.sprint-slot').forEach(function(btn) {
+          var s = btn.getAttribute('data-slot');
+          var active = !!sprintDone[s];
+          btn.classList.toggle('is-active', active);
+          if (active) count++;
+        });
+        var sc = document.getElementById('sprint-counter');
+        if (sc) sc.textContent = count + ' / 10';
+      }
+
+      document.querySelectorAll('.sprint-slot').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var s = btn.getAttribute('data-slot');
+          sprintDone[s] = !sprintDone[s];
+          try { localStorage.setItem(SPRINT_KEY, JSON.stringify(sprintDone)); } catch (e) {}
+          renderSprint();
+        });
+      });
+      renderSprint();
+
       document.querySelectorAll('[data-wa-tpl]').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var id = btn.getAttribute('data-wa-tpl');
           var text = document.getElementById(id).textContent;
-          sendCrm('outbound_partner_wa', id);
+          /* Spunta automaticamente il primo slot libero dello sprint giornaliero */
+          for (var i = 1; i <= 10; i++) {
+            if (!sprintDone[String(i)]) {
+              sprintDone[String(i)] = true;
+              try { localStorage.setItem(SPRINT_KEY, JSON.stringify(sprintDone)); } catch (e) {}
+              renderSprint();
+              break;
+            }
+          }
+          sendCrm('outbound_partner_wa_sprint10', id);
           openWhatsApp(text, true);
         });
       });
