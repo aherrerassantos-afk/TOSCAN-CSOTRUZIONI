@@ -972,8 +972,38 @@
       .mobile-sticky-bar.is-hidden { display: none; }
     }
 
+    @view-transition {
+      navigation: auto;
+    }
+    .case-tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--olive);
+      margin-bottom: var(--space-2);
+    }
+    .project-card__media img.img-secondary {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .project-card:hover .project-card__media img.img-secondary {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+    .reveal-section {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .js-enabled .reveal-section.is-pending {
+      opacity: 0;
+      transform: translateY(12px);
+    }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .js-enabled .reveal-section.is-pending { opacity: 1 !important; transform: none !important; }
     }
   </style>
 </head>
@@ -1022,18 +1052,18 @@
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <span class="eyebrow">General contractor ricettivo in Toscana</span>
+          <span class="eyebrow">Impresa edile Toscana</span>
           <h1>Trasformiamo il tuo immobile in una struttura che rende. <em>Prezzo fisso</em>, tempi garantiti.</h1>
 
           <div class="answer-summary">
             <p>
-              <strong>In sintesi:</strong> ristrutturiamo e convertiamo palazzi, casali e appartamenti a Firenze e in Toscana in <strong>hotel, agriturismi e alloggi per affitti brevi e medi</strong> (fascia indicativa <strong>1.350–2.400 €/m²</strong> chiavi in mano). Un unico referente per progetto, cantiere, arredo e successiva <strong>gestione degli ospiti con il gruppo Blue Arroyo</strong>.
+              Ristrutturiamo e convertiamo hotel, agriturismi, appartamenti per affitti brevi e dimore storiche a Firenze e in tutta la Toscana. Seguiamo progetto, permessi, cantiere chiavi in mano (<strong>1.350–2.400 €/m²</strong> bloccati a contratto, consegna in <strong>5–12 mesi</strong> con penali per ritardo), arredo completo e <strong>gestione ospiti tramite il gruppo Blue Arroyo</strong>.
             </p>
           </div>
 
           <div class="hero__actions">
             <a href="#contatti" class="btn btn--primary">Studio di fattibilità gratuito in 48h</a>
-            <a href="#progetti" class="link-arrow">Guarda i lavori e i prima/dopo →</a>
+            <a href="#progetti" class="link-arrow">Guarda i lavori →</a>
           </div>
         </div>
 
@@ -1117,9 +1147,9 @@
     </section>
 
     <!-- 4. PROGETTI: SLIDER PRIMA/DOPO TRASCINABILE + CASI STUDIO -->
-    <section class="section section--paper" id="progetti">
+    <section class="section section--paper reveal-section" id="progetti">
       <div class="container">
-        <span class="eyebrow">Casi studio e cantieri</span>
+        <span class="eyebrow">Lavori prima/dopo</span>
         <h2>Lavori eseguiti e progetti <em>prima e dopo</em></h2>
         <p>Trascina il cursore (o usa le frecce della tastiera) per confrontare lo stato dell'immobile prima dell'apertura del cantiere e il risultato a lavori ultimati.</p>
 
@@ -1138,7 +1168,7 @@
             </div>
 
             <div>
-              <span class="eyebrow">Caso studio 01 · Firenze centro</span>
+              <span class="case-tag">Caso studio 01 · Firenze centro</span>
               <h3>Frazionamento piano nobile in <em>6 unità</em> ricettive</h3>
               <p><strong>Il problema:</strong> appartamento unico di 280 m² con impianti degli anni '70, un solo bagno, dispersione termica elevata e canone d'affitto tradizionale insufficiente a coprire le spese straordinarie.</p>
               <p><strong>L'intervento:</strong> frazionamento urbanistico in 6 monolocali e bilocali autonomi con bagno privato, insonorizzazione tra le pareti, climatizzazione canalizzata e arredo completo pronto per l'accoglienza.</p>
@@ -1156,11 +1186,12 @@
         <div class="projects-grid">
           <article class="project-card">
             <div class="project-card__media">
-              <img src="assets/project_casale.jpg" alt="Casale in pietra nel Chianti ristrutturato con giardino e illuminazione esterna" loading="lazy" width="400" height="230" />
+              <img src="assets/project_casale.jpg" alt="Casale a Greve in Chianti, facciata in pietra e giardino dopo la ristrutturazione" loading="lazy" width="400" height="230" />
+              <img src="assets/artigiano.png" class="img-secondary" alt="Dettaglio lavorazione artigianale della pietra e del cotto nel casale in Chianti" loading="lazy" width="400" height="230" />
               <span class="status-badge">Lavoro consegnato</span>
             </div>
             <div class="project-card__body">
-              <span class="eyebrow">Caso studio 02 · Chianti e Siena</span>
+              <span class="case-tag">Caso studio 02 · Chianti e Siena</span>
               <h3>Recupero casale in pietra per <em>ospitalità</em> rurale</h3>
               <p>Consolidamento statico dei solai in legno e cotto, rifacimento del tetto ventilato, realizzazione di 8 camere con bagno privato e adeguamento impiantistico in pompa di calore.</p>
               <ul class="case-specs">
@@ -1174,11 +1205,12 @@
 
           <article class="project-card">
             <div class="project-card__media">
-              <img src="assets/interno-toscano.png" alt="Camera con bagno privato e arredi su misura per struttura ricettiva e residenza studenti" loading="lazy" width="400" height="230" />
+              <img src="assets/interno-toscano.png" alt="Camera con bagno privato e arredi su misura a Firenze dopo la ristrutturazione" loading="lazy" width="400" height="230" />
+              <img src="assets/project_apartment.jpg" class="img-secondary" alt="Zona giorno luminosa con travi in legno e parquet in rovere" loading="lazy" width="400" height="230" />
               <span class="status-badge">Lavoro consegnato</span>
             </div>
             <div class="project-card__body">
-              <span class="eyebrow">Caso studio 03 · Polo universitario</span>
+              <span class="case-tag">Caso studio 03 · Polo universitario</span>
               <h3>Conversione ex uffici in <em>camere</em> per studenti e trasfertisti</h3>
               <p>Cambio di destinazione d'uso da ufficio direzionale a residenza per soggiorni di medio periodo: 14 camere con bagno en-suite, cucina condivisa, lavanderia e accesso con codice.</p>
               <ul class="case-specs">
@@ -1193,18 +1225,19 @@
           <article class="project-card">
             <div class="project-card__media">
               <img src="assets/disegno-architettonico.png" alt="Tavola architettonica di progetto per il restauro di Villa Claudia a Montespertoli" loading="lazy" width="400" height="230" />
-              <span class="status-badge status-badge--progetto">Cantiere in avvio · Progetto</span>
+              <img src="assets/esploso-costruttivo.png" class="img-secondary" alt="Schema costruttivo e distributivo del progetto esecutivo Villa Claudia" loading="lazy" width="400" height="230" />
+              <span class="status-badge status-badge--progetto">Progetto</span>
             </div>
             <div class="project-card__body">
-              <span class="eyebrow">Progetto 2026 · Montespertoli (FI)</span>
+              <span class="case-tag">Progetto 2026 · Montespertoli (FI)</span>
               <h3>Villa <em>Claudia</em> · Restauro villa storica nel Chianti</h3>
-              <p>Progetto esecutivo e avvio cantiere per il recupero conservativo di una villa storica con parco e piscina nel Chianti fiorentino destinata a ospitalità di pregio.</p>
+              <p>Progetto esecutivo e avvio cantiere per il recupero conservativo di una villa storica di 520 m² frazionata in 6 appartamenti indipendenti con parco e piscina.</p>
               <ul class="case-specs">
-                <li><span>Stato attuale</span><strong>Fase 01 · Progettazione e avvio</strong></li>
-                <li><span>Località</span><strong>Montespertoli · Chianti DOCG</strong></li>
+                <li><span>Stato attuale</span><strong>Progetto · Cantiere in avvio</strong></li>
+                <li><span>Superficie</span><strong>520 m² · 6 unità</strong></li>
                 <li><span>Ruolo</span><strong>General contractor chiavi in mano</strong></li>
               </ul>
-              <a href="/villa-claudia.html" class="link-arrow">Consulta la scheda del progetto Villa Claudia →</a>
+              <a href="/villa-claudia" class="link-arrow">Consulta il caso studio Villa Claudia →</a>
             </div>
           </article>
         </div>
@@ -1288,9 +1321,9 @@
     </section>
 
     <!-- 6. STIMA RAPIDA IN 3 DOMANDE (Sempre etichettata come stima indicativa) -->
-    <section class="section section--paper" id="stima-rapida">
+    <section class="section section--paper reveal-section" id="stima-rapida">
       <div class="container">
-        <span class="eyebrow">Calcolo orientativo dei costi</span>
+        <span class="eyebrow">Stima dei costi</span>
         <h2>Calcola una <em>stima</em> rapida per il tuo immobile</h2>
         <p>Rispondi a 3 domande per conoscere la fascia di costo indicativa al metro quadro e la durata media dei lavori in Toscana.</p>
 
@@ -1326,7 +1359,7 @@
 
           <div class="estimator-result" aria-live="polite">
             <div>
-              <span class="eyebrow">Fascia parametrica indicativa</span>
+              <span class="case-tag">Stima parametrica (non è un preventivo)</span>
               <h3 id="est-title">Appartamenti per affitti brevi (300 m²)</h3>
 
               <div class="est-price-box">
@@ -1354,11 +1387,11 @@
     </section>
 
     <!-- 7. IL VANTAGGIO DEL GRUPPO ("DAL CANTIERE AGLI OSPITI") + PALETTE MATERIALI -->
-    <section class="section" id="vantaggio-gruppo">
+    <section class="section reveal-section" id="vantaggio-gruppo">
       <div class="container">
         <div class="hero__grid">
           <div>
-            <span class="eyebrow">Il vantaggio che nessun altro costruttore offre</span>
+            <span class="eyebrow">Vantaggio del gruppo</span>
             <h2>Dal cantiere agli <em>ospiti</em>: progetto, lavori e gestione nello stesso gruppo</h2>
             <p>Un'impresa edile tradizionale ti consegna le chiavi e sparisce: se durante i lavori sono state fatte scelte sbagliate su impianti, acustica o disposizione delle camere, te ne accorgi solo quando arrivano le prime recensioni negative o le bollette fuori controllo.</p>
             <p><strong>Toscan Costruzioni fa parte del gruppo Blue Arroyo</strong>, che gestisce direttamente strutture ricettive, boutique hotel e appartamenti turistici in Toscana. Progettiamo e costruiamo ogni immobile sapendo già come dovrà funzionare quando sarà pieno di ospiti: facile da pulire, silenzioso, automatizzato negli accessi e pronto a essere gestito dal nostro stesso gruppo.</p>
@@ -1376,7 +1409,7 @@
 
         <!-- PALETTE MATERIALI TOSCANI -->
         <div style="margin-top:var(--space-7);">
-          <span class="eyebrow">Materia e architettura toscana</span>
+          <span class="case-tag">Materia e architettura toscana</span>
           <h3>I materiali autentici dei nostri <em>cantieri</em></h3>
           <div class="materials-grid">
             <div class="material-card">
@@ -1405,9 +1438,9 @@
     </section>
 
     <!-- 8. CHI SIAMO, IL TEAM E LE CREDENZIALI -->
-    <section class="section section--paper" id="chi-siamo">
+    <section class="section section--paper reveal-section" id="chi-siamo">
       <div class="container">
-        <span class="eyebrow">Le persone dietro al cantiere</span>
+        <span class="eyebrow">Il nostro team</span>
         <h2>Chi siamo e chi segue il tuo <em>immobile</em></h2>
         <p>Toscan Costruzioni opera a Firenze e in Toscana con una struttura tecnica interna composta da direzione lavori, architetti abilitati per pratiche comunali e Soprintendenza, capi cantiere e squadre specializzate.</p>
 
@@ -1420,7 +1453,7 @@
           <div class="team-card">
             <div class="team-role">Ufficio Tecnico e Pratiche Edilizie</div>
             <h3>Architettura e Soprintendenza</h3>
-            <p style="font-size:0.88rem;margin-bottom:0;">Team di architetti e ingegneri iscritti agli Albi di Firenze e Siena, specializzati in cambi di destinazione d'uso, autorizzazioni paesaggistiche, vincoli monumentali e prevenzione incendi ( más di 15 anni di esperienza).</p>
+            <p style="font-size:0.88rem;margin-bottom:0;">Team di architetti e ingegneri iscritti agli Albi di Firenze e Siena, specializzati in cambi di destinazione d'uso, autorizzazioni paesaggistiche, vincoli monumentali e prevenzione incendi (oltre 15 anni di esperienza).</p>
           </div>
           <div class="team-card">
             <div class="team-role">Direzione Esecutiva Cantiere</div>
@@ -1429,7 +1462,7 @@
           </div>
           <div class="team-card">
             <div class="team-role">Arredo e Avvio Ricettivo</div>
-            <h3>Interior &amp; Hospitality Blue Arroyo</h3>
+            <h3>Arredo e Accoglienza Blue Arroyo</h3>
             <p style="font-size:0.88rem;margin-bottom:0;">Progettazione degli interni, fornitura degli arredi su misura, installazione delle serrature elettroniche e preparazione della struttura per le prenotazioni e l'accoglienza degli ospiti.</p>
           </div>
         </div>
@@ -1437,9 +1470,9 @@
     </section>
 
     <!-- 9. TESTIMONIANZE DEI COMMITTENTI -->
-    <section class="section" id="testimonianze">
+    <section class="section reveal-section" id="testimonianze">
       <div class="container">
-        <span class="eyebrow">La parola ai proprietari</span>
+        <span class="eyebrow">Recensioni dei clienti</span>
         <h2>Cosa raccontano i nostri <em>committenti</em></h2>
 
         <div class="testimonials-grid">
@@ -1532,10 +1565,14 @@
             </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- FAQ -->
-        <div class="faq-list" id="faq">
-          <span class="eyebrow" style="margin-top:var(--space-6);">Domande frequenti</span>
+    <!-- 10. FAQ -->
+    <section class="section reveal-section" id="faq">
+      <div class="container">
+        <div class="faq-list" style="margin-top:0;">
+          <span class="eyebrow">Domande frequenti</span>
           <h2>Risposte chiare prima di <em>iniziare</em></h2>
 
           <details class="faq-item" open>
@@ -1570,10 +1607,10 @@
     </section>
 
     <!-- 11. CTA FINALE CON FORM BREVE IN 2 STEP (Zero Gergo, 1 CTA Primaria) -->
-    <section class="section" id="contatti">
+    <section class="section section--paper reveal-section" id="contatti">
       <div class="container">
         <div style="text-align:center;max-width:680px;margin:0 auto;">
-          <span class="eyebrow">Inizia dal sopralluogo gratuito</span>
+          <span class="eyebrow">Studio gratuito</span>
           <h2>Richiedi lo studio di <em>fattibilità</em> in 48 ore</h2>
           <p style="margin:0 auto;">Raccontaci il tuo immobile: entro 24 ore ti ricontattiamo per fissare un sopralluogo gratuito e consegnarti una valutazione chiara su costi, tempi e permessi necessari.</p>
         </div>
@@ -1587,14 +1624,14 @@
           <!-- STEP 1: L'IMMOBILE -->
           <div id="form-step-1">
             <div class="field-group">
-              <label class="field-label">Che tipo di immobile vuoi ristrutturare o trasformare?</label>
+              <label class="field-label">Che tipo di immobile vuoi ristrutturare o convertire?</label>
               <div class="chips-group" role="radiogroup" aria-label="Tipo di immobile">
-                <button type="button" class="chip-btn is-active" data-f-tipo="Appartamento o piano da dividere">Appartamento o piano da dividere</button>
-                <button type="button" class="chip-btn" data-f-tipo="Hotel o B&B da rinnovare">Hotel, B&amp;B o palazzo cielo-terra</button>
-                <button type="button" class="chip-btn" data-f-tipo="Casale o agriturismo in Toscana">Casale, podere o agriturismo</button>
-                <button type="button" class="chip-btn" data-f-tipo="Ufficio o immobile da cambiare d'uso">Ex ufficio o fondo per cambio d'uso</button>
+                <button type="button" class="chip-btn is-active" data-f-tipo="Appartamento da dividere">Appartamento da dividere</button>
+                <button type="button" class="chip-btn" data-f-tipo="Hotel o boutique hotel">Hotel o boutique hotel</button>
+                <button type="button" class="chip-btn" data-f-tipo="Casale o agriturismo">Casale o agriturismo</button>
+                <button type="button" class="chip-btn" data-f-tipo="Ufficio o locale per cambio d'uso">Ufficio o locale per cambio d'uso</button>
               </div>
-              <input type="hidden" id="f-tipo" name="tipo_immobile" value="Appartamento o piano da dividere" />
+              <input type="hidden" id="f-tipo" name="tipo_immobile" value="Appartamento da dividere" />
             </div>
 
             <div class="input-row">
@@ -1603,7 +1640,7 @@
                 <input type="text" id="f-citta" name="citta" class="input-text" required placeholder="Es. Firenze, Siena, Chianti, Lucca..." />
               </div>
               <div>
-                <label class="field-label" for="f-mq">Metri quadri indicativi *</label>
+                <label class="field-label" for="f-mq">Quanti metri quadri misura circa? *</label>
                 <input type="number" id="f-mq" name="mq" class="input-text" required min="30" placeholder="Es. 250" />
               </div>
             </div>
@@ -1611,43 +1648,43 @@
             <div class="field-group">
               <label class="field-label">Qual è il tuo obiettivo principale?</label>
               <div class="chips-group" role="radiogroup" aria-label="Obiettivo del progetto">
-                <button type="button" class="chip-btn is-active" data-f-obiettivo="Appartamenti per affitti brevi/medi">Creare appartamenti per affitti brevi/medi</button>
-                <button type="button" class="chip-btn" data-f-obiettivo="Aprire o rinnovare un hotel / agriturismo">Aprire o rinnovare un hotel / agriturismo</button>
-                <button type="button" class="chip-btn" data-f-obiettivo="Ristrutturazione + gestione ospiti inclusa">Ristrutturazione + gestione ospiti inclusa</button>
-                <button type="button" class="chip-btn" data-f-obiettivo="Valutare l'immobile prima dell'acquisto">Valutare un immobile prima di acquistarlo</button>
+                <button type="button" class="chip-btn is-active" data-f-obiettivo="Aprirlo ad affitti brevi o medi">Aprirlo ad affitti brevi o medi</button>
+                <button type="button" class="chip-btn" data-f-obiettivo="Rinnovare o aprire un hotel/agriturismo">Rinnovare o aprire un hotel/agriturismo</button>
+                <button type="button" class="chip-btn" data-f-obiettivo="Ristrutturare per uso privato o vendita">Ristrutturare per uso privato o vendita</button>
+                <button type="button" class="chip-btn" data-f-obiettivo="Valutare un immobile prima dell'acquisto">Valutare un immobile prima dell'acquisto</button>
               </div>
-              <input type="hidden" id="f-obiettivo" name="obiettivo" value="Appartamenti per affitti brevi/medi" />
+              <input type="hidden" id="f-obiettivo" name="obiettivo" value="Aprirlo ad affitti brevi o medi" />
             </div>
 
-            <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Continua con i tuoi contatti →</button>
+            <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Continua con i tuoi recapiti →</button>
           </div>
 
           <!-- STEP 2: I CONTATTI -->
           <div id="form-step-2" style="display:none;">
             <div class="input-row">
               <div>
-                <label class="field-label" for="f-nome">Nome e cognome *</label>
-                <input type="text" id="f-nome" name="nome" class="input-text" required placeholder="Es. Marco Rossi" />
+                <label class="field-label" for="f-nome">Come ti chiami? *</label>
+                <input type="text" id="f-nome" name="nome" class="input-text" required placeholder="Nome e cognome" />
               </div>
               <div>
-                <label class="field-label" for="f-telefono">Telefono o WhatsApp *</label>
+                <label class="field-label" for="f-telefono">Qual è il tuo numero di telefono o WhatsApp? *</label>
                 <input type="tel" id="f-telefono" name="telefono" class="input-text" required placeholder="+39 333 123 4567" />
               </div>
             </div>
 
             <div class="input-row">
               <div>
-                <label class="field-label" for="f-email">Indirizzo email *</label>
-                <input type="email" id="f-email" name="email" class="input-text" required placeholder="nome@esempio.it" />
+                <label class="field-label" for="f-email">A quale indirizzo email inviamo lo studio preliminare? *</label>
+                <input type="email" id="f-email" name="email" class="input-text" required placeholder="nome@azienda.it" />
               </div>
               <div>
-                <label class="field-label" for="f-budget">Budget orientativo previsto</label>
-                <input type="text" id="f-budget" name="budget" class="input-text" placeholder="Es. 300.000 € – 600.000 € (opzionale)" />
+                <label class="field-label" for="f-budget">Fascia di budget prevista (facoltativo)</label>
+                <input type="text" id="f-budget" name="budget" class="input-text" placeholder="Es. 300.000 € – 600.000 €" />
               </div>
             </div>
 
             <div class="field-group">
-              <label class="field-label" for="f-note">Note sul tuo immobile (facoltativo)</label>
+              <label class="field-label" for="f-note">Vuoi aggiungere qualche dettaglio? (facoltativo)</label>
               <textarea id="f-note" name="note" class="input-text" rows="3" placeholder="Indica se l'immobile è già di tua proprietà o se desideri essere richiamato in una fascia oraria precisa..."></textarea>
             </div>
 
@@ -1658,9 +1695,11 @@
           </div>
 
           <div class="reassurances">
-            <span>✓ Risposta garantita entro 24 ore</span>
-            <span>✓ Sopralluogo tecnico gratuito</span>
-            <span>✓ Nessun impegno</span>
+            <span>Risposta entro 24h</span>
+            <span>·</span>
+            <span>Sopralluogo gratuito</span>
+            <span>·</span>
+            <span>Nessun impegno</span>
           </div>
 
           <!-- MESSAGGIO DI CONFERMA INLINE -->
@@ -1913,7 +1952,7 @@
         document.getElementById('form-confirmation').style.display = 'block';
       });
 
-      /* 5. NASCONDI BARRA MOBILE QUANDO IL FORM È VISIBILE */
+      /* 5. NASCONDI BARRA MOBILE QUANDO IL FORM È VISIBILE E REVEAL AL SCROLL */
       var stickyBar = document.getElementById('mobile-sticky-bar');
       var contattiSec = document.getElementById('contatti');
       if (stickyBar && contattiSec && 'IntersectionObserver' in window) {
@@ -1923,6 +1962,21 @@
           });
         }, { threshold: 0.15 });
         obs.observe(contattiSec);
+      }
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('js-enabled');
+        var revealSecs = document.querySelectorAll('.reveal-section');
+        revealSecs.forEach(function(sec) { sec.classList.add('is-pending'); });
+        var revObs = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('is-pending');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+        revealSecs.forEach(function(sec) { revObs.observe(sec); });
       }
     })();
   </script>
