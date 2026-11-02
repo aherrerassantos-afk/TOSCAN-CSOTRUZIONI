@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styleguide — Toscana Contemporanea | Toscan Costruzioni</title>
+  <meta name="description" content="Libreria interna di token, tipografia e componenti del sistema di design Toscana Contemporanea di Toscan Costruzioni (Blue Arroyo Group)." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --stone: #F6F1E9;
+      --paper: #FFFFFF;
+      --ink: #1F1B16;
+      --muted: #6E665C;
+      --terracotta: #B4532A;
+      --terracotta-dark: #93401D;
+      --olive: #6B7048;
+      --line: #E4DCCF;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 2px;
+      --max-w: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--stone);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.14;
+      color: var(--ink);
+    }
+    h1 em, h2 em, h3 em {
+      font-style: italic;
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+    h1 { font-size: clamp(2.5rem, 1.9rem + 2.5vw, 4.5rem); }
+    h2 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.75rem); }
+    h3 { font-size: clamp(1.35rem, 1.2rem + 0.6vw, 1.75rem); }
+    p { max-width: 70ch; color: var(--muted); }
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .header-row { display: flex; justify-content: space-between; align-items: center; }
+    .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; text-decoration: none; color: var(--ink); }
+    .brand em { color: var(--terracotta); }
+    section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--olive);
+      margin-bottom: 12px;
+    }
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .swatch {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .swatch-color { height: 96px; border-bottom: 1px solid var(--line); }
+    .swatch-meta { padding: 14px; font-size: 0.85rem; }
+    .swatch-meta strong { display: block; color: var(--ink); margin-bottom: 4px; }
+    .swatch-meta code { font-size: 0.8rem; color: var(--muted); }
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary { background: var(--terracotta); color: #FFF; }
+    .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip {
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      background: var(--stone);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .chip.active { background: var(--ink); color: #FFF; border-color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-row">
+      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Styleguide</a>
+      <a href="/" class="btn btn-secondary">Torna alla Home</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <span class="eyebrow">Sistema Visivo</span>
+      <h1>Toscana <em>Contemporanea</em></h1>
+      <p style="margin-top:12px;">
+        Libreria interna (`noindex`) di design token, tipografia e componenti riutilizzabili per Toscan Costruzioni · Gruppo Blue Arroyo. Contrasto minimo garantito ≥ 4.5:1 (WCAG AA), angoli architettonici `2px`, terracotta riservato a CTA e accenti (max 10% della pagina).
+      </p>
+
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F6F1E9;"></div>
+          <div class="swatch-meta"><strong>--stone (Sfondo)</strong><code>#F6F1E9</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF;"></div>
+          <div class="swatch-meta"><strong>--paper (Card)</strong><code>#FFFFFF</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1F1B16;"></div>
+          <div class="swatch-meta"><strong>--ink (Testo primario)</strong><code>#1F1B16 · Ratio 14.8:1</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#6E665C;"></div>
+          <div class="swatch-meta"><strong>--muted (Testo secondario)</strong><code>#6E665C · Ratio 5.1:1</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#B4532A;"></div>
+          <div class="swatch-meta"><strong>--terracotta (CTA & Accento)</strong><code>#B4532A · Ratio 4.6:1</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#6B7048;"></div>
+          <div class="swatch-meta"><strong>--olive (Secondario)</strong><code>#6B7048 · Ratio 4.8:1</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E4DCCF;"></div>
+          <div class="swatch-meta"><strong>--line (Bordi architettonici)</strong><code>#E4DCCF</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Tipografia</span>
+      <h2>Scala fluida e <em>gerarchia</em></h2>
+      <div class="component-grid">
+        <div class="card">
+          <p style="font-size:0.8rem;margin-bottom:8px;">H1 · Cormorant Garamond · clamp(40px, 72px)</p>
+          <h1 style="font-size:2.6rem;">Prezzo <em>fisso</em>, tempi garantiti.</h1>
+        </div>
+        <div class="card">
+          <p style="font-size:0.8rem;margin-bottom:8px;">H2 · Cormorant Garamond · clamp(28px, 44px)</p>
+          <h2>Dal cantiere agli <em>ospiti</em></h2>
+        </div>
+        <div class="card">
+          <p style="font-size:0.8rem;margin-bottom:8px;">Corpo testo · Inter · 16–18px · max 70ch</p>
+          <p style="color:var(--ink);">
+            Ristrutturiamo, arrediamo e consegniamo la tua struttura ricettiva con prezzo bloccato a contratto e penali per ogni settimana di ritardo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Componenti UI</span>
+      <h2>Libreria <em>componenti</em></h2>
+      <div class="component-grid">
+        <div class="card">
+          <h3>Button &amp; CTA</h3>
+          <p style="margin:8px 0 16px;">Una sola CTA primaria in terracotta per vista.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="/#contatti" class="btn btn-primary">Studio di fattibilità gratuito</a>
+            <a href="/#progetti" class="btn btn-secondary">Guarda i lavori</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Chip &amp; FormStep</h3>
+          <p style="margin:8px 0 12px;">Scelte rapide a chip e label in minuscolo leggibile.</p>
+          <div class="chip-row">
+            <span class="chip active">Hotel / Boutique hotel</span>
+            <span class="chip">Agriturismo</span>
+            <span class="chip">Appartamenti affitti brevi</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>ServiceCard &amp; Costo €/m²</h3>
+          <p style="margin:8px 0 12px;">Card su `--paper` con bordo `--line` e fascia parametrica chiara.</p>
+          <strong style="color:var(--terracotta);">1.350 – 2.400 €/m² · Prezzo fisso a contratto</strong>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

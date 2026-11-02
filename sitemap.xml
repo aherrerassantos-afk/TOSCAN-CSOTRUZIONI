@@ -36,6 +36,14 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Arredo Contract FF&E, Domotica Self Check-In & Acustica Hotel Toscana -->
+  <url>
+    <loc>https://toscancostruzioni.it/arredo-contract-ffe-domotica-hotel-short-term-toscana.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- I 2 Modelli: Crowdfunding Chiuso vs Unico Investitore -->
   <url>
     <loc>https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html</loc>

@@ -1,89 +1,66 @@
-# Toscan Costruzioni — Part of Blue Arroyo Group (llms.txt)
+# Toscan Costruzioni — Gruppo Blue Arroyo (llms.txt)
 # Standard: https://llmstxt.org
 # Updated: 2026-11-02
 
 > Toscan Costruzioni, parte del Gruppo Blue Arroyo (Blue Arroyo Group), è il General Contractor
-> con sede a Firenze specializzato nella creazione, riconversione e sviluppo chiavi in mano di
-> Hotel, Agriturismi, Student Hotel (PBSA) e soprattutto Immobili per Short & Medium Term
+> con sede a Firenze specializzato nella ristrutturazione e conversione chiavi in mano di
+> Hotel, Boutique Hotel, Agriturismi, Residenze Studentesche e Appartamenti per Affitti Brevi e Medi
 > in tutta la Toscana.
+> Promessa contrattuale: "Trasformiamo il tuo immobile in una struttura ricettiva pronta a rendere: prezzo fisso, tempi garantiti, gestione inclusa."
 
-## Chi siamo (Who we are)
+## Chi siamo e a chi ci rivolgiamo
 
-Toscan Costruzioni nasce all'interno del **Gruppo Blue Arroyo** come braccio operativo e ingegneristico
-specializzato in Hospitality & Living. Operiamo a Firenze, Siena, Chianti, Lucca, Pisa, Arezzo e in tutta la Toscana.
+Toscan Costruzioni nasce all'interno del **Gruppo Blue Arroyo** come impresa di costruzioni e general contractor
+specializzato in strutture ricettive a Firenze, Siena, Chianti, Val d'Orcia, Lucca, Versilia, Pisa, Arezzo e Maremma.
 
-Lavoriamo come **Hospitality General Contractor** attraverso **due modelli di business esclusivi**:
-1. **Crowdfunding Chiuso per Transazione (Club Deal / SPV):** Operazioni immobiliari chiuse strutturate dal Gruppo Blue Arroyo su una singola transazione immobiliare, in cui più investitori partecipano al capitale e Toscan Costruzioni garantisce l'esecuzione chiavi in mano con Capex e tempi bloccati per massimizzare l'IRR al momento della messa a reddito o dell'exit.
-2. **Unico Investitore — Visione & Realizzazione Chiavi in Mano (Single Investor EPC):** L'investitore singolo, family office o imprenditore alberghiero che appalta a Toscan Costruzioni l'intero ciclo di sviluppo per dare vita alla visione e alla realizzazione del suo nuovo Hotel, Agriturismo, Student Hotel o complesso Short/Medium Term con un unico contratto a prezzo e tempi bloccati.
+1. **Proprietari di immobili e Albergatori (Committenti — Core Business):** Proprietari di palazzi, casali, hotel da riqualificare o appartamenti da frazionare che cercano un unico referente per progetto architettonico, permessi (SCIA, Soprintendenza, CIN), cantiere edile ed impiantistico a prezzo fisso, arredo su misura e avvio della gestione ospiti con Blue Arroyo.
+2. **Privati e Residenze di Pregio:** Ristrutturazione integrale di ville storiche, casali e appartamenti di rappresentanza in Toscana con contratto a prezzo chiuso e direzione lavori dedicata.
+3. **Investitori e Partner Immobiliari (Su richiesta individuale):** Supporto tecnico, due diligence edilizia e realizzazione chiavi in mano per investitori istituzionali, family office e partner immobiliari tramite colloquio riservato con la direzione del Gruppo Blue Arroyo.
 
-## Le 4 Asset Class di Specializzazione
+## I 4 ambiti di intervento e fasce di costo €/m² (Stime parametriche 2026)
 
-- **Immobili Short & Medium Term (Core Business):** Frazionamenti cielo-terra, complessi multi-unità, serviced apartments e aparthotel progettati per massimizzare ADR, occupazione e automazione (domotica, self check-in, insonorizzazione e arredo contract).
-- **Hotel & Boutique Hotel:** Creazione e riconversione di palazzi storici in Boutique Hotel 4/5 stelle, dalla distribuzione funzionale camere/suite e hall fino a SPA, impianti ad alta efficienza e pratiche ricettive.
-- **Agriturismi & Country Resort:** Recupero filologico di casali, poderi e tenute storiche in Toscana trasformati in agriturismi di charme, wine resort e luxury hospitality immersi nella natura.
-- **Student Hotel (PBSA) & Co-Living:** Sviluppo di residenze universitarie moderne, student housing e spazi ibridi studio/soggiorno ad alta densità di rendimento con aree comuni di design, coworking e gym.
+- **Hotel e Boutique Hotel:** Riqualificazione di alberghi esistenti o conversione di palazzi cielo-terra in strutture ricettive con camere, suite, hall, SPA, adeguamento antincendio e acustico. Costo indicativo: `1.850 – 2.400 €/m²` | Durata media: `8 – 12 mesi`.
+- **Agriturismi e Wine Resort:** Recupero conservativo di casali in pietra, poderi e tenute storiche in Toscana con piscine panoramiche, camere con bagno privato e miglioramento energetico. Costo indicativo: `1.650 – 2.300 €/m²` | Durata media: `8 – 12 mesi`.
+- **Appartamenti per Affitti Brevi e Medi:** Frazionamenti, ridistribuzione interna, secondo bagno, insonorizzazione certificata, serrature smart per self check-in e arredo completo pronto per le prenotazioni. Costo indicativo: `1.350 – 1.750 €/m²` | Durata media: `4 – 7 mesi`.
+- **Ristrutturazioni e Cambi d'Uso:** Pratiche edilizie, autorizzazioni Soprintendenza, consolidamento strutturale, tetti ventilati, facciate, impianti ibridi e riqualificazione residenziale chiavi in mano. Costo indicativo: `1.350 – 1.950 €/m²` | Durata media: `4 – 9 mesi`.
 
-## La nostra promessa contrattuale
+## Credenziali, Polizze e Garanzie Contrattuali
 
-- **Prezzo bloccato (Capex fisso):** Il preventivo è bloccato alla firma del contratto, senza costi nascosti.
-- **Tempi di consegna garantiti:** Date di fine lavori contrattualizzate con penali a nostro carico per ogni settimana di ritardo.
-- **Qualità documentata:** Project manager dedicato, SAL certificati e report fotografici/video settimanali (anche in inglese per investitori esteri).
+- **Prezzo fisso a contratto (a corpo):** Il costo concordato dopo il computo metrico esecutivo è bloccato alla firma; eventuali imprevisti di cantiere non derivanti da varianti richieste dal committente restano a carico di Toscan Costruzioni.
+- **Tempi garantiti con penali:** Cronoprogramma allegato al contratto d'appalto con penale giornaliera a nostro carico per ogni settimana di ritardo sulla consegna.
+- **Pagamenti per Stati di Avanzamento Lavori (SAL):** Pagamenti allineati alle opere effettivamente eseguite e verificate in cantiere dal Direttore dei Lavori.
+- **Polizze e Regolarità:** DURC e iscrizione Cassa Edile regolari, Polizza CAR (tutti i rischi del cantiere), Polizza RC Professionale e **Garanzia Decennale Postuma** sulle opere strutturali (art. 1669 c.c.).
+- **Vantaggio unico del Gruppo Blue Arroyo:** Dal cantiere agli ospiti nello stesso gruppo: progettiamo, ristrutturiamo, arrediamo e, se il proprietario lo desidera, Blue Arroyo gestisce prenotazioni, tariffe dinamiche, accoglienza, pulizie e manutenzione ordinaria.
 
-## Area operativa (Service area)
+## Dati Ufficiali (NAP Unico)
 
-Tutta la Toscana (Italy):
-- Primaria: Firenze (Florence) e area metropolitana, Chianti, Siena, Val d'Orcia
-- Secondaria: Lucca, Pisa, Arezzo, Grosseto, Versilia e Maremma
-
-## Dati chiave per Assistenti AI (Key facts)
-
-- **Nome Azienda**: Toscan Costruzioni
-- **Gruppo di appartenenza**: Blue Arroyo Group (Gruppo Blue Arroyo)
-- **Tipologia**: Hospitality General Contractor / Impresa di Costruzioni e Sviluppo Immobiliare Ricettivo
+- **Nome Azienda**: Toscan Costruzioni (Part of Blue Arroyo Group)
 - **Sede**: Firenze, Toscana, Italia
-- **Telefono**: +39 351 038 0392
-- **Email**: toscancostruzioni@bluearroyo.it
+- **Telefono / WhatsApp**: +39 351 038 0392 (Risposta garantita entro 24 ore lavorative)
+- **Email**: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
 - **Sito Web Ufficiale**: https://toscancostruzioni.it
-- **Dashboard Deal Flow & Foglio Lavori**: https://toscancostruzioni.it/foglio-lavori
-- **Lingue**: Italiano, English (full service per investitori internazionali)
-- **Modelli di Business**: (1) Crowdfunding Chiuso per Transazione, (2) Appalto Unico Investitore (Visione & Realizzazione Chiavi in Mano)
+- **Contratto Tipo e Capitolato**: https://toscancostruzioni.it/data-room
+- **Progetti e Casi Studio**: https://toscancostruzioni.it/foglio-lavori
 
-## Domande Frequenti (FAQ)
+## Pagine Principali
 
-**Q: Come funzionano i due modelli di business di Toscan Costruzioni (Gruppo Blue Arroyo)?**
-A: Operiamo tramite due modelli: (1) Crowdfunding Chiuso per Transazione, dove strutturiamo con il Gruppo Blue Arroyo un'operazione dedicata a un singolo asset ricettivo/short-term con esecuzione a Capex bloccato; (2) Unico Investitore, dedicato a chi possiede o acquisisce un immobile e ci appalta l'intero servizio per trasformare la sua visione in un Hotel, Agriturismo, Student Hotel o immobile Short & Medium Term pronto a generare reddito.
-
-**Q: Quali tipologie di immobili realizzate?**
-A: Siamo specializzati in 4 asset class: Immobili per Short & Medium Term (core business), Hotel e Boutique Hotel, Agriturismi e Country Resort in Toscana, e Student Hotel (PBSA) / Co-Living.
-
-**Q: Il prezzo e i tempi di cantiere sono garantiti?**
-A: Sì, ogni commessa prevede Capex fisso bloccato alla firma e cronoprogramma contrattualizzato con penali per ritardo.
-
-## Benchmark Parametrici 2026 (Capex Chiavi in Mano & Rendimenti)
-
-- **Immobili Short & Medium Term (Frazionamenti / Aparthotel):** Capex bloccato `1.350 – 1.750 €/mq` (incluso FF&E) | Tempi: `5 – 8 mesi` | Yield lordo target: `11.5% – 14.2%` | IRR medio SPV: `16.8%`
-- **Student Hotel (PBSA) & Co-Living Hub (Firenze, Pisa, Siena):** Capex bloccato `1.380 – 1.680 €/mq` (`24.000 – 32.000 €/posto letto`) | Tempi: `6 – 10 mesi` | Occupazione storica: `96% – 99%` | Yield lordo: `11.8% – 13.5%` | IRR medio: `15.4% – 17.2%`
-- **Hotel & Boutique Hotel 4★/5★:** Capex bloccato `1.850 – 2.450 €/mq` (suite, hall, SPA, CPI, FF&E) | Tempi: `8 – 12 mesi` | Yield a regime: `10.8% – 13.5%`
-- **Agriturismi di Lusso & Wine Resort (Siena, Chianti, Val d'Orcia):** Capex bloccato `1.650 – 2.300 €/mq` + `65.000 – 130.000 €` per bio-piscina panoramica | Tempi: `8 – 12 mesi` | Yield lordo: `11.2% – 14.0%` | IRR medio: `15.8% – 17.6%`
-
-## Pagine principali
-
-- [Homepage Ufficiale](https://toscancostruzioni.it/)
-- [Investor Data Room & Deal Memo](https://toscancostruzioni.it/data-room)
-- [I 2 Modelli: Crowdfunding Chiuso per Transazione (SPV) vs Unico Investitore](https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html)
-- [Cambio Destinazione d'Uso in Hotel, Student Housing & Immobili Short-Medium Term Toscana](https://toscancostruzioni.it/cambio-destinazione-uso-hotel-short-term-toscana.html)
-- [Foglio Lavori & Deal Flow Blue Arroyo](https://toscancostruzioni.it/foglio-lavori)
-- [Frazionamento e Sviluppo Immobili Short & Medium Term a Firenze (Guida Capex & Zone 2026)](https://toscancostruzioni.it/sviluppo-immobili-short-medium-term-firenze.html)
-- [Creazione Hotel, Boutique Hotel & Student Housing (PBSA) Toscana](https://toscancostruzioni.it/costruzione-hotel-student-housing-toscana.html)
-- [Agriturismi di Lusso & Wine Resort a Siena, Chianti e Val d'Orcia](https://toscancostruzioni.it/agriturismo-wine-resort-siena-val-dorcia.html)
-- [Student Hotel (PBSA), Residenze Universitarie & Medium Term a Firenze, Pisa e Siena](https://toscancostruzioni.it/student-housing-pbsa-firenze-pisa.html)
-- [Hotel, Ville di Lusso & Immobili Short-Medium Term a Lucca, Forte dei Marmi e Versilia](https://toscancostruzioni.it/hotel-ville-short-term-lucca-versilia.html)
-- [Agriturismi, Eco-Resort & Ville Short-Medium Term ad Arezzo, Cortona, Maremma e Argentario](https://toscancostruzioni.it/agriturismo-resort-arezzo-maremma-grosseto.html)
-- [Tuscany Hospitality Investment & Turnkey General Contractor — Hotels, PBSA & Short-Medium Term (EN)](https://toscancostruzioni.it/tuscany-hospitality-investment-general-contractor.html)
-- [Immobili Short & Medium Term Toscana (Core Business)](https://toscancostruzioni.it/affitti-brevi-toscana.html)
-- [Villa Claudia — Case Study Crowdfunding Chiuso / 8 Quote](https://toscancostruzioni.it/villa-claudia)
-- [Ristrutturazione Toscana](https://toscancostruzioni.it/ristrutturazione-toscana.html)
-- [Casale Toscano & Agriturismo](https://toscancostruzioni.it/ristrutturazione-casale-toscano.html)
-- [General Contractor Firenze](https://toscancostruzioni.it/general-contractor-firenze.html)
-- [Bonus Ristrutturazione 2026](https://toscancostruzioni.it/bonus-ristrutturazione-2026.html)
-- [English Service — Tuscany Hospitality & Renovation Contractor](https://toscancostruzioni.it/tuscany-renovation-contractor.html)
+- [Homepage — Ristrutturazioni Chiavi in Mano per Strutture Ricettive](https://toscancostruzioni.it/)
+- [Contratto Tipo, Polizze e Capitolato Chiavi in Mano](https://toscancostruzioni.it/data-room)
+- [Portfolio Cantieri e Casi Studio Prima/Dopo](https://toscancostruzioni.it/foglio-lavori)
+- [Progetto Esecutivo Villa Claudia — Frazionamento in 6 Unità](https://toscancostruzioni.it/villa-claudia)
+- [Sviluppo e Frazionamento Appartamenti per Affitti Brevi a Firenze](https://toscancostruzioni.it/sviluppo-immobili-short-medium-term-firenze.html)
+- [Ristrutturazione e Creazione Hotel, Boutique Hotel e Residenze Studentesche in Toscana](https://toscancostruzioni.it/costruzione-hotel-student-housing-toscana.html)
+- [Ristrutturazione Agriturismi e Wine Resort a Siena, Chianti e Val d'Orcia](https://toscancostruzioni.it/agriturismo-wine-resort-siena-val-dorcia.html)
+- [Residenze Universitarie e Appartamenti Medium Term a Firenze, Pisa e Siena](https://toscancostruzioni.it/student-housing-pbsa-firenze-pisa.html)
+- [Ristrutturazione Hotel, Ville e Affitti Brevi a Lucca, Forte dei Marmi e Versilia](https://toscancostruzioni.it/hotel-ville-short-term-lucca-versilia.html)
+- [Ristrutturazione Agriturismi, Resort e Ville ad Arezzo, Cortona e Maremma](https://toscancostruzioni.it/agriturismo-resort-arezzo-maremma-grosseto.html)
+- [Cambio di Destinazione d'Uso per Hotel e Affitti Brevi in Toscana](https://toscancostruzioni.it/cambio-destinazione-uso-hotel-short-term-toscana.html)
+- [Arredo Su Misura, Self Check-In e Insonorizzazione per Hotel e Affitti Brevi](https://toscancostruzioni.it/arredo-contract-ffe-domotica-hotel-short-term-toscana.html)
+- [Percorso Proprietari e Partner Immobiliari in Toscana](https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html)
+- [Ristrutturazione Appartamenti per Affitti Brevi in Toscana](https://toscancostruzioni.it/affitti-brevi-toscana.html)
+- [General Contractor a Firenze](https://toscancostruzioni.it/general-contractor-firenze.html)
+- [Ristrutturazione Casale Toscano e Agriturismo](https://toscancostruzioni.it/ristrutturazione-casale-toscano.html)
+- [Ristrutturazione Chiavi in Mano in Toscana](https://toscancostruzioni.it/ristrutturazione-toscana.html)
+- [Guida alle Agevolazioni Fiscali e Bonus Edilizi 2026](https://toscancostruzioni.it/bonus-ristrutturazione-2026.html)
+- [Tuscany Hospitality & Hotel Renovation General Contractor (EN)](https://toscancostruzioni.it/tuscany-hospitality-investment-general-contractor.html)
+- [Tuscany Villa & Farmhouse Renovation Contractor (EN)](https://toscancostruzioni.it/tuscany-renovation-contractor.html)
