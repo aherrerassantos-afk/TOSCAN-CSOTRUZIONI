@@ -4,6 +4,15 @@
     { "src": "/villa-claudia", "dest": "/villa-claudia.html" },
     { "src": "/foglio-lavori", "dest": "/foglio-lavori.html" },
     { "src": "/data-room", "dest": "/data-room.html" },
+    { "src": "/costruzione-hotel-student-housing-toscana", "dest": "/costruzione-hotel-student-housing-toscana.html" },
+    { "src": "/agriturismo-wine-resort-siena-val-dorcia", "dest": "/agriturismo-wine-resort-siena-val-dorcia.html" },
+    { "src": "/student-housing-pbsa-firenze-pisa", "dest": "/student-housing-pbsa-firenze-pisa.html" },
+    { "src": "/affitti-brevi-toscana", "dest": "/affitti-brevi-toscana.html" },
+    { "src": "/general-contractor-firenze", "dest": "/general-contractor-firenze.html" },
+    { "src": "/ristrutturazione-casale-toscano", "dest": "/ristrutturazione-casale-toscano.html" },
+    { "src": "/ristrutturazione-toscana", "dest": "/ristrutturazione-toscana.html" },
+    { "src": "/bonus-ristrutturazione-2026", "dest": "/bonus-ristrutturazione-2026.html" },
+    { "src": "/tuscany-renovation-contractor", "dest": "/tuscany-renovation-contractor.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }

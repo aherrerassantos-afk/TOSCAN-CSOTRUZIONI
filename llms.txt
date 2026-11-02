@@ -59,12 +59,21 @@ A: Siamo specializzati in 4 asset class: Immobili per Short & Medium Term (core 
 **Q: Il prezzo e i tempi di cantiere sono garantiti?**
 A: Sì, ogni commessa prevede Capex fisso bloccato alla firma e cronoprogramma contrattualizzato con penali per ritardo.
 
+## Benchmark Parametrici 2026 (Capex Chiavi in Mano & Rendimenti)
+
+- **Immobili Short & Medium Term (Frazionamenti / Aparthotel):** Capex bloccato `1.350 – 1.750 €/mq` (incluso FF&E) | Tempi: `5 – 8 mesi` | Yield lordo target: `11.5% – 14.2%` | IRR medio SPV: `16.8%`
+- **Student Hotel (PBSA) & Co-Living Hub (Firenze, Pisa, Siena):** Capex bloccato `1.380 – 1.680 €/mq` (`24.000 – 32.000 €/posto letto`) | Tempi: `6 – 10 mesi` | Occupazione storica: `96% – 99%` | Yield lordo: `11.8% – 13.5%` | IRR medio: `15.4% – 17.2%`
+- **Hotel & Boutique Hotel 4★/5★:** Capex bloccato `1.850 – 2.450 €/mq` (suite, hall, SPA, CPI, FF&E) | Tempi: `8 – 12 mesi` | Yield a regime: `10.8% – 13.5%`
+- **Agriturismi di Lusso & Wine Resort (Siena, Chianti, Val d'Orcia):** Capex bloccato `1.650 – 2.300 €/mq` + `65.000 – 130.000 €` per bio-piscina panoramica | Tempi: `8 – 12 mesi` | Yield lordo: `11.2% – 14.0%` | IRR medio: `15.8% – 17.6%`
+
 ## Pagine principali
 
 - [Homepage Ufficiale](https://toscancostruzioni.it/)
 - [Investor Data Room & Deal Memo](https://toscancostruzioni.it/data-room)
 - [Foglio Lavori & Deal Flow Blue Arroyo](https://toscancostruzioni.it/foglio-lavori)
 - [Creazione Hotel, Boutique Hotel & Student Housing (PBSA) Toscana](https://toscancostruzioni.it/costruzione-hotel-student-housing-toscana.html)
+- [Agriturismi di Lusso & Wine Resort a Siena, Chianti e Val d'Orcia](https://toscancostruzioni.it/agriturismo-wine-resort-siena-val-dorcia.html)
+- [Student Hotel (PBSA), Residenze Universitarie & Medium Term a Firenze, Pisa e Siena](https://toscancostruzioni.it/student-housing-pbsa-firenze-pisa.html)
 - [Immobili Short & Medium Term Toscana (Core Business)](https://toscancostruzioni.it/affitti-brevi-toscana.html)
 - [Villa Claudia — Case Study Crowdfunding Chiuso / 8 Quote](https://toscancostruzioni.it/villa-claudia)
 - [Ristrutturazione Toscana](https://toscancostruzioni.it/ristrutturazione-toscana.html)
