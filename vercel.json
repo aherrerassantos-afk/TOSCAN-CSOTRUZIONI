@@ -6,6 +6,7 @@
     { "src": "/data-room", "dest": "/data-room.html" },
     { "src": "/preventivo-tipo", "dest": "/preventivo-tipo.html" },
     { "src": "/partner", "dest": "/partner-architetti-agenzie-property-manager-toscana.html" },
+    { "src": "/kit-commerciale", "dest": "/kit-commerciale.html" },
     { "src": "/styleguide", "dest": "/styleguide.html" },
     { "src": "/arredo-contract-ffe-domotica-hotel-short-term-toscana", "dest": "/arredo-contract-ffe-domotica-hotel-short-term-toscana.html" },
     { "src": "/cambio-destinazione-uso-hotel-short-term-toscana", "dest": "/cambio-destinazione-uso-hotel-short-term-toscana.html" },
