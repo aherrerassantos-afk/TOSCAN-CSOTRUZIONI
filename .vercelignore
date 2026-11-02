@@ -4,6 +4,8 @@ web pague
 web pague 
 .git/
 .claude/
+.agents/
+GEMINI.md
 node_modules/
 bob/node_modules/
 .DS_Store

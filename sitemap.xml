@@ -20,6 +20,14 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Investor Data Room & Deal Memo -->
+  <url>
+    <loc>https://toscancostruzioni.it/data-room.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Pagine SEO principali IT -->
   <url>
     <loc>https://toscancostruzioni.it/ristrutturazione-toscana.html</loc>
