@@ -200,4 +200,40 @@ Ogni General Director (`1. GD Operatività`, `2. GD Amministrazione`, `3. GD Ven
 | **3** | **Blue Arroyo Cleaning Co.**<br>(`PBA` · Palazzo Blue Arroyo) | **Property Manager (PM)**<br>*(che gestiscono per conto dei proprietari)* | Garantisce in ZTL (3 hub fisici) **100% turnover chiusi entro le 15:00**, biancheria igienizzata a `60°C`, forniture bagno/cucina gratuite (`232 €/mese` risparmiati dal PM), **Dossier Foto SHA-256** anti-rimborsi OTA e fattura unica SDI. | • **GD Vendite**<br>• **GD Operatività**<br>• **GD Amministrazione** | **Aiuta 1:** esegue le pulizie di fine cantiere e presenta i PM clienti B2B che acquisiscono nuovi immobili da ristrutturare.<br>**Aiuta 2 e 4:** garantisce alloggi immacolati per turisti e PM. |
 | **4** | **SmartsBookings**<br>(`smartsbookings.com`) | **I Turisti / Viaggiatori** | Offre al turista il **prezzo più basso garantito** (zero ricarichi OTA), il **15% di cashback reale** a 48h dal soggiorno e il **servizio Runner valigie** (mani libere da casa a casa), garantendo **Payout 85% entro le 12:00** del check-out. | • **GD Vendite**<br>• **GD Operatività**<br>• **GD Amministrazione** | **Aiuta 1, 2 e 3:** porta domanda turistica diretta ad alto margine (`+15–25%` netto) che massimizza il rendimento degli immobili costruiti da `1` e gestiti/puliti da `2` e `3`. |
 
+---
+
+## 7. Regola Permanente Post-Login: SISTEMA CIPOLLA (Livelli 0–4) & Accesso Riservato Membri Approvati (da 2.000 €)
+
+### 7.1 Regola di Accesso e Tutela dei Co-Investitori (Area Privata vs Sito Pubblico)
+1. **Livello 0 (Sito Pubblico — `index.html`, `blog.html`):**
+   - Nessuna offerta finanziaria pubblica sul sito aperto: presenta i servizi edili chiavi in mano (`1.350–2.400 €/m²`), la **Masterclass di Cantiere** (`150 €`), lo studio di fattibilità gratuito e l'accesso all'Area Riservata per i membri qualificati.
+2. **Area Privata Post-Login (`/stato-cantiere` e `/kit-commerciale` — Membri Già Approvati):**
+   - **Filtro di Tutela Co-Investitori:** Per partecipare al crowdfunding chiuso sui cantieri in corso di apertura, ogni membro deve essere **prima esaminato e approvato dal profilo di Governance dedicato (Direzione / Compliance)**, così da tutelare tutti gli altri investitori del gruppo.
+   - **Accesso Riservato:** L'Area Privata è destinata **esclusivamente a membri già approvati**, con possibilità di allocare capitali sui **Cantieri in Corso di Apertura a partire da 2.000 € in su** (oltre a monitorare i propri cantieri attivi e i 5 SAL).
+   - Se un utente non è ancora approvato, vede lo stato **"In attesa di qualifica del profilo"** e può solo inviare la richiesta di verifica al Direttore preposto.
+
+### 7.2 Architettura Obbligatoria del SISTEMA CIPOLLA (Livelli 0–4)
+Non mostrare mai tutto insieme: l'utente apre un livello alla volta e vede solo ciò che gli serve in quel momento.
+
+- **Livello 0 — Sito Pubblico:** spiega cosa offriamo e porta allo studio di fattibilità o al login dell'Area Riservata.
+- **Livello 1 — Home dopo il login:**
+  - Saluto o titolo breve con badge di **Membro Approvato** (o ruolo interno).
+  - Una sola riga che indica lo stato o la cosa più importante da fare oggi.
+  - Una sola azione principale in evidenza.
+  - Da **3 a 5 grandi blocchi**, uno per area (ciascuno con titolo, una riga descrittiva e un dato chiave).
+- **Livello 2 — Pagina dell'area:**
+  - Titolo chiaro + una frase che spiega a cosa serve + riepilogo essenziale + massimo **4 o 5 bottoni** dedicati a quell'area.
+- **Livello 3 — Dettaglio:**
+  - Solo le informazioni dell'elemento scelto (es. singolo SAL o singolo Cantiere in corso di apertura da 2.000 €).
+  - Contenuti secondari raccolti in sezioni espandibili (`<details>`) o schede + azioni pertinenti.
+- **Livello 4 — Azione:**
+  - Una sola attività per schermata (compilare, confermare, caricare o prenotare quota da 2.000 €).
+  - Moduli divisi in passaggi con indicatore **"Passaggio X di Y"**, seguiti da conferma chiara e passo successivo.
+
+### 7.3 Regole di Navigazione Multi-Livello e Misure da Telefono
+- **Header fisso (`56 px`):** titolo del livello corrente e bottone **Indietro** nei livelli 2, 3 e 4 (sincronizzato con URL `#/livello/...` e tasto Indietro del telefono `popstate`, preservando scroll e dati inseriti).
+- **Barra inferiore fissa (`>= 64 px` + `env(safe-area-inset-bottom)`):** massimo **4 o 5 voci** sempre uguali con icona SVG a tratto sottile ed etichetta chiara.
+- **Misure mobile-first (`320–1440 px`):** margini laterali `16 px`, una sola colonna su telefono, bottoni principali alti `56 px` (`100%` larghezza su mobile), aree toccabili `>= 48 × 48 px` distanziate di almeno `8 px`, input `>= 16 px`, tabelle trasformate in schede su telefono, pannelli dal basso (`max-height: 90dvh`), zero scroll orizzontale e stati completi (Caricamento, Stato vuoto, Errore, Conferma).
+
+
 

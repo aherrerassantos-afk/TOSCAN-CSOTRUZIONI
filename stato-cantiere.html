@@ -2,9 +2,9 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stato Avanzamento Cantiere e SAL | Toscan Costruzioni · Blue Arroyo Group</title>
-  <meta name="description" content="Portale Committente di Toscan Costruzioni (Blue Arroyo Group): stato di avanzamento lavori (5 SAL), report del venerdì, verifica regolarità DURC e polizza CAR/RC, e passaggio diretto alla gestione ospiti." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Area Riservata Membri &amp; Stato Cantiere (Sistema Cipolla) | Toscan Costruzioni</title>
+  <meta name="description" content="Area Privata Post-Login di Toscan Costruzioni (Blue Arroyo Group): monitoraggio 5 SAL, report del venerdì, documenti DURC/CAR e accesso riservato ai membri approvati dal profilo Governance per i cantieri in apertura da 2.000 €." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,210 +15,763 @@
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --terracotta-dark: #93401D;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --olive: #4E5332;
+      --line: #C7BCA9;
+      --border-control: #756B5E;
+      --overlay: rgba(31, 27, 22, 0.72);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
-      --max-w: 1200px;
+      --max-w: 960px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.1rem); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
+    html { scroll-padding-top: 72px; overflow-x: clip; }
+    body {
+      background: var(--stone);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+    }
     h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
-    h1 { font-size: clamp(2rem, 1.6rem + 2vw, 3.2rem); }
-    h2 { font-size: clamp(1.55rem, 1.3rem + 1vw, 2.2rem); }
-    h3 { font-size: clamp(1.25rem, 1.1rem + 0.4vw, 1.55rem); }
-    p { max-width: 70ch; color: var(--muted); }
+    h1 { font-size: clamp(1.85rem, 1.5rem + 1.8vw, 2.75rem); }
+    h2 { font-size: clamp(1.5rem, 1.3rem + 1vw, 2.1rem); }
+    h3 { font-size: clamp(1.25rem, 1.1rem + 0.4vw, 1.5rem); }
+    p { max-width: 68ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
-    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-    header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 72px; gap: 12px; flex-wrap: wrap; }
-    .brand { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 600; }
-    .brand em { color: var(--terracotta); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 44px; font-family: var(--font-sans); }
-    .btn-primary { background: var(--terracotta); color: #FFF; }
-    .btn-primary:hover { background: var(--terracotta-dark); }
-    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
-    .btn-olive { background: var(--olive); color: #FFF; }
-    section { padding: 48px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 8px; }
 
-    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
-    @media (max-width: 860px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
-    .kpi-box { background: var(--paper); border: 1px solid var(--line); padding: 18px; border-radius: var(--radius); }
-    .kpi-box strong { display: block; font-family: var(--font-serif); font-size: 1.65rem; color: var(--ink); line-height: 1.1; }
-    .kpi-box span { font-size: 0.8rem; color: var(--muted); }
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    @media (min-width: 769px) {
+      .container { padding: 0 24px; }
+    }
 
-    /* STEPPER 5 SAL */
-    .sal-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
-    @media (max-width: 900px) { .sal-steps { grid-template-columns: 1fr; } }
-    .sal-step {
+    /* HEADER FISSO 56 PX (REGOLA 7.3 SISTEMA CIPOLLA) */
+    .onion-header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      height: 56px;
+      background: rgba(246, 241, 233, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .onion-header-inner {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .back-btn {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 0 12px;
+      background: var(--paper);
+      border: 1.5px solid var(--border-control);
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .back-btn.is-visible { display: inline-flex; }
+    .level-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .level-title em { color: var(--terracotta); font-style: italic; }
+
+    /* BOTTONI GRANDI (48 PX DESKTOP / 56 PX MOBILE 100% WIDTH) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      text-align: center;
+    }
+    .btn:focus-visible, .back-btn:focus-visible, .area-block:focus-visible, .bottom-tab:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+    .btn:active, .back-btn:active { transform: translateY(1px); }
+    .btn-primary { background: var(--terracotta); color: #FFF; border-color: var(--terracotta); }
+    .btn-primary:hover { background: var(--terracotta-hover); border-color: var(--terracotta-hover); }
+    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--border-control); }
+    .btn-secondary:hover { border-color: var(--ink); }
+    .btn-olive { background: var(--olive); color: #FFF; border-color: var(--olive); }
+
+    @media (max-width: 768px) {
+      .btn { min-height: 56px; width: 100%; }
+    }
+
+    /* BADGE E STATO GOVERNANCE */
+    .member-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--olive);
+      color: #FFF;
+    }
+    .member-badge.is-pending {
+      background: var(--stone);
+      color: var(--ink);
+      border: 1.5px solid var(--border-control);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--olive);
+      margin-bottom: 8px;
+    }
+
+    /* STRUTTURA LIVELLI SISTEMA CIPOLLA */
+    .onion-view {
+      display: none;
+      padding: 32px 0;
+    }
+    .onion-view.is-active {
+      display: block;
+    }
+
+    /* LIVELLO 1: 4 GRANDI BLOCCHI D'AREA */
+    .hero-priority-card {
       background: var(--paper);
       border: 1px solid var(--line);
-      padding: 18px;
+      border-left: 4px solid var(--terracotta);
+      padding: 24px;
+      margin-top: 16px;
       border-radius: var(--radius);
+      display: grid;
+      gap: 16px;
+    }
+    .area-blocks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 768px) {
+      .area-blocks-grid { grid-template-columns: 1fr; }
+    }
+    .area-block {
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: left;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 16px;
+      min-height: 152px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .area-block:hover {
+      border-color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+    .area-block-kpi {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--terracotta);
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* LIVELLO 2 & 3: SCHEDE E ACCORDION <details> */
+    .card-stack {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      gap: 12px;
+    }
+    .card.is-highlighted {
+      border: 2px solid var(--terracotta);
+    }
+    details.onion-details {
+      background: var(--stone);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-top: 8px;
+    }
+    details.onion-details summary {
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.onion-details[open] summary {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* LIVELLO 4: PASSAGGIO X DI Y (UNA SOLA ATTIVITÀ) */
+    .step-indicator {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--stone);
+      border: 1px solid var(--border-control);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+    }
+    .form-field {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .form-field label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .form-field input {
+      min-height: 56px;
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--stone);
+      border: 1.5px solid var(--border-control);
+      border-radius: var(--radius);
+      width: 100%;
+    }
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+      margin-top: 8px;
+    }
+    .chip-option {
+      min-height: 48px;
+      padding: 10px 16px;
+      background: var(--stone);
+      border: 1.5px solid var(--border-control);
+      border-radius: var(--radius);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
       cursor: pointer;
     }
-    .sal-step.is-done { border-top: 4px solid var(--olive); background: #FAF8F3; }
-    .sal-step.is-current { border: 2px solid var(--terracotta); border-top: 4px solid var(--terracotta); background: #FFF; }
-    .sal-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 8px; border-radius: var(--radius); width: fit-content; }
-    .sal-step.is-done .sal-badge { background: var(--olive); color: #FFF; }
-    .sal-step.is-current .sal-badge { background: var(--terracotta); color: #FFF; }
-    .sal-step.is-future .sal-badge { background: var(--line); color: var(--ink); }
+    .chip-option.is-selected {
+      background: var(--terracotta);
+      color: #FFF;
+      border-color: var(--terracotta);
+    }
+    @media (max-width: 768px) {
+      .chip-option { min-height: 56px; flex: 1 1 calc(50% - 10px); }
+    }
 
-    .grid-2 { display: grid; grid-template-columns: 7fr 5fr; gap: 24px; margin-top: 24px; }
-    @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-    footer { padding: 40px 0; font-size: 0.86rem; color: var(--muted); }
+    /* BARRA INFERIORE FISSA (>= 64 PX + SAFE AREA) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 130;
+      min-height: calc(64px + env(safe-area-inset-bottom, 0px));
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      background: var(--paper);
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .bottom-tab {
+      min-height: 64px;
+      background: transparent;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .bottom-tab svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      stroke-width: 1.75;
+      fill: none;
+    }
+    .bottom-tab.is-active {
+      color: var(--terracotta);
+    }
+
     @media print {
-      header, .no-print, footer { display: none !important; }
-      body { background: #FFF; }
+      .onion-header, .bottom-nav, .no-print { display: none !important; }
+      .onion-view { display: block !important; padding: 16px 0; }
+      body { background: #FFF; padding-bottom: 0; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container nav-bar">
-      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Portale Committente</a>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;" class="no-print">
-        <a href="/preventivo-tipo" id="sc-to-quote" class="btn btn-secondary">Computo 7 Categorie</a>
-        <a href="/data-room" id="sc-to-contract" class="btn btn-secondary">Contratto &amp; Polizze</a>
-        <button type="button" onclick="window.print()" class="btn btn-primary">Stampa Stato SAL (PDF)</button>
+  <!-- HEADER FISSO 56 PX CON BOTTONE INDIETRO (LIVELLI 2, 3, 4) -->
+  <header class="onion-header">
+    <div class="container onion-header-inner">
+      <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+        <button type="button" class="back-btn" id="onion-back-btn" aria-label="Torna al livello precedente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span>Indietro</span>
+        </button>
+        <div class="level-title" id="onion-header-title">Toscan <em>Costruzioni</em> · Area Riservata</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;" class="no-print">
+        <button type="button" id="toggle-member-status" class="member-badge" title="Simula stato approvazione Governance">
+          <span id="member-badge-label">Membro Approvato</span>
+        </button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section>
-      <span class="eyebrow">Trasparenza in tempo reale · Cliente Attivo</span>
-      <h1 id="sc-title">Stato avanzamento <em>cantiere</em> e SAL</h1>
-      <p style="margin-top:6px;color:var(--ink);">
-        Riepilogo aggiornato delle lavorazioni eseguite, della regolarità contributiva/assicurativa (DURC, Cassa Edile, Polizza CAR) e degli Stati di Avanzamento Lavori (SAL) certificati.
+
+    <!-- =====================================================================
+         LIVELLO 1 — HOME DOPO IL LOGIN (1 Saluto + 1 Riga Stato + 1 CTA + 4 Blocchi)
+         ===================================================================== -->
+    <section class="onion-view is-active" id="view-level-1" aria-label="Livello 1: Home Area Riservata">
+      <span class="eyebrow" id="l1-eyebrow">Livello 1 · Home Area Riservata Post-Login</span>
+      <h1 id="l1-greeting">Benvenuto, <em>Lorenzo Medici</em></h1>
+      <p id="l1-priority-line" style="margin-top:8px;color:var(--ink);font-weight:500;">
+        Oggi: il 1° SAL (Opere Murarie · 40%) del tuo cantiere di Firenze è pronto per la conferma; sono inoltre aperti 3 nuovi cantieri per i membri approvati da 2.000 €.
       </p>
 
-      <div class="kpi-grid">
-        <div class="kpi-box">
-          <strong id="sc-kpi-client">Lorenzo Medici</strong>
-          <span id="sc-kpi-loc">Firenze · 280 m²</span>
+      <div class="hero-priority-card">
+        <div>
+          <span class="eyebrow" style="margin-bottom:4px;">Azione principale di oggi</span>
+          <h2 id="l1-main-action-title" style="font-size:1.45rem;">Conferma il 1° SAL verificato o consulta i <em>Cantieri in Apertura</em></h2>
         </div>
-        <div class="kpi-box">
-          <strong id="sc-kpi-total">434.000 €</strong>
-          <span id="sc-kpi-rate">Prezzo Fisso Bloccato a Corpo</span>
-        </div>
-        <div class="kpi-box">
-          <strong id="sc-kpi-sal-label" style="color:var(--terracotta);">1° SAL (40%)</strong>
-          <span id="sc-kpi-months">Cronoprogramma: In linea (5–7 mesi)</span>
-        </div>
-        <div class="kpi-box">
-          <strong style="color:var(--olive);">DURC &amp; CAR OK</strong>
-          <span>Polizza Cantiere e Cassa Edile Regolari</span>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary" id="l1-primary-cta">Conferma 1° SAL in 2 passaggi</button>
         </div>
       </div>
 
-      <!-- BARRA INTERATTIVA DEI 5 SAL -->
-      <div style="margin-top:32px;">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <h2>Avanzamento dei <em>5 SAL</em> contrattuali</h2>
-          <span style="font-size:0.82rem;color:var(--muted);" class="no-print">Tocca uno Stato di Avanzamento per vederne il dettaglio</span>
-        </div>
-
-        <div class="sal-steps" id="sc-sal-grid">
-          <div class="sal-step is-done" data-sal-idx="1">
-            <div>
-              <span class="sal-badge" id="badge-sal-1">✓ Completato</span>
-              <h4 style="margin-top:8px;">1. Avvio Cantiere (15%)</h4>
-              <p style="font-size:0.8rem;margin-top:4px;">Pratiche edilizie, ponteggi, demolizioni e smaltimento.</p>
-            </div>
-            <strong id="amt-sal-1" style="font-size:1.1rem;color:var(--ink);">65.100 €</strong>
-          </div>
-
-          <div class="sal-step is-current" data-sal-idx="2">
-            <div>
-              <span class="sal-badge" id="badge-sal-2">● SAL Attuale</span>
-              <h4 style="margin-top:8px;">2. 1° SAL · Murarie (25%)</h4>
-              <p style="font-size:0.8rem;margin-top:4px;">Consolidamenti, tramezzature e tracciamento impianti.</p>
-            </div>
-            <strong id="amt-sal-2" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
-          </div>
-
-          <div class="sal-step is-future" data-sal-idx="3">
-            <div>
-              <span class="sal-badge" id="badge-sal-3">○ Programmato</span>
-              <h4 style="margin-top:8px;">3. 2° SAL · Impianti (25%)</h4>
-              <p style="font-size:0.8rem;margin-top:4px;">Impianti completi, isolamento acustico, massetti e intonaci.</p>
-            </div>
-            <strong id="amt-sal-3" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
-          </div>
-
-          <div class="sal-step is-future" data-sal-idx="4">
-            <div>
-              <span class="sal-badge" id="badge-sal-4">○ Programmato</span>
-              <h4 style="margin-top:8px;">4. 3° SAL · Finiture (25%)</h4>
-              <p style="font-size:0.8rem;margin-top:4px;">Pavimenti, rivestimenti bagni, sanitari, infissi e porte.</p>
-            </div>
-            <strong id="amt-sal-4" style="font-size:1.1rem;color:var(--ink);">108.500 €</strong>
-          </div>
-
-          <div class="sal-step is-future" data-sal-idx="5">
-            <div>
-              <span class="sal-badge" id="badge-sal-5">○ Programmato</span>
-              <h4 style="margin-top:8px;">5. Collaudo &amp; Ospiti (10%)</h4>
-              <p style="font-size:0.8rem;margin-top:4px;">Montaggio arredi, DM 37/08, pulizia e avvio Blue Arroyo.</p>
-            </div>
-            <strong id="amt-sal-5" style="font-size:1.1rem;color:var(--ink);">43.400 €</strong>
-          </div>
-        </div>
-      </div>
-
-      <!-- REPORT DEL VENERDÌ & AZIONI IN 1 TAP DEL CLIENTE ATTIVO -->
-      <div class="grid-2">
-        <div class="card">
-          <span class="eyebrow">Aggiornamento Settimanale Direzione Tecnica</span>
-          <h3>Ultimo Report del <em>Venerdì</em></h3>
-          <p id="sc-report-notes" style="margin-top:10px;color:var(--ink);font-size:0.95rem;background:var(--stone);padding:16px;border-left:3px solid var(--terracotta);">
-            Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati. Cantiere in linea con la data di consegna garantita a contratto.
-          </p>
-          <div style="margin-top:16px;font-size:0.85rem;color:var(--muted);">
-            <strong>Documentazione allegata e verificata:</strong> DURC regolare in corso di validità · Attestazione Cassa Edile · Polizza CAR/RC attiva · Penale ritardo contrattuale: 250 €/giorno a tutela del Committente.
-          </div>
-        </div>
-
-        <div class="card no-print" style="display:flex;flex-direction:column;justify-content:space-between;gap:14px;">
+      <!-- DA 3 A 5 GRANDI BLOCCHI (1 PER AREA: TITOLO + 1 RIGA + 1 DATO CHIAVE) -->
+      <div class="area-blocks-grid" role="navigation" aria-label="Aree principali del portale">
+        <button type="button" class="area-block" data-go-level="#/livello-2/sal">
           <div>
-            <span class="eyebrow">Azioni rapide Committente (1 tap)</span>
-            <h3>Gestisci il tuo cantiere senza attese</h3>
-            <p style="font-size:0.86rem;margin-top:4px;">Seleziona l'azione desiderata: invia automaticamente la richiesta all'Amministrazione o al Direttore Tecnico.</p>
+            <span class="eyebrow">Area 1 · Percorso a 5 SAL</span>
+            <h3>Il mio Cantiere &amp; Avanzamento Lavori</h3>
+            <p style="font-size:0.92rem;margin-top:6px;">Controlla i 5 Stati di Avanzamento Lavori e il Report fotografico del Venerdì.</p>
           </div>
+          <div class="area-block-kpi">
+            <span id="block-kpi-sal">1° SAL · 40% completato</span>
+            <span style="font-size:0.9rem;color:var(--ink);">Apri →</span>
+          </div>
+        </button>
 
-          <div style="display:grid;gap:10px;">
-            <button type="button" class="btn btn-primary" id="btn-sc-approve-sal">✓ Approva SAL Corrente e Richiedi Fattura + DURC (1 tap) →</button>
-            <button type="button" class="btn btn-secondary" id="btn-sc-tech-note">Chiedi Chiarimento / Variante al Direttore Tecnico →</button>
-            <button type="button" class="btn btn-olive" id="btn-sc-hosp-start">Attiva Pre-Allestimento Gestione Ospiti Blue Arroyo →</button>
+        <button type="button" class="area-block" data-go-level="#/livello-2/cantieri-apertura">
+          <div>
+            <span class="eyebrow">Area 2 · Esclusiva Membri Approvati</span>
+            <h3>Cantieri in Corso di Apertura (da 2.000 €)</h3>
+            <p style="font-size:0.92rem;margin-top:6px;">Partecipa ai nuovi cantieri del gruppo dopo esame e approvazione del profilo Governance.</p>
           </div>
-          <div id="sc-feedback" style="font-size:0.86rem;color:var(--olive);font-weight:600;display:none;"></div>
+          <div class="area-block-kpi">
+            <span id="block-kpi-club">3 Cantieri aperti · Da 2.000 €</span>
+            <span style="font-size:0.9rem;color:var(--ink);">Apri →</span>
+          </div>
+        </button>
+
+        <button type="button" class="area-block" data-go-level="#/livello-2/documenti">
+          <div>
+            <span class="eyebrow">Area 3 · Conformità &amp; Garanzie</span>
+            <h3>Documenti, DURC, Cassa Edile e Polizza CAR</h3>
+            <p style="font-size:0.92rem;margin-top:6px;">Scarica il Contratto Tipo a Prezzo Chiuso Toscan, il computo e i certificati assicurativi.</p>
+          </div>
+          <div class="area-block-kpi">
+            <span>DURC &amp; Polizza CAR Regolari</span>
+            <span style="font-size:0.9rem;color:var(--ink);">Apri →</span>
+          </div>
+        </button>
+
+        <button type="button" class="area-block" data-go-level="#/livello-2/ciclo-gruppo">
+          <div>
+            <span class="eyebrow">Area 4 · Dal Cantiere agli Ospiti</span>
+            <h3>Ciclo Blue Arroyo &amp; Pre-Sales Cantiere</h3>
+            <p style="font-size:0.92rem;margin-top:6px;">Attiva la commercializzazione durante i lavori o il passaggio a itassistance, Cleaning e SmartsBookings.</p>
+          </div>
+          <div class="area-block-kpi">
+            <span>Payout 85% · 4 Aziende</span>
+            <span style="font-size:0.9rem;color:var(--ink);">Apri →</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 2A — AREA: IL MIO CANTIERE & 5 SAL (Titolo + 1 Frase + Riepilogo + Max 5 Bottoni)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-2-sal" aria-label="Livello 2: Il mio Cantiere e 5 SAL">
+      <span class="eyebrow">Livello 2 · Area Cantiere e SAL</span>
+      <h1 id="l2-sal-title">Percorso a <em>5 SAL</em> del tuo immobile</h1>
+      <p style="margin-top:6px;color:var(--ink);">
+        Ogni rata viene sbloccata solo dopo la verifica fisica delle opere in cantiere e l'invio del Report del Venerdì.
+      </p>
+
+      <div class="card" style="margin-top:20px;background:var(--paper);">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div>
+            <strong id="l2-summary-prop" style="font-size:1.1rem;color:var(--ink);">Firenze · 280 m² (Appartamenti affitti brevi)</strong>
+            <p id="l2-summary-note" style="font-size:0.92rem;margin-top:4px;">Ultimo Report del Venerdì: Opere murarie di frazionamento e tracciamento impianti completati nei tempi contrattuali.</p>
+          </div>
+          <div style="text-align:right;">
+            <span style="font-size:0.85rem;color:var(--muted);display:block;">Prezzo Chiuso Toscan</span>
+            <strong id="l2-summary-total" style="font-family:var(--font-serif);font-size:1.6rem;color:var(--terracotta);">434.000 €</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASSIMO 5 BOTTONI DEDICATI ALL'AREA (I 5 SAL) -->
+      <div class="card-stack" id="l2-sal-buttons">
+        <button type="button" class="btn btn-secondary" data-sal-detail="1" style="justify-content:space-between;">
+          <span>1. Avvio Cantiere (15% · Completato)</span>
+          <strong id="btn-amt-sal-1">65.100 € →</strong>
+        </button>
+        <button type="button" class="btn btn-primary" data-sal-detail="2" style="justify-content:space-between;">
+          <span>2. 1° SAL · Opere Murarie (25% · SAL Attuale da confermare)</span>
+          <strong id="btn-amt-sal-2">108.500 € →</strong>
+        </button>
+        <button type="button" class="btn btn-secondary" data-sal-detail="3" style="justify-content:space-between;">
+          <span>3. 2° SAL · Impianti e Isolamento (25% · Programmato)</span>
+          <strong id="btn-amt-sal-3">108.500 € →</strong>
+        </button>
+        <button type="button" class="btn btn-secondary" data-sal-detail="4" style="justify-content:space-between;">
+          <span>4. 3° SAL · Finiture e Bagni (25% · Programmato)</span>
+          <strong id="btn-amt-sal-4">108.500 € →</strong>
+        </button>
+        <button type="button" class="btn btn-secondary" data-sal-detail="5" style="justify-content:space-between;">
+          <span>5. Collaudo Finale &amp; Ciclo Blue Arroyo (10% · Programmato)</span>
+          <strong id="btn-amt-sal-5">43.400 € →</strong>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 2B — AREA: CANTIERI IN CORSO DI APERTURA (MEMBRI APPROVATI DA 2.000 €)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-2-cantieri" aria-label="Livello 2: Cantieri in Corso di Apertura">
+      <span class="eyebrow">Livello 2 · Club Riservato Post-Login (Tutela Co-Investitori)</span>
+      <h1>Cantieri in corso di <em>apertura</em> (da 2.000 €)</h1>
+      <p style="margin-top:6px;color:var(--ink);">
+        Per tutelare tutti i co-investitori del gruppo, la partecipazione ai cantieri in apertura (a partire da 2.000 € in su) è riservata esclusivamente ai membri già esaminati e approvati dal profilo di Governance dedicato.
+      </p>
+
+      <!-- STATO A: PROFILO NON ANCORA APPROVATO (GATE DI TUTELA) -->
+      <div class="card is-highlighted" id="club-gate-pending" style="display:none;margin-top:24px;">
+        <span class="eyebrow">Filtro Governance · Tutela Co-Investitori</span>
+        <h3>Stato del tuo profilo: In attesa di qualifica del profilo</h3>
+        <p style="color:var(--ink);">
+          Per proteggere la qualità e la sicurezza di tutti i membri del circuito Toscan Costruzioni · Blue Arroyo Group, ogni nuovo partecipante viene prima esaminato e abilitato dal Direttore di Governance. Una volta approvato, potrai selezionare i cantieri in apertura e allocare quote a partire da <strong>2.000 €</strong>.
+        </p>
+        <div style="margin-top:8px;">
+          <button type="button" class="btn btn-primary" data-go-level="#/livello-4/richiesta-qualifica">Richiedi l'approvazione del profilo Governance</button>
+        </div>
+      </div>
+
+      <!-- STATO B: MEMBRO GIÀ APPROVATO (MASSIMO 4 BOTTONI DEDICATI) -->
+      <div id="club-gate-approved" style="margin-top:24px;">
+        <div class="card" style="margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <div>
+              <strong style="color:var(--olive);">Profilo Esaminato e Approvato dalla Governance Blue Arroyo</strong>
+              <p style="font-size:0.92rem;margin-top:4px;">Seleziona uno dei 3 cantieri in corso di apertura per consultare la scheda tecnica (Livello 3) o prenotare la tua quota da 2.000 € in su (Livello 4).</p>
+            </div>
+            <span class="member-badge">Soglia minima: 2.000 €</span>
+          </div>
+        </div>
+
+        <div class="card-stack">
+          <button type="button" class="btn btn-primary" data-project-detail="firenze-san-niccolo" style="justify-content:space-between;">
+            <span>1. Cantiere Firenze San Niccolò · Frazionamento 4 Suite Ricettive (310 m²)</span>
+            <strong>Quota da 2.000 € →</strong>
+          </button>
+          <button type="button" class="btn btn-secondary" data-project-detail="siena-val-dorcia" style="justify-content:space-between;">
+            <span>2. Cantiere Val d'Orcia · Recupero Casale in Pietra con 8 Camere (480 m²)</span>
+            <strong>Quota da 2.000 € →</strong>
+          </button>
+          <button type="button" class="btn btn-secondary" data-project-detail="firenze-santo-spirito" style="justify-content:space-between;">
+            <span>3. Cantiere Santo Spirito · Appartamenti Affitti Brevi Chiavi in Mano (220 m²)</span>
+            <strong>Quota da 2.000 € →</strong>
+          </button>
+          <button type="button" class="btn btn-secondary" data-go-level="#/livello-4/prenota-quota">
+            <span>4. Prenota direttamente la tua allocazione (da 2.000 € in su)</span>
+          </button>
         </div>
       </div>
     </section>
+
+    <!-- =====================================================================
+         LIVELLO 2C — AREA: DOCUMENTI, DURC & POLIZZA CAR (Max 4 Bottoni)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-2-documenti" aria-label="Livello 2: Documenti e Garanzie">
+      <span class="eyebrow">Livello 2 · Documentazione Ufficiale Commessa</span>
+      <h1>Documenti, Polizze e <em>DURC</em></h1>
+      <p style="margin-top:6px;color:var(--ink);">
+        Consulta o scarica in 1 tocco i documenti contrattuali, il computo analitico e i certificati di regolarità contributiva e assicurativa del cantiere.
+      </p>
+
+      <div class="card-stack">
+        <a href="/preventivo-tipo" id="sc-to-quote" class="btn btn-primary">1. Apri il Computo Analitico in 7 Categorie (PDF)</a>
+        <a href="/data-room" id="sc-to-contract" class="btn btn-secondary">2. Apri il Contratto Tipo a Prezzo Chiuso Toscan &amp; 5 SAL</a>
+        <button type="button" class="btn btn-secondary" data-go-level="#/livello-4/richiedi-durc">3. Richiedi invio verbale SAL e DURC aggiornato</button>
+        <button type="button" class="btn btn-secondary" onclick="window.print()">4. Stampa il riepilogo ufficiale del cantiere (PDF)</button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 2D — AREA: CICLO BLUE ARROYO & PRE-SALES CANTIERE (Max 4 Bottoni)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-2-gruppo" aria-label="Livello 2: Ciclo Blue Arroyo e Pre-Sales">
+      <span class="eyebrow">Livello 2 · Sinergia Gruppo Blue Arroyo</span>
+      <h1>Dal cantiere agli <em>ospiti</em></h1>
+      <p style="margin-top:6px;color:var(--ink);">
+        Attiva la commercializzazione anticipata delle unità durante i lavori (Pre-Sales Cantiere) oppure programma il passaggio alle 3 società operative del gruppo.
+      </p>
+
+      <div class="card-stack">
+        <button type="button" class="btn btn-primary" data-go-level="#/livello-4/attiva-ciclo">1. Attiva il Ciclo Blue Arroyo completo (itassistance + Cleaning + SmartsBookings)</button>
+        <button type="button" class="btn btn-secondary" data-go-level="#/livello-4/attiva-presales">2. Attiva il Pre-Sales Cantiere (vendita o affitto sulla carta durante i lavori)</button>
+        <a href="/blog#prenota-step-a" class="btn btn-secondary">3. Prenota una Masterclass di Cantiere con i Direttori (150 € scalati)</a>
+        <a href="/#contatti" class="btn btn-secondary">4. Proponi un nuovo immobile da valorizzare</a>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 3A — DETTAGLIO SINGOLO SAL (Solo info elemento scelto + <details>)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-3-sal" aria-label="Livello 3: Dettaglio Stato di Avanzamento">
+      <span class="eyebrow" id="l3-sal-badge">Livello 3 · Dettaglio Stato di Avanzamento Lavori</span>
+      <h1 id="l3-sal-heading">2. 1° SAL · Opere <em>Murarie</em> (25%)</h1>
+      <p id="l3-sal-desc" style="margin-top:6px;color:var(--ink);">
+        Consolidamenti strutturali, demolizioni selettive, tramezzature acustiche e tracciamento impianti completati e verificati dal Direttore dei Lavori.
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <span>Importo certificato della rata (Prezzo Chiuso Toscan)</span>
+          <strong id="l3-sal-amount" style="font-family:var(--font-serif);font-size:1.8rem;color:var(--terracotta);">108.500 €</strong>
+        </div>
+
+        <details class="onion-details">
+          <summary>Opere verificate in cantiere e certificazioni allegate</summary>
+          <p style="font-size:0.92rem;color:var(--ink);">
+            • Verbale di constatazione firmato dal Direttore dei Lavori.<br />
+            • DURC in corso di validità e attestazione regolarità Cassa Edile.<br />
+            • Polizza CAR (Contractor's All Risks) attiva e verifica assenza varianti.<br />
+            • Penale contrattuale per ritardo consegna: 250 €/giorno a tutela del Committente.
+          </p>
+        </details>
+
+        <details class="onion-details">
+          <summary>Nota tecnica dell'ultimo Report del Venerdì</summary>
+          <p id="l3-sal-report" style="font-size:0.92rem;color:var(--ink);">
+            Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati. Cantiere perfettamente in linea con la data di consegna garantita.
+          </p>
+        </details>
+
+        <div style="display:grid;gap:12px;margin-top:12px;">
+          <button type="button" class="btn btn-primary" data-go-level="#/livello-4/conferma-sal">Procedi alla conferma di questo SAL (2 passaggi)</button>
+          <button type="button" class="btn btn-secondary" data-go-level="#/livello-4/quesito-tecnico">Richiedi chiarimento al Direttore Tecnico</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 3B — DETTAGLIO SINGOLO CANTIERE IN APERTURA (DA 2.000 €)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-3-cantiere" aria-label="Livello 3: Dettaglio Cantiere in Apertura">
+      <span class="eyebrow">Livello 3 · Scheda Cantiere Riservata ai Membri Approvati</span>
+      <h1 id="l3-proj-title">Cantiere Firenze <em>San Niccolò</em> (310 m²)</h1>
+      <p id="l3-proj-desc" style="margin-top:6px;color:var(--ink);">
+        Frazionamento e conversione chiavi in mano in 4 suite ricettive con bagno en-suite, serrature smart e gestione diretta tramite il Ciclo Blue Arroyo.
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <span>Quota di partecipazione riservata ai Membri Approvati</span>
+          <strong style="font-family:var(--font-serif);font-size:1.75rem;color:var(--terracotta);">Da 2.000 € in su</strong>
+        </div>
+
+        <details class="onion-details">
+          <summary>Dati tecnici del cantiere e garanzie contrattuali</summary>
+          <p id="l3-proj-specs" style="font-size:0.92rem;color:var(--ink);">
+            • Costo parametrico bloccato (Prezzo Chiuso Toscan): 1.650 €/m².<br />
+            • Durata contrattuale garantita con penali: 6 mesi.<br />
+            • Erogazione protetta lungo il Percorso a 5 SAL con Polizza CAR/RC e DURC regolare.<br />
+            • Messa a reddito immediata post-collaudo tramite itassistance, Blue Arroyo Cleaning e SmartsBookings (incasso netto 85%).
+          </p>
+        </details>
+
+        <details class="onion-details">
+          <summary>Regola di tutela dei Co-Investitori (Governance)</summary>
+          <p style="font-size:0.92rem;color:var(--ink);">
+            Ogni ordine di allocazione viene associato al codice di qualifica del Membro Approvato e confermato dall'Amministrazione entro 24 ore con contratto dedicato.
+          </p>
+        </details>
+
+        <div style="margin-top:12px;">
+          <button type="button" class="btn btn-primary" data-go-level="#/livello-4/prenota-quota">Prenota la tua quota da 2.000 € su questo cantiere</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         LIVELLO 4 — AZIONE (Una sola attività per schermata · Passaggio 1 di 2 → 2 di 2)
+         ===================================================================== -->
+    <section class="onion-view" id="view-level-4-action" aria-label="Livello 4: Esecuzione Azione">
+      <span class="step-indicator" id="l4-step-badge">Passaggio 1 di 2 · Configurazione</span>
+      <h1 id="l4-action-title">Prenota la tua <em>quota</em> cantiere (da 2.000 €)</h1>
+      <p id="l4-action-subtitle" style="margin-top:6px;color:var(--ink);">
+        Scegli l'importo che desideri allocare come Membro Approvato: nel passaggio successivo confermi i tuoi dati senza ridigitare nulla.
+      </p>
+
+      <div class="card" style="margin-top:20px;">
+        <!-- PASSAGGIO 1 DI 2 -->
+        <div id="l4-step-1">
+          <div id="l4-quota-block">
+            <span style="font-size:0.95rem;font-weight:600;color:var(--ink);display:block;">Seleziona la fascia di partecipazione (minimo 2.000 €):</span>
+            <div class="chip-group" role="radiogroup" aria-label="Importo partecipazione cantiere">
+              <button type="button" class="chip-option is-selected" data-quota-val="2000">2.000 €</button>
+              <button type="button" class="chip-option" data-quota-val="5000">5.000 €</button>
+              <button type="button" class="chip-option" data-quota-val="10000">10.000 €</button>
+              <button type="button" class="chip-option" data-quota-val="25000">25.000 €+</button>
+            </div>
+            <div class="form-field">
+              <label for="l4-custom-amount">Importo esatto in Euro (da 2.000 € in su)</label>
+              <input type="number" id="l4-custom-amount" min="2000" step="500" value="2000" />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="l4-note-input" id="l4-note-label">Nota o indicazione operativa (facoltativa)</label>
+            <input type="text" id="l4-note-input" placeholder="Es. Richiedo ricevuta e verbale allegato" />
+          </div>
+
+          <div style="margin-top:20px;">
+            <button type="button" class="btn btn-primary" id="btn-l4-next-step">Continua al Passaggio 2 di 2</button>
+          </div>
+        </div>
+
+        <!-- PASSAGGIO 2 DI 2 -->
+        <div id="l4-step-2" style="display:none;">
+          <div style="background:var(--stone);padding:16px;border:1px solid var(--line);border-radius:var(--radius);">
+            <strong style="color:var(--ink);display:block;" id="l4-review-summary">Riepilogo operazione pronta per la conferma</strong>
+            <p id="l4-review-detail" style="font-size:0.92rem;color:var(--muted);margin-top:4px;"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="l4-client-name">Intestatario (pre-compilato dalla commessa attiva)</label>
+            <input type="text" id="l4-client-name" value="Lorenzo Medici" />
+          </div>
+
+          <div class="form-field">
+            <label for="l4-client-phone">Recapito telefonico o WhatsApp per la ricevuta</label>
+            <input type="tel" id="l4-client-phone" placeholder="+39 3..." />
+          </div>
+
+          <div style="display:grid;gap:12px;margin-top:20px;">
+            <button type="button" class="btn btn-primary" id="btn-l4-submit">Conferma e registra operazione</button>
+            <button type="button" class="btn btn-secondary" id="btn-l4-back-to-1">Torna al Passaggio 1 di 2</button>
+          </div>
+        </div>
+
+        <!-- STATO CONFERMA FINALE -->
+        <div id="l4-step-done" style="display:none;padding:16px;background:var(--stone);border-left:4px solid var(--olive);">
+          <strong style="color:var(--olive);font-size:1.1rem;display:block;">Operazione registrata con successo</strong>
+          <p id="l4-done-message" style="color:var(--ink);margin-top:6px;"></p>
+          <div style="margin-top:16px;">
+            <button type="button" class="btn btn-secondary" data-go-level="#/livello-1">Torna alla Home dell'Area Riservata</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <div>
-        <strong style="color:var(--ink);">Toscan Costruzioni · Blue Arroyo Group</strong><br />
-        Firenze, Toscana · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
-      </div>
-      <div><a href="/" style="text-decoration:underline;">Torna alla Home</a></div>
-    </div>
-  </footer>
+  <!-- BARRA INFERIORE FISSA (>= 64 PX + SAFE AREA · 4 VOCI SEMPRE UGUALI CON ICONA SVG) -->
+  <nav class="bottom-nav no-print" aria-label="Navigazione principale Area Riservata">
+    <button type="button" class="bottom-tab is-active" data-tab-target="#/livello-1">
+      <svg viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1v-10.5z"/></svg>
+      <span>Home</span>
+    </button>
+    <button type="button" class="bottom-tab" data-tab-target="#/livello-2/sal">
+      <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      <span>5 SAL</span>
+    </button>
+    <button type="button" class="bottom-tab" data-tab-target="#/livello-2/cantieri-apertura">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h4"/></svg>
+      <span>Cantieri 2k+</span>
+    </button>
+    <button type="button" class="bottom-tab" data-tab-target="#/livello-2/documenti">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+      <span>Documenti</span>
+    </button>
+  </nav>
 
   <script>
     (function() {
@@ -228,20 +781,45 @@
         hotel:        { rate: 2150, months: '9–12 mesi', label: 'Hotel / Boutique hotel' },
         studenti:     { rate: 1600, months: '5–8 mesi', label: 'Residenza studenti' }
       };
-      var salNames = [
-        'Avvio Cantiere (15%)',
-        '1° SAL · Opere Murarie (40%)',
-        '2° SAL · Impianti e Massetti (65%)',
-        '3° SAL · Finiture e Bagni (90%)',
-        'Collaudo Finale e Ospiti (100%)'
+      var salMeta = [
+        { idx: 1, pct: 0.15, name: '1. Avvio Cantiere (15%)', status: 'Completato', desc: 'Pratiche edilizie, allestimento cantiere, demolizioni selettive e smaltimento a discarica autorizzata.' },
+        { idx: 2, pct: 0.25, name: '2. 1° SAL · Opere Murarie (25%)', status: 'SAL Attuale', desc: 'Consolidamenti strutturali, tramezzature acustiche e tracciamento impianti completati e verificati.' },
+        { idx: 3, pct: 0.25, name: '3. 2° SAL · Impianti e Massetti (25%)', status: 'Programmato', desc: 'Impianto idrico, elettrico domotico, climatizzazione, isolamento acustico certificato e massetti.' },
+        { idx: 4, pct: 0.25, name: '4. 3° SAL · Finiture e Bagni (25%)', status: 'Programmato', desc: 'Posa parquet in rovere o cotto, rivestimenti bagni, sanitari sospesi, infissi e porte interne.' },
+        { idx: 5, pct: 0.10, name: '5. Collaudo & Ciclo Blue Arroyo (10%)', status: 'Programmato', desc: 'Montaggio arredi, conformità DM 37/08, pulizia 60°C e attivazione itassistance e SmartsBookings.' }
       ];
+      var openProjects = {
+        'firenze-san-niccolo': {
+          title: 'Cantiere Firenze <em>San Niccolò</em> (310 m²)',
+          plainTitle: 'Cantiere Firenze San Niccolò (310 m²)',
+          desc: 'Frazionamento e conversione chiavi in mano in 4 suite ricettive con bagno en-suite, serrature smart e gestione diretta tramite il Ciclo Blue Arroyo.',
+          specs: '• Prezzo Chiuso Toscan: 1.650 €/m² · Durata garantita con penali: 6 mesi · Partecipazione riservata ai Membri Approvati da 2.000 € in su.'
+        },
+        'siena-val-dorcia': {
+          title: 'Cantiere Val d\'Orcia · <em>Casale in Pietra</em> (480 m²)',
+          plainTitle: 'Cantiere Val d\'Orcia Casale in Pietra (480 m²)',
+          desc: 'Recupero conservativo di casale toscano in 8 suite con area benessere e gestione turistica diretta SmartsBookings.',
+          specs: '• Prezzo Chiuso Toscan: 1.950 €/m² · Durata garantita con penali: 10 mesi · Partecipazione riservata ai Membri Approvati da 2.000 € in su.'
+        },
+        'firenze-santo-spirito': {
+          title: 'Cantiere Firenze <em>Santo Spirito</em> (220 m²)',
+          plainTitle: 'Cantiere Firenze Santo Spirito (220 m²)',
+          desc: 'Ristrutturazione completa e frazionamento in 3 appartamenti per affitti brevi ad alta rotazione in Oltrarno.',
+          specs: '• Prezzo Chiuso Toscan: 1.550 €/m² · Durata garantita con penali: 5 mesi · Partecipazione riservata ai Membri Approvati da 2.000 € in su.'
+        }
+      };
 
       var cfg = {
         type: 'appartamenti',
         city: 'Firenze',
         sqm: 280,
         client: 'Lorenzo Medici',
+        phone: '',
         salIdx: 2,
+        approved: true,
+        selectedSal: 2,
+        selectedProject: 'firenze-san-niccolo',
+        currentAction: 'prenota-quota',
         notes: 'Opere murarie di frazionamento, consolidamenti e tracciamento impianti idrici ed elettrici completati.'
       };
 
@@ -252,7 +830,9 @@
           if (saved.city) cfg.city = saved.city;
           if (saved.sqm) cfg.sqm = parseInt(saved.sqm, 10) || 280;
           if (saved.client) cfg.client = saved.client;
+          if (saved.phone) cfg.phone = saved.phone;
           if (saved.notes) cfg.notes = saved.notes;
+          if (typeof saved.memberApproved === 'boolean') cfg.approved = saved.memberApproved;
         }
       } catch (e) {}
 
@@ -262,103 +842,320 @@
       if (p.get('sqm') || p.get('mq')) cfg.sqm = Math.max(40, parseInt(p.get('sqm') || p.get('mq'), 10) || 280);
       if (p.get('cliente') || p.get('client')) cfg.client = p.get('cliente') || p.get('client');
       if (p.get('sal')) cfg.salIdx = Math.min(5, Math.max(1, parseInt(p.get('sal'), 10) || 2));
-      if (p.get('note')) cfg.notes = p.get('note');
+      if (p.get('member') === 'pending') cfg.approved = false;
+      if (p.get('member') === 'approved') cfg.approved = true;
 
       function fmt(n) { return Math.round(n).toLocaleString('it-IT') + ' €'; }
 
-      function render() {
+      function renderData() {
         var info = rates[cfg.type] || rates.appartamenti;
         var total = cfg.sqm * info.rate;
 
-        document.getElementById('sc-title').innerHTML = 'Stato avanzamento <em>cantiere</em> — ' + cfg.client;
-        document.getElementById('sc-kpi-client').textContent = cfg.client;
-        document.getElementById('sc-kpi-loc').textContent = cfg.city + ' · ' + cfg.sqm + ' m² (' + info.label + ')';
-        document.getElementById('sc-kpi-total').textContent = fmt(total);
-        document.getElementById('sc-kpi-rate').textContent = 'Prezzo Fisso Bloccato (' + info.rate + ' €/m²)';
-        document.getElementById('sc-kpi-sal-label').textContent = salNames[cfg.salIdx - 1];
-        document.getElementById('sc-kpi-months').textContent = 'Consegna garantita: ' + info.months;
-        document.getElementById('sc-report-notes').textContent = cfg.notes;
+        document.getElementById('l1-greeting').innerHTML = 'Benvenuto, <em>' + cfg.client + '</em>';
+        document.getElementById('l4-client-name').value = cfg.client;
+        if (cfg.phone) document.getElementById('l4-client-phone').value = cfg.phone;
 
-        document.getElementById('amt-sal-1').textContent = fmt(total * 0.15);
-        document.getElementById('amt-sal-2').textContent = fmt(total * 0.25);
-        document.getElementById('amt-sal-3').textContent = fmt(total * 0.25);
-        document.getElementById('amt-sal-4').textContent = fmt(total * 0.25);
-        document.getElementById('amt-sal-5').textContent = fmt(total * 0.10);
+        document.getElementById('l2-summary-prop').textContent = cfg.city + ' · ' + cfg.sqm + ' m² (' + info.label + ')';
+        document.getElementById('l2-summary-total').textContent = fmt(total);
+        document.getElementById('l2-summary-note').textContent = 'Ultimo Report del Venerdì: ' + cfg.notes;
 
-        document.querySelectorAll('.sal-step').forEach(function(step) {
-          var idx = parseInt(step.getAttribute('data-sal-idx'), 10);
-          step.classList.remove('is-done', 'is-current', 'is-future');
-          var badge = document.getElementById('badge-sal-' + idx);
-          if (idx < cfg.salIdx) {
-            step.classList.add('is-done');
-            badge.textContent = '✓ Completato';
-          } else if (idx === cfg.salIdx) {
-            step.classList.add('is-current');
-            badge.textContent = '● SAL Attuale';
-          } else {
-            step.classList.add('is-future');
-            badge.textContent = '○ Programmato';
-          }
-        });
+        for (var i = 0; i < salMeta.length; i++) {
+          var s = salMeta[i];
+          var el = document.getElementById('btn-amt-sal-' + s.idx);
+          if (el) el.textContent = fmt(total * s.pct) + ' →';
+        }
+
+        /* Stato approvazione Membro Governance */
+        var badgeBtn = document.getElementById('toggle-member-status');
+        var badgeLbl = document.getElementById('member-badge-label');
+        var gatePending = document.getElementById('club-gate-pending');
+        var gateApproved = document.getElementById('club-gate-approved');
+        if (cfg.approved) {
+          badgeBtn.classList.remove('is-pending');
+          badgeLbl.textContent = 'Membro Approvato';
+          gatePending.style.display = 'none';
+          gateApproved.style.display = 'block';
+          document.getElementById('block-kpi-club').textContent = '3 Cantieri aperti · Da 2.000 €';
+        } else {
+          badgeBtn.classList.add('is-pending');
+          badgeLbl.textContent = 'In attesa di qualifica';
+          gatePending.style.display = 'grid';
+          gateApproved.style.display = 'none';
+          document.getElementById('block-kpi-club').textContent = 'Qualifica Governance richiesta';
+        }
 
         var qStr = '?type=' + encodeURIComponent(cfg.type) + '&city=' + encodeURIComponent(cfg.city) + '&sqm=' + encodeURIComponent(cfg.sqm) + '&cliente=' + encodeURIComponent(cfg.client);
         document.getElementById('sc-to-quote').href = '/preventivo-tipo' + qStr;
         document.getElementById('sc-to-contract').href = '/data-room' + qStr;
       }
 
-      document.querySelectorAll('.sal-step').forEach(function(step) {
-        step.addEventListener('click', function() {
-          cfg.salIdx = parseInt(step.getAttribute('data-sal-idx'), 10);
-          render();
+      /* Toggle stato Membro Approvato / In attesa per test immediato */
+      document.getElementById('toggle-member-status').addEventListener('click', function() {
+        cfg.approved = !cfg.approved;
+        renderData();
+      });
+
+      /* Navigazione Multi-Livello Sistema Cipolla (con supporto popstate e preservazione scroll) */
+      var scrollPositions = {};
+      var currentHash = '#/livello-1';
+
+      function openActionView(actionKey) {
+        cfg.currentAction = actionKey;
+        document.getElementById('l4-step-1').style.display = 'block';
+        document.getElementById('l4-step-2').style.display = 'none';
+        document.getElementById('l4-step-done').style.display = 'none';
+        document.getElementById('l4-step-badge').textContent = 'Passaggio 1 di 2 · Configurazione';
+
+        var qBlock = document.getElementById('l4-quota-block');
+        var titleEl = document.getElementById('l4-action-title');
+        var subEl = document.getElementById('l4-action-subtitle');
+
+        if (actionKey === 'prenota-quota') {
+          qBlock.style.display = 'block';
+          var proj = openProjects[cfg.selectedProject] || openProjects['firenze-san-niccolo'];
+          titleEl.innerHTML = 'Prenota quota <em>' + proj.plainTitle + '</em>';
+          subEl.textContent = 'Accesso riservato ai Membri Approvati: indica l\'importo da 2.000 € in su che desideri allocare.';
+        } else if (actionKey === 'conferma-sal') {
+          qBlock.style.display = 'none';
+          var s = salMeta[cfg.selectedSal - 1] || salMeta[1];
+          titleEl.innerHTML = 'Conferma <em>' + s.name + '</em>';
+          subEl.textContent = 'Approva lo Stato di Avanzamento verificato e richiedi l\'emissione della fattura con DURC allegato.';
+        } else if (actionKey === 'richiesta-qualifica') {
+          qBlock.style.display = 'none';
+          titleEl.innerHTML = 'Richiedi <em>Qualifica Governance</em> Membro';
+          subEl.textContent = 'Invia la richiesta al Direttore di Governance per abilitare il tuo profilo ai cantieri in apertura da 2.000 €.';
+        } else if (actionKey === 'attiva-ciclo') {
+          qBlock.style.display = 'none';
+          titleEl.innerHTML = 'Attiva il <em>Ciclo Blue Arroyo</em>';
+          subEl.textContent = 'Programma il passaggio diretto del tuo immobile a itassistance, Blue Arroyo Cleaning e SmartsBookings.';
+        } else if (actionKey === 'attiva-presales') {
+          qBlock.style.display = 'none';
+          titleEl.innerHTML = 'Attiva il <em>Pre-Sales Cantiere</em>';
+          subEl.textContent = 'Avvia la vendita o la messa a reddito delle unità già durante i lavori con render e unità campione.';
+        } else {
+          qBlock.style.display = 'none';
+          titleEl.innerHTML = 'Invia richiesta alla <em>Direzione</em>';
+          subEl.textContent = 'Conferma in 2 passaggi la tua richiesta operativa senza ridigitare i dati della commessa.';
+        }
+      }
+
+      function renderRoute(hash, fromPopstate) {
+        if (!hash || hash.indexOf('#/livello-') !== 0) hash = '#/livello-1';
+        scrollPositions[currentHash] = window.scrollY || 0;
+        currentHash = hash;
+
+        document.querySelectorAll('.onion-view').forEach(function(v) { v.classList.remove('is-active'); });
+        var backBtn = document.getElementById('onion-back-btn');
+        var headerTitle = document.getElementById('onion-header-title');
+
+        var activeTab = '#/livello-1';
+        if (hash === '#/livello-1') {
+          document.getElementById('view-level-1').classList.add('is-active');
+          backBtn.classList.remove('is-visible');
+          headerTitle.innerHTML = 'Toscan <em>Costruzioni</em> · Livello 1 (Home)';
+          activeTab = '#/livello-1';
+        } else if (hash === '#/livello-2/sal') {
+          document.getElementById('view-level-2-sal').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 2 · Percorso a <em>5 SAL</em>';
+          activeTab = '#/livello-2/sal';
+        } else if (hash === '#/livello-2/cantieri-apertura') {
+          document.getElementById('view-level-2-cantieri').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 2 · Cantieri <em>da 2.000 €</em>';
+          activeTab = '#/livello-2/cantieri-apertura';
+        } else if (hash === '#/livello-2/documenti') {
+          document.getElementById('view-level-2-documenti').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 2 · Documenti &amp; <em>Polizze</em>';
+          activeTab = '#/livello-2/documenti';
+        } else if (hash === '#/livello-2/ciclo-gruppo') {
+          document.getElementById('view-level-2-gruppo').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 2 · Ciclo <em>Blue Arroyo</em>';
+          activeTab = '#/livello-1';
+        } else if (hash.indexOf('#/livello-3/sal-') === 0) {
+          var sIdx = parseInt(hash.replace('#/livello-3/sal-', ''), 10) || 2;
+          cfg.selectedSal = sIdx;
+          var sObj = salMeta[sIdx - 1] || salMeta[1];
+          var info = rates[cfg.type] || rates.appartamenti;
+          var total = cfg.sqm * info.rate;
+          document.getElementById('l3-sal-badge').textContent = 'Livello 3 · Stato: ' + sObj.status;
+          document.getElementById('l3-sal-heading').textContent = sObj.name;
+          document.getElementById('l3-sal-desc').textContent = sObj.desc;
+          document.getElementById('l3-sal-amount').textContent = fmt(total * sObj.pct);
+          document.getElementById('view-level-3-sal').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 3 · Dettaglio <em>SAL</em>';
+          activeTab = '#/livello-2/sal';
+        } else if (hash.indexOf('#/livello-3/cantiere-') === 0) {
+          var pKey = hash.replace('#/livello-3/cantiere-', '');
+          cfg.selectedProject = openProjects[pKey] ? pKey : 'firenze-san-niccolo';
+          var pObj = openProjects[cfg.selectedProject];
+          document.getElementById('l3-proj-title').innerHTML = pObj.title;
+          document.getElementById('l3-proj-desc').textContent = pObj.desc;
+          document.getElementById('l3-proj-specs').textContent = pObj.specs;
+          document.getElementById('view-level-3-cantiere').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 3 · Scheda <em>Cantiere</em>';
+          activeTab = '#/livello-2/cantieri-apertura';
+        } else if (hash.indexOf('#/livello-4/') === 0) {
+          var act = hash.replace('#/livello-4/', '');
+          openActionView(act);
+          document.getElementById('view-level-4-action').classList.add('is-active');
+          backBtn.classList.add('is-visible');
+          headerTitle.innerHTML = 'Livello 4 · Conferma <em>Operazione</em>';
+          activeTab = (act === 'prenota-quota' || act === 'richiesta-qualifica') ? '#/livello-2/cantieri-apertura' : '#/livello-2/sal';
+        }
+
+        document.querySelectorAll('.bottom-tab').forEach(function(tab) {
+          tab.classList.toggle('is-active', tab.getAttribute('data-tab-target') === activeTab);
+        });
+
+        if (fromPopstate && typeof scrollPositions[hash] === 'number') {
+          window.scrollTo(0, scrollPositions[hash]);
+        } else {
+          window.scrollTo(0, 0);
+        }
+      }
+
+      function navigateTo(hash) {
+        if (window.location.hash !== hash) {
+          history.pushState({ hash: hash }, '', hash);
+        }
+        renderRoute(hash, false);
+      }
+
+      window.addEventListener('popstate', function() {
+        renderRoute(window.location.hash || '#/livello-1', true);
+      });
+
+      document.getElementById('onion-back-btn').addEventListener('click', function() {
+        if (currentHash.indexOf('#/livello-4/') === 0) {
+          if (cfg.currentAction === 'prenota-quota') navigateTo('#/livello-3/cantiere-' + cfg.selectedProject);
+          else if (cfg.currentAction === 'richiesta-qualifica') navigateTo('#/livello-2/cantieri-apertura');
+          else navigateTo('#/livello-3/sal-' + cfg.selectedSal);
+        } else if (currentHash.indexOf('#/livello-3/sal-') === 0) {
+          navigateTo('#/livello-2/sal');
+        } else if (currentHash.indexOf('#/livello-3/cantiere-') === 0) {
+          navigateTo('#/livello-2/cantieri-apertura');
+        } else {
+          navigateTo('#/livello-1');
+        }
+      });
+
+      document.querySelectorAll('[data-go-level]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigateTo(btn.getAttribute('data-go-level'));
         });
       });
 
-      function sendAction(source, label, waText) {
-        var info = rates[cfg.type] || rates.appartamenti;
+      document.querySelectorAll('.bottom-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          navigateTo(tab.getAttribute('data-tab-target'));
+        });
+      });
+
+      document.getElementById('l1-primary-cta').addEventListener('click', function() {
+        navigateTo('#/livello-3/sal-' + cfg.salIdx);
+      });
+
+      document.querySelectorAll('[data-sal-detail]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigateTo('#/livello-3/sal-' + btn.getAttribute('data-sal-detail'));
+        });
+      });
+
+      document.querySelectorAll('[data-project-detail]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          navigateTo('#/livello-3/cantiere-' + btn.getAttribute('data-project-detail'));
+        });
+      });
+
+      /* Scelta importo chip da 2.000 € in su */
+      var inpAmount = document.getElementById('l4-custom-amount');
+      document.querySelectorAll('[data-quota-val]').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          document.querySelectorAll('[data-quota-val]').forEach(function(c) { c.classList.remove('is-selected'); });
+          chip.classList.add('is-selected');
+          inpAmount.value = chip.getAttribute('data-quota-val');
+        });
+      });
+
+      /* Passaggio 1 di 2 -> Passaggio 2 di 2 */
+      document.getElementById('btn-l4-next-step').addEventListener('click', function() {
+        var amt = Math.max(2000, parseInt(inpAmount.value, 10) || 2000);
+        inpAmount.value = amt;
+        document.getElementById('l4-step-1').style.display = 'none';
+        document.getElementById('l4-step-2').style.display = 'block';
+        document.getElementById('l4-step-badge').textContent = 'Passaggio 2 di 2 · Verifica e Conferma';
+
+        var detailEl = document.getElementById('l4-review-detail');
+        if (cfg.currentAction === 'prenota-quota') {
+          var proj = openProjects[cfg.selectedProject] || openProjects['firenze-san-niccolo'];
+          detailEl.textContent = proj.plainTitle + ' · Quota Membro Approvato: ' + fmt(amt);
+        } else if (cfg.currentAction === 'conferma-sal') {
+          var s = salMeta[cfg.selectedSal - 1] || salMeta[1];
+          detailEl.textContent = 'Conferma ' + s.name + ' · Cantiere di ' + cfg.city + ' (' + cfg.sqm + ' m²)';
+        } else {
+          detailEl.textContent = 'Operazione: ' + document.getElementById('l4-action-title').textContent + ' · ' + cfg.city;
+        }
+      });
+
+      document.getElementById('btn-l4-back-to-1').addEventListener('click', function() {
+        document.getElementById('l4-step-2').style.display = 'none';
+        document.getElementById('l4-step-1').style.display = 'block';
+        document.getElementById('l4-step-badge').textContent = 'Passaggio 1 di 2 · Configurazione';
+      });
+
+      /* Invio finale Livello 4 */
+      document.getElementById('btn-l4-submit').addEventListener('click', function() {
+        var clientName = document.getElementById('l4-client-name').value.trim() || cfg.client;
+        var clientPhone = document.getElementById('l4-client-phone').value.trim();
+        var noteText = document.getElementById('l4-note-input').value.trim();
+        var amt = Math.max(2000, parseInt(inpAmount.value, 10) || 2000);
+        cfg.client = clientName;
+        cfg.phone = clientPhone;
+
         fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            source: source,
-            azione: label,
-            nome: cfg.client,
+            source: 'area_riservata_sistema_cipolla_l4',
+            azione: cfg.currentAction,
+            nome: clientName,
+            telefono: clientPhone,
             citta: cfg.city,
             mq: cfg.sqm,
-            sal_attuale: salNames[cfg.salIdx - 1],
-            importo_a_corpo: cfg.sqm * info.rate
+            membro_approvato: cfg.approved,
+            quota_allocata_eur: cfg.currentAction === 'prenota-quota' ? amt : undefined,
+            cantiere_apertura: cfg.currentAction === 'prenota-quota' ? cfg.selectedProject : undefined,
+            note: noteText
           })
         }).catch(function(){});
-        var fb = document.getElementById('sc-feedback');
-        fb.style.display = 'block';
-        fb.textContent = '✓ ' + label + ' registrata con successo!';
-        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waText), '_blank');
-      }
 
-      document.getElementById('btn-sc-approve-sal').addEventListener('click', function() {
-        sendAction(
-          'portale_cliente_approva_sal',
-          'Approvazione ' + salNames[cfg.salIdx - 1],
-          'Buongiorno Amministrazione Toscan Costruzioni, confermo la presa visione e approvazione del traguardo "' + salNames[cfg.salIdx - 1] + '" per il cantiere di ' + cfg.city + ' (' + cfg.client + '). Potete procedere con l\'invio della fattura SAL e del DURC aggiornato.'
-        );
+        document.getElementById('l4-step-2').style.display = 'none';
+        document.getElementById('l4-step-done').style.display = 'block';
+        document.getElementById('l4-step-badge').textContent = 'Operazione Completata · Ricevuta Inviata';
+
+        var msg = '';
+        if (cfg.currentAction === 'prenota-quota') {
+          var proj = openProjects[cfg.selectedProject] || openProjects['firenze-san-niccolo'];
+          msg = 'Buongiorno Governance Toscan Costruzioni, come Membro Approvato (' + clientName + ') confermo la prenotazione di una quota da ' + fmt(amt) + ' sul "' + proj.plainTitle + '".';
+          document.getElementById('l4-done-message').textContent = 'La tua richiesta di allocazione da ' + fmt(amt) + ' sul ' + proj.plainTitle + ' è stata registrata per il tuo profilo di Membro Approvato.';
+        } else if (cfg.currentAction === 'richiesta-qualifica') {
+          msg = 'Buongiorno Direzione Governance Toscan Costruzioni, sono ' + clientName + ' e richiedo la qualifica e approvazione del mio profilo per accedere ai Cantieri in Corso di Apertura (da 2.000 €).';
+          document.getElementById('l4-done-message').textContent = 'Richiesta inviata al profilo di Governance dedicato: riceverai l\'abilitazione dopo la verifica di tutela dei co-investitori.';
+        } else {
+          msg = 'Buongiorno Toscan Costruzioni, confermo l\'operazione "' + document.getElementById('l4-action-title').textContent + '" per la commessa di ' + cfg.city + ' (' + clientName + ').';
+          document.getElementById('l4-done-message').textContent = 'La tua conferma è stata registrata nel sistema e notificata alla Direzione e all\'Amministrazione.';
+        }
+
+        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
       });
 
-      document.getElementById('btn-sc-tech-note').addEventListener('click', function() {
-        sendAction(
-          'portale_cliente_quesito_tecnico',
-          'Richiesta al Direttore Tecnico',
-          'Buongiorno Direzione Tecnica Toscan Costruzioni, in merito al cantiere di ' + cfg.city + ' (' + cfg.client + ' — ' + salNames[cfg.salIdx - 1] + ') vorrei concordare un dettaglio tecnico/variante:'
-        );
-      });
-
-      document.getElementById('btn-sc-hosp-start').addEventListener('click', function() {
-        sendAction(
-          'portale_cliente_avvio_blue_arroyo',
-          'Attivazione Pre-Allestimento Ospiti Blue Arroyo',
-          'Buongiorno Team Blue Arroyo, per il cantiere di ' + cfg.city + ' (' + cfg.client + ', ' + cfg.sqm + ' m²) richiedo di programmare il pre-allestimento per la gestione ricettiva (shooting fotografico, serrature smart, pratica CIN e portali).'
-        );
-      });
-
-      render();
+      renderData();
+      renderRoute(window.location.hash || '#/livello-1', false);
     })();
   </script>
 </body>

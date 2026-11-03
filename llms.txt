@@ -1,6 +1,6 @@
 # Toscan Costruzioni — Gruppo Blue Arroyo (llms.txt)
 # Standard: https://llmstxt.org
-# Updated: 2026-11-02
+# Updated: 2026-11-03
 
 > Toscan Costruzioni, parte del Gruppo Blue Arroyo (Blue Arroyo Group), è il General Contractor
 > con sede a Firenze specializzato nella ristrutturazione e conversione chiavi in mano di
@@ -24,13 +24,16 @@ specializzato in strutture ricettive a Firenze, Siena, Chianti, Val d'Orcia, Luc
 - **Appartamenti per Affitti Brevi e Medi:** Frazionamenti, ridistribuzione interna, secondo bagno, insonorizzazione certificata, serrature smart per self check-in e arredo completo pronto per le prenotazioni. Costo indicativo: `1.350 – 1.750 €/m²` | Durata media: `4 – 7 mesi`.
 - **Ristrutturazioni e Cambi d'Uso:** Pratiche edilizie, autorizzazioni Soprintendenza, consolidamento strutturale, tetti ventilati, facciate, impianti ibridi e riqualificazione residenziale chiavi in mano. Costo indicativo: `1.350 – 1.950 €/m²` | Durata media: `4 – 9 mesi`.
 
-## Credenziali, Polizze e Garanzie Contrattuali
+## Credenziali, Polizze, Glossario Aziendale ("Parole Nostre") e Garanzie Contrattuali
 
-- **Prezzo fisso a contratto (a corpo):** Il costo concordato dopo il computo metrico esecutivo è bloccato alla firma; eventuali imprevisti di cantiere non derivanti da varianti richieste dal committente restano a carico di Toscan Costruzioni.
+- **Metodo Toscan:** Il sistema di appalto chiavi in mano che unisce in un solo contratto progetto, pratiche edilizie, cantiere a prezzo bloccato, arredo e avvio della gestione ospiti.
+- **Prezzo Chiuso Toscan (a corpo):** L'importo totale dei lavori bloccato alla firma del computo metrico esecutivo (`1.350 – 2.400 €/m²`), con ogni imprevisto tecnico di cantiere a carico di Toscan Costruzioni.
+- **Percorso a 5 SAL:** Il piano di pagamento protetto in 5 Stati di Avanzamento Lavori (15% avvio, 25% strutture, 25% impianti, 25% finiture, 10% collaudo) pagati solo a opere verificate in cantiere dal Direttore dei Lavori.
+- **Masterclass di Cantiere (`150 €`, 100% scalati dai lavori):** La sessione individuale di 60 minuti con uno dei 4 direttori di settore (1A Geometra e parte tecnica preliminare, 1B Business Plan e leva con le banche, 1C Amministrazione Cantiere e 5 SAL, 1D Pre-Sales Cantiere) per validare l'operazione prima di impegnare il capitale.
+- **Pre-Sales Cantiere:** La strategia per vendere o affittare le unità immobiliari già durante i lavori grazie a layout ricettivo, render e unità campione.
+- **Ciclo Blue Arroyo:** Il passaggio diretto dell'immobile finito alle 4 società del gruppo: 1. **Toscan Costruzioni** crea il bene → 2. **itassistance** lo protegge (conformità CIN/Questura e tariffe dinamiche) → 3. **Blue Arroyo Cleaning** lo allestisce (biancheria a 60°C e kit gratuiti) → 4. **SmartsBookings** lo riempie di turisti (prenotazioni dirette con incasso all'85%).
 - **Tempi garantiti con penali:** Cronoprogramma allegato al contratto d'appalto con penale giornaliera a nostro carico per ogni settimana di ritardo sulla consegna.
-- **Pagamenti per Stati di Avanzamento Lavori (SAL):** Pagamenti allineati alle opere effettivamente eseguite e verificate in cantiere dal Direttore dei Lavori.
 - **Polizze e Regolarità:** DURC e iscrizione Cassa Edile regolari, Polizza CAR (tutti i rischi del cantiere), Polizza RC Professionale e **Garanzia Decennale Postuma** sulle opere strutturali (art. 1669 c.c.).
-- **Vantaggio unico del Gruppo Blue Arroyo:** Dal cantiere agli ospiti nello stesso gruppo: progettiamo, ristrutturiamo, arrediamo e, se il proprietario lo desidera, Blue Arroyo gestisce prenotazioni, tariffe dinamiche, accoglienza, pulizie e manutenzione ordinaria.
 
 ## Dati Ufficiali (NAP Unico)
 

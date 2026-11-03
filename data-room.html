@@ -73,17 +73,21 @@
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --terracotta-dark: #93401D;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --terracotta-dark: #7D3314;
+      --olive: #4E5332;
+      --line: #C7BCA9;
+      --border-control: #756B5E;
+      --overlay: rgba(31, 27, 22, 0.72);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
       --max-w: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
     body {
       background-color: var(--stone);
       color: var(--ink);
@@ -91,6 +95,7 @@
       font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
     h1, h2, h3 {
       font-family: var(--font-serif);
@@ -102,11 +107,11 @@
     h1 { font-size: clamp(2.3rem, 1.8rem + 2.2vw, 3.8rem); }
     h2 { font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem); }
     h3 { font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.65rem); }
-    p { max-width: 70ch; color: var(--muted); }
+    p { max-width: 68ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
     .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
     header {
-      background: rgba(246, 241, 233, 0.95);
+      background: rgba(246, 241, 233, 0.96);
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
@@ -116,34 +121,43 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 76px;
+      min-height: 76px;
       gap: 16px;
+      padding: 8px 0;
+      flex-wrap: wrap;
     }
     .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; }
     .brand em { color: var(--terracotta); }
-    .brand small { display: block; font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.04em; }
+    .brand small { display: block; font-family: var(--font-sans); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.02em; }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 22px;
+      padding: 14px 24px;
       border-radius: var(--radius);
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-weight: 600;
-      border: 1px solid transparent;
+      border: 1.5px solid transparent;
       cursor: pointer;
+      min-height: 48px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
+    .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    .btn:active { transform: translateY(1px); }
     .btn-primary { background: var(--terracotta); color: #FFF; }
-    .btn-primary:hover { background: var(--terracotta-dark); }
-    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
-    section { padding: 76px 0; border-bottom: 1px solid var(--line); }
+    .btn-primary:hover { background: var(--terracotta-hover); }
+    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--border-control); }
+    .btn-secondary:hover { border-color: var(--ink); }
+    @media (max-width: 768px) {
+      .btn { min-height: 56px; }
+    }
+    section { padding: 72px 0; border-bottom: 1px solid var(--line); }
     .eyebrow {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.04em;
       color: var(--olive);
       margin-bottom: 12px;
     }
@@ -371,18 +385,26 @@
         </tbody>
       </table>
 
-      <!-- BARRA AZIONE RAPIDA 1-TAP PER COMMITTENTE E CLIENTE ATTIVO (F5.2) -->
-      <div class="no-print" style="margin-top:24px;padding:22px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
-        <div>
-          <span class="eyebrow" style="margin:0;">Azione rapida Committente (1 clic)</span>
-          <h3 style="margin-top:4px;font-size:1.25rem;">Conferma il piano a 5 SAL o richiedi la documentazione di cantiere</h3>
-          <p style="font-size:0.88rem;margin-top:4px;">Se sei un nuovo committente blocca lo schema a prezzo fisso; se hai già un cantiere attivo richiedi in 1 tap il verbale SAL e il DURC aggiornato.</p>
+      <!-- BARRA AZIONE RAPIDA 1-TAP PER COMMITTENTE E CLIENTE ATTIVO (F5.2) + MASTERCLASS 1C -->
+      <div class="no-print" style="margin-top:24px;padding:24px;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:grid;gap:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+          <div>
+            <span class="eyebrow" style="margin:0;">Azione rapida Committente (1 clic)</span>
+            <h3 style="margin-top:4px;font-size:1.3rem;">Conferma il Percorso a 5 SAL o richiedi la documentazione di cantiere</h3>
+            <p style="font-size:0.92rem;margin-top:4px;">Se sei un nuovo committente blocca il <strong>Prezzo Chiuso Toscan</strong>; se hai già un cantiere attivo richiedi in 1 tap il verbale SAL e il DURC aggiornato.</p>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-primary" id="btn-dr-accept-contract">Approva Schema Contrattuale e Richiedi Stesura (1 tap)</button>
+            <button type="button" class="btn btn-secondary" id="btn-dr-active-client">Cliente Attivo: Richiedi Verbale SAL e DURC</button>
+          </div>
         </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <button type="button" class="btn btn-primary" id="btn-dr-accept-contract">✓ Approva Schema Contrattuale e Richiedi Stesura (1 tap) →</button>
-          <button type="button" class="btn btn-secondary" id="btn-dr-active-client">Cliente Attivo: Richiedi Verbale SAL &amp; DURC →</button>
+        <div id="dr-action-feedback" style="width:100%;font-size:0.92rem;color:var(--olive);font-weight:600;display:none;"></div>
+        <div style="padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <p style="font-size:0.9rem;color:var(--ink);margin:0;">
+            <strong>Vuoi approfondire clausole, 5 SAL, DURC e Polizza CAR prima di firmare?</strong> Prenota la <strong>Masterclass 1C · Amministrazione Cantiere, Contratti &amp; 5 SAL</strong> (60 min 1-to-1 con il Direttore Amministrativo · <strong>150 € interamente scalati</strong> dai lavori).
+          </p>
+          <a href="/blog#prenota-step-a" class="btn btn-secondary">Prenota la Masterclass Contratti &amp; SAL (150 € scalati)</a>
         </div>
-        <div id="dr-action-feedback" style="width:100%;font-size:0.88rem;color:var(--olive);font-weight:600;display:none;"></div>
       </div>
     </section>
 
@@ -505,7 +527,7 @@
             })
           }).catch(function(){});
           fb.style.display = 'block';
-          fb.textContent = '✓ Richiesta di stesura Contratto Definitivo registrata! Apertura conferma diretta su WhatsApp...';
+          fb.textContent = 'Richiesta di stesura Contratto Definitivo registrata. Apertura conferma diretta su WhatsApp...';
           var msg = 'Buongiorno Toscan Costruzioni, confermo lo schema contrattuale a 5 SAL per l\'immobile di ' + cfg.city + ' (' + cfg.sqm + ' m² — ' + fmt(total) + ' a corpo' + (cfg.client ? ', rif. ' + cfg.client : '') + ') e richiedo la stesura esecutiva.';
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
         });
@@ -526,7 +548,7 @@
             })
           }).catch(function(){});
           fb.style.display = 'block';
-          fb.textContent = '✓ Richiesta Verbale SAL e DURC inviata all\'Amministrazione!';
+          fb.textContent = 'Richiesta Verbale SAL e DURC inviata all\'Amministrazione.';
           var msg = 'Buongiorno Amministrazione Toscan Costruzioni, per il cantiere attivo di ' + cfg.city + (cfg.client ? ' (' + cfg.client + ')' : '') + ' richiedo l\'invio del verbale SAL aggiornato e del DURC in corso di validità.';
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
         });

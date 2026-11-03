@@ -102,7 +102,6 @@ ul { list-style: none; }
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 2px;
-  text-transform: uppercase;
   color: var(--terra);
   margin-bottom: 12px;
 }
@@ -258,7 +257,7 @@ ul { list-style: none; }
    ════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   padding: 120px 24px 80px;
@@ -305,7 +304,6 @@ ul { list-style: none; }
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
   color: var(--terra-light);
   margin-bottom: 28px;
   backdrop-filter: blur(10px);
@@ -374,8 +372,7 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.4);
   font-size: 0.7rem;
   letter-spacing: 2px;
-  text-transform: uppercase;
-}
+  }
 .scroll-line {
   width: 1px;
   height: 40px;
@@ -478,7 +475,7 @@ ul { list-style: none; }
   box-shadow: 0 8px 24px rgba(200,112,74,0.4);
 }
 .badge-year { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; line-height: 1; }
-.badge-text { font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; opacity: 0.85; }
+.badge-text { font-size: 0.65rem; letter-spacing: 1px; opacity: 0.85; }
 
 /* ════════════════════════════════════════════════════════
    SERVIZI
@@ -938,7 +935,7 @@ ul { list-style: none; }
 .footer-logo strong { display: block; font-size: 0.95rem; font-weight: 700; }
 .footer-logo span { font-size: 0.7rem; color: rgba(255,255,255,0.5); }
 .footer-brand p { font-size: 0.85rem; line-height: 1.6; }
-.footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: white; margin-bottom: 16px; }
+.footer-col h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; color: white; margin-bottom: 16px; }
 .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
 .footer-col li, .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.55); transition: var(--transition); }
 .footer-col a:hover { color: var(--terra-light); }
@@ -1098,7 +1095,6 @@ ul { list-style: none; }
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.8px;
-  text-transform: uppercase;
   background: rgba(200,112,74,0.25);
   color: var(--terra-light);
   border: 1px solid rgba(200,112,74,0.45);
@@ -1167,7 +1163,6 @@ ul { list-style: none; }
   display: block;
   font-size: 0.68rem;
   color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 2px;
 }

@@ -98,11 +98,14 @@
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --terracotta-dark: #93401D;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --border-control: #756B5E;
+      --overlay: rgba(31, 27, 22, 0.72);
+      --terracotta-dark: #7D3314;
+      --olive: #4E5332;
+      --line: #C7BCA9;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
@@ -122,7 +125,7 @@
     h1 { font-size: clamp(2.3rem, 1.8rem + 2.2vw, 3.8rem); }
     h2 { font-size: clamp(1.7rem, 1.35rem + 1.2vw, 2.5rem); }
     h3 { font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.6rem); }
-    p { max-width: 70ch; color: var(--muted); }
+    p { max-width: 68ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
     .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
     header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
@@ -132,12 +135,14 @@
     .brand small { display: block; font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); }
     .nav-links { display: flex; gap: 22px; align-items: center; font-size: 0.9rem; font-weight: 500; }
     @media (max-width: 860px) { .nav-links { display: none; } }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: var(--radius); font-size: 0.92rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 24px; border-radius: var(--radius); font-size: 1rem; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: background-color 0.2s ease, transform 0.15s ease; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    @media (max-width: 768px) { .btn { min-height: 56px; } }
     .btn-primary { background: var(--terracotta); color: #FFF; }
     .btn-primary:hover { background: var(--terracotta-dark); }
     .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
     section { padding: 72px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 12px; }
+    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 12px; }
     .answer-box { background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--terracotta); padding: 22px 26px; margin: 24px 0; border-radius: var(--radius); }
     table { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--line); margin-top: 24px; }
     th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); font-size: 0.92rem; }
@@ -217,6 +222,18 @@
       <h2>Risposte chiare prima di aprire il <em>cantiere</em></h2>
       <div class="faq-item"><h3>È possibile convertire una vecchia pensione in Versilia in appartamenti vacanza o boutique hotel?</h3><p style="margin-top:8px;">Sì, verifichiamo i regolamenti urbanistici comunali (Viareggio, Camaiore, Pietrasanta, Forte dei Marmi) per trasformare strutture datate in suite più ampie o appartamenti indipendenti ad alto valore.</p></div>
       <div class="faq-item"><h3>Come gestite i trasporti di cantiere dentro il centro storico di Lucca?</h3><p style="margin-top:8px;">Organizziamo i trasporti con mezzi autorizzati per gli accessi alle Porte urbane di Lucca e depositi logistici appena fuori le Mura.</p></div>
+    </section>
+
+    <section>
+      <span class="eyebrow">Ingresso Graduale · Scala per Disponibilità Economica</span>
+      <h2>Non vuoi impegnare subito l'intero budget? Inizia dalla <em>Masterclass di Cantiere</em> (150 €)</h2>
+      <p style="margin-top:8px;color:var(--ink);">
+        Con il <strong>Metodo Toscan</strong> puoi procedere per gradi: prenota una sessione individuale di 60 minuti (<strong>150 € interamente scalati</strong> dal successivo incarico o cantiere) con uno dei nostri 4 Direttori operativi (<strong>1A Geometra &amp; Urbanistica</strong> · <strong>1B Business Plan &amp; Leva Bancaria</strong> · <strong>1C Contratti &amp; Percorso a 5 SAL</strong> · <strong>1D Pre-Sales Cantiere</strong>) per validare l'operazione prima del <strong>Prezzo Chiuso Toscan</strong> e del passaggio finale al <strong>Ciclo Blue Arroyo</strong>.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+        <a href="/blog#prenota-step-a" class="btn btn-primary">Prenota la Masterclass con l'esperto (150 € scalati)</a>
+        <a href="/blog" class="btn btn-secondary">Leggi i casi reali sul Blog Tecnico</a>
+      </div>
     </section>
 
     <section style="text-align:center;">

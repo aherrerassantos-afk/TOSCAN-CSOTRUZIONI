@@ -53,17 +53,21 @@
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --terracotta-dark: #93401D;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --terracotta-dark: #7D3314;
+      --olive: #4E5332;
+      --line: #C7BCA9;
+      --border-control: #756B5E;
+      --overlay: rgba(31, 27, 22, 0.72);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
       --max-w: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
     body {
       background-color: var(--stone);
       color: var(--ink);
@@ -71,38 +75,46 @@
       font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
     }
     h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
     h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
     h1 { font-size: clamp(2.2rem, 1.8rem + 2.2vw, 3.6rem); }
     h2 { font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.4rem); }
     h3 { font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.6rem); }
-    p { max-width: 70ch; color: var(--muted); }
+    p { max-width: 68ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
     .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
     header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 76px; gap: 16px; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; min-height: 76px; gap: 16px; padding: 8px 0; flex-wrap: wrap; }
     .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; }
     .brand em { color: var(--terracotta); }
-    .brand small { display: block; font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); }
+    .brand small { display: block; font-family: var(--font-sans); font-size: 0.75rem; color: var(--muted); }
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 13px 22px;
+      padding: 14px 24px;
       border-radius: var(--radius);
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-weight: 600;
-      border: 1px solid transparent;
+      border: 1.5px solid transparent;
       cursor: pointer;
-      min-height: 44px;
+      min-height: 48px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
     }
+    .btn:focus-visible, .chip-btn:focus-visible, input:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+    .btn:active { transform: translateY(1px); }
     .btn-primary { background: var(--terracotta); color: #FFF; }
-    .btn-primary:hover { background: var(--terracotta-dark); }
-    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+    .btn-primary:hover { background: var(--terracotta-hover); }
+    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--border-control); }
+    .btn-secondary:hover { border-color: var(--ink); }
     section { padding: 64px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 10px; }
+    .eyebrow { display: inline-block; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: var(--olive); margin-bottom: 10px; }
 
     /* BARRA INPUT RAPIDI CON CHIP (Zero <select>) */
     .controls-bar {
@@ -114,23 +126,26 @@
       display: grid;
       gap: 18px;
     }
-    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 12px; }
     .chip-btn {
-      min-height: 44px;
-      padding: 9px 14px;
+      min-height: 48px;
+      padding: 10px 16px;
       background: var(--stone);
-      border: 1px solid var(--line);
+      border: 1.5px solid var(--border-control);
       border-radius: var(--radius);
       font-family: var(--font-sans);
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       font-weight: 500;
       color: var(--ink);
       cursor: pointer;
     }
     .chip-btn.is-active {
       border-color: var(--terracotta);
-      background: rgba(180, 83, 42, 0.1);
+      background: rgba(158, 66, 27, 0.1);
       font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .btn, .chip-btn, .control-group input { min-height: 56px; }
     }
     .inputs-inline {
       display: grid;
@@ -139,14 +154,14 @@
       align-items: end;
     }
     @media (max-width: 860px) { .inputs-inline { grid-template-columns: 1fr; } }
-    .control-group { display: flex; flex-direction: column; gap: 6px; font-size: 0.86rem; font-weight: 600; color: var(--ink); }
+    .control-group { display: flex; flex-direction: column; gap: 6px; font-size: 0.88rem; font-weight: 600; color: var(--ink); }
     .control-group input {
-      min-height: 44px;
+      min-height: 48px;
       padding: 10px 12px;
-      border: 1px solid var(--line);
+      border: 1.5px solid var(--border-control);
       background: var(--stone);
       font-family: var(--font-sans);
-      font-size: 0.94rem;
+      font-size: 1rem;
       border-radius: var(--radius);
       color: var(--ink);
     }
@@ -229,10 +244,10 @@
   <main class="container">
     <section>
       <div class="no-print">
-        <span class="eyebrow">Preventivo standard</span>
+        <span class="eyebrow">Metodo Toscan · Preventivo standard</span>
         <h1>Modello di <em>preventivo</em> analitico chiavi in mano</h1>
         <p style="margin-top:8px;color:var(--ink);">
-          Seleziona la tipologia di intervento e inserisci i metri quadri per vedere subito la ripartizione analitica nelle 7 categorie di lavoro e scaricare il PDF, oppure passa in <strong>1 clic</strong> alla richiesta del sopralluogo gratuito.
+          Con il <strong>Metodo Toscan</strong> (progetto, pratiche edilizie, cantiere a prezzo bloccato, arredo e avvio gestione ospiti in un unico contratto) selezioni la tipologia di intervento e i metri quadri per vedere subito la ripartizione analitica nelle 7 categorie di lavoro, oppure prenoti in 1 clic lo studio gratuito o una <a href="/blog#scala-acquisto" style="text-decoration:underline;color:var(--terracotta);font-weight:600;">Masterclass di Cantiere da 150 € (100% scalati)</a>.
         </p>
 
         <div class="controls-bar">
@@ -278,7 +293,7 @@
             </div>
           </div>
           <div style="text-align:right;font-size:0.84rem;">
-            <strong style="display:block;font-size:1rem;color:var(--ink);">SCHEMA DI PREVENTIVO ESECUTIVO A CORPO</strong>
+            <strong style="display:block;font-size:1rem;color:var(--ink);">Schema di Preventivo Esecutivo a Corpo (Prezzo Chiuso Toscan)</strong>
             <span id="out-client-line" style="display:block;color:var(--terracotta);font-weight:600;">Modello Standard Gruppo Blue Arroyo · Rev. 2026</span>
             <span>Stima parametrica soggetta a sopralluogo tecnico gratuito</span>
           </div>
@@ -385,7 +400,7 @@
               <td class="num" id="r7-tot">13.640 €</td>
             </tr>
             <tr class="total-row">
-              <td colspan="2">STIMA TOTALE INDICATIVA CHIAVI IN MANO A CORPO (IVA e oneri comunali esclusi)</td>
+              <td colspan="2">Stima Totale Indicativa Chiavi in Mano a Corpo — Prezzo Chiuso Toscan (IVA e oneri comunali esclusi)</td>
               <td class="num">100%</td>
               <td class="num" id="tot-unit">1.550 €/m²</td>
               <td class="num" id="tot-sum">341.000 €</td>
@@ -393,16 +408,16 @@
           </tbody>
         </table>
 
-        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:0.84rem;">
-          <div style="background:#F6F1E9;padding:16px;border:1px solid var(--line);">
-            <strong style="color:var(--ink);display:block;margin-bottom:6px;">Garanzie Contrattuali Incluse:</strong>
-            • Prezzo Fisso a Corpo bloccato alla firma del computo esecutivo.<br />
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:0.86rem;">
+          <div style="background:var(--stone);padding:16px;border:1px solid var(--line);">
+            <strong style="color:var(--ink);display:block;margin-bottom:6px;">Garanzie Contrattuali Incluse (Metodo Toscan):</strong>
+            • <strong>Prezzo Chiuso Toscan</strong> bloccato alla firma del computo esecutivo.<br />
             • Penale giornaliera per ritardo sulla data di fine lavori.<br />
             • Polizza CAR/RC di cantiere, DURC regolare e Garanzia Decennale Postuma.
           </div>
-          <div style="background:#F6F1E9;padding:16px;border:1px solid var(--line);">
-            <strong style="color:var(--ink);display:block;margin-bottom:6px;">Piano Pagamenti per Stati di Avanzamento (SAL):</strong>
-            15% Acconto avvio cantiere · 25% al 1° SAL (Strutture/Murarie) · 25% al 2° SAL (Impianti/Massetti) · 25% al 3° SAL (Finiture/Bagni) · 10% Saldo al collaudo finale e consegna chiavi.
+          <div style="background:var(--stone);padding:16px;border:1px solid var(--line);">
+            <strong style="color:var(--ink);display:block;margin-bottom:6px;">Percorso a 5 SAL (Stati di Avanzamento Lavori):</strong>
+            15% Acconto avvio cantiere · 25% al 1° SAL (Strutture/Murarie) · 25% al 2° SAL (Impianti/Massetti) · 25% al 3° SAL (Finiture/Bagni) · 10% Saldo al collaudo finale e avvio <strong>Ciclo Blue Arroyo</strong>.
           </div>
         </div>
 
@@ -417,18 +432,26 @@
           </div>
         </div>
 
-        <!-- BOX ACCETTAZIONE DIGITALE IN 1 TAP (F5.2 — ZERO ATTRITO PER IL PROSPECT) -->
-        <div class="no-print" style="margin-top:28px;padding:22px;background:#F6F1E9;border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
-          <div>
-            <span class="eyebrow" style="margin:0;">Conferma digitale in 1 clic</span>
-            <h3 style="margin-top:4px;font-size:1.3rem;">Approva questa stima preliminare e blocca il <em>sopralluogo gratuito</em></h3>
-            <p style="font-size:0.88rem;margin-top:4px;">Con 1 tap registri la tua approvazione preliminare, sblocchi il Contratto Tipo con i 5 SAL in Euro e fissi il rilievo in 48h senza impegno.</p>
+        <!-- BOX ACCETTAZIONE DIGITALE IN 1 TAP (F5.2) + PONTE MASTERCLASS 150 € -->
+        <div class="no-print" style="margin-top:28px;padding:24px;background:var(--stone);border:1px solid var(--line);border-left:4px solid var(--terracotta);border-radius:var(--radius);display:grid;gap:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+            <div>
+              <span class="eyebrow" style="margin:0;">Conferma digitale in 1 clic · Percorso A</span>
+              <h3 style="margin-top:4px;font-size:1.35rem;">Approva questa stima preliminare e blocca il <em>sopralluogo gratuito</em></h3>
+              <p style="font-size:0.92rem;margin-top:4px;">Con 1 tap registri l'approvazione preliminare, sblocchi il Contratto Tipo con il <strong>Percorso a 5 SAL</strong> in Euro e fissi il rilievo in 48h senza impegno.</p>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+              <input type="tel" id="q-accept-phone" aria-label="Tuo Telefono o WhatsApp" placeholder="Tuo Telefono / WhatsApp (opz.)" style="min-height:48px;padding:10px 14px;border:1.5px solid var(--border-control);background:var(--paper);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;color:var(--ink);" />
+              <button type="button" class="btn btn-primary" id="btn-accept-quote-1tap">Approva Stima e Blocca Sopralluogo (1 tap)</button>
+            </div>
           </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-            <input type="tel" id="q-accept-phone" placeholder="Tuo Telefono / WhatsApp (opz.)" style="min-height:44px;padding:10px 12px;border:1px solid var(--line);background:#FFF;border-radius:var(--radius);font-family:var(--font-sans);font-size:0.9rem;" />
-            <button type="button" class="btn btn-primary" id="btn-accept-quote-1tap">✓ Approva Stima e Blocca Sopralluogo (1 tap) →</button>
+          <div id="accept-quote-feedback" style="width:100%;font-size:0.92rem;color:var(--olive);font-weight:600;display:none;"></div>
+          <div style="padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <p style="font-size:0.9rem;color:var(--ink);margin:0;">
+              <strong>Vuoi prima validare i numeri con un nostro Direttore prima di impegnare il budget?</strong> Prenota la <strong>Masterclass di Cantiere</strong> individuale (60 min con Geometra, Esperto Banche, Amministrazione SAL o Pre-Sales: <strong>150 € interamente scalati</strong> dai lavori).
+            </p>
+            <a href="/blog#prenota-step-a" id="pt-to-masterclass" class="btn btn-secondary">Prenota la Masterclass con l'esperto (150 € scalati)</a>
           </div>
-          <div id="accept-quote-feedback" style="width:100%;font-size:0.88rem;color:var(--olive);font-weight:600;display:none;"></div>
         </div>
       </div>
     </section>
@@ -541,7 +564,7 @@
           var total = state.rate * sqm;
           var nowStr = new Date().toLocaleDateString('it-IT');
 
-          document.getElementById('out-sig-client').textContent = '✓ Approvato digitalmente da ' + client + ' in data ' + nowStr;
+          document.getElementById('out-sig-client').textContent = 'Approvato digitalmente da ' + client + ' in data ' + nowStr;
           try {
             localStorage.setItem('tc_active_commessa_v1', JSON.stringify({
               client: client, phone: phone, city: city, sqm: sqm, type: state.type, sal: 'Avvio Cantiere (15%)'
@@ -566,7 +589,7 @@
           var cUrl = document.getElementById('pt-to-contract').getAttribute('href');
           var fb = document.getElementById('accept-quote-feedback');
           fb.style.display = 'block';
-          fb.innerHTML = '✓ Stima approvata e registrata! <a href="' + cUrl + '" style="text-decoration:underline;margin-left:8px;color:var(--terracotta);">Apri ora il tuo Contratto Tipo con i 5 SAL in Euro →</a>';
+          fb.innerHTML = 'Stima approvata e registrata. <a href="' + cUrl + '" style="text-decoration:underline;margin-left:8px;color:var(--terracotta);">Apri ora il tuo Contratto Tipo con i 5 SAL in Euro</a>';
 
           var waMsg = 'Buongiorno Toscan Costruzioni, confermo l\'approvazione preliminare della stima per l\'immobile di ' + city + ' (' + sqm + ' m² — ' + fmt(total) + ' € a corpo, rif. ' + client + ') e richiedo il sopralluogo tecnico gratuito.';
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');

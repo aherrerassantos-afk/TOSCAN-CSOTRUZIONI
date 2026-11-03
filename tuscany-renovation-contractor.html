@@ -76,11 +76,14 @@
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --terracotta-dark: #93401D;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --border-control: #756B5E;
+      --overlay: rgba(31, 27, 22, 0.72);
+      --terracotta-dark: #7D3314;
+      --olive: #4E5332;
+      --line: #C7BCA9;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
@@ -93,7 +96,7 @@
     h1 { font-size: clamp(2.4rem, 1.9rem + 2.4vw, 4.2rem); }
     h2 { font-size: clamp(1.75rem, 1.4rem + 1.3vw, 2.7rem); }
     h3 { font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.65rem); }
-    p { max-width: 70ch; color: var(--muted); }
+    p { max-width: 68ch; color: var(--muted); }
     a { color: inherit; text-decoration: none; }
     .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
     header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
@@ -103,12 +106,14 @@
     .brand small { display: block; font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); }
     .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.92rem; font-weight: 500; }
     @media (max-width: 860px) { .nav-links { display: none; } }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: var(--radius); font-size: 0.92rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 24px; border-radius: var(--radius); font-size: 1rem; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: background-color 0.2s ease, transform 0.15s ease; }
+    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+    @media (max-width: 768px) { .btn { min-height: 56px; } }
     .btn-primary { background: var(--terracotta); color: #FFF; }
     .btn-primary:hover { background: var(--terracotta-dark); }
     .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
     section { padding: 80px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 12px; }
+    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 12px; }
     .answer-box { background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--terracotta); padding: 20px 24px; margin: 24px 0; }
     .trust-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 32px; }
     @media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -140,7 +145,7 @@
         <a href="#process">How We Work</a>
         <a href="#hospitality">Guest Management</a>
         <a href="/data-room">Standard Contract</a>
-        <a href="/">IT 🇮🇹</a>
+        <a href="/">IT </a>
       </nav>
       <a href="#contact" class="btn btn-primary">Free 48h Feasibility Study</a>
     </div>
@@ -193,7 +198,7 @@
         <article class="card">
           <span class="price-pill">€1,850 – €2,400 / m² · 8–12 Months</span>
           <h3>Hotels &amp; <em>Boutique Hotels</em></h3>
-          <p>Full renovation of existing hotels or conversion of historic Florentine palazzi into 4★/5★ boutique hotels: en-suite bedrooms, reception, spa, fire safety (CPI), acoustic insulation and custom furniture.</p>
+          <p>Full renovation of existing hotels or conversion of historic Florentine palazzi into 4-star / 5-star boutique hotels: en-suite bedrooms, reception, spa, fire safety (CPI), acoustic insulation and custom furniture.</p>
         </article>
 
         <article class="card">
@@ -303,6 +308,17 @@
         </div>
         <div id="en-form-msg" style="display:none;margin-top:16px;padding:14px;background:#EFE8DC;text-align:center;font-weight:600;"></div>
       </form>
+    </section>
+    <section>
+      <span class="eyebrow">Staggered Entry · Step-by-Step Validation</span>
+      <h2>Not ready to commit to a full contract yet? Book a 1-to-1 <em>Masterclass</em> (€150 credited)</h2>
+      <p style="margin-top:8px;color:var(--ink);">
+        Through the <strong>Metodo Toscan</strong>, international buyers and property owners can start with a 60-minute 1-to-1 technical session (<strong>€150, 100% deducted</strong> from subsequent works) with one of our 4 Department Directors (<strong>1A Urban Planning &amp; Permits</strong> · <strong>1B Hospitality Business Plan &amp; Italian Bank Leverage</strong> · <strong>1C Fixed-Price Contract &amp; Percorso a 5 SAL</strong> · <strong>1D Pre-Sales Cantiere</strong>) before locking in the <strong>Prezzo Chiuso Toscan</strong> and activating the <strong>Ciclo Blue Arroyo</strong>.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+        <a href="/blog#prenota-step-a" class="btn btn-primary">Book your 1-to-1 Expert Masterclass (€150 credited)</a>
+        <a href="/preventivo-tipo" class="btn btn-secondary">Open Itemized PDF Quote</a>
+      </div>
     </section>
   </main>
 

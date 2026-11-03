@@ -43,7 +43,7 @@
     .brand em { color: var(--terracotta); }
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: var(--radius); font-size: 1rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 56px; font-family: var(--font-sans); transition: background 0.15s; }
     @media (min-width: 769px) { .btn { min-height: 48px; } }
-    .btn:focus-visible, .chip-btn:focus-visible, .role-tab:focus-visible, input:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+    .btn:focus-visible, .chip-btn:focus-visible, .role-tab:focus-visible, input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
     .btn-primary { background: var(--terracotta); color: #FFF; }
     .btn-primary:hover { background: var(--terracotta-dark); }
     .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--border-control); }
@@ -124,7 +124,7 @@
     .input-text { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); background: var(--stone); font-family: var(--font-sans); font-size: 0.9rem; border-radius: var(--radius); color: var(--ink); }
     .chips-row { display: flex; flex-wrap: wrap; gap: 6px; }
     .chip-btn { min-height: 40px; padding: 7px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.82rem; font-weight: 500; cursor: pointer; font-family: var(--font-sans); color: var(--ink); }
-    .chip-btn.is-active { border-color: var(--terracotta); background: rgba(180,83,42,0.12); font-weight: 600; }
+    .chip-btn.is-active { border-color: var(--terracotta); background: rgba(158,66,27,0.10); font-weight: 600; }
     pre { background: #F6F1E9; border: 1px solid var(--line); padding: 14px; font-family: var(--font-sans); font-size: 0.84rem; white-space: pre-wrap; color: var(--ink); line-height: 1.5; border-radius: var(--radius); }
     .check-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.88rem; font-weight: 500; cursor: pointer; min-height: 44px; }
     .check-row input { width: 18px; height: 18px; accent-color: var(--terracotta); }
@@ -667,7 +667,7 @@
       var text = document.getElementById(id).innerText;
       navigator.clipboard.writeText(text).then(function() {
         var orig = btn.textContent;
-        btn.textContent = '✓ Copiato!';
+        btn.textContent = 'Copiato!';
         setTimeout(function() { btn.textContent = orig; }, 2000);
       });
     }
@@ -914,7 +914,7 @@
                       '&sqm=' + encodeURIComponent(state.sqm) +
                       '&cliente=' + encodeURIComponent(state.client);
         sendCrm('preventivo_inviato_wa_1tap', fullUrl);
-        document.getElementById('sales-status').textContent = '✓ Salvato nel CRM (n8n) e aperto su WhatsApp!';
+        document.getElementById('sales-status').textContent = 'Confermato: Salvato nel CRM (n8n) e aperto su WhatsApp!';
         var msg = 'Buongiorno ' + state.client + ', come concordato ecco la stima analitica chiavi in mano preparata per il Suo immobile a ' +
                   state.city + ' (' + state.sqm + ' m² — importo a corpo ' + fmtEur(total) + ', durata ' + info.months + '): ' + fullUrl +
                   ' — Resto a disposizione per il sopralluogo tecnico gratuito. Giuliano · Toscan Costruzioni';
@@ -924,7 +924,7 @@
       document.getElementById('btn-sales-copy').addEventListener('click', function() {
         var fullUrl = 'https://toscancostruzioni.it' + document.getElementById('btn-sales-open').getAttribute('href');
         navigator.clipboard.writeText(fullUrl).then(function() {
-          document.getElementById('sales-status').textContent = '✓ Link cliente copiato negli appunti!';
+          document.getElementById('sales-status').textContent = 'Confermato: Link cliente copiato negli appunti!';
         });
       });
 
@@ -979,7 +979,7 @@
         var total = state.sqm * info.rate;
         var contractUrl = 'https://toscancostruzioni.it' + document.getElementById('dir-open-contract').getAttribute('href');
         sendCrm('direzione_approva_contratto', contractUrl);
-        document.getElementById('dir-status').textContent = '✓ Offerta approvata e Contratto sbloccato nel CRM!';
+        document.getElementById('dir-status').textContent = 'Confermato: Offerta approvata e Contratto sbloccato nel CRM!';
         openWhatsApp('APPROVAZIONE DIREZIONE — Commessa ' + state.client + ' (' + state.city + ', ' + state.sqm + ' m²): approvato prezzo fisso a corpo di ' + fmtEur(total) + '. Procedere con invio Contratto Tipo: ' + contractUrl, false);
       });
 
@@ -987,7 +987,7 @@
         var info = rates[state.type] || rates.appartamenti;
         var total = state.sqm * info.rate;
         sendCrm('direzione_autorizza_sal', state.sal);
-        document.getElementById('dir-status').textContent = '✓ Autorizzazione SAL inviata ad Amministrazione!';
+        document.getElementById('dir-status').textContent = 'Confermato: Autorizzazione SAL inviata ad Amministrazione!';
         openWhatsApp('NULLA OSTA DIREZIONE SAL — Commessa ' + state.client + ' (' + state.city + '): autorizzata emissione fattura per ' + state.sal + ' su contratto da ' + fmtEur(total) + '.', false);
       });
 
@@ -1005,7 +1005,7 @@
       document.getElementById('btn-tech-wa').addEventListener('click', function() {
         var msg = document.getElementById('t-out-msg').textContent;
         sendCrm('report_venerdi_cantiere', state.sal);
-        document.getElementById('tech-status').textContent = '✓ Report del Venerdì registrato nel CRM e pronto su WhatsApp!';
+        document.getElementById('tech-status').textContent = 'Confermato: Report del Venerdì registrato nel CRM e pronto su WhatsApp!';
         openWhatsApp(msg, true);
       });
 
@@ -1013,7 +1013,7 @@
         btn.addEventListener('click', function() {
           var issue = btn.getAttribute('data-tech-alert');
           sendCrm('segnalazione_cantiere_urgente', issue);
-          document.getElementById('tech-status').textContent = '✓ Segnalazione inviata a Direzione e Amministrazione!';
+          document.getElementById('tech-status').textContent = 'Confermato: Segnalazione inviata a Direzione e Amministrazione!';
           openWhatsApp('SEGNALAZIONE CANTIERE [' + state.client + ' · ' + state.city + ' — ' + state.sal + ']: ' + issue, false);
         });
       });
@@ -1034,7 +1034,7 @@
         var total = state.sqm * info.rate;
         var quotaSal = fmtEur(total * 0.25);
         sendCrm('avviso_emissione_fattura_sal', state.sal);
-        document.getElementById('admin-status').textContent = '✓ Avviso emissione SAL registrato e pronto per il cliente!';
+        document.getElementById('admin-status').textContent = 'Confermato: Avviso emissione SAL registrato e pronto per il cliente!';
         openWhatsApp(
           'Gentile ' + state.client + ', in seguito alla certificazione del traguardo "' + state.sal + '" per il cantiere di ' + state.city + ', Le confermiamo la regolarità del DURC aggiornato e l\'emissione della relativa rata contrattuale (' + quotaSal + ' oltre IVA di legge). — Amministrazione Toscan Costruzioni · Blue Arroyo Group',
           true
@@ -1063,7 +1063,7 @@
       document.getElementById('btn-hosp-wa').addEventListener('click', function() {
         var msg = document.getElementById('h-welcome-msg').textContent;
         sendCrm('avvio_gestione_ospiti_blue_arroyo', '100% Collaudato');
-        document.getElementById('hosp-status').textContent = '✓ Passaggio Cantiere → Ospiti registrato e inviato!';
+        document.getElementById('hosp-status').textContent = 'Confermato: Passaggio Cantiere → Ospiti registrato e inviato!';
         openWhatsApp(msg, true);
       });
 
@@ -1071,7 +1071,7 @@
         btn.addEventListener('click', function() {
           var t = btn.getAttribute('data-hosp-ticket');
           sendCrm('ticket_assistenza_post_cantiere', t);
-          document.getElementById('hosp-status').textContent = '✓ Ticket assistenza assegnato alla Direzione Tecnica!';
+          document.getElementById('hosp-status').textContent = 'Confermato: Ticket assistenza assegnato alla Direzione Tecnica!';
           openWhatsApp('TICKET ASSISTENZA POST-CANTIERE [' + state.client + ' · ' + state.city + ']: ' + t, false);
         });
       });
@@ -1085,43 +1085,43 @@
         M1: {
           badge: 'Step 1A (150 €) · Masterclass Geometra Tecnico Preliminare',
           desc: 'Step 1A selezionato (Ingresso Molto Accessibile — 150 € scalati al 100%): Masterclass Call 1-to-1 con il nostro Geometra sulla parte tecnica preliminare (frazionamenti, scarichi, altezze, Soprintendenza). Poi in call il Geometra fa la magia di vendita verso il sopralluogo e il progetto.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Lun · Controlli tecnici prima del rogito'
         },
         M2: {
           badge: 'Step 1B (150 €) · Masterclass Business Plan & Leva Banche',
           desc: 'Step 1B selezionato (Ingresso Molto Accessibile — 150 € scalati al 100%): Masterclass Call 1-to-1 su come costruire un Business Plan immobiliare bancabile e come fare leva con le banche (mutuo acquisto + SAL cantiere). Poi l\'esperto accompagna il cliente allo sviluppo completo.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Lun · Business Plan e leva bancaria'
         },
         M3: {
           badge: 'Step 1C (150 €) · Masterclass Amministrazione Cantiere & SAL',
           desc: 'Step 1C selezionato (Ingresso Molto Accessibile — 150 € scalati al 100%): Masterclass Call 1-to-1 con l\'Amministrazione Cantiere su come evitare rincari edili, contratti a prezzo fisso, 5 SAL verificati, DURC, Cassa Edile e Polizza CAR.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Mer · Come governare i 5 SAL senza sorprese'
         },
         M4: {
           badge: 'Step 1D (150 €) · Masterclass Sales: Vendere in Pre-Sales',
           desc: 'Step 1D selezionato (Ingresso Molto Accessibile — 150 € scalati al 100%): Masterclass Call 1-to-1 con il Direttore Sales & Interior su come vendere o affittare un cantiere in Pre-Sales (sulla carta prima della fine lavori) grazie a layout ricettivo, render e canale Blue Arroyo.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Ven · Interior & Pre-Sales ad alto margine'
         },
         S2: {
           badge: 'Step 2 (950–1.800 €) · Sopralluogo Geometra + BP Banca',
           desc: 'Step 2 selezionato (Up-selling naturale dopo la Masterclass): Sopralluogo del Geometra sull\'immobile + verifica urbanistica pre-rogito + Business Plan asseverabile per la banca.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Lun · Due Diligence e Dossier Banca'
         },
         S3: {
           badge: 'Step 3 (2.200–4.200 €) · Interior Design + Kit Pre-Sales + Computo',
           desc: 'Step 3 selezionato: Progetto d\'interni esecutivo, render fotorealistici per vendere il cantiere in Pre-Sales, deposito pratiche (CILA/SCIA) e Computo Metrico che blocca il prezzo fisso al centesimo.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Ven · Dal progetto al Pre-Sales'
         },
         S5: {
           badge: 'Step 5 · Cantiere 5 SAL + Ciclo Gruppo Blue Arroyo',
           desc: 'Step 5 selezionato: Appalto completo chiavi in mano (1.350–2.400 €/m², penali ritardo) e subentro immediato di itassistance, Blue Arroyo Cleaning e SmartsBookings.',
-          blogUrl: 'https://toscancostruzioni.it/blog#scala-servizi',
+          blogUrl: 'https://toscancostruzioni.it/blog#scala-acquisto',
           blogTitle: 'Mer · Dal cantiere agli ospiti'
         }
       };
@@ -1163,7 +1163,7 @@
           sqm: 650,
           type: 'hotel',
           phone: '+393481122334',
-          profile: 'Boutique Hotel 4★ (14 Camere)',
+          profile: 'Boutique Hotel 4 stelle (14 Camere)',
           issue: 'Amministrazione cantiere: blindare i 5 SAL, DURC e tempi di riapertura',
           step: 'M3'
         },
@@ -1196,18 +1196,18 @@
         if (!tbody) return;
         tbody.innerHTML = '';
         coldInvestors.forEach(function(inv, idx) {
-          var sm = stepMeta[inv.step] || stepMeta.A;
+          var sm = stepMeta[inv.step] || stepMeta.M1;
           var tr = document.createElement('tr');
           tr.innerHTML =
             '<td><strong>' + inv.name + '</strong><br><span style="font-size:0.76rem;color:var(--muted);">' + (inv.phone || 'Tel da inserire') + '</span></td>' +
             '<td>' + inv.profile + '<br><span style="font-size:0.78rem;color:var(--muted);">' + inv.city + ' · <strong>' + inv.sqm + ' m²</strong></span></td>' +
             '<td style="font-size:0.82rem;max-width:220px;">' + inv.issue + '</td>' +
-            '<td><span style="display:inline-block;padding:4px 8px;background:rgba(180,83,42,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);">' + sm.badge + '</span></td>' +
+            '<td><span style="display:inline-block;padding:4px 8px;background:rgba(158,66,27,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);">' + sm.badge + '</span></td>' +
             '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + ' →</a></td>' +
             '<td>' +
               '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
-                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:34px;padding:4px 10px;font-size:0.78rem;">1 · Carica in Console</button>' +
-                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:34px;padding:4px 10px;font-size:0.78rem;">2 · Invia Step ' + inv.step + ' + Blog su WA →</button>' +
+                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">1 · Carica in Console</button>' +
+                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">2 · Invia Step ' + inv.step + ' + Blog su WA →</button>' +
               '</div>' +
             '</td>';
           tbody.appendChild(tr);
@@ -1224,7 +1224,7 @@
             sPhone.value = inv.phone || '';
             state.type = inv.type || 'appartamenti';
             saveAndRender();
-            document.getElementById('crm-cold-status').textContent = '✓ ' + inv.name + ' caricato nella Barra Commessa Condivisa (0 campi digitati)!';
+            document.getElementById('crm-cold-status').textContent = 'Confermato: ' + inv.name + ' caricato nella Barra Commessa Condivisa (0 campi digitati)!';
           });
         });
 
@@ -1240,17 +1240,17 @@
             state.type = inv.type || 'appartamenti';
             saveAndRender();
 
-            var sm = stepMeta[inv.step] || stepMeta.A;
+            var sm = stepMeta[inv.step] || stepMeta.M1;
             var msg =
               'Buongiorno ' + inv.name + ',\n' +
               'per un\'operazione come la Sua a ' + inv.city + ' (' + inv.sqm + ' m² — ' + inv.issue + '), il modo più sicuro per partire senza impegnarsi subito sull\'intero appalto è il nostro percorso scaglionato:\n\n' +
-              '👉 ' + sm.badge + ' (importo 100% scalato se poi decide di affidarci il cantiere a prezzo fisso con penali).\n\n' +
+              '- ' + sm.badge + ' (importo 100% scalato se poi decide di affidarci il cantiere a prezzo fisso con penali).\n\n' +
               'Le lascio anche la nostra guida pratica ("Cosa farei io se l\'immobile fosse mio") scritta proprio su questo tema: ' + sm.blogUrl + '\n\n' +
               'Se vuole, qui trova la pagina dedicata al primo step: https://toscancostruzioni.it/blog#prenota-step-a\n' +
               'Ci sentiamo 10 minuti in settimana? Giuliano · Toscan Costruzioni (+39 351 038 0392)';
 
             sendCrm('cold_calling_step_' + inv.step + '_blog_wa', sm.badge + ' | ' + sm.blogUrl);
-            document.getElementById('crm-cold-status').textContent = '✓ Offerta Scaglionata (' + sm.badge + ') + Articolo Blog inviati su WhatsApp e salvati nel CRM!';
+            document.getElementById('crm-cold-status').textContent = 'Confermato: Offerta Scaglionata (' + sm.badge + ') + Articolo Blog inviati su WhatsApp e salvati nel CRM!';
             openWhatsApp(msg, true);
           });
         });
@@ -1260,8 +1260,8 @@
         chip.addEventListener('click', function() {
           document.querySelectorAll('#crm-ladder-chips [data-step-code]').forEach(function(c) { c.classList.remove('is-active'); });
           chip.classList.add('is-active');
-          activeStepCode = chip.getAttribute('data-step-code') || 'A';
-          var sm = stepMeta[activeStepCode] || stepMeta.A;
+          activeStepCode = chip.getAttribute('data-step-code') || 'M1';
+          var sm = stepMeta[activeStepCode] || stepMeta.M1;
           document.getElementById('crm-ladder-desc').innerHTML = '<strong>' + sm.desc + '</strong>';
         });
       });
@@ -1299,7 +1299,7 @@
 
           document.getElementById('crm-new-name').value = '';
           document.getElementById('crm-new-issue').value = '';
-          document.getElementById('crm-cold-status').textContent = '✓ Nuovo investitore aggiunto alla Prima Tabella CRM e sincronizzato con n8n!';
+          document.getElementById('crm-cold-status').textContent = 'Confermato: Nuovo investitore aggiunto alla Prima Tabella CRM e sincronizzato con n8n!';
         });
       }
 
