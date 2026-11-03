@@ -1322,11 +1322,34 @@
             '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + '</a></td>' +
             '<td>' +
               '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
-                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">1 · Carica in Console</button>' +
-                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">2 · Invia Step ' + inv.step + ' + Blog su WA</button>' +
+                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">1 · Carica in Console</button>' +
+                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">2 · Invia Step ' + inv.step + ' + Blog</button>' +
+                '<button type="button" class="btn btn-olive" data-cold-member="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">3 · Abilita Area Membri (da 2.000 €)</button>' +
               '</div>' +
             '</td>';
           tbody.appendChild(tr);
+        });
+
+        tbody.querySelectorAll('[data-cold-member]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var i = parseInt(btn.getAttribute('data-cold-member'), 10);
+            var inv = coldInvestors[i];
+            if (!inv) return;
+            sClient.value = inv.name;
+            sCity.value = inv.city.split('·')[0].trim();
+            sSqm.value = inv.sqm;
+            sPhone.value = inv.phone || '';
+            state.type = inv.type || 'appartamenti';
+            saveAndRender();
+            var memberPortalUrl = 'https://toscancostruzioni.it/stato-cantiere?ruolo=membro' +
+              '&cliente=' + encodeURIComponent(inv.name) +
+              '&city=' + encodeURIComponent(inv.city.split('·')[0].trim()) +
+              '&sqm=' + encodeURIComponent(inv.sqm) + '#area-apertura';
+            var msg = 'Gentile ' + inv.name + ', il Suo profilo è stato approvato dalla Governance di Toscan Costruzioni a tutela dei co-investitori. Da questo link riservato può accedere ai 3 cantieri in corso di apertura (con quote a partire da 2.000 € protette in 5 SAL): ' + memberPortalUrl;
+            sendCrm('abilitazione_membro_approvato_2000', memberPortalUrl);
+            document.getElementById('crm-cold-status').textContent = 'Confermato: ' + inv.name + ' abilitato come Membro Approvato (da 2.000 €) e link inviato su WhatsApp!';
+            openWhatsApp(msg, true);
+          });
         });
 
         tbody.querySelectorAll('[data-cold-load]').forEach(function(btn) {
