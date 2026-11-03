@@ -618,6 +618,15 @@
         background: #FFFFFF;
       }
       .onion-view {
+        display: none !important;
+      }
+      .onion-view.is-active {
+        display: flex !important;
+      }
+      details.expand-box {
+        display: block !important;
+      }
+      details.expand-box .expand-box__body {
         display: flex !important;
       }
     }
@@ -959,6 +968,12 @@
         <div class="actions-stack" style="margin-top:8px;">
           <button type="button" class="btn btn-primary btn--full" id="btn-go-invest-action">
             Prenota una quota da 2.000 € su questo cantiere
+          </button>
+          <button type="button" class="btn btn-secondary btn--full" id="btn-print-quota-pdf">
+            Stampa Scheda Quota 5 SAL (PDF 1 Pagina)
+          </button>
+          <button type="button" class="btn btn-secondary btn--full" id="btn-wa-quota-summary">
+            Invia Riepilogo Quota 5 SAL su WhatsApp
           </button>
           <a href="/preventivo-tipo" class="btn btn-secondary btn--full">
             Consulta il Computo Esecutivo PDF
@@ -1750,6 +1765,23 @@
         });
         showView('azione-partecipa', true);
       });
+
+      var btnPrintQuota = document.getElementById('btn-print-quota-pdf');
+      if (btnPrintQuota) {
+        btnPrintQuota.addEventListener('click', function() {
+          window.print();
+        });
+      }
+
+      var btnWaQuota = document.getElementById('btn-wa-quota-summary');
+      if (btnWaQuota) {
+        btnWaQuota.addEventListener('click', function() {
+          var p = openProjects[cfg.selectedProjectKey] || openProjects.firenze;
+          var breakdownText = document.getElementById('sim-quota-breakdown').textContent;
+          var msg = 'Scheda Quota Membro Approvato (' + cfg.client + ') — Cantiere: ' + p.plainTitle + ' (' + p.cost + ', ' + p.duration + ').\n' + breakdownText + '\nLink Area Membri: https://toscancostruzioni.it/stato-cantiere?ruolo=membro#dettaglio-cantiere';
+          window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
+        });
+      }
 
       /* 6. RICERCA E FILTRO CANTIERI IN APERTURA + STATO VUOTO */
       var activeOpenFilter = 'tutti';

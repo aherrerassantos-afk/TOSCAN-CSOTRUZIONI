@@ -389,6 +389,25 @@
             </p>
           </div>
 
+          <!-- BARRA BROADCAST EDUCATIVO DEL GIORNO (LUNEDÌ · MERCOLEDÌ · VENERDÌ) -->
+          <div style="margin-top:10px;padding:14px;background:var(--stone);border:1px solid var(--line);border-left:4px solid var(--olive);border-radius:var(--radius);" id="crm-broadcast-bar">
+            <span class="field-label">Broadcast Educativo Settimanale (3 uscite: Lunedì · Mercoledì · Venerdì — "Cosa farei io se l'immobile fosse mio"):</span>
+            <div class="chips-row" id="crm-bcast-chips" style="margin-top:6px;">
+              <button type="button" class="chip-btn is-active" data-bcast-day="Lunedì · Sviluppo, Acquisti e Leva Banche" data-bcast-topic="Come verificare in 48 ore se un immobile può diventare 4-6 suite ad alta resa e strutturare il dossier per la banca prima dell'offerta d'acquisto">
+                Lunedì · Sviluppo e Banche
+              </button>
+              <button type="button" class="chip-btn" data-bcast-day="Mercoledì · Il Direttore di Cantiere" data-bcast-topic="Perché i preventivi edili bassi costano il 35% in più a fine lavori e come proteggersi con Prezzo Chiuso Toscan, 5 SAL verificati e DURC regolare">
+                Mercoledì · Direttore di Cantiere
+              </button>
+              <button type="button" class="chip-btn" data-bcast-day="Venerdì · Interior Design e Pre-Sales" data-bcast-topic="Le 4 scelte d'interni che alzano la tariffa notte del +30% e permettono di vendere o affittare le unità in Pre-Sales durante il cantiere">
+                Venerdì · Interior e Pre-Sales
+              </button>
+              <button type="button" class="btn btn-olive" id="btn-crm-broadcast-wa">
+                Invia Uscita del Giorno su WhatsApp (1 tap)
+              </button>
+            </div>
+          </div>
+
           <!-- AGGIUNTA RAPIDA NUOVO POTENZIALE INVESTITORE ALLA PRIMA TABELLA CRM -->
           <div style="margin-top:10px;padding:12px 14px;background:var(--stone);border:1px solid var(--line);border-radius:var(--radius);">
             <span class="field-label">Aggiungi Nuovo Potenziale Cliente / Investitore alla Tabella Cold Calling (1 tap):</span>
@@ -1325,9 +1344,32 @@
                 '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">1 · Carica in Console</button>' +
                 '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">2 · Invia Step ' + inv.step + ' + Blog</button>' +
                 '<button type="button" class="btn btn-olive" data-cold-member="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">3 · Abilita Area Membri (da 2.000 €)</button>' +
+                '<button type="button" class="btn btn-secondary" data-cold-upsell="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">4 · Esito Call (-150 € Scontati)</button>' +
               '</div>' +
             '</td>';
           tbody.appendChild(tr);
+        });
+
+        tbody.querySelectorAll('[data-cold-upsell]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var i = parseInt(btn.getAttribute('data-cold-upsell'), 10);
+            var inv = coldInvestors[i];
+            if (!inv) return;
+            inv.step = 'S2';
+            saveColdInvestors();
+            renderColdTable();
+            sClient.value = inv.name;
+            sCity.value = inv.city.split('·')[0].trim();
+            sSqm.value = inv.sqm;
+            sPhone.value = inv.phone || '';
+            state.type = inv.type || 'appartamenti';
+            saveAndRender();
+            var step2Url = 'https://toscancostruzioni.it/blog?mc=S2&cliente=' + encodeURIComponent(inv.name) + '&city=' + encodeURIComponent(inv.city) + '&sqm=' + encodeURIComponent(inv.sqm) + '#prenota-step-a';
+            var msg = 'Gentile ' + inv.name + ', grazie per la Masterclass di Cantiere di oggi con il nostro Direttore Tecnico sull\'immobile di ' + inv.city + ' (' + inv.sqm + ' m²).\n\nCome da regola Toscan Costruzioni, i 150 € della Masterclass sono integralmente detratti dallo Step 2 (Sopralluogo Geometra in Sito + Business Plan Bancabile: da 950 € a 800 € netti, anch\'essi 100% scalati dall\'appalto).\n\nPuò confermare qui l\'avvio dello Step 2: ' + step2Url;
+            sendCrm('esito_masterclass_upsell_step2_sconto150', step2Url);
+            document.getElementById('crm-cold-status').textContent = 'Confermato: ' + inv.name + ' promosso allo Step 2 con detrazione automatica di 150 € e proposta inviata su WhatsApp!';
+            openWhatsApp(msg, true);
+          });
         });
 
         tbody.querySelectorAll('[data-cold-member]').forEach(function(btn) {
@@ -1410,6 +1452,28 @@
           document.getElementById('crm-ladder-desc').innerHTML = '<strong>' + sm.desc + '</strong>';
         });
       });
+
+      var bcastDay = 'Lunedì · Sviluppo, Acquisti e Leva Banche';
+      var bcastTopic = 'Come verificare in 48 ore se un immobile può diventare 4-6 suite ad alta resa e strutturare il dossier per la banca prima dell\'offerta d\'acquisto';
+      document.querySelectorAll('#crm-bcast-chips [data-bcast-day]').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          document.querySelectorAll('#crm-bcast-chips [data-bcast-day]').forEach(function(c) { c.classList.remove('is-active'); });
+          chip.classList.add('is-active');
+          bcastDay = chip.getAttribute('data-bcast-day');
+          bcastTopic = chip.getAttribute('data-bcast-topic');
+        });
+      });
+
+      var btnBcastWa = document.getElementById('btn-crm-broadcast-wa');
+      if (btnBcastWa) {
+        btnBcastWa.addEventListener('click', function() {
+          var bcastUrl = 'https://toscancostruzioni.it/blog?cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#prenota-step-a';
+          var msg = 'Buongiorno ' + state.client + ',\noggi nella nostra rubrica "' + bcastDay + '" abbiamo pubblicato l\'analisi pratica per chi opera a ' + state.city + ':\n\n"' + bcastTopic + '"\n\nCosa faremmo noi se l\'immobile fosse nostro: partiremmo dalla Masterclass di Cantiere (150 € interamente scalati dai lavori) con il Direttore di settore. Qui trova l\'articolo completo e lo slot riservato: ' + bcastUrl;
+          sendCrm('broadcast_blog_' + bcastDay, bcastTopic);
+          document.getElementById('crm-cold-status').textContent = 'Confermato: Broadcast "' + bcastDay + '" inviato a ' + state.client + ' su WhatsApp e registrato nel CRM!';
+          openWhatsApp(msg, true);
+        });
+      }
 
       var btnAddCold = document.getElementById('btn-crm-add-row');
       if (btnAddCold) {
