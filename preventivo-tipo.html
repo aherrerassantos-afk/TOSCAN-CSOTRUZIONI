@@ -446,11 +446,19 @@
             </div>
           </div>
           <div id="accept-quote-feedback" style="width:100%;font-size:0.92rem;color:var(--olive);font-weight:600;display:none;"></div>
-          <div style="padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-            <p style="font-size:0.9rem;color:var(--ink);margin:0;">
-              <strong>Vuoi prima validare i numeri con un nostro Direttore prima di impegnare il budget?</strong> Prenota la <strong>Masterclass di Cantiere</strong> individuale (60 min con Geometra, Esperto Banche, Amministrazione SAL o Pre-Sales: <strong>150 € interamente scalati</strong> dai lavori).
-            </p>
-            <a href="/blog#prenota-step-a" id="pt-to-masterclass" class="btn btn-secondary">Prenota la Masterclass con l'esperto (150 € scalati)</a>
+          <div style="padding-top:16px;border-top:1px solid var(--line);display:grid;gap:12px;">
+            <div>
+              <span class="eyebrow" style="margin:0;">Oppure parti dal tuo budget attuale · 100% scalato dai lavori</span>
+              <p style="font-size:0.92rem;color:var(--ink);margin-top:4px;">
+                <strong>Non vuoi impegnare subito l'intero budget di cantiere?</strong> Scegli in 1 tocco lo scaglione intermedio (ogni importo viene interamente detratto dal 1° SAL dell'appalto finale):
+              </p>
+            </div>
+            <div class="chips-row" role="group" aria-label="Scaglioni di ingresso per disponibilità economica">
+              <button type="button" class="chip-btn" data-pt-ladder="Step 1 · Masterclass di Cantiere 60 min (150 € scalati)">Step 1 · Masterclass 1-to-1 (150 € scalati)</button>
+              <button type="button" class="chip-btn" data-pt-ladder="Step 2 · Sopralluogo Geometra + Business Plan Bancabile (950 € scalati)">Step 2 · Verifica Pre-Rogito + BP Banca (950 €)</button>
+              <button type="button" class="chip-btn" data-pt-ladder="Step 3 · Interior Design + Kit Pre-Sales + Computo Bloccato (2.200 € scalati)">Step 3 · Kit Pre-Sales + Computo (2.200 €)</button>
+              <a href="/blog#prenota-step-a" id="pt-to-masterclass" class="btn btn-secondary">Dettagli Masterclass e 4 Esperti</a>
+            </div>
           </div>
         </div>
       </div>
@@ -595,6 +603,39 @@
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
         });
       }
+
+      document.querySelectorAll('[data-pt-ladder]').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          var stepLabel = chip.getAttribute('data-pt-ladder');
+          var sqm = Math.max(30, parseFloat(inpSqm.value) || 220);
+          var city = inpCity.value.trim() || 'Firenze';
+          var client = inpClient.value.trim() || 'Committente';
+          var phone = accPhone ? accPhone.value.trim() : '';
+          var total = state.rate * sqm;
+
+          fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              source: 'preventivo_scaglione_budget_1tap',
+              scaglione_scelto: stepLabel,
+              nome: client,
+              telefono: phone || 'Da pagina preventivo',
+              citta: city,
+              mq: sqm,
+              tipologia: state.label,
+              stima_totale_riferimento: total
+            })
+          }).catch(function(){});
+
+          var fb = document.getElementById('accept-quote-feedback');
+          fb.style.display = 'block';
+          fb.textContent = 'Scaglione registrato (' + stepLabel + ' — 100% scalato dall\'appalto). Apertura conferma su WhatsApp...';
+
+          var waMsg = 'Buongiorno Toscan Costruzioni, per l\'immobile di ' + city + ' (' + sqm + ' m², rif. ' + client + ') desidero partire con lo scaglione: ' + stepLabel + ' (importo interamente scalato dal successivo appalto a prezzo fisso).';
+          window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
+        });
+      });
     })();
   </script>
 </body>

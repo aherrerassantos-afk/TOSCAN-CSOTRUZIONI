@@ -120,20 +120,28 @@
     .kpi-card { background: var(--stone); border: 1px solid var(--line); padding: 14px 16px; border-radius: var(--radius); }
     .kpi-card strong { display: block; font-family: var(--font-serif); font-size: 1.55rem; color: var(--ink); line-height: 1.1; }
     .kpi-card span { font-size: 0.76rem; color: var(--muted); }
-    .field-label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
-    .input-text { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); background: var(--stone); font-family: var(--font-sans); font-size: 0.9rem; border-radius: var(--radius); color: var(--ink); }
-    .chips-row { display: flex; flex-wrap: wrap; gap: 6px; }
-    .chip-btn { min-height: 40px; padding: 7px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.82rem; font-weight: 500; cursor: pointer; font-family: var(--font-sans); color: var(--ink); }
-    .chip-btn.is-active { border-color: var(--terracotta); background: rgba(158,66,27,0.10); font-weight: 600; }
-    pre { background: #F6F1E9; border: 1px solid var(--line); padding: 14px; font-family: var(--font-sans); font-size: 0.84rem; white-space: pre-wrap; color: var(--ink); line-height: 1.5; border-radius: var(--radius); }
-    .check-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.88rem; font-weight: 500; cursor: pointer; min-height: 44px; }
+    .field-label { display: block; font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .input-text { width: 100%; min-height: 48px; padding: 10px 12px; border: 1px solid var(--border-control); background: var(--stone); font-family: var(--font-sans); font-size: 1rem; border-radius: var(--radius); color: var(--ink); }
+    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip-btn { min-height: 48px; padding: 10px 14px; background: var(--stone); border: 1px solid var(--border-control); border-radius: var(--radius); font-size: 0.95rem; font-weight: 500; cursor: pointer; font-family: var(--font-sans); color: var(--ink); }
+    .chip-btn.is-active { border-color: var(--terracotta); background: rgba(158,66,27,0.12); font-weight: 600; }
+    pre { background: #F6F1E9; border: 1px solid var(--line); padding: 14px; font-family: var(--font-sans); font-size: 0.9rem; white-space: pre-wrap; color: var(--ink); line-height: 1.5; border-radius: var(--radius); }
+    .check-row { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--stone); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.95rem; font-weight: 500; cursor: pointer; min-height: 48px; }
     .check-row input { width: 18px; height: 18px; accent-color: var(--terracotta); }
-    .status-toast { font-size: 0.84rem; color: var(--olive); font-weight: 600; min-height: 20px; margin-top: 6px; }
+    .status-toast { font-size: 0.9rem; color: var(--olive); font-weight: 600; min-height: 20px; margin-top: 6px; }
     details.drawer { margin-top: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--stone); padding: 12px 16px; }
-    details.drawer summary { cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--ink); }
-    .sal-mini-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 8px; background: #FFF; }
-    .sal-mini-table th, .sal-mini-table td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+    details.drawer summary { cursor: pointer; font-weight: 600; font-size: 1rem; color: var(--ink); min-height: 48px; display: flex; align-items: center; }
+    .crm-add-grid { display: grid; grid-template-columns: 1.2fr 1fr 0.7fr 1fr 1.2fr auto; gap: 10px; align-items: end; margin-top: 8px; }
+    @media (max-width: 960px) { .crm-add-grid { grid-template-columns: 1fr; } }
+    .sal-mini-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 8px; background: #FFF; }
+    .sal-mini-table th, .sal-mini-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; }
     .sal-mini-table td.num, .sal-mini-table th.num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+    @media (max-width: 768px) {
+      .sal-mini-table thead { display: none; }
+      .sal-mini-table, .sal-mini-table tbody, .sal-mini-table tr, .sal-mini-table td { display: block; width: 100%; }
+      .sal-mini-table tr { border: 1px solid var(--line); margin-bottom: 12px; padding: 12px; background: var(--paper); }
+      .sal-mini-table td { border-bottom: none; padding: 6px 0; text-align: left !important; }
+    }
     #accordo-partner { display: none; }
     #accordo-partner.is-visible { display: block; }
     footer { padding: 32px 0; font-size: 0.84rem; color: var(--muted); }
@@ -261,7 +269,7 @@
             <h4>1. Approva Preventivo &amp; Sblocca Contratto</h4>
             <p style="font-size:0.85rem;">Valida il prezzo a corpo e invia il via libera a Vendite e Amministrazione con il link al Contratto pre-compilato.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-              <button type="button" class="btn btn-primary" id="btn-dir-approve">Approva Offerta &amp; Sblocca Contratto (1 tap) →</button>
+              <button type="button" class="btn btn-primary" id="btn-dir-approve">Approva Offerta &amp; Sblocca Contratto (1 tap)</button>
               <a href="/data-room" class="btn btn-secondary" id="dir-open-contract">Vedi Contratto Compilato</a>
             </div>
           </div>
@@ -270,7 +278,7 @@
             <h4>2. Autorizza Emissione SAL / Liquidazione Partner</h4>
             <p style="font-size:0.85rem;">Autorizza l'Amministrazione a emettere la fattura del SAL corrente o a liquidare la tranche al Partner segnalatore.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-              <button type="button" class="btn btn-olive" id="btn-dir-sal-ok">Autorizza Fattura SAL Corrente (1 tap) →</button>
+              <button type="button" class="btn btn-olive" id="btn-dir-sal-ok">Autorizza Fattura SAL Corrente (1 tap)</button>
             </div>
           </div>
 
@@ -278,7 +286,7 @@
             <h4>3. Governance &amp; Tutela Co-Investitori: Approva Membro per Area Riservata (Cantieri da 2.000 €)</h4>
             <p style="font-size:0.85rem;">Esamina e abilita il profilo del membro corrente all'accesso riservato post-login (Sistema Cipolla · Livello 2 Cantieri in Corso di Apertura da 2.000 € in su) a tutela degli altri investitori del gruppo.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
-              <button type="button" class="btn btn-primary" id="btn-dir-approve-member">Approva Membro &amp; Invia Accesso Cantieri 2.000 €+ (1 tap) →</button>
+              <button type="button" class="btn btn-primary" id="btn-dir-approve-member">Approva Membro &amp; Invia Accesso Cantieri 2.000 €+ (1 tap)</button>
               <a href="/stato-cantiere?member=approved#/livello-2/cantieri-apertura" class="btn btn-secondary" id="dir-open-member-portal">Apri Area Riservata Membro Approvato</a>
             </div>
           </div>
@@ -324,7 +332,7 @@
               <p style="font-size:0.86rem;margin-top:4px;" id="sales-summary-sub">Stima a corpo: <strong>434.000 €</strong> (1.550 €/m²) · Durata: 5–7 mesi con penali.</p>
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
-              <button type="button" class="btn btn-primary" id="btn-sales-one-tap">Invia Preventivo su WhatsApp + Salva CRM →</button>
+              <button type="button" class="btn btn-primary" id="btn-sales-one-tap">Invia Preventivo su WhatsApp + Salva CRM</button>
               <a href="/preventivo-tipo" target="_blank" class="btn btn-secondary" id="btn-sales-open">Anteprima PDF</a>
               <button type="button" class="btn btn-secondary" id="btn-sales-copy">Copia Link</button>
             </div>
@@ -333,26 +341,26 @@
         </div>
 
         <!-- =================================================================
-             PRIMA TABELLA DEL CRM: RICERCA & COLD CALLING INVESTITORI + ACQUISTO SCAGLIONATO (STEP A → E)
+             PRIMA TABELLA DEL CRM: RICERCA & COLD CALLING INVESTITORI + ACQUISTO SCAGLIONATO (STEP A E)
              ================================================================= -->
         <div class="card" style="background:#FFF;margin-top:20px;border-left:4px solid var(--terracotta);">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
             <div>
-              <span class="eyebrow">CRM Tabella 1 · Ricerca Potenziali Clienti &amp; Acquisto Scaglionato (Step A → Z)</span>
+              <span class="eyebrow">CRM Tabella 1 · Ricerca Potenziali Clienti &amp; Acquisto Scaglionato (Step A Z)</span>
               <h3>Pipeline <em>Investitori</em>, Micro-Servizi d'Ingresso &amp; Invio Blog Educativo in 1 Tap</h3>
               <p style="font-size:0.86rem;margin-top:4px;">
                 Non chiediamo mai a un investitore freddo di firmare subito 450.000 € di lavori: entriamo con il <strong>Micro-Servizio Step A (Interior Design + Business Plan, 100% scalato dall'appalto)</strong> e lo educhiamo con il <a href="/blog" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">Blog Autonomo 3x/Settimana (Lun · Mer · Ven)</a>.
               </p>
             </div>
             <div style="display:flex;gap:8px;flex-wrap:wrap;">
-              <a href="/blog" class="btn btn-olive">Apri Motore Blog (Lun/Mer/Ven) →</a>
+              <a href="/blog" class="btn btn-olive">Apri Motore Blog (Lun/Mer/Ven)</a>
               <a href="/blog#prenota-step-a" class="btn btn-secondary">Pagina Step A Cliente</a>
             </div>
           </div>
 
           <!-- SCALA DI ACQUISTO SCAGLIONATO IN BASE ALLA DISPONIBILITÀ ECONOMICA (PRIMO STEP MOLTO ACCESSIBILE: MASTERCLASS CALL 4 ESPERTI) -->
           <div style="margin-top:10px;padding:14px;background:var(--stone);border:1px solid var(--line);border-radius:var(--radius);">
-            <span class="field-label">Scala Scaglionata per Disponibilità Economica (Il Primo Step è la Masterclass Call molto accessibile → poi i tecnici fanno la magia di vendita):</span>
+            <span class="field-label">Scala Scaglionata per Disponibilità Economica (Il Primo Step è la Masterclass Call molto accessibile poi i tecnici fanno la magia di vendita):</span>
             <div class="chips-row" id="crm-ladder-chips" style="margin-top:6px;">
               <button type="button" class="chip-btn is-active" data-step-code="M1">
                 Step 1A (150 €) · Masterclass Geometra Preliminare
@@ -384,28 +392,28 @@
           <!-- AGGIUNTA RAPIDA NUOVO POTENZIALE INVESTITORE ALLA PRIMA TABELLA CRM -->
           <div style="margin-top:10px;padding:12px 14px;background:var(--stone);border:1px solid var(--line);border-radius:var(--radius);">
             <span class="field-label">Aggiungi Nuovo Potenziale Cliente / Investitore alla Tabella Cold Calling (1 tap):</span>
-            <div style="display:grid;grid-template-columns:1.2fr 1fr 0.7fr 1fr 1.2fr auto;gap:8px;align-items:end;margin-top:6px;">
+            <div class="crm-add-grid">
               <div>
-                <label class="field-label" for="crm-new-name" style="font-size:0.74rem;">Nome / Società Investitore</label>
-                <input type="text" id="crm-new-name" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Es. Marco Bellini / Holding" />
+                <label class="field-label" for="crm-new-name">Nome / Società Investitore</label>
+                <input type="text" id="crm-new-name" class="input-text" style="background:#FFF;" placeholder="Es. Marco Bellini / Holding" />
               </div>
               <div>
-                <label class="field-label" for="crm-new-city" style="font-size:0.74rem;">Città / Zona</label>
-                <input type="text" id="crm-new-city" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Firenze Centro" />
+                <label class="field-label" for="crm-new-city">Città / Zona</label>
+                <input type="text" id="crm-new-city" class="input-text" style="background:#FFF;" placeholder="Firenze Centro" />
               </div>
               <div>
-                <label class="field-label" for="crm-new-sqm" style="font-size:0.74rem;">m²</label>
-                <input type="number" id="crm-new-sqm" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="320" value="320" />
+                <label class="field-label" for="crm-new-sqm">m²</label>
+                <input type="number" id="crm-new-sqm" class="input-text" style="background:#FFF;" placeholder="320" value="320" />
               </div>
               <div>
-                <label class="field-label" for="crm-new-phone" style="font-size:0.74rem;">Telefono WhatsApp</label>
-                <input type="tel" id="crm-new-phone" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="+39 335..." />
+                <label class="field-label" for="crm-new-phone">Telefono WhatsApp</label>
+                <input type="tel" id="crm-new-phone" class="input-text" style="background:#FFF;" placeholder="+39 335..." />
               </div>
               <div>
-                <label class="field-label" for="crm-new-issue" style="font-size:0.74rem;">Problema / Obiettivo</label>
-                <input type="text" id="crm-new-issue" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Frazionare in 5 suite ricettive" />
+                <label class="field-label" for="crm-new-issue">Problema / Obiettivo</label>
+                <input type="text" id="crm-new-issue" class="input-text" style="background:#FFF;" placeholder="Frazionare in 5 suite ricettive" />
               </div>
-              <button type="button" class="btn btn-primary" id="btn-crm-add-row" style="min-height:38px;padding:8px 14px;">+ Aggiungi al CRM</button>
+              <button type="button" class="btn btn-primary" id="btn-crm-add-row">Aggiungi al CRM</button>
             </div>
           </div>
 
@@ -417,7 +425,7 @@
                   <th>Potenziale Cliente (Investitore)</th>
                   <th>Profilo &amp; Immobile</th>
                   <th>Problema da Risolvere</th>
-                  <th>Step Attuale (Scala A→E)</th>
+                  <th>Step Attuale (Scala A-E)</th>
                   <th>Articolo Blog ("Cosa farei io")</th>
                   <th>Azioni 1-Tap (Console + WA + CRM)</th>
                 </tr>
@@ -455,7 +463,7 @@
               <strong>1. Proprietario già cliente Gruppo Blue Arroyo</strong>
               <pre id="tpl-1"></pre>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-1">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-1">Invia su WhatsApp</button>
                 <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-1', this)">Copia</button>
               </div>
             </div>
@@ -463,7 +471,7 @@
               <strong>2. Studio di Architettura / Geometra / Ingegnere</strong>
               <pre id="tpl-2"></pre>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-2">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-2">Invia su WhatsApp</button>
                 <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-2', this)">Copia</button>
               </div>
             </div>
@@ -471,7 +479,7 @@
               <strong>3. Agenzia Immobiliare (Sblocco Rogito in 48h)</strong>
               <pre id="tpl-3"></pre>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-3">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-3">Invia su WhatsApp</button>
                 <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-3', this)">Copia</button>
               </div>
             </div>
@@ -479,7 +487,7 @@
               <strong>4. Titolare di Hotel / Agriturismo da Rinnovare</strong>
               <pre id="tpl-4"></pre>
               <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-4">Invia su WhatsApp →</button>
+                <button type="button" class="btn btn-primary" data-wa-tpl="tpl-4">Invia su WhatsApp</button>
                 <button type="button" class="btn btn-secondary" onclick="copyTpl('tpl-4', this)">Copia</button>
               </div>
             </div>
@@ -528,7 +536,7 @@
           <div class="card" style="justify-content:space-between;">
             <pre id="t-out-msg" style="background:#FFF;"></pre>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary" id="btn-tech-wa">Invia Report Venerdì (WhatsApp + CRM) →</button>
+              <button type="button" class="btn btn-primary" id="btn-tech-wa">Invia Report Venerdì (WhatsApp + CRM)</button>
               <button type="button" class="btn btn-secondary" onclick="copyTpl('t-out-msg', this)">Copia Testo</button>
             </div>
             <div id="tech-status" class="status-toast"></div>
@@ -574,8 +582,8 @@
             </div>
 
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-              <a href="/data-room" class="btn btn-primary" id="btn-admin-contract">Apri Contratto Pre-Compilato con i 5 SAL →</a>
-              <button type="button" class="btn btn-secondary" id="btn-admin-invoice-wa">Invia Avviso Fattura SAL al Cliente →</button>
+              <a href="/data-room" class="btn btn-primary" id="btn-admin-contract">Apri Contratto Pre-Compilato con i 5 SAL</a>
+              <button type="button" class="btn btn-secondary" id="btn-admin-invoice-wa">Invia Avviso Fattura SAL al Cliente</button>
               <button type="button" class="btn btn-secondary" id="btn-admin-partner-doc">Stampa Accordo Partner</button>
             </div>
             <div id="admin-status" class="status-toast"></div>
@@ -592,7 +600,7 @@
 
         <div class="grid-2">
           <div class="card">
-            <h4>1. Checklist Passaggio Cantiere → Gruppo (<span id="hosp-check-count">5/5</span> pronti)</h4>
+            <h4>1. Checklist Passaggio Cantiere Gruppo (<span id="hosp-check-count">5/5</span> pronti)</h4>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 1. <strong>Per itassistance / itsdreamteam:</strong> DM 37/08, APE, Agibilità, CIN e Dotazioni Sicurezza (Cartello A4 + Alloggiati Web / Ross1000)</label>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 2. <strong>Per SmartsBookings:</strong> Serrature Smart Keyless, Wi-Fi cablato e vano bagagli Runner attivi (Payout 85% entro le 12:00)</label>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. <strong>Per Palazzo Blue Arroyo (PBA):</strong> Pulizia fine cantiere, Biancheria 60°C, Kit Bagno/Cucina sigillati e Dossier Foto SHA-256</label>
@@ -613,7 +621,7 @@
           <div class="card" style="justify-content:space-between;">
             <pre id="h-welcome-msg" style="background:#FFF;"></pre>
             <div style="display:flex;gap:10px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-primary" id="btn-hosp-wa">Invia Avvio Ecosistema al Proprietario (WA + CRM) →</button>
+              <button type="button" class="btn btn-primary" id="btn-hosp-wa">Invia Avvio Ecosistema al Proprietario (WA + CRM)</button>
               <button type="button" class="btn btn-secondary" onclick="copyTpl('h-welcome-msg', this)">Copia Testo</button>
             </div>
             <div id="hosp-status" class="status-toast"></div>
@@ -1086,7 +1094,7 @@
       document.getElementById('btn-hosp-wa').addEventListener('click', function() {
         var msg = document.getElementById('h-welcome-msg').textContent;
         sendCrm('avvio_gestione_ospiti_blue_arroyo', '100% Collaudato');
-        document.getElementById('hosp-status').textContent = 'Confermato: Passaggio Cantiere → Ospiti registrato e inviato!';
+        document.getElementById('hosp-status').textContent = 'Confermato: Passaggio Cantiere Ospiti registrato e inviato!';
         openWhatsApp(msg, true);
       });
 
@@ -1226,11 +1234,11 @@
             '<td>' + inv.profile + '<br><span style="font-size:0.78rem;color:var(--muted);">' + inv.city + ' · <strong>' + inv.sqm + ' m²</strong></span></td>' +
             '<td style="font-size:0.82rem;max-width:220px;">' + inv.issue + '</td>' +
             '<td><span style="display:inline-block;padding:4px 8px;background:rgba(158,66,27,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);">' + sm.badge + '</span></td>' +
-            '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + ' →</a></td>' +
+            '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + '</a></td>' +
             '<td>' +
               '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
                 '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">1 · Carica in Console</button>' +
-                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">2 · Invia Step ' + inv.step + ' + Blog su WA →</button>' +
+                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:44px;padding:6px 12px;font-size:0.82rem;">2 · Invia Step ' + inv.step + ' + Blog su WA</button>' +
               '</div>' +
             '</td>';
           tbody.appendChild(tr);
