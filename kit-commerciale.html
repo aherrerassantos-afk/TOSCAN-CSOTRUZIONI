@@ -627,6 +627,36 @@
             <div id="hosp-status" class="status-toast"></div>
           </div>
         </div>
+
+        <!-- LEVA 2 (COSTO ACQUISIZIONE ZERO): DA ITASSISTANCE & BLUE ARROYO CLEANING -> TOSCAN COSTRUZIONI -->
+        <div class="card" style="margin-top:20px;border-left:4px solid var(--terracotta);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+            <div>
+              <span class="eyebrow" style="margin:0;">Sinergia Interna Gruppo (Aziende 2 &amp; 3 alimentano Azienda 1 · Costo Acquisizione Zero)</span>
+              <h4 style="margin-top:4px;font-size:1.25rem;">Generatore 1-Tap: Proposta <em>Riqualificazione Invernale</em> per Proprietari itassistance &amp; Cleaning</h4>
+              <p style="font-size:0.88rem;margin-top:4px;">Seleziona l'intervento consigliato su un immobile già gestito o pulito dal Gruppo: calcoliamo subito il Prezzo Chiuso Toscan, l'aumento di tariffa giornaliera (ADR) su SmartsBookings e inviamo la proposta al proprietario.</p>
+            </div>
+            <span style="padding:6px 12px;background:rgba(78,83,50,0.12);border:1px solid var(--olive);font-size:0.8rem;font-weight:600;color:var(--olive);">Consegna Garantita prima della Primavera · Penale 250 €/gg</span>
+          </div>
+
+          <div style="margin-top:12px;">
+            <span class="field-label">1. Scegli il Pacchetto di Riqualificazione Rapida (1 tap)</span>
+            <div class="chips-row" id="hosp-upgrade-chips">
+              <button type="button" class="chip-btn is-active" data-up-pkg="Realizzazione 2° Bagno En-Suite Completo" data-up-cost="18500" data-up-adr="45" data-up-weeks="4 settimane">1 · 2° Bagno En-Suite (18.500 € · +45 € ADR/notte)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Kit Acustica Certificata + Serrature Smart + Wi-Fi Mesh" data-up-cost="9800" data-up-adr="28" data-up-weeks="2 settimane">2 · Acustica + Domotica (9.800 € · +28 € ADR/notte)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Restyling Completo Cucina, Bagno e Illuminazione Calda" data-up-cost="24000" data-up-adr="55" data-up-weeks="5 settimane">3 · Restyling Suite &amp; Cucina (24.000 € · +55 € ADR/notte)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Frazionamento Appartamento in 2 Unità Indipendenti Chiavi in Mano" data-up-cost="48000" data-up-adr="95" data-up-weeks="8 settimane">4 · Frazionamento in 2 Unità (48.000 € · +95 € ADR/notte)</button>
+            </div>
+          </div>
+
+          <div id="hosp-upgrade-summary" style="margin-top:12px;padding:14px 16px;background:var(--stone);border:1px solid var(--line);font-size:0.9rem;color:var(--ink);"></div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+            <button type="button" class="btn btn-primary" id="btn-hosp-upgrade-wa">Invia Proposta Riqualificazione al Proprietario Gruppo (WA + CRM)</button>
+            <a href="/blog?mc=1D#prenota-step-a" id="hosp-upgrade-mc-link" class="btn btn-secondary">Prenota Masterclass 1D (Interior &amp; ADR) per il Proprietario</a>
+          </div>
+          <div id="hosp-upgrade-status" class="status-toast"></div>
+        </div>
       </div>
     </section>
 
@@ -828,9 +858,18 @@
         document.getElementById('dir-kpi-fee').textContent = fmtEur(total * 0.025);
 
         /* 2. Render Vendite + Outbound precompilati */
-        document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' (' + state.sqm + ' m²)';
+        var unitSqm = state.type === 'hotel' ? 42 : (state.type === 'agriturismo' ? 58 : 52);
+        var adr = state.type === 'hotel' ? 210 : (state.type === 'agriturismo' ? 195 : (state.type === 'studenti' ? 48 : 165));
+        var occDays = state.type === 'studenti' ? 310 : 215;
+        var units = Math.max(2, Math.round(state.sqm / unitSqm));
+        var net85 = Math.round(units * adr * occDays * 0.85);
+        document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' (' + state.sqm + ' m² · ' + units + ' unità)';
         document.getElementById('sales-summary-sub').innerHTML =
-          'Importo a corpo: <strong>' + fmtEur(total) + '</strong> (' + info.rate + ' €/m²) · Durata: <strong>' + info.months + '</strong> con penali.';
+          'Importo a corpo: <strong>' + fmtEur(total) + '</strong> (' + info.rate + ' €/m²) · Durata: <strong>' + info.months + '</strong> · Payout 85% Ciclo Blue Arroyo: <strong style="color:var(--terracotta);">' + fmtEur(net85) + '/anno</strong>.';
+        var memPortal = document.getElementById('dir-open-member-portal');
+        if (memPortal) {
+          memPortal.href = '/stato-cantiere?role=membro&type=' + encodeURIComponent(state.type) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '&cliente=' + encodeURIComponent(state.client) + '#area-cantieri';
+        }
         document.getElementById('out-tpl-name').textContent = state.client;
         document.getElementById('out-tpl-city').textContent = state.city;
         document.getElementById('partner-doc-name').textContent = state.client;
@@ -1107,6 +1146,52 @@
         });
       });
 
+      /* LEVA 2: GENERATORE 1-TAP RIQUALIFICAZIONE INVERNALE CLIENTI GRUPPO (ITASSISTANCE / CLEANING -> TOSCAN COSTRUZIONI) */
+      var upState = {
+        pkg: 'Realizzazione 2° Bagno En-Suite Completo',
+        cost: 18500,
+        adr: 45,
+        weeks: '4 settimane'
+      };
+      function renderHospUpgrade() {
+        var box = document.getElementById('hosp-upgrade-summary');
+        if (!box) return;
+        var extraGrossYear = upState.adr * 215;
+        var extraNet85 = Math.round(extraGrossYear * 0.85);
+        var paybackMonths = Math.max(8, Math.round((upState.cost / extraNet85) * 12));
+        box.innerHTML =
+          '<strong>Immobile Gruppo (' + state.client + ' · ' + state.city + '):</strong> Intervento <strong>' + upState.pkg + '</strong> · ' +
+          'Prezzo Chiuso Toscan: <strong style="color:var(--terracotta);">' + fmtEur(upState.cost) + '</strong> (consegna garantita in <strong>' + upState.weeks + '</strong>) · ' +
+          'Incremento stimato su SmartsBookings (Payout 85%): <strong style="color:var(--olive);">+' + fmtEur(extraNet85) + '/anno netti</strong> (rientro stimato dell\'intervento in circa <strong>' + paybackMonths + ' mesi</strong> di gestione).';
+        var mcLink = document.getElementById('hosp-upgrade-mc-link');
+        if (mcLink) {
+          mcLink.href = '/blog?mc=1D&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#prenota-step-a';
+        }
+      }
+      document.querySelectorAll('#hosp-upgrade-chips [data-up-pkg]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#hosp-upgrade-chips [data-up-pkg]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          upState.pkg = btn.getAttribute('data-up-pkg');
+          upState.cost = parseInt(btn.getAttribute('data-up-cost'), 10) || 18500;
+          upState.adr = parseInt(btn.getAttribute('data-up-adr'), 10) || 45;
+          upState.weeks = btn.getAttribute('data-up-weeks') || '4 settimane';
+          renderHospUpgrade();
+        });
+      });
+      var btnHospUpWa = document.getElementById('btn-hosp-upgrade-wa');
+      if (btnHospUpWa) {
+        btnHospUpWa.addEventListener('click', function() {
+          var extraNet85 = Math.round(upState.adr * 215 * 0.85);
+          var mcUrl = 'https://toscancostruzioni.it/blog?mc=1D&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '#prenota-step-a';
+          sendCrm('sinergia_gruppo_riqualificazione_invernale', upState.pkg + ' (' + fmtEur(upState.cost) + ')');
+          document.getElementById('hosp-upgrade-status').textContent = 'Confermato: Proposta Riqualificazione Invernale registrata nel CRM e pronta su WhatsApp!';
+          var msg = 'Gentile ' + state.client + ', dai dati di gestione del nostro Gruppo Blue Arroyo (itassistance & SmartsBookings) sul Suo immobile di ' + state.city + ', abbiamo verificato che con l\'intervento "' + upState.pkg + '" (Prezzo Chiuso Toscan ' + fmtEur(upState.cost) + ', durata ' + upState.weeks + ' in finestra invernale con penale ritardo) la tariffa giornaliera sale di circa +' + upState.adr + ' €/notte (+' + fmtEur(extraNet85) + '/anno netti con Payout 85%). Può bloccare qui lo slot con il nostro Architetto Ricettivo: ' + mcUrl;
+          openWhatsApp(msg, true);
+        });
+      }
+      renderHospUpgrade();
+
       /* =================================================================
          PRIMA TABELLA CRM: COLD CALLING INVESTITORI & ACQUISTO SCAGLIONATO PER DISPONIBILITÀ ECONOMICA
          ================================================================= */
@@ -1272,12 +1357,18 @@
             saveAndRender();
 
             var sm = stepMeta[inv.step] || stepMeta.M1;
+            var prefillBlogUrl = 'https://toscancostruzioni.it/blog?mc=' + encodeURIComponent(inv.step) +
+                                 '&step=' + encodeURIComponent(inv.step) +
+                                 '&cliente=' + encodeURIComponent(inv.name) +
+                                 '&city=' + encodeURIComponent(inv.city) +
+                                 '&sqm=' + encodeURIComponent(inv.sqm) +
+                                 '&phone=' + encodeURIComponent(inv.phone || '') + '#prenota-step-a';
             var msg =
               'Buongiorno ' + inv.name + ',\n' +
               'per un\'operazione come la Sua a ' + inv.city + ' (' + inv.sqm + ' m² — ' + inv.issue + '), il modo più sicuro per partire senza impegnarsi subito sull\'intero appalto è il nostro percorso scaglionato:\n\n' +
               '- ' + sm.badge + ' (importo 100% scalato se poi decide di affidarci il cantiere a prezzo fisso con penali).\n\n' +
               'Le lascio anche la nostra guida pratica ("Cosa farei io se l\'immobile fosse mio") scritta proprio su questo tema: ' + sm.blogUrl + '\n\n' +
-              'Se vuole, qui trova la pagina dedicata al primo step: https://toscancostruzioni.it/blog#prenota-step-a\n' +
+              'Qui trova il link già pre-compilato per bloccare il Suo slot e il Voucher 100% scalabile: ' + prefillBlogUrl + '\n' +
               'Ci sentiamo 10 minuti in settimana? Giuliano · Toscan Costruzioni (+39 351 038 0392)';
 
             sendCrm('cold_calling_step_' + inv.step + '_blog_wa', sm.badge + ' | ' + sm.blogUrl);

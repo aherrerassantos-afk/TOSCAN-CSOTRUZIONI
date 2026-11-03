@@ -531,35 +531,45 @@
         <div style="margin-top:16px;">
           <span style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:8px;">1. Quale Masterclass di Cantiere o Step vuoi attivare? (1 tap)</span>
           <div class="chips-row" style="margin-top:0;" id="step-choice-chips">
-            <button type="button" class="chip-btn is-active" data-step-val="Step 1 · Masterclass Geometra & Tecnico Preliminare (150 €)">Step 1A · Masterclass Geometra e Tecnico Preliminare</button>
-            <button type="button" class="chip-btn" data-step-val="Step 1 · Masterclass Business Plan & Leva Banche (150 €)">Step 1B · Masterclass Business Plan e Leva Banche</button>
-            <button type="button" class="chip-btn" data-step-val="Step 1 · Masterclass Amministrazione Cantiere & SAL (150 €)">Step 1C · Masterclass Amministrazione Cantiere e SAL</button>
-            <button type="button" class="chip-btn" data-step-val="Step 1 · Masterclass Sales: Vendere Cantiere in Pre-Sales (150 €)">Step 1D · Masterclass Sales e Pre-Sales Cantiere</button>
-            <button type="button" class="chip-btn" data-step-val="Step 2 · Sopralluogo Geometra + Business Plan Bancabile">Step 2 · Sopralluogo Geometra e Business Plan</button>
-            <button type="button" class="chip-btn" data-step-val="Step 3 · Interior Design + Pratiche + Kit Pre-Sales">Step 3 · Interior Design e Kit Pre-Sales</button>
+            <button type="button" class="chip-btn is-active" data-mc-code="1A" data-step-val="Step 1A · Masterclass Geometra & Tecnico Preliminare (150 € scalati)">Step 1A · Masterclass Geometra e Tecnico Preliminare (150 €)</button>
+            <button type="button" class="chip-btn" data-mc-code="1B" data-step-val="Step 1B · Masterclass Business Plan & Leva Banche (150 € scalati)">Step 1B · Masterclass Business Plan e Leva Banche (150 €)</button>
+            <button type="button" class="chip-btn" data-mc-code="1C" data-step-val="Step 1C · Masterclass Amministrazione Cantiere & SAL (150 € scalati)">Step 1C · Masterclass Amministrazione Cantiere e SAL (150 €)</button>
+            <button type="button" class="chip-btn" data-mc-code="1D" data-step-val="Step 1D · Masterclass Sales: Vendere Cantiere in Pre-Sales (150 € scalati)">Step 1D · Masterclass Sales e Pre-Sales Cantiere (150 €)</button>
+            <button type="button" class="chip-btn" data-mc-code="S2" data-step-val="Step 2 · Sopralluogo Geometra + Business Plan Bancabile (950–1.800 € scalati)">Step 2 · Sopralluogo Geometra e Business Plan</button>
+            <button type="button" class="chip-btn" data-mc-code="S3" data-step-val="Step 3 · Interior Design + Pratiche + Kit Pre-Sales (2.200–4.200 € scalati)">Step 3 · Interior Design e Kit Pre-Sales</button>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <span style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:8px;">2. Scegli la Fascia Oraria preferita per la Sessione 1-to-1 (1 tap)</span>
+          <div class="chips-row" style="margin-top:0;" id="slot-choice-chips">
+            <button type="button" class="chip-btn is-active" data-slot-val="Domani · Mattina (09:30–12:30)">Domani · Mattina (09:30–12:30)</button>
+            <button type="button" class="chip-btn" data-slot-val="Domani · Pomeriggio (15:00–18:00)">Domani · Pomeriggio (15:00–18:00)</button>
+            <button type="button" class="chip-btn" data-slot-val="Entro 48h · Orario da concordare su WhatsApp">Entro 48h · Orario flessibile</button>
           </div>
         </div>
 
         <div class="three-col-grid">
           <div>
-            <label for="b-name" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">2. Nome e Cognome / Società *</label>
-            <input type="text" id="b-name" placeholder="Es. Marco Ferri" style="width:100%;min-height:56px;padding:12px 14px;border:1px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;" />
+            <label for="b-name" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">3. Nome e Cognome / Società *</label>
+            <input type="text" id="b-name" placeholder="Es. Marco Ferri" style="width:100%;min-height:56px;padding:12px 14px;border:1.5px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;color:var(--ink);" />
           </div>
           <div>
-            <label for="b-phone" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">3. Telefono o WhatsApp *</label>
-            <input type="tel" id="b-phone" placeholder="+39 333 1234567" style="width:100%;min-height:56px;padding:12px 14px;border:1px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;" />
+            <label for="b-phone" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">4. Telefono o WhatsApp *</label>
+            <input type="tel" id="b-phone" placeholder="+39 333 1234567" style="width:100%;min-height:56px;padding:12px 14px;border:1.5px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;color:var(--ink);" />
           </div>
           <div>
-            <label for="b-city" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">Comune e m² indicativi (opz.)</label>
-            <input type="text" id="b-city" placeholder="Es. Firenze · 260 m²" style="width:100%;min-height:56px;padding:12px 14px;border:1px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;" />
+            <label for="b-city" style="display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px;">Comune e m² indicativi (pre-compilato)</label>
+            <input type="text" id="b-city" placeholder="Es. Firenze · 260 m²" style="width:100%;min-height:56px;padding:12px 14px;border:1.5px solid var(--border-control);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);font-size:1rem;color:var(--ink);" />
           </div>
         </div>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;align-items:center;">
-          <button type="button" class="btn btn-primary" id="btn-submit-step-a">Prenota la Masterclass o il Micro-Servizio</button>
-          <span style="font-size:0.88rem;color:var(--muted);">Costo della Masterclass integralmente detratto se prosegui col cantiere · Risposta entro 24h</span>
+          <button type="button" class="btn btn-primary" id="btn-submit-step-a">Blocca Slot Orario e Attiva Voucher 150 € (1 tap)</button>
+          <button type="button" class="btn btn-secondary" id="btn-copy-voucher-iban">Copia Causale &amp; Estremi Voucher 150 € (100% Scalati)</button>
+          <span style="font-size:0.88rem;color:var(--muted);">Importo di 150 € integralmente detratto dal successivo incarico o cantiere</span>
         </div>
-        <div id="step-a-feedback" style="font-size:0.95rem;color:var(--olive);font-weight:600;display:none;margin-top:12px;"></div>
+        <div id="step-a-feedback" style="font-size:0.95rem;color:var(--olive);font-weight:600;display:none;margin-top:12px;padding:16px;background:var(--stone);border:1px solid var(--line);border-left:4px solid var(--olive);"></div>
       </div>
     </section>
   </main>
@@ -590,13 +600,18 @@
         });
       });
 
-      /* 2. Selezione rapida Step dalla scala per disponibilità economica */
-      var chosenStep = 'Step 1 · Masterclass Geometra & Tecnico Preliminare (150 €)';
+      /* 2. Selezione rapida Step e Slot Orario + Pre-compilazione da URL / localStorage */
+      var chosenStep = 'Step 1A · Masterclass Geometra & Tecnico Preliminare (150 € scalati)';
+      var chosenSlot = 'Domani · Mattina (09:30–12:30)';
+
       function selectStepChip(label) {
         chosenStep = label;
         document.querySelectorAll('#step-choice-chips .chip-btn').forEach(function(b) {
           var val = b.getAttribute('data-step-val') || '';
-          b.classList.toggle('is-active', val.indexOf(label.substring(0, 18)) !== -1 || label.indexOf(val.substring(0, 18)) !== -1);
+          var code = b.getAttribute('data-mc-code') || '';
+          var match = (label === code) || (val.indexOf(label.substring(0, 14)) !== -1) || (label.indexOf(val.substring(0, 14)) !== -1);
+          b.classList.toggle('is-active', match);
+          if (match) chosenStep = val;
         });
       }
       document.querySelectorAll('[data-select-step]').forEach(function(a) {
@@ -611,6 +626,38 @@
           chosenStep = btn.getAttribute('data-step-val');
         });
       });
+      document.querySelectorAll('#slot-choice-chips .chip-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#slot-choice-chips .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          chosenSlot = btn.getAttribute('data-slot-val');
+        });
+      });
+
+      /* Pre-compilazione da localStorage tc_active_commessa_v1 e parametri URL (?mc=1B&cliente=...&city=...&sqm=...) */
+      try {
+        var savedComm = JSON.parse(localStorage.getItem('tc_active_commessa_v1') || 'null');
+        if (savedComm && typeof savedComm === 'object') {
+          if (savedComm.client && savedComm.client !== 'Lorenzo Medici') document.getElementById('b-name').value = savedComm.client;
+          if (savedComm.phone) document.getElementById('b-phone').value = savedComm.phone;
+          if (savedComm.city) document.getElementById('b-city').value = savedComm.city + (savedComm.sqm ? ' · ' + savedComm.sqm + ' m²' : '');
+        }
+      } catch (e) {}
+
+      var urlP = new URLSearchParams(window.location.search);
+      if (urlP.get('cliente') || urlP.get('client')) document.getElementById('b-name').value = urlP.get('cliente') || urlP.get('client');
+      if (urlP.get('phone') || urlP.get('tel')) document.getElementById('b-phone').value = urlP.get('phone') || urlP.get('tel');
+      if (urlP.get('city') || urlP.get('citta')) {
+        var cVal = urlP.get('city') || urlP.get('citta');
+        var qVal = urlP.get('sqm') || urlP.get('mq');
+        document.getElementById('b-city').value = cVal + (qVal ? ' · ' + qVal + ' m²' : '');
+      }
+      var rawMc = urlP.get('mc') || urlP.get('step');
+      if (rawMc) {
+        var mcCode = rawMc.toUpperCase();
+        var mcMap = { 'M1': '1A', 'M2': '1B', 'M3': '1C', 'M4': '1D', '1A': '1A', '1B': '1B', '1C': '1C', '1D': '1D', 'S2': 'S2', 'S3': 'S3' };
+        selectStepChip(mcMap[mcCode] || mcCode);
+      }
 
       /* 3. Condivisione rapida articolo su WhatsApp */
       document.querySelectorAll('[data-share-article]').forEach(function(btn) {
@@ -664,7 +711,20 @@
         window.open('https://wa.me/393510380392?text=' + encodeURIComponent(outBox.textContent + '\n\nVorrei partire dalla Masterclass di Cantiere: https://toscancostruzioni.it/blog#prenota-step-a'), '_blank');
       });
 
-      /* 5. Invio Richiesta Step A al CRM n8n */
+      /* 5. Invio Richiesta Step A + Slot Orario + Voucher 150€ al CRM n8n */
+      var btnCopyVoucher = document.getElementById('btn-copy-voucher-iban');
+      if (btnCopyVoucher) {
+        btnCopyVoucher.addEventListener('click', function() {
+          var vName = document.getElementById('b-name').value.trim() || 'Committente';
+          var vCity = document.getElementById('b-city').value.trim() || 'Toscana';
+          var voucherText = 'Beneficiario: Toscan Costruzioni (Blue Arroyo Group) — Causale Voucher (100% scalabile dai lavori): "' + chosenStep + ' - ' + vName + ' (' + vCity + ')" — Importo: 150,00 € — Invio contabile/link carta immediato via WhatsApp al +39 351 038 0392';
+          navigator.clipboard.writeText(voucherText);
+          var fb = document.getElementById('step-a-feedback');
+          fb.style.display = 'block';
+          fb.textContent = 'Confermato: Causale ed estremi Voucher 150 € (100% scalati dal cantiere) copiati negli appunti.';
+        });
+      }
+
       document.getElementById('btn-submit-step-a').addEventListener('click', function() {
         var name = document.getElementById('b-name').value.trim();
         var phone = document.getElementById('b-phone').value.trim();
@@ -672,23 +732,32 @@
         if (!name) { document.getElementById('b-name').focus(); return; }
         if (!phone) { document.getElementById('b-phone').focus(); return; }
 
+        try {
+          var existing = JSON.parse(localStorage.getItem('tc_active_commessa_v1') || '{}') || {};
+          existing.client = name;
+          existing.phone = phone;
+          existing.city = city.split('·')[0].trim() || 'Firenze';
+          localStorage.setItem('tc_active_commessa_v1', JSON.stringify(existing));
+        } catch (e) {}
+
         fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            source: 'blog_step_scaglionato',
+            source: 'blog_step_scaglionato_slot_150',
             micro_servizio_scelto: chosenStep,
+            fascia_oraria: chosenSlot,
             nome: name,
             telefono: phone,
             zona: city,
-            note: '[Investitore da Blog] Ha richiesto: ' + chosenStep
+            note: '[Voucher Masterclass 150€ Scalabile] ' + chosenStep + ' | Slot: ' + chosenSlot
           })
         }).catch(function(){});
 
         var fb = document.getElementById('step-a-feedback');
         fb.style.display = 'block';
-        fb.textContent = 'Richiesta per "' + chosenStep + '" registrata nel CRM. Apertura WhatsApp Direzione in corso.';
-        var waMsg = 'Buongiorno Toscan Costruzioni, sono ' + name + ' (' + city + '). Ho letto il vostro Journal e vorrei iniziare con "' + chosenStep + '".';
+        fb.textContent = 'Slot "' + chosenSlot + '" bloccato per "' + chosenStep + '". Voucher da 150 € (100% scalabile dai lavori) attivato. Apertura conferma su WhatsApp.';
+        var waMsg = 'Buongiorno Toscan Costruzioni, sono ' + name + ' (' + city + '). Confermo la prenotazione per "' + chosenStep + '" nella fascia "' + chosenSlot + '" (Voucher 150 € scalabile al 100% dai lavori). Inviatemi pure il link rapido di saldo / IBAN per bloccare l\'orario.';
         window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
       });
     })();

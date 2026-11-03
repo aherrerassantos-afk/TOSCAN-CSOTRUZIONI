@@ -421,6 +421,32 @@
           </div>
         </div>
 
+        <!-- PROSPETTO OPERATIVO CICLO BLUE ARROYO (PAYOUT 85% SMARTSBOOKINGS) -->
+        <div style="margin-top:20px;background:var(--stone);padding:20px;border:1px solid var(--line);border-left:4px solid var(--olive);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+            <strong style="color:var(--ink);font-size:0.96rem;">Dal Cantiere agli Ospiti · Simulazione Gestionale Ciclo Blue Arroyo (Payout 85%)</strong>
+            <span style="font-size:0.78rem;color:var(--muted);">Simulazione gestionale ricettiva parametrica · Non costituisce offerta o promessa finanziaria</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;font-size:0.86rem;">
+            <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">Unità / Suite ricavabili</span>
+              <strong id="ba-units" style="font-size:1.1rem;color:var(--ink);">4 Suite con bagno</strong>
+            </div>
+            <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">1. itassistance &amp; 2. Cleaning</span>
+              <strong style="font-size:0.95rem;color:var(--ink);">CIN/Ross1000 + Kit 60°C a 0 €</strong>
+            </div>
+            <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">3. SmartsBookings (No OTA)</span>
+              <strong id="ba-gross" style="font-size:1.1rem;color:var(--ink);">124.800 € / anno</strong>
+            </div>
+            <div style="background:var(--paper);padding:12px;border:1px solid var(--olive);">
+              <span style="display:block;color:var(--olive);font-size:0.76rem;font-weight:600;">Payout 85% al Proprietario</span>
+              <strong id="ba-net85" style="font-size:1.15rem;color:var(--terracotta);">106.080 € / anno</strong>
+            </div>
+          </div>
+        </div>
+
         <div class="signature-grid">
           <div>
             <strong>Per Toscan Costruzioni · Blue Arroyo Group</strong>
@@ -518,6 +544,21 @@
         document.getElementById('tot-unit').textContent = fmt(state.rate) + ' €/m²';
         document.getElementById('tot-sum').textContent = fmt(total) + ' €';
 
+        /* Calcolo parametrico gestionale Ciclo Blue Arroyo (Payout 85%) */
+        var unitSqm = state.type === 'hotel' ? 42 : (state.type === 'agriturismo' ? 58 : 52);
+        var adr = state.type === 'hotel' ? 210 : (state.type === 'agriturismo' ? 195 : 165);
+        var occDays = state.type === 'studenti' ? 310 : 215;
+        if (state.type === 'studenti') adr = 48;
+        var units = Math.max(2, Math.round(sqm / unitSqm));
+        var grossRev = units * adr * occDays;
+        var net85 = grossRev * 0.85;
+        var elUnits = document.getElementById('ba-units');
+        var elGross = document.getElementById('ba-gross');
+        var elNet85 = document.getElementById('ba-net85');
+        if (elUnits) elUnits.textContent = units + (state.type === 'studenti' ? ' Camere / Posti' : ' Suite con bagno');
+        if (elGross) elGross.textContent = fmt(grossRev) + ' € / anno';
+        if (elNet85) elNet85.textContent = fmt(net85) + ' € / anno';
+
         var bookLink = document.getElementById('one-click-book');
         if (bookLink) {
           var qs = '?citta=' + encodeURIComponent(city) + '&mq=' + encodeURIComponent(sqm);
@@ -529,6 +570,12 @@
           var cqs = '?type=' + encodeURIComponent(state.type) + '&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
           if (client) cqs += '&cliente=' + encodeURIComponent(client);
           cLink.href = '/data-room' + cqs;
+        }
+        var mcLink = document.getElementById('pt-to-masterclass');
+        if (mcLink) {
+          var mqs = '?step=M1&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
+          if (client) mqs += '&cliente=' + encodeURIComponent(client);
+          mcLink.href = '/blog' + mqs + '#prenota-step-a';
         }
       }
 
