@@ -421,29 +421,37 @@
           </div>
         </div>
 
-        <!-- PROSPETTO OPERATIVO CICLO BLUE ARROYO (PAYOUT 85% SMARTSBOOKINGS) -->
+        <!-- LEVA 3: PIANIFICAZIONE CAPITALE (LEVA BANCARIA A 5 SAL) + CICLO BLUE ARROYO (PAYOUT 85%) -->
         <div style="margin-top:20px;background:var(--stone);padding:20px;border:1px solid var(--line);border-left:4px solid var(--olive);">
           <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
-            <strong style="color:var(--ink);font-size:0.96rem;">Dal Cantiere agli Ospiti · Simulazione Gestionale Ciclo Blue Arroyo (Payout 85%)</strong>
-            <span style="font-size:0.78rem;color:var(--muted);">Simulazione gestionale ricettiva parametrica · Non costituisce offerta o promessa finanziaria</span>
+            <strong style="color:var(--ink);font-size:0.98rem;">Sostenibilità Finanziaria Operazione: Leva Bancaria a 5 SAL + Ciclo Blue Arroyo (Payout 85%)</strong>
+            <span style="font-size:0.78rem;color:var(--muted);">Simulazione operativa di cantiere e gestione · Non costituisce offerta finanziaria al pubblico</span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;font-size:0.86rem;">
             <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
-              <span style="display:block;color:var(--muted);font-size:0.76rem;">Unità / Suite ricavabili</span>
-              <strong id="ba-units" style="font-size:1.1rem;color:var(--ink);">4 Suite con bagno</strong>
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">1. Apporto Capitale Proprio (35%)</span>
+              <strong id="ba-equity35" style="font-size:1.1rem;color:var(--ink);">119.350 €</strong>
+              <span style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">Avvio + 1° SAL Murarie</span>
             </div>
             <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
-              <span style="display:block;color:var(--muted);font-size:0.76rem;">1. itassistance &amp; 2. Cleaning</span>
-              <strong style="font-size:0.95rem;color:var(--ink);">CIN/Ross1000 + Kit 60°C a 0 €</strong>
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">2. Leva Bancaria Mutuo SAL (65%)</span>
+              <strong id="ba-bank65" style="font-size:1.1rem;color:var(--olive);">221.650 €</strong>
+              <span style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">Erogabile su 2°, 3° e 5° SAL</span>
             </div>
             <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
-              <span style="display:block;color:var(--muted);font-size:0.76rem;">3. SmartsBookings (No OTA)</span>
-              <strong id="ba-gross" style="font-size:1.1rem;color:var(--ink);">124.800 € / anno</strong>
+              <span style="display:block;color:var(--muted);font-size:0.76rem;">3. Unità Ricavabili &amp; Kit 0 €</span>
+              <strong id="ba-units" style="font-size:1.05rem;color:var(--ink);">4 Suite con bagno</strong>
+              <span style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">itassistance + Cleaning 60°C</span>
             </div>
             <div style="background:var(--paper);padding:12px;border:1px solid var(--olive);">
-              <span style="display:block;color:var(--olive);font-size:0.76rem;font-weight:600;">Payout 85% al Proprietario</span>
+              <span style="display:block;color:var(--olive);font-size:0.76rem;font-weight:600;">4. Payout 85% SmartsBookings</span>
               <strong id="ba-net85" style="font-size:1.15rem;color:var(--terracotta);">106.080 € / anno</strong>
+              <span id="ba-gross" style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">Lordo diretto: 124.800 €/anno</span>
             </div>
+          </div>
+          <div class="no-print" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <span style="font-size:0.86rem;color:var(--ink);">Vuoi strutturare il <strong>Dossier Bancario a SAL (65%)</strong> prima di impegnare tutta la tua liquidità?</span>
+            <a href="/blog?mc=1B#prenota-step-a" id="pt-to-bank-mc" class="btn btn-secondary" style="padding:10px 18px;font-size:0.92rem;">Prenota Masterclass 1B · Business Plan &amp; Leva Banche (150 € scalati)</a>
           </div>
         </div>
 
@@ -555,8 +563,12 @@
         var elUnits = document.getElementById('ba-units');
         var elGross = document.getElementById('ba-gross');
         var elNet85 = document.getElementById('ba-net85');
+        var elEq35 = document.getElementById('ba-equity35');
+        var elBank65 = document.getElementById('ba-bank65');
+        if (elEq35) elEq35.textContent = fmt(total * 0.35) + ' €';
+        if (elBank65) elBank65.textContent = fmt(total * 0.65) + ' €';
         if (elUnits) elUnits.textContent = units + (state.type === 'studenti' ? ' Camere / Posti' : ' Suite con bagno');
-        if (elGross) elGross.textContent = fmt(grossRev) + ' € / anno';
+        if (elGross) elGross.textContent = 'Lordo diretto: ' + fmt(grossRev) + ' €/anno';
         if (elNet85) elNet85.textContent = fmt(net85) + ' € / anno';
 
         var bookLink = document.getElementById('one-click-book');
@@ -573,9 +585,15 @@
         }
         var mcLink = document.getElementById('pt-to-masterclass');
         if (mcLink) {
-          var mqs = '?step=M1&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
+          var mqs = '?mc=1A&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
           if (client) mqs += '&cliente=' + encodeURIComponent(client);
           mcLink.href = '/blog' + mqs + '#prenota-step-a';
+        }
+        var bankMcLink = document.getElementById('pt-to-bank-mc');
+        if (bankMcLink) {
+          var bqs = '?mc=1B&city=' + encodeURIComponent(city) + '&sqm=' + encodeURIComponent(sqm);
+          if (client) bqs += '&cliente=' + encodeURIComponent(client);
+          bankMcLink.href = '/blog' + bqs + '#prenota-step-a';
         }
       }
 

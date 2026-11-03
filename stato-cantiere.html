@@ -661,10 +661,13 @@
         <p id="home-status-line" style="color:var(--ink);">
           Il tuo profilo è abilitato dalla Governance: hai 3 cantieri in corso di apertura accessibili con quote da 2.000 € e il 1° SAL del tuo cantiere a Firenze pronto per verifica.
         </p>
-        <div class="actions-stack">
+        <div class="actions-stack" style="display:flex;gap:12px;flex-wrap:wrap;">
           <button type="button" class="btn btn-primary" data-nav-to="area-apertura">
             Esplora i cantieri in apertura da 2.000 €
           </button>
+          <a href="/blog?mc=1B#prenota-step-a" class="btn btn-secondary">
+            Prenota Masterclass di Cantiere (150 € scalati)
+          </a>
         </div>
       </div>
 
@@ -900,6 +903,20 @@
           <div class="key-metric" id="det-proj-cost">Valore appalto bloccato: 372.000 €</div>
           <div class="key-metric" id="det-proj-duration">Tempi garantiti: 6 mesi (5 SAL)</div>
           <div class="key-metric" id="det-proj-protection">Tutela: DURC, Polizza CAR e Decennale</div>
+        </div>
+
+        <!-- SIMULATORE QUOTA MEMBRO APPROVATO (RIPARTIZIONE IN 5 SAL A 1 TOCCO) -->
+        <div class="surface-card" style="background:var(--stone);margin-top:8px;">
+          <span class="field-label">Simulatore Quota Membro Approvato (vedi come viene protetta nei 5 SAL)</span>
+          <div class="chips-group" id="sim-quota-chips">
+            <button type="button" class="chip-btn is-active" data-sim-amt="2000">Quota 2.000 €</button>
+            <button type="button" class="chip-btn" data-sim-amt="5000">Quota 5.000 €</button>
+            <button type="button" class="chip-btn" data-sim-amt="10000">Quota 10.000 €</button>
+            <button type="button" class="chip-btn" data-sim-amt="25000">Quota 25.000 €</button>
+          </div>
+          <p id="sim-quota-breakdown" style="color:var(--ink);font-size:0.95rem;">
+            Con 2.000 € la tua quota segue i 5 SAL certificati: Avvio (15%): 300 € · 1° SAL Murarie (25%): 500 € · 2° SAL Impianti (25%): 500 € · 3° SAL Finiture (25%): 500 € · Collaudo e Ciclo Blue Arroyo (10%): 200 €.
+          </p>
         </div>
 
         <!-- CONTENUTI SECONDARI RACCOLTI IN SEZIONI ESPANDIBILI -->
@@ -1703,12 +1720,34 @@
         });
       });
 
+      var simulatedQuota = 2000;
+      document.querySelectorAll('#sim-quota-chips .chip-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#sim-quota-chips .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          simulatedQuota = parseInt(btn.getAttribute('data-sim-amt'), 10) || 2000;
+          var s1 = Math.round(simulatedQuota * 0.15).toLocaleString('it-IT');
+          var s2 = Math.round(simulatedQuota * 0.25).toLocaleString('it-IT');
+          var s5 = Math.round(simulatedQuota * 0.10).toLocaleString('it-IT');
+          var qFmt = simulatedQuota.toLocaleString('it-IT');
+          document.getElementById('sim-quota-breakdown').textContent =
+            'Con ' + qFmt + ' € la tua quota segue i 5 SAL certificati: Avvio (15%): ' + s1 + ' € · 1° SAL Murarie (25%): ' + s2 + ' € · 2° SAL Impianti (25%): ' + s2 + ' € · 3° SAL Finiture (25%): ' + s2 + ' € · Collaudo e Ciclo Blue Arroyo (10%): ' + s5 + ' €.';
+          document.getElementById('btn-go-invest-action').textContent =
+            'Prenota la quota di ' + qFmt + ' € su questo cantiere';
+        });
+      });
+
       document.getElementById('btn-go-invest-action').addEventListener('click', function() {
         if (cfg.role === 'in-attesa') {
           showView('azione-qualifica', true);
           return;
         }
         resetInvestWizard();
+        var amtField = document.getElementById('invest-custom-amount');
+        if (amtField) amtField.value = simulatedQuota;
+        document.querySelectorAll('#invest-amount-chips .chip-btn').forEach(function(b) {
+          b.classList.toggle('is-active', parseInt(b.getAttribute('data-amt'), 10) === simulatedQuota);
+        });
         showView('azione-partecipa', true);
       });
 
