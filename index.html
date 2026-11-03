@@ -412,14 +412,12 @@
     }
     .hero__split {
       width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: 7fr 5fr;
       min-height: calc(100svh - 80px);
     }
     .hero__ink-pane {
-      padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem);
+      padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem) clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((100vw - var(--max-w)) / 2 + 1.5rem));
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -475,7 +473,7 @@
     .hero__terracotta-pane {
       background-color: var(--terracotta);
       color: var(--stone);
-      padding: clamp(2rem, 4vw, 4rem);
+      padding: clamp(2rem, 4vw, 4rem) max(1.5rem, calc((100vw - var(--max-w)) / 2 + 1.5rem)) clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 3.5rem);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1514,7 +1512,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#stima-rapida" class="btn btn--primary" style="background:var(--olive);border-color:var(--olive);width:100%;">Simula intervento Colonico Essence</a>
+              <a href="#stima-rapida" data-select-est="agriturismo" class="btn btn--primary" style="background:var(--olive);border-color:var(--olive);width:100%;">Simula intervento Colonico Essence</a>
             </article>
 
             <article class="product-line-card product-line-card--terracotta">
@@ -1536,7 +1534,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#stima-rapida" class="btn btn--primary" style="width:100%;">Simula intervento Borgo Contemporaneo</a>
+              <a href="#stima-rapida" data-select-est="appartamenti" class="btn btn--primary" style="width:100%;">Simula intervento Borgo Contemporaneo</a>
             </article>
 
             <article class="product-line-card product-line-card--gold">
@@ -1558,7 +1556,7 @@
                   </li>
                 </ul>
               </div>
-              <a href="#stima-rapida" class="btn btn--secondary" style="border-color:var(--gold);background:var(--gold);color:var(--ink);width:100%;">Simula intervento Villa Toscana</a>
+              <a href="#stima-rapida" data-select-est="hotel" class="btn btn--secondary" style="border-color:var(--gold);background:var(--gold);color:var(--ink);width:100%;">Simula intervento Villa Toscana</a>
             </article>
           </div>
         </div>
@@ -2399,6 +2397,14 @@
           btn.classList.add('is-active');
           estState.type = btn.getAttribute('data-est-type');
           updateEstimator();
+        });
+      });
+
+      document.querySelectorAll('[data-select-est]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          var t = link.getAttribute('data-select-est');
+          var targetBtn = document.querySelector('[data-est-type="' + t + '"]');
+          if (targetBtn) targetBtn.click();
         });
       });
 

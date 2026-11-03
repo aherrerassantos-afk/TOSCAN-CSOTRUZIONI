@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tuscany Renovation & Hospitality General Contractor | Fixed Price & Guaranteed Timeline — Toscan Costruzioni</title>
+  <title>Tuscany Renovation &amp; Hospitality General Contractor | Fixed Price &amp; Guaranteed Timeline — Toscan Costruzioni</title>
   <meta name="description" content="Toscan Costruzioni (Part of Blue Arroyo Group) is the English-speaking General Contractor in Florence and Tuscany for boutique hotels, farmhouses (agriturismi), short-term rental apartments and luxury villas. Fixed-price contract (€1,350–€2,400/m²), delay penalties and full guest management." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://toscancostruzioni.it/tuscany-renovation-contractor.html" />
@@ -12,7 +12,16 @@
   <link rel="alternate" hreflang="x-default" href="https://toscancostruzioni.it/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXTBCDYTEK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JXTBCDYTEK');
+  </script>
 
   <script type="application/ld+json">
   {
@@ -62,7 +71,7 @@
             "name": "How can I manage a renovation in Tuscany while living abroad?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "You have a single English-speaking project manager in Florence, a fixed-price lump-sum contract with weekly delay penalties, 5 verified stage payments (SAL) and weekly photo/video site reports. Once completed, our sister company Blue Arroyo can manage bookings, guests, cleaning and maintenance."
+              "text": "You have a single English-speaking project manager in Florence, a fixed-price lump-sum contract with daily delay penalties (€250/day), 5 verified stage payments (SAL) and weekly photo/video site reports. Once completed, our sister companies in Blue Arroyo Group manage bookings, guests, cleaning and maintenance."
             }
           }
         ]
@@ -72,304 +81,2175 @@
   </script>
 
   <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS — AURA.BUILD × BRAND BOOK TC v1.0 ("RENAISSANCE EFFICIENCY")
+          Colori della Terra Toscana (Avorio 60% · Inchiostro 25% · Terracotta 10% · Accenti 5%)
+          Regola Brand Book Pag. 8: "L'Avorio (#F6F1E9) è lo sfondo predefinito. Mai bianco puro."
+       ========================================================================== */
     :root {
-      --stone: #F6F1E9;
-      --paper: #FAF6F0;
-      --ink: #1F1B17;
-      --muted: #5C544B;
-      --terracotta: #9E421B;
-      --terracotta-hover: #7D3314;
-      --border-control: #756B5E;
-      --overlay: rgba(31, 27, 22, 0.72);
-      --terracotta-dark: #7D3314;
-      --olive: #4A6341;
-      --gold: #B89A4F;
-      --line: #C4BBA6;
+      --stone: #F6F1E9;              /* Avorio (Sfondo primario 60% · Mai bianco puro) */
+      --paper: #FAF6F0;              /* Avorio Chiaro per superfici card e moduli */
+      --pietra: #C4BBA6;             /* Pietra (Fondali foto, divisori e filetti UI neutri) */
+      --line: #C4BBA6;               /* Filetti architettonici Pietra */
+      --ink: #1F1B17;                /* Inchiostro (Testo primario e sezioni scure 25%) */
+      --ink-card: #26211C;           /* Superfici card su fondo scuro Inchiostro (Pag. 4 e 11) */
+      --muted: #574F46;              /* Testo secondario ad alto contrasto AA su Avorio */
+      --terracotta: #B35A3C;         /* Terracotta Brand Primario, Accenti e Linea Borgo (Pag. 8) */
+      --terracotta-strong: #9A4326;  /* Terracotta bottone primario con contrasto AA testo chiaro */
+      --terracotta-hover: #7D3314;   /* Hover primario */
+      --terracotta-on-dark: #D47A5B; /* Terracotta luminoso su fondo Inchiostro */
+      --olive: #4A6341;              /* Oliva (Accento secondario e Linea Colonico Essence · Pag. 8) */
+      --gold: #B89A4F;               /* Oro Antico (Accento premium e Linea Villa Toscana · Pag. 8) */
+      --border-control: #6E6559;     /* Bordi controlli >= 3:1 su Avorio */
+      --footer-muted: #C4BBA6;
+      --overlay: rgba(31, 27, 23, 0.76);
+
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --max-w: 1240px;
       --radius: 2px;
-      --max-w: 1200px;
+      --space-1: 8px;
+      --space-2: 8px;
+      --space-3: 16px;
+      --space-4: 24px;
+      --space-5: 32px;
+      --space-6: 48px;
+      --space-7: 64px;
+      --space-8: 96px;
+      --space-9: 128px;
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.14; color: var(--ink); }
-    h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
-    h1 { font-size: clamp(2.4rem, 1.9rem + 2.4vw, 4.2rem); }
-    h2 { font-size: clamp(1.75rem, 1.4rem + 1.3vw, 2.7rem); }
-    h3 { font-size: clamp(1.3rem, 1.15rem + 0.5vw, 1.65rem); }
-    p { max-width: 68ch; color: var(--muted); }
-    a { color: inherit; text-decoration: none; }
-    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-    header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
-    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 76px; gap: 16px; }
-    .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; }
-    .brand em { color: var(--terracotta); }
-    .brand small { display: block; font-family: var(--font-sans); font-size: 0.7rem; color: var(--muted); }
-    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 0.92rem; font-weight: 500; }
-    @media (max-width: 860px) { .nav-links { display: none; } }
-    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 24px; border-radius: var(--radius); font-size: 1rem; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: background-color 0.2s ease, transform 0.15s ease; }
-    .btn:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
-    @media (max-width: 768px) { .btn { min-height: 56px; } }
-    .btn-primary { background: var(--terracotta); color: #FFF; }
-    .btn-primary:hover { background: var(--terracotta-dark); }
-    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
-    section { padding: 80px 0; border-bottom: 1px solid var(--line); }
-    .eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 12px; }
-    .answer-box { background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--terracotta); padding: 20px 24px; margin: 24px 0; }
-    .trust-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 32px; }
-    @media (max-width: 900px) { .trust-grid { grid-template-columns: repeat(2, 1fr); } }
-    .trust-item { background: var(--paper); border: 1px solid var(--line); padding: 18px; border-radius: var(--radius); font-size: 0.86rem; }
-    .trust-item strong { display: block; color: var(--ink); margin-bottom: 4px; font-size: 0.94rem; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 32px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
-    @media (max-width: 860px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-    .card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 12px; }
-    .price-pill { display: inline-block; align-self: flex-start; background: #EFE8DC; color: var(--ink); font-weight: 600; font-size: 0.82rem; padding: 5px 12px; border-radius: var(--radius); }
-    .form-box { background: var(--paper); border: 1px solid var(--line); padding: 40px; max-width: 760px; margin: 32px auto 0; }
-    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
-    @media (max-width: 640px) { .field-grid { grid-template-columns: 1fr; } }
-    label { display: block; font-size: 0.86rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-    input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); background: var(--stone); font-family: var(--font-sans); font-size: 0.95rem; border-radius: var(--radius); }
-    footer { padding: 48px 0; font-size: 0.88rem; color: var(--muted); }
-  
-    html, body { overflow-x: clip; }
-    @media (max-width: 768px) { .btn { min-height: 56px; } }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+      font-size: 16px;
+      overflow-x: clip;
+    }
+    body {
+      background-color: var(--stone);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Accessibilità: Focus visibile su tutti i controlli */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    /* Tipografia Brand Book Pag. 9-10 (Max 2 font: Cormorant Garamond + Jost) */
+    h1, h2, h3, .serif {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 4.8vw + 1rem, 4.85rem);
+      line-height: 1.05;
+      margin-bottom: var(--space-4);
+    }
+    h2 {
+      font-size: clamp(1.95rem, 3.2vw + 0.8rem, 3.35rem);
+      line-height: 1.1;
+      margin-bottom: var(--space-3);
+    }
+    h3 {
+      font-size: clamp(1.4rem, 1.8vw + 0.7rem, 1.95rem);
+      line-height: 1.2;
+      font-weight: 500;
+      margin-bottom: var(--space-2);
+    }
+    h1 em, h2 em, h3 em {
+      font-style: italic;
+      color: var(--terracotta);
+      font-weight: 400;
+    }
+    p {
+      color: var(--muted);
+      font-size: 1.125rem;
+      line-height: 1.6;
+      max-width: 68ch;
+      margin-bottom: var(--space-3);
+      overflow-wrap: break-word;
+    }
+    .eyebrow {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--terracotta-strong);
+      margin-bottom: var(--space-3);
+    }
+    .eyebrow::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      background-color: var(--terracotta);
+    }
+
+    /* Layout & Griglia basata su multipli di 8 px */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+    .section {
+      padding: clamp(4rem, 8vw, 8rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section--paper { background-color: var(--paper); }
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-4);
+    }
+
+    /* Regola 5: Bottoni Grandi (min 48px desktop, 56px mobile, testo >= 16px, 4 stati) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 48px;
+      padding: 12px 24px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.25;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn--primary {
+      background-color: var(--terracotta-strong);
+      color: var(--stone);
+      border-color: var(--terracotta-strong);
+    }
+    .btn--primary:hover {
+      background-color: var(--terracotta-hover);
+      border-color: var(--terracotta-hover);
+      transform: translateY(-1px);
+    }
+    .btn--primary:active {
+      transform: scale(0.99);
+    }
+    .btn--secondary {
+      background-color: var(--paper);
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+    .btn--secondary:hover {
+      background-color: var(--ink);
+      color: var(--stone);
+      transform: translateY(-1px);
+    }
+    .btn--secondary:active {
+      transform: scale(0.99);
+    }
+    .btn:disabled, .btn[disabled] {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      border-style: dashed;
+    }
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      min-height: 48px;
+      padding: 8px 0;
+    }
+    .link-arrow:hover { color: var(--terracotta-strong); }
+
+    /* ==========================================================================
+       2. HEADER & MENU CON MONOGRAMMA ARCHITETTONICO TC (Brand Book Pag. 1 & 7)
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--stone);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      gap: var(--space-3);
+    }
+    .brand {
+      text-decoration: none;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand__mark {
+      width: 40px;
+      height: 44px;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+    .brand__text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand__name {
+      font-family: var(--font-serif);
+      font-size: 1.7rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .brand__name em { color: var(--terracotta); font-style: italic; font-weight: 400; }
+    .brand__sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      list-style: none;
+    }
+    .nav-menu a {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 0;
+    }
+    .nav-menu a:hover { color: var(--terracotta-strong); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lang-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 10px 12px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-control);
+      border-radius: var(--radius);
+    }
+    .lang-link:hover { border-color: var(--ink); background-color: var(--paper); }
+    .menu-toggle {
+      display: none;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink);
+      min-height: 56px;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .mobile-drawer {
+      display: none;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: var(--space-4);
+    }
+    .mobile-drawer.is-open { display: block; }
+    .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .mobile-drawer a { display: flex; align-items: center; min-height: 48px; padding: 8px 0; color: var(--ink); font-size: 1rem; text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); }
+
+    /* ==========================================================================
+       3. SEZIONE 1: HERO SPLIT-SCREEN BRAND BOOK (Inchiostro #1F1B17 + Terracotta #B35A3C)
+       ========================================================================== */
+    .hero {
+      min-height: calc(100svh - 80px);
+      display: flex;
+      align-items: stretch;
+      background-color: var(--ink);
+      color: var(--stone);
+      border-bottom: 1px solid var(--line);
+      padding: 0;
+    }
+    .hero__split {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      min-height: calc(100svh - 80px);
+    }
+    .hero__ink-pane {
+      padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem) clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((100vw - var(--max-w)) / 2 + 1.5rem));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--ink);
+      color: var(--stone);
+    }
+    .hero__ink-pane .eyebrow {
+      color: var(--pietra);
+    }
+    .hero__ink-pane h1 {
+      color: var(--stone);
+    }
+    .hero__ink-pane h1 em {
+      color: var(--terracotta-on-dark);
+    }
+    .hero__pullquote {
+      border-left: 2px solid var(--terracotta);
+      padding-left: 20px;
+      margin: 8px 0 24px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+      line-height: 1.38;
+      color: var(--stone);
+    }
+    .answer-summary {
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.28);
+      border-left: 4px solid var(--terracotta);
+      padding: var(--space-4);
+      margin: 0 0 var(--space-4);
+      border-radius: var(--radius);
+    }
+    .answer-summary p {
+      margin-bottom: 0;
+      font-size: 1.0625rem;
+      line-height: 1.58;
+      color: var(--stone);
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-4);
+      margin-top: var(--space-3);
+    }
+    .hero__ink-pane .link-arrow {
+      color: var(--stone);
+    }
+    .hero__ink-pane .link-arrow:hover {
+      color: var(--terracotta-on-dark);
+    }
+    .hero__terracotta-pane {
+      background-color: var(--terracotta);
+      color: var(--stone);
+      padding: clamp(2rem, 4vw, 4rem) max(1.5rem, calc((100vw - var(--max-w)) / 2 + 1.5rem)) clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+      border-left: 1px solid rgba(246, 241, 233, 0.2);
+    }
+    .hero__arch-emblem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .hero__arch-svg {
+      width: 128px;
+      height: 140px;
+      color: var(--stone);
+      margin-bottom: 12px;
+    }
+    .hero__arch-motto {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      color: var(--stone);
+    }
+    .hero__figure {
+      position: relative;
+      background: var(--ink);
+      border: 1px solid rgba(246, 241, 233, 0.35);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .hero__figure img {
+      width: 100%;
+      max-width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.03);
+      transition: transform 0.9s ease-out;
+    }
+    .hero:hover .hero__figure img {
+      transform: scale(1);
+    }
+    .hero__caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--overlay);
+      color: var(--stone);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 14px 18px;
+      font-size: 0.92rem;
+    }
+    .hero__caption strong { color: var(--stone); }
+
+    /* ==========================================================================
+       3B. SEZIONE INCHIOSTRO SCURO (Brand Book Pag. 4 & 11: I Tre Assi + 3 Linee Prodotto)
+       ========================================================================== */
+    .section--ink {
+      background-color: var(--ink);
+      color: var(--stone);
+      padding: clamp(4rem, 7vw, 7rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section--ink .eyebrow { color: var(--pietra); }
+    .section--ink h2, .section--ink h3 { color: var(--stone); }
+    .section--ink h2 em, .section--ink h3 em { color: var(--terracotta-on-dark); }
+    .section--ink p { color: var(--pietra); }
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .axis-card {
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.22);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+    }
+    .axis-roman {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--terracotta-on-dark);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .product-lines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .product-line-card {
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.22);
+      border-top: 4px solid var(--terracotta);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .product-line-card--olive { border-top-color: var(--olive); }
+    .product-line-card--terracotta { border-top-color: var(--terracotta); }
+    .product-line-card--gold { border-top-color: var(--gold); }
+    .product-line-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--pietra);
+      margin-bottom: 16px;
+    }
+    .product-line-specs {
+      list-style: none;
+      border-top: 1px solid rgba(196, 187, 166, 0.2);
+    }
+    .product-line-specs li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(196, 187, 166, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .product-line-specs span {
+      font-size: 0.85rem;
+      color: var(--pietra);
+    }
+    .product-line-specs strong {
+      font-size: 1.15rem;
+      color: var(--stone);
+      font-weight: 500;
+    }
+    .manifesto-terracotta {
+      background-color: var(--terracotta-strong);
+      color: var(--stone);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .manifesto-terracotta blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+      line-height: 1.3;
+      color: var(--stone);
+      max-width: 38ch;
+      margin-bottom: 20px;
+    }
+    .manifesto-terracotta cite {
+      font-style: normal;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--stone);
+      display: inline-block;
+      padding-top: 12px;
+      border-top: 1px solid rgba(246, 241, 233, 0.45);
+    }
+
+    /* ==========================================================================
+       4. SEZIONE 2: BARRA DI FIDUCIA (Credenziali & Garanzie Vere)
+       ========================================================================== */
+    .trust-bar {
+      background-color: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: var(--space-5) 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-4);
+    }
+    .trust-item {
+      border-left: 3px solid var(--olive);
+      padding-left: var(--space-3);
+    }
+    .trust-item strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .trust-item span {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.45;
+      display: block;
+    }
+
+    /* ==========================================================================
+       5. SEZIONE 3: RACCONTO ASIMMETRICO DEGLI INTERVENTI (No 4 card uguali)
+       ========================================================================== */
+    .editorial-stream {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
+    .editorial-row {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-5);
+      align-items: stretch;
+      background-color: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .editorial-row--reverse {
+      grid-template-columns: 5fr 7fr;
+    }
+    .editorial-row__media {
+      position: relative;
+      min-height: 320px;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .editorial-row__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease-out;
+    }
+    .editorial-row:hover .editorial-row__media img {
+      transform: scale(1.02);
+    }
+    .editorial-row__overlay-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background-color: var(--overlay);
+      color: var(--paper);
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+    }
+    .editorial-row__content {
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .service-card__price {
+      margin-top: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--line);
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       6. SEZIONE 4: PROGETTI & SLIDER PRIMA/DOPO ACCESSIBILE
+       ========================================================================== */
+    .before-after-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+      margin-top: var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      user-select: none;
+    }
+    .ba-slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ba-before-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2px solid var(--paper);
+    }
+    .ba-before-wrap img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      filter: sepia(0.28) contrast(0.92) brightness(0.86);
+    }
+    .ba-badge {
+      position: absolute;
+      top: 16px;
+      padding: 6px 12px;
+      background: var(--overlay);
+      color: var(--paper);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .ba-badge--before { left: 16px; }
+    .ba-badge--after { right: 16px; background: var(--olive); }
+    .ba-range {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 10;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: var(--terracotta);
+      color: var(--paper);
+      border: 2px solid var(--paper);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 5fr 4fr 3fr;
+      gap: var(--space-4);
+    }
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-card__media {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+    .project-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .project-card:hover .project-card__media img { transform: scale(1.03); }
+    .status-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--olive);
+      color: var(--paper);
+      padding: 6px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+    }
+    .status-badge--progetto { background: var(--ink); }
+    .project-card__body { padding: var(--space-4); }
+    .case-specs {
+      list-style: none;
+      margin: var(--space-3) 0;
+      border-top: 1px solid var(--line);
+    }
+    .case-specs li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .case-specs li span { color: var(--muted); }
+    .case-specs li strong { color: var(--ink); text-align: right; }
+
+    /* ==========================================================================
+       7. SEZIONE 5: SEZIONE FISSATA ALLO SCROLL (Sticky Narrative · Percorso)
+       ========================================================================== */
+    .sticky-narrative {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-6);
+      align-items: start;
+      margin-top: var(--space-5);
+    }
+    .sticky-narrative__pinned {
+      position: sticky;
+      top: 104px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--terracotta);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+    }
+    .sticky-narrative__steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .timeline-step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .timeline-step__num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+    .timeline-step__deliverable {
+      margin-top: var(--space-3);
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .contract-callout {
+      margin-top: var(--space-6);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--olive);
+      padding: var(--space-5);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      border-radius: var(--radius);
+    }
+
+    /* ==========================================================================
+       8. SEZIONE 6: STIMA RAPIDA IN 3 DOMANDE (Senza promesse finanziarie)
+       ========================================================================== */
+    .estimator-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      margin-top: var(--space-5);
+    }
+    .estimator-controls { padding: var(--space-5); border-right: 1px solid var(--line); }
+    .estimator-result {
+      padding: var(--space-5);
+      background: var(--stone);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .field-group { margin-bottom: var(--space-4); }
+    .field-label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+    .field-help {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .chips-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .chip-btn {
+      min-height: 48px;
+      padding: 12px 16px;
+      background: var(--paper);
+      border: 2px solid var(--border-control);
+      border-radius: var(--radius);
+      text-align: left;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+    }
+    .chip-btn:hover { border-color: var(--ink); }
+    .chip-btn:active { transform: scale(0.99); }
+    .chip-btn.is-active {
+      border-color: var(--terracotta);
+      background-color: var(--stone);
+      color: var(--ink);
+    }
+    .range-slider {
+      width: 100%;
+      accent-color: var(--terracotta);
+      height: 12px;
+      cursor: pointer;
+    }
+    .est-price-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      margin: var(--space-3) 0;
+    }
+    .est-price-val {
+      font-family: var(--font-serif);
+      font-size: 2.35rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      line-height: 1.1;
+    }
+
+    /* ==========================================================================
+       9. SEZIONE 7: DAL CANTIERE AGLI OSPITI + GLOSSARIO + PALETTE MATERIALI
+       ========================================================================== */
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .material-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-3);
+      border-radius: var(--radius);
+    }
+    .material-swatch {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius);
+      margin-bottom: var(--space-3);
+      border: 1px solid var(--line);
+    }
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .glossary-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--terracotta);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+    }
+    .glossary-card strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    /* ==========================================================================
+       10. SEZIONE 8 & 9: TEAM, POLIZZE & TESTIMONIANZE
+       ========================================================================== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .team-card, .testimonial-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+    }
+    .team-role {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--terracotta);
+      margin-bottom: 6px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .testimonial-quote {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink);
+      margin-bottom: var(--space-3);
+    }
+
+    /* ==========================================================================
+       11. SEZIONE 10: MAPPA TOSCANA SVG & FAQ
+       ========================================================================== */
+    .map-zones-wrap {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-5);
+      align-items: center;
+      margin-top: var(--space-5);
+    }
+    .svg-map-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .zones-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+    .zone-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+    .zone-card:hover { border-color: var(--terracotta); }
+    .faq-list {
+      max-width: 860px;
+      margin-top: var(--space-5);
+    }
+    .faq-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-2);
+    }
+    .faq-item summary {
+      padding: var(--space-3) var(--space-4);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 56px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item__body {
+      padding: 0 var(--space-4) var(--space-3);
+      border-top: 1px solid var(--line);
+      padding-top: var(--space-3);
+    }
+
+    /* ==========================================================================
+       12. SEZIONE 11: FORM IN 2 STEP (Zero Gergo, 1 CTA Primaria)
+       ========================================================================== */
+    .form-wrap {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+      border-radius: var(--radius);
+      max-width: 820px;
+      margin: var(--space-5) auto 0;
+    }
+    .step-indicator {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--line);
+    }
+    .step-pill {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .step-pill.is-active { color: var(--terracotta); }
+    .input-text {
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--stone);
+      border: 2px solid var(--border-control);
+      border-radius: var(--radius);
+    }
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    .reassurances {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-top: var(--space-3);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* ==========================================================================
+       13. FOOTER & BARRA MOBILE (Solo Mobile, nascosta su Desktop)
+       ========================================================================== */
+    .site-footer {
+      background: var(--ink);
+      color: var(--stone);
+      padding: var(--space-7) 0 var(--space-6);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 4fr 3fr 3fr 2fr;
+      gap: var(--space-5);
+      margin-bottom: var(--space-6);
+    }
+    .site-footer h4 {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: var(--space-3);
+    }
+    .site-footer ul { list-style: none; }
+    .site-footer li { margin-bottom: 10px; }
+    .site-footer a {
+      color: var(--footer-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .site-footer a:hover { color: var(--paper); text-decoration: underline; }
+    .footer-bottom {
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border-control);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-3);
+      font-size: 0.9rem;
+      color: var(--footer-muted);
+    }
+
+    /* Barra fissa: SOLO SU MOBILE (eliminata su desktop) */
+    .mobile-sticky-bar {
+      display: none;
+    }
+
+    /* Responsive Mobile-First (320, 360, 390, 430, 768, 1024, 1440 px) */
+    @media (max-width: 1024px) {
+      .hero__split, .hero__grid, .ba-grid, .estimator-box, .map-zones-wrap, .editorial-row, .editorial-row--reverse, .sticky-narrative, .axes-grid, .product-lines-grid {
+        grid-template-columns: 1fr;
       }
+      .hero__terracotta-pane { border-left: none; border-top: 1px solid rgba(246, 241, 233, 0.2); }
+      .sticky-narrative__pinned { position: static; }
+      .estimator-controls { border-right: none; border-bottom: 1px solid var(--line); }
+      .materials-grid, .team-grid, .glossary-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 16px; }
+      .nav-menu, .header-actions .btn { display: none; }
+      .menu-toggle { display: inline-flex; align-items: center; min-height: 56px; }
+      .btn, .chip-btn, .input-text { min-height: 56px; font-size: 1rem; }
+      .projects-grid, .materials-grid, .team-grid, .testimonials-grid, .zones-list, .input-row, .chips-group, .trust-grid, .footer-grid, .glossary-grid, .axes-grid, .product-lines-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero__figure img, .ba-slider { height: 260px; }
+      .hero__arch-svg { width: 92px; height: 100px; }
+      body { padding-bottom: 88px; }
+      .mobile-sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 95;
+        background: var(--paper);
+        border-top: 2px solid var(--line);
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+        display: flex;
+        gap: 12px;
+      }
+      .mobile-sticky-bar.is-hidden { display: none; }
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+    .case-tag {
+      display: inline-block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--olive);
+      margin-bottom: var(--space-2);
+    }
+    .project-card__media img.img-secondary {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .project-card:hover .project-card__media img.img-secondary {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+    .reveal-section {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .js-enabled .reveal-section.is-pending {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .js-enabled .reveal-section.is-pending { opacity: 1 !important; transform: none !important; }
+      .hero__figure img { transform: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container nav-bar">
-      <a href="/tuscany-renovation-contractor.html" class="brand">
-        Toscan <em>Costruzioni</em>
-        <small>Blue Arroyo Group · Florence, Italy</small>
+  <!-- HEADER & MAIN NAVIGATION WITH TC ARCHITECTURAL MONOGRAM (Brand Book p. 1 & 7) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/tuscany-renovation-contractor.html" class="brand" aria-label="Toscan Costruzioni - English Home">
+        <svg class="brand__mark" viewBox="0 0 64 70" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 22 L32 4 L60 22 Z" />
+          <line x1="10" y1="22" x2="10" y2="64" />
+          <line x1="54" y1="22" x2="54" y2="64" />
+          <line x1="4" y1="64" x2="60" y2="64" />
+          <path d="M18 42 A14 14 0 0 1 46 42" />
+          <line x1="32" y1="34" x2="32" y2="64" />
+          <line x1="18" y1="50" x2="46" y2="50" />
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Toscan <em>Costruzioni</em></span>
+          <span class="brand__sub">Renaissance Efficiency · Blue Arroyo Group</span>
+        </span>
       </a>
-      <nav class="nav-links" aria-label="Main Navigation">
-        <a href="#services">Services &amp; Costs</a>
-        <a href="#process">How We Work</a>
-        <a href="#hospitality">Guest Management</a>
-        <a href="/data-room">Standard Contract</a>
-        <a href="/">IT </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#filosofia-linee">Philosophy &amp; Lines</a></li>
+          <li><a href="#servizi">Services &amp; Costs</a></li>
+          <li><a href="#progetti">Case Studies</a></li>
+          <li><a href="#come-lavoriamo">How We Work</a></li>
+          <li><a href="#contatti">Contact</a></li>
+        </ul>
       </nav>
-      <a href="#contact" class="btn btn-primary">Free 48h Feasibility Study</a>
+
+      <div class="header-actions">
+        <a href="/" class="lang-link" lang="it" hreflang="it">IT</a>
+        <a href="#contatti" class="btn btn--primary">Free 48h Feasibility Study</a>
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer">Menu</button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul>
+        <li><a href="#filosofia-linee">Philosophy &amp; Lines</a></li>
+        <li><a href="#servizi">Services &amp; Costs</a></li>
+        <li><a href="#progetti">Case Studies</a></li>
+        <li><a href="#come-lavoriamo">How We Work</a></li>
+        <li><a href="#contatti">Contact</a></li>
+        <li><a href="/" lang="it">Versione Italiana (IT)</a></li>
+      </ul>
+      <a href="#contatti" class="btn btn--primary" style="width:100%;">Free 48h Feasibility Study</a>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <span class="eyebrow">Florence &amp; All of Tuscany · English-Speaking Team</span>
-      <h1>We turn your Tuscan property into a revenue-ready asset. <em>Fixed price</em>, guaranteed timeline.</h1>
-      <div class="answer-box">
-        <p style="color:var(--ink);margin:0;">
-          <strong>Toscan Costruzioni (Part of Blue Arroyo Group)</strong> is a Florence-based general contractor specialising in turnkey renovations and conversions for <strong>property owners, hoteliers and international buyers</strong> across Tuscany. We handle architectural permits, structural works, MEP engineering, bespoke furnishing (<strong>€1,350 – €2,400/m²</strong> locked in contract, <strong>5 – 12 months</strong> with delay penalties) and subsequent hospitality management through Blue Arroyo.
-        </p>
-      </div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px;">
-        <a href="#contact" class="btn btn-primary">Request your free 48h feasibility study</a>
-        <a href="/foglio-lavori" class="btn btn-secondary">View completed case studies</a>
-      </div>
+  <main>
+    <!-- 1. MONOGRAPHIC SPLIT-SCREEN HERO (Brand Book p. 1 & 3: Inchiostro #1F1B17 + Terracotta #B35A3C) -->
+    <section class="hero">
+      <div class="hero__split">
+        <div class="hero__ink-pane">
+          <span class="eyebrow">01 — Identity · The Renaissance of Efficiency · Florence &amp; Tuscany</span>
+          <h1>We turn your Tuscan property into a revenue-ready asset. <em>Fixed price, guaranteed timeline.</em></h1>
 
-      <div class="trust-grid">
+          <blockquote class="hero__pullquote">
+            “Where others choose between speed and beauty, we engineered systems to achieve both simultaneously.”
+          </blockquote>
+
+          <div class="answer-summary">
+            <p>
+              With the <strong>Metodo Toscan</strong> we combine architectural design, municipal permits, turnkey construction, bespoke furnishing and hospitality launch into a single contract across Florence and Tuscany. Your <strong>Prezzo Chiuso Toscan</strong> (<strong>€1,350–€2,400/m²</strong>) is locked before works begin, delivery takes <strong>5–12 months</strong> with contractual delay penalties, and guest operations continue seamlessly through the <strong>Ciclo Blue Arroyo</strong>.
+            </p>
+          </div>
+
+          <div class="hero__actions">
+            <a href="#contatti" class="btn btn--primary">Request your free 48h feasibility study</a>
+            <a href="#come-lavoriamo" class="link-arrow">Explore our budget-staggered path &amp; Masterclasses</a>
+          </div>
+        </div>
+
+        <div class="hero__terracotta-pane">
+          <div class="hero__arch-emblem">
+            <svg class="hero__arch-svg" viewBox="0 0 120 132" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M8 42 L60 8 L112 42 Z" />
+              <line x1="20" y1="42" x2="20" y2="120" />
+              <line x1="100" y1="42" x2="100" y2="120" />
+              <line x1="8" y1="120" x2="112" y2="120" />
+              <path d="M34 78 A26 26 0 0 1 86 78" />
+              <line x1="60" y1="64" x2="60" y2="120" />
+              <line x1="34" y1="94" x2="86" y2="94" />
+            </svg>
+            <div class="hero__arch-motto">Renaissance Efficiency</div>
+            <div style="font-size:0.88rem;margin-top:6px;letter-spacing:0.04em;">Tradition in the soul · Efficiency in execution · Profitability in every stone</div>
+          </div>
+
+          <figure class="hero__figure">
+            <img src="assets/project_casale.jpg" alt="Authentic Tuscan stone farmhouse restored by Toscan Costruzioni with courtyard and natural lighting" width="640" height="520" fetchpriority="high" />
+            <figcaption class="hero__caption">
+              <span>Heritage stone &amp; terracotta restoration · Tuscan hills</span>
+              <strong>Toscan Costruzioni · Turnkey delivery</strong>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TRUST BAR (CONTRACTUAL & INSURANCE GUARANTEES) -->
+    <section class="trust-bar" aria-label="Contractual and insurance guarantees">
+      <div class="container trust-grid">
         <div class="trust-item">
-          <strong>Fixed Lump-Sum Price</strong>
-          Locked in the contract after the bill of quantities. No surprise extras.
+          <strong>Prezzo Chiuso Toscan</strong>
+          <span>Lump-sum price locked upon signing the executive bill of quantities. No surprise extras.</span>
         </div>
         <div class="trust-item">
-          <strong>Delay Penalties</strong>
-          Binding handover date with contractual penalties for every week of delay.
+          <strong>Written Delay Penalties</strong>
+          <span>Binding handover date in the contract with €250/day penalty borne by us for any delay.</span>
         </div>
         <div class="trust-item">
-          <strong>10-Year Warranty</strong>
-          Decennale Postuma structural insurance plus CAR &amp; Liability policies.
+          <strong>Percorso a 5 SAL Verified</strong>
+          <span>You pay strictly across 5 verified Stage Payments only after works are inspected on site.</span>
+        </div>
+        <div class="trust-item">
+          <strong>CAR &amp; 10-Year Warranty</strong>
+          <span>All-Risks site insurance plus mandatory 10-year structural warranty under Italian law.</span>
         </div>
         <div class="trust-item">
           <strong>DURC &amp; Cassa Edile</strong>
-          Full compliance with Italian labour and site safety regulations.
-        </div>
-        <div class="trust-item">
-          <strong>Built &amp; Managed</strong>
-          Renovation, furnishing and guest management under one group.
+          <span>Full Italian labour, tax and site safety compliance verified prior to every SAL payment.</span>
         </div>
       </div>
     </section>
 
-    <section id="services">
-      <span class="eyebrow">What We Build &amp; Renovate</span>
-      <h2>Four areas of expertise with transparent <em>€/m²</em> ranges</h2>
-      <p style="margin-top:8px;">Indicative 2026 turnkey ranges (excluding VAT, municipal fees and swimming pools).</p>
+    <!-- 2B. DARK INCHIOSTRO BRAND BOOK SECTION: THE THREE AXES (p. 4) & THREE PRODUCT LINES (p. 8 & 11) -->
+    <section class="section--ink" id="filosofia-linee">
+      <div class="container">
+        <span class="eyebrow">02 — Philosophy · Scalable Craftsmanship</span>
+        <h2>The Three Axes <em>of Our Philosophy</em></h2>
+        <p>Authentic Tuscan craftsmanship organised as a repeatable, transparent and contractually guaranteed engineering system.</p>
 
-      <div class="grid-2">
-        <article class="card">
-          <span class="price-pill">€1,850 – €2,400 / m² · 8–12 Months</span>
-          <h3>Hotels &amp; <em>Boutique Hotels</em></h3>
-          <p>Full renovation of existing hotels or conversion of historic Florentine palazzi into 4-star / 5-star boutique hotels: en-suite bedrooms, reception, spa, fire safety (CPI), acoustic insulation and custom furniture.</p>
-        </article>
+        <div class="axes-grid">
+          <article class="axis-card">
+            <span class="axis-roman">I</span>
+            <h3>Historical Respect</h3>
+            <p style="margin-bottom:0;">We honour the original stone, olive wood and terracotta architecture, maximising aesthetic potential and perceived market value. Every project begins by listening to the building.</p>
+          </article>
+          <article class="axis-card">
+            <span class="axis-roman">II</span>
+            <h3>Cycle Optimization</h3>
+            <p style="margin-bottom:0;">Every construction site is engineered for rapid technical due diligence, efficient 5-SAL execution and immediate rental or sale readiness. Time is your most valuable asset.</p>
+          </article>
+          <article class="axis-card">
+            <span class="axis-roman">III</span>
+            <h3>Democratic Quality</h3>
+            <p style="margin-bottom:0;">We deliver Tuscan luxury through industrialised BIM design, direct material procurement and strict quality control: craftsmanship as a system, not an unpredictable exception.</p>
+          </article>
+        </div>
 
-        <article class="card">
-          <span class="price-pill">€1,650 – €2,300 / m² · 8–12 Months</span>
-          <h3>Farmhouses (<em>Agriturismi</em>) &amp; Wine Resorts</h3>
-          <p>Authentic restoration of stone farmhouses and country estates in Chianti, Siena, Val d'Orcia and Maremma: ventilated timber/terracotta roofs, heat pumps, private suites and panoramic pools (€65k–€130k).</p>
-        </article>
+        <div style="margin-top:var(--space-7);">
+          <span class="eyebrow">08 — Product Architecture · Brand Book Color Coding</span>
+          <h2>From Rustic <em>to Ultra-Premium</em></h2>
+          <p>Three construction lines coded with the official Tuscan Earth palette: Olive for Colonico, Terracotta for Borgo and Antique Gold for Villa.</p>
 
-        <article class="card">
-          <span class="price-pill">€1,350 – €1,750 / m² · 4–7 Months</span>
-          <h3>Short-Term Rental <em>Apartments</em></h3>
-          <p>Subdivision of large apartments into high-performing independent suites: second bathroom installation, soundproofing, smart keypads for self check-in, custom kitchens and complete furnishing.</p>
-        </article>
+          <div class="product-lines-grid">
+            <article class="product-line-card product-line-card--olive">
+              <div>
+                <h3>Colonico Essence</h3>
+                <div class="product-line-sub">Restored rural farmhouses &amp; agriturismi · Olive Line (#4A6341)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Turnkey Prezzo Chiuso Toscan range</span>
+                    <strong>€1,650 – €2,300 / m²</strong>
+                  </li>
+                  <li>
+                    <span>Guaranteed delivery timeline</span>
+                    <strong>8 – 12 months (with written penalties)</strong>
+                  </li>
+                  <li>
+                    <span>Primary use</span>
+                    <strong>Agriturismi, country estates, farmhouses with pool</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" data-select-est="agriturismo" class="btn btn--primary" style="background:var(--olive);border-color:var(--olive);width:100%;">Simulate Colonico Essence</a>
+            </article>
 
-        <article class="card">
-          <span class="price-pill">€1,350 – €1,950 / m² · 4–9 Months</span>
-          <h3>Private Villas &amp; Change of <em>Use</em></h3>
-          <p>Complete architectural, structural and energy renovations for international families buying a home in Tuscany, including Soprintendenza heritage approvals and weekly video site updates in English.</p>
-        </article>
+            <article class="product-line-card product-line-card--terracotta">
+              <div>
+                <h3>Borgo Contemporaneo</h3>
+                <div class="product-line-sub">Units in medieval villages &amp; historic centres · Terracotta Line (#B35A3C)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Turnkey Prezzo Chiuso Toscan range</span>
+                    <strong>€1,350 – €1,850 / m²</strong>
+                  </li>
+                  <li>
+                    <span>Guaranteed delivery timeline</span>
+                    <strong>5 – 7 months (with written penalties)</strong>
+                  </li>
+                  <li>
+                    <span>Primary use</span>
+                    <strong>Multi-suite subdivisions with en-suite bathrooms</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" data-select-est="appartamenti" class="btn btn--primary" style="width:100%;">Simulate Borgo Contemporaneo</a>
+            </article>
+
+            <article class="product-line-card product-line-card--gold">
+              <div>
+                <h3>Villa Toscana</h3>
+                <div class="product-line-sub">Historic villas, boutique hotels, vineyards &amp; olive groves · Antique Gold Line (#B89A4F)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Turnkey Prezzo Chiuso Toscan range</span>
+                    <strong>€1,850 – €2,400 / m²</strong>
+                  </li>
+                  <li>
+                    <span>Guaranteed delivery timeline</span>
+                    <strong>8 – 12 months (with written penalties)</strong>
+                  </li>
+                  <li>
+                    <span>Primary use</span>
+                    <strong>Luxury villas, boutique hotels &amp; wine resorts</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" data-select-est="hotel" class="btn btn--secondary" style="border-color:var(--gold);background:var(--gold);color:var(--ink);width:100%;">Simulate Villa Toscana</a>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="process">
-      <span class="eyebrow">Remote Peace of Mind</span>
-      <h2>Six clear phases from feasibility to <em>first guests</em></h2>
-      <div class="grid-3">
-        <div class="card">
-          <strong>01 · Free 48h Feasibility Study</strong>
-          <p>Urban planning check, technical inspection and indicative €/m² budget range within 48 business hours.</p>
-        </div>
-        <div class="card">
-          <strong>02 · Design &amp; Permits</strong>
-          <p>Architectural floor plans, municipal permits (CILA/SCIA/Soprintendenza) and itemized Bill of Quantities.</p>
-        </div>
-        <div class="card">
-          <strong>03 · Fixed-Price Construction</strong>
-          <p>Turnkey execution paid across 5 verified Stage Payments (SAL) with weekly English photo &amp; video reports.</p>
-        </div>
-        <div class="card">
-          <strong>04 · Interior Furnishing</strong>
-          <p>Supply and installation of kitchens, bathrooms, lighting, smart locks, Wi-Fi and bespoke furniture.</p>
-        </div>
-        <div class="card">
-          <strong>05 · Testing &amp; Handover</strong>
-          <p>Certified MEP compliance declarations, Energy Certificate (APE), habitability and 10-year structural warranty.</p>
-        </div>
-        <div class="card" id="hospitality">
-          <strong>06 · Blue Arroyo Guest Management</strong>
-          <p>If desired, Blue Arroyo immediately takes over listings, dynamic pricing, guest check-in, housekeeping and maintenance.</p>
+    <!-- 2C. TERRACOTTA MANIFESTO BANNER (Brand Book p. 5 & 15) -->
+    <section class="manifesto-terracotta" aria-label="Toscan Costruzioni Mission">
+      <div class="container">
+        <span class="eyebrow" style="color:var(--stone);">03 — Mission · Our Reason for Being</span>
+        <blockquote>
+          “Every Stone Tells a Story — Transforming Tuscany’s real estate landscape through efficient renovation and historical respect, delivering exceptional properties ready to perform from day one.”
+        </blockquote>
+        <cite>Toscan Costruzioni · Brand Book Version 1.0 · Tradition in the soul · Efficiency in execution · Profitability in every stone</cite>
+      </div>
+    </section>
+
+    <!-- 3. FOUR CORE INTERVENTIONS (ASYMMETRIC EDITORIAL STREAM) -->
+    <section class="section" id="servizi">
+      <div class="container">
+        <span class="eyebrow">04 — Services &amp; Costs · Our Four Scopes of Work</span>
+        <h2>What we build and renovate for <em>property owners</em>, hoteliers and buyers</h2>
+        <p>Every historic property in Tuscany requires a tailored structural, urban-planning and hospitality layout strategy. Here are our four core scopes of intervention.</p>
+
+        <div class="editorial-stream">
+          <article class="editorial-row">
+            <div class="editorial-row__media">
+              <img src="assets/project_apartment.jpg" alt="Historic Florentine palazzo interior converted into boutique hotel suites" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Average timeline: 8–12 months · Guaranteed handover</span>
+            </div>
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">01 · Hospitality &amp; Palazzi</span>
+                <h3>Hotels &amp; <em>Boutique Hotels</em></h3>
+                <p>Full off-season refurbishment of existing hotels and conversion of historic palazzi into contemporary 4-star and 5-star boutique properties: soundproofed en-suite bedrooms, reception, breakfast rooms, spa, fire safety (CPI) and custom FF&amp;E.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Prezzo Chiuso Toscan range: €1,850 – €2,400 / m²</div>
+                <a href="/costruzione-hotel-student-housing-toscana.html" class="link-arrow">Explore hotel &amp; palazzo conversions</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-row editorial-row--reverse">
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">02 · Country Estates &amp; Heritage</span>
+                <h3>Farmhouses (<em>Agriturismi</em>) &amp; Wine Resorts</h3>
+                <p>Conservative restoration of stone farmhouses, country estates and wineries across Chianti, Siena, Val d'Orcia and Maremma: agricultural permits (PMAA), seismic strengthening, ventilated timber/terracotta roofs, Soprintendenza pool permits and hybrid heat-pump systems.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Prezzo Chiuso Toscan range: €1,650 – €2,300 / m²</div>
+                <a href="/agriturismo-wine-resort-siena-val-dorcia.html" class="link-arrow">Explore farmhouse &amp; wine resort restorations</a>
+              </div>
+            </div>
+            <div class="editorial-row__media">
+              <img src="assets/project_casale.jpg" alt="Restored stone farmhouse in Chianti with panoramic garden and pool" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Chianti · Siena · Val d'Orcia · Maremma</span>
+            </div>
+          </article>
+
+          <article class="editorial-row">
+            <div class="editorial-row__media">
+              <img src="assets/interno-toscano.jpg" alt="Bright suite created from an apartment subdivision in Florence with exposed beams and private bathroom" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Average timeline: 5–7 months · Furnishing &amp; smart locks included</span>
+            </div>
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">03 · High-Yield Urban Subdivisions</span>
+                <h3>Short-Term &amp; Medium-Term <em>Apartments</em></h3>
+                <p>Subdivision of large apartments or entire floors in Florence and Tuscan art cities into independent suites: one bedroom = one private en-suite bathroom, certified acoustic insulation, ducted A/C, smart keypads for self check-in and full CIN compliance.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Prezzo Chiuso Toscan range: €1,350 – €1,850 / m²</div>
+                <a href="/sviluppo-immobili-short-medium-term-firenze.html" class="link-arrow">See how urban apartment subdivision works</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="editorial-row editorial-row--reverse">
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">04 · Urban &amp; Residential Reconversion</span>
+                <h3>Private Villas &amp; Change of <em>Use</em></h3>
+                <p>Conversion of former offices, commercial units or entire buildings into hospitality residences or high-efficiency private homes, managing every municipal and Soprintendenza heritage permit up to the final habitability certificate.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Prezzo Chiuso Toscan range: €1,450 – €2,100 / m²</div>
+                <a href="/cambio-destinazione-uso-hotel-short-term-toscana.html" class="link-arrow">Explore change-of-use &amp; villa renovations</a>
+              </div>
+            </div>
+            <div class="editorial-row__media">
+              <img src="assets/artigiano.jpg" alt="Artisan masonry and historical material restoration on a Toscan Costruzioni site" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Urban Permits · Soprintendenza · Structural Works</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div style="text-align:center;">
-        <span class="eyebrow">Start With Your Property</span>
-        <h2>Request your free <em>feasibility</em> study in 48h</h2>
-        <p style="margin:8px auto 0;">Tell us about your property in Tuscany: an English-speaking engineer will reply within 24 business hours.</p>
-      </div>
+    <!-- 4. CASE STUDIES & INTERACTIVE BEFORE/AFTER SLIDER -->
+    <section class="section section--paper reveal-section" id="progetti">
+      <div class="container">
+        <span class="eyebrow">05 — Documented Case Studies</span>
+        <h2>Completed works &amp; <em>Before / After</em> comparison</h2>
+        <p>Drag the central slider (or use your keyboard arrows) to compare the property before construction started and the turnkey asset delivered by Toscan Costruzioni.</p>
 
-      <form class="form-box" id="en-lead-form">
-        <div class="field-grid">
-          <div>
-            <label for="en-type">Property type</label>
-            <select id="en-type" name="property_type" required>
-              <option value="Boutique Hotel / Palazzo">Hotel / Historic Palazzo</option>
-              <option value="Stone Farmhouse / Agriturismo">Stone Farmhouse / Agriturismo</option>
-              <option value="Apartment for Short-Term Rentals">Apartment for Short-Term Rentals</option>
-              <option value="Private Villa / Residence">Private Villa / Residence</option>
-            </select>
-          </div>
-          <div>
-            <label for="en-city">Town / Area in Tuscany</label>
-            <input type="text" id="en-city" name="city" placeholder="e.g. Florence, Chianti, Siena, Lucca" required />
-          </div>
-          <div>
-            <label for="en-sqm">Approximate size (m²)</label>
-            <input type="number" id="en-sqm" name="sqm" placeholder="e.g. 250" required />
-          </div>
-          <div>
-            <label for="en-budget">Indicative budget range</label>
-            <select id="en-budget" name="budget">
-              <option value="€150k – €350k">€150,000 – €350,000</option>
-              <option value="€350k – €750k">€350,000 – €750,000</option>
-              <option value="€750k – €1.5M">€750,000 – €1,500,000</option>
-              <option value="Over €1.5M">Over €1,500,000</option>
-            </select>
-          </div>
-          <div>
-            <label for="en-name">Your full name</label>
-            <input type="text" id="en-name" name="name" placeholder="Name and Surname" required />
-          </div>
-          <div>
-            <label for="en-contact">Email or WhatsApp number</label>
-            <input type="text" id="en-contact" name="contact" placeholder="email@domain.com or +44 / +1..." required />
+        <div class="before-after-box">
+          <div class="ba-grid">
+            <div class="ba-slider" id="ba-slider">
+              <img src="assets/project_apartment.jpg" alt="After renovation: Florentine apartment divided into bright hospitality suites with exposed beams and oak parquet" width="680" height="400" />
+              <div class="ba-before-wrap" id="ba-before-wrap">
+                <img src="assets/villa_renovation.jpg" alt="Before renovation: outdated systems and raw masonry requiring structural consolidation" width="680" height="400" />
+              </div>
+              <span class="ba-badge ba-badge--before">Before works</span>
+              <span class="ba-badge ba-badge--after">After handover</span>
+              <div class="ba-handle" id="ba-handle" aria-hidden="true">I I</div>
+              <input type="range" class="ba-range" id="ba-range" min="5" max="95" value="50" aria-label="Slide to compare before and after renovation photos" />
+            </div>
+
+            <div>
+              <span class="case-tag">Case Study 01 · Historic Centre of Florence</span>
+              <h3>Noble-floor subdivision into <em>6 hospitality</em> suites</h3>
+              <p><strong>Initial challenge:</strong> a single 280 m² apartment with obsolete MEP systems, only one bathroom and traditional rent insufficient to cover extraordinary maintenance.</p>
+              <p><strong>Completed work:</strong> urban subdivision into 6 independent suites with private en-suite bathrooms, certified acoustic insulation, ducted A/C and turnkey furnishing.</p>
+              <ul class="case-specs">
+                <li><span>Size &amp; Location</span><strong>280 m² · Florence</strong></li>
+                <li><span>Actual duration</span><strong>6.5 months (on schedule)</strong></li>
+                <li><span>Prezzo Chiuso Toscan + FF&amp;E</span><strong>€1,500/m² (€420,000 total)</strong></li>
+              </ul>
+              <a href="#contatti" class="btn btn--primary" onclick="prefillForm('Short-term rental apartments', 'Florence', 280, 'Turnkey renovation + guest management')">Request a feasibility study for a similar property</a>
+            </div>
           </div>
         </div>
-        <div style="margin-top:16px;">
-          <label for="en-notes">Project goals (optional)</label>
-          <textarea id="en-notes" name="notes" rows="3" placeholder="Tell us if you already own the property or are evaluating a purchase..."></textarea>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-card__media">
+              <img src="assets/project_casale.jpg" alt="Stone farmhouse in Greve in Chianti after restoration" loading="lazy" width="480" height="240" />
+              <img src="assets/artigiano.jpg" class="img-secondary" alt="Artisan stone and terracotta craftsmanship in Chianti" loading="lazy" width="480" height="240" />
+              <span class="status-badge">Delivered Asset</span>
+            </div>
+            <div class="project-card__body">
+              <span class="case-tag">Case Study 02 · Chianti &amp; Siena</span>
+              <h3>Stone farmhouse restoration for <em>rural hospitality</em></h3>
+              <p>Structural consolidation of timber and terracotta floors, ventilated roof reconstruction, 8 en-suite bedrooms and high-efficiency heat pump plant.</p>
+              <ul class="case-specs">
+                <li><span>Surface</span><strong>460 m² + private grounds</strong></li>
+                <li><span>Duration</span><strong>9 months</strong></li>
+                <li><span>Turnkey cost</span><strong>€1,820/m²</strong></li>
+              </ul>
+              <a href="/ristrutturazione-casale-toscano.html" class="link-arrow">Read the stone farmhouse case study</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__media">
+              <img src="assets/interno-toscano.jpg" alt="En-suite bedroom with bespoke furnishing in Florence" loading="lazy" width="400" height="240" />
+              <img src="assets/project_apartment.jpg" class="img-secondary" alt="Bright living area with exposed timber beams and oak parquet" loading="lazy" width="400" height="240" />
+              <span class="status-badge">Delivered Asset</span>
+            </div>
+            <div class="project-card__body">
+              <span class="case-tag">Case Study 03 · University District</span>
+              <h3>Former offices converted into <em>student suites</em></h3>
+              <p>Change of use from office to medium-term residence: 14 en-suite bedrooms, shared kitchen, laundry room and smart electronic access.</p>
+              <ul class="case-specs">
+                <li><span>Surface</span><strong>390 m² · Florence Novoli</strong></li>
+                <li><span>Duration</span><strong>6 months</strong></li>
+                <li><span>Turnkey cost</span><strong>€1,440/m² incl. FF&amp;E</strong></li>
+              </ul>
+              <a href="/student-housing-pbsa-firenze-pisa.html" class="link-arrow">Explore student housing conversions</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-card__media">
+              <img src="assets/disegno-architettonico.png" alt="Architectural blueprint for Villa Claudia restoration in Montespertoli" loading="lazy" width="360" height="240" />
+              <img src="assets/esploso-costruttivo.png" class="img-secondary" alt="Structural exploded axonometric view of Villa Claudia" loading="lazy" width="360" height="240" />
+              <span class="status-badge status-badge--progetto">Render di progetto — Cantiere in avvio</span>
+            </div>
+            <div class="project-card__body">
+              <span class="case-tag">2026 Project · Montespertoli (Florence)</span>
+              <h3>Villa <em>Claudia</em> · Historic Chianti Villa</h3>
+              <p>Executive design and site launch for the conservative restoration of a 520 m² historic villa divided into 6 independent residences with park and pool.</p>
+              <ul class="case-specs">
+                <li><span>Current status</span><strong>Project render · Site launch</strong></li>
+                <li><span>Surface</span><strong>520 m² · 6 units</strong></li>
+                <li><span>Contract</span><strong>Prezzo Chiuso Toscan</strong></li>
+              </ul>
+              <a href="/villa-claudia" class="link-arrow">Inspect Villa Claudia blueprints</a>
+            </div>
+          </article>
         </div>
-        <div style="margin-top:20px;text-align:center;">
-          <button type="submit" class="btn btn-primary" style="width:100%;max-width:420px;">Request Free Feasibility Study</button>
-          <p style="font-size:0.82rem;margin:10px auto 0;color:var(--muted);">
-            Reply within 24h · Free site inspection · No obligation
-          </p>
-        </div>
-        <div id="en-form-msg" style="display:none;margin-top:16px;padding:14px;background:#EFE8DC;text-align:center;font-weight:600;"></div>
-      </form>
+      </div>
     </section>
-    <section>
-      <span class="eyebrow">Staggered Entry · Step-by-Step Validation</span>
-      <h2>Not ready to commit to a full contract yet? Book a 1-to-1 <em>Masterclass</em> (€150 credited)</h2>
-      <p style="margin-top:8px;color:var(--ink);">
-        Through the <strong>Metodo Toscan</strong>, international buyers and property owners can start with a 60-minute 1-to-1 technical session (<strong>€150, 100% deducted</strong> from subsequent works) with one of our 4 Department Directors (<strong>1A Urban Planning &amp; Permits</strong> · <strong>1B Hospitality Business Plan &amp; Italian Bank Leverage</strong> · <strong>1C Fixed-Price Contract &amp; Percorso a 5 SAL</strong> · <strong>1D Pre-Sales Cantiere</strong>) before locking in the <strong>Prezzo Chiuso Toscan</strong> and activating the <strong>Ciclo Blue Arroyo</strong>.
-      </p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-        <a href="/blog#prenota-step-a" class="btn btn-primary">Book your 1-to-1 Expert Masterclass (€150 credited)</a>
-        <a href="/preventivo-tipo" class="btn btn-secondary">Open Itemized PDF Quote</a>
+
+    <!-- 5. HOW WE WORK: STICKY NARRATIVE (5 BUDGET-STAGGERED STEPS) -->
+    <section class="section" id="come-lavoriamo">
+      <div class="container">
+        <div class="sticky-narrative">
+          <div class="sticky-narrative__pinned">
+            <span class="eyebrow">06 — The Metodo Toscan Step by Step</span>
+            <h2>Start according to your <em>budget</em>, from the first call to guest management</h2>
+            <p>You never have to sign a full construction contract blindly. With our staggered entry system you can start with a 60-minute <strong>Masterclass di Cantiere (€150, 100% deducted from subsequent works)</strong> with our specialist Director, and move forward step by step.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:var(--space-4);">
+              <a href="/blog#prenota-step-a" class="btn btn--primary">Book your 1-to-1 Expert Masterclass</a>
+              <a href="/stato-cantiere?view=dettaglio-cantiere&amp;quota=2000#dettaglio-cantiere" class="btn btn--secondary">Approved Members Area · 5 SAL Simulator</a>
+              <a href="/data-room" class="link-arrow">Download the 5-SAL Standard Contract (PDF)</a>
+            </div>
+          </div>
+
+          <div class="sticky-narrative__steps">
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Step 01 · Accessible Entry (€150 — 100% credited)</div>
+                <h3>1-to-1 <em>Masterclass di Cantiere</em> with our 4 Directors</h3>
+                <p>Choose your 60-minute session on the topic most relevant to your property: <strong>1A. Surveyor &amp; Urban Planning</strong> (subdivisions, drains, Soprintendenza), <strong>1B. Business Plan &amp; Italian Bank Leverage</strong> (purchase + construction SAL mortgage), <strong>1C. Site Administration &amp; 5 SAL</strong>, or <strong>1D. Pre-Sales Cantiere</strong> (selling or leasing units off-plan during construction).</p>
+              </div>
+              <div class="timeline-step__deliverable">Deliverable: Technical diagnosis on your property &amp; tailored action plan</div>
+            </div>
+
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Step 02 · Pre-Purchase &amp; Bank Validation (€950–€1,800 credited)</div>
+                <h3>On-Site <em>Surveyor</em> Inspection &amp; Bankable Business Plan</h3>
+                <p>Before signing a purchase offer or approaching an Italian bank, our Surveyor inspects structures, roof, MEP systems and waste stacks, delivering a bank-ready cost/revenue business plan.</p>
+              </div>
+              <div class="timeline-step__deliverable">Deliverable: Pre-closing technical due diligence &amp; bankable Business Plan</div>
+            </div>
+
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Step 03 · Design, Permits &amp; Pre-Sales (€2,200–€4,200 credited)</div>
+                <h3>Interior Design, Municipal Permits &amp; <em>Prezzo Chiuso Toscan</em></h3>
+                <p>We design the en-suite bedroom layouts, file municipal permits (CILA, SCIA, Soprintendenza), prepare photorealistic renders for <strong>Pre-Sales Cantiere</strong> and sign the executive Bill of Quantities that locks your lump-sum price to the cent.</p>
+              </div>
+              <div class="timeline-step__deliverable">Deliverable: Approved permits, Pre-Sales Kit &amp; locked-price contract</div>
+            </div>
+
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Step 04 · Protected Execution &amp; Pilot Unit</div>
+                <h3>Sample Suite &amp; Turnkey Site with <em>Percorso a 5 SAL</em></h3>
+                <p>On larger properties we can start with a first sample suite. The entire site progresses through the <strong>Percorso a 5 SAL</strong> (15% start, 25% structures, 25% MEP, 25% finishes, 10% final testing), with Friday photo/video reports in English, verified DURC and €250/day delay penalties.</p>
+              </div>
+              <div class="timeline-step__deliverable">Deliverable: Stage payments tied to verified works &amp; installed FF&amp;E</div>
+            </div>
+
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Step 05 · Immediate Revenue Launch</div>
+                <h3>Final Handover &amp; Activation of the <em>Ciclo Blue Arroyo</em></h3>
+                <p>Upon handing over the keys and the 10-year structural policy, our group companies take over at day zero: regulatory compliance (CIN/Questura), 60°C hotel-grade linen staging and direct tourist bookings. Approved Members also access opening co-investment sites starting from €2,000.</p>
+              </div>
+              <div class="timeline-step__deliverable">Deliverable: Certified, staged and revenue-generating property from day one</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. QUICK €/m² ESTIMATOR IN 3 QUESTIONS -->
+    <section class="section section--paper reveal-section" id="stima-rapida">
+      <div class="container">
+        <span class="eyebrow">07 — Transparent Square-Metre Calculator</span>
+        <h2>Calculate a quick <em>estimate</em> for your Tuscan property</h2>
+        <p>Select property type, approximate size and intervention level to view indicative turnkey €/m² ranges and expected construction months in Tuscany.</p>
+
+        <div class="estimator-box">
+          <div class="estimator-controls">
+            <div class="field-group">
+              <label class="field-label">1. What type of property do you want to create?</label>
+              <div class="chips-group" role="radiogroup" aria-label="Property type">
+                <button type="button" class="chip-btn is-active" data-est-type="appartamenti">Short/medium-term rental apartments</button>
+                <button type="button" class="chip-btn" data-est-type="hotel">Hotel or boutique hotel</button>
+                <button type="button" class="chip-btn" data-est-type="agriturismo">Stone farmhouse or agriturismo</button>
+                <button type="button" class="chip-btn" data-est-type="studenti">Student housing / change of use</button>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <label class="field-label" for="est-sqm">2. What is the approximate floor area?</label>
+                <strong id="est-sqm-val" style="color:var(--terracotta);font-size:1.2rem;">300 m²</strong>
+              </div>
+              <input type="range" id="est-sqm" class="range-slider" min="80" max="2000" step="20" value="300" />
+              <span class="field-help">Slide from 80 m² up to 2,000 m².</span>
+            </div>
+
+            <div class="field-group" style="margin-bottom:0;">
+              <label class="field-label">3. Which intervention level do you need?</label>
+              <div class="chips-group" role="radiogroup" aria-label="Intervention level">
+                <button type="button" class="chip-btn is-active" data-est-level="completo">Full turnkey renovation + furnishing</button>
+                <button type="button" class="chip-btn" data-est-level="strutturale">Structural heritage restoration + pool/spa</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="estimator-result" aria-live="polite">
+            <div>
+              <span class="case-tag">Parametric estimate (not a binding quote)</span>
+              <h3 id="est-title">Short-term rental apartments (300 m²)</h3>
+
+              <div class="est-price-box">
+                <div style="font-size:0.95rem;color:var(--muted);">Indicative turnkey range per m²</div>
+                <div class="est-price-val" id="est-range-sqm">€1,400 – €1,700 / m²</div>
+                <div style="font-size:1rem;color:var(--ink);margin-top:8px;font-weight:600;" id="est-total-cost">Estimated total range: €420,000 – €510,000</div>
+              </div>
+
+              <ul class="case-specs" style="margin-top:var(--space-3);">
+                <li><span>Expected duration</span><strong id="est-months">6 – 7 months</strong></li>
+                <li><span>Included scope</span><strong>Design, permits, MEP &amp; bespoke FF&amp;E</strong></li>
+                <li><span>Payment schedule</span><strong>Percorso a 5 SAL verified</strong></li>
+              </ul>
+            </div>
+
+            <div>
+              <p style="font-size:0.92rem;color:var(--muted);margin-bottom:var(--space-3);">
+                Note: this is an <strong>indicative parametric estimate</strong> based on Toscan Costruzioni sites. Your binding <strong>Prezzo Chiuso Toscan</strong> is locked after the free technical inspection.
+              </p>
+              <a href="#contatti" class="btn btn--primary" id="est-cta-btn" style="width:100%;">Request your free 48h feasibility study</a>
+              <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;">
+                <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow">Open itemized PDF quote for 300 m²</a>
+                <a href="/blog?mc=1A&amp;type=appartamenti&amp;sqm=300#prenota-step-a" id="est-mc-link" class="link-arrow">Book the €150 Masterclass on this estimate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. GROUP ADVANTAGE ("FROM CONSTRUCTION SITE TO GUESTS") + GLOSSARY -->
+    <section class="section reveal-section" id="vantaggio-gruppo">
+      <div class="container">
+        <div class="hero__grid">
+          <div>
+            <span class="eyebrow">09 — Industrial Synergy · Blue Arroyo Group</span>
+            <h2>From construction site to <em>guests</em>: four specialised companies in one group</h2>
+            <p>A traditional builder hands over the keys and disappears: if mistakes were made on acoustics, plumbing or room layout, you only find out when maintenance bills or bad guest reviews arrive.</p>
+            <p><strong>Toscan Costruzioni is the construction arm of Blue Arroyo Group</strong>. We build every property knowing exactly how it must perform for paying guests, activating the <strong>Ciclo Blue Arroyo</strong> the day construction finishes.</p>
+          </div>
+          <div style="background:var(--paper);border:1px solid var(--line);padding:var(--space-5);border-radius:var(--radius);">
+            <h3>The <em>Ciclo Blue Arroyo</em> in 4 steps</h3>
+            <ul class="case-specs" style="margin-bottom:0;">
+              <li style="flex-direction:column;align-items:flex-start;gap:4px;">
+                <strong style="color:var(--terracotta);text-align:left;">1. Toscan Costruzioni builds the asset</strong>
+                <span>Delivers a brand-new, wired and tested property backed by Prezzo Chiuso Toscan and a 10-year warranty.</span>
+              </li>
+              <li style="flex-direction:column;align-items:flex-start;gap:4px;">
+                <strong style="text-align:left;">2. itassistance protects &amp; optimises it</strong>
+                <span>Activates CIN, Police guest registration, ISTAT compliance and dynamic revenue management.</span>
+              </li>
+              <li style="flex-direction:column;align-items:flex-start;gap:4px;">
+                <strong style="text-align:left;">3. Blue Arroyo Cleaning stages it</strong>
+                <span>Prepares hotel-grade suites with 60°C sanitised linen, organic guest kits and certified photo inspections.</span>
+              </li>
+              <li style="flex-direction:column;align-items:flex-start;gap:4px;">
+                <strong style="text-align:left;">4. SmartsBookings fills it with guests</strong>
+                <span>Generates direct bookings without excessive OTA commissions and transfers 85% payout by 12:00 PM on check-out day.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:var(--space-7);">
+          <span class="case-tag">Official proprietary vocabulary</span>
+          <h3>The <em>Toscan Costruzioni</em> Glossary</h3>
+          <div class="glossary-grid">
+            <div class="glossary-card">
+              <strong>Metodo Toscan</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Our turnkey contracting system uniting design, municipal permits, fixed-price construction, furnishing and hospitality launch under one contract.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Prezzo Chiuso Toscan</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">The total lump-sum price locked upon signing the executive Bill of Quantities: any technical site unforeseen remains Toscan Costruzioni’s responsibility.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Percorso a 5 SAL</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Protected payment schedule across 5 verified Stage Payments (15%, 25%, 25%, 25%, 10%) paid only after works are verified on site.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Masterclass di Cantiere</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">60-minute 1-to-1 session (€150, 100% credited towards works) with our Surveyor, Bank Business Plan Director, SAL Admin or Pre-Sales Director.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Pre-Sales Cantiere</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Our strategy to pre-sell or pre-lease units off-plan during construction through hospitality layouts, photorealistic renders and a sample suite.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Ciclo Blue Arroyo</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Immediate handover of the completed property to itassistance, Blue Arroyo Cleaning and SmartsBookings to generate revenue from day one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT & 2-STEP FEASIBILITY STUDY FORM -->
+    <section class="section section--paper" id="contatti">
+      <div class="container">
+        <div class="form-shell">
+          <div style="margin-bottom:var(--space-5);">
+            <span class="eyebrow">10 — Start With Your Property in Tuscany</span>
+            <h2>Request your free <em>feasibility study</em> in 48h</h2>
+            <p>Complete the 2 quick steps below: an English-speaking engineer in Florence will reply within 24 business hours.</p>
+          </div>
+
+          <div class="step-pills" aria-label="Form progress">
+            <div class="step-pill is-active" id="pill-step-1">Step 1 of 2 · Property Details</div>
+            <div class="step-pill" id="pill-step-2">Step 2 of 2 · Your Contact Details</div>
+          </div>
+
+          <form id="lead-form" novalidate>
+            <input type="hidden" id="f-tipo" name="tipo" value="Short-term rental apartments" />
+            <input type="hidden" id="f-obiettivo" name="obiettivo" value="Turnkey renovation + guest management" />
+            <input type="hidden" id="f-budget" name="budget" value="" />
+
+            <div id="form-step-1">
+              <div class="field-group">
+                <label class="field-label">1. Which type of property are you renovating or buying?</label>
+                <div class="chips-group" role="radiogroup" aria-label="Property type">
+                  <button type="button" class="chip-btn is-active" data-f-tipo="Short-term rental apartments">Apartment to subdivide</button>
+                  <button type="button" class="chip-btn" data-f-tipo="Stone farmhouse or agriturismo">Stone farmhouse / Agriturismo</button>
+                  <button type="button" class="chip-btn" data-f-tipo="Hotel or boutique hotel">Hotel or boutique hotel</button>
+                  <button type="button" class="chip-btn" data-f-tipo="Private villa or change of use">Private villa / Change of use</button>
+                </div>
+              </div>
+
+              <div class="input-row">
+                <div class="field-group">
+                  <label class="field-label" for="f-citta">2. Town or Area in Tuscany *</label>
+                  <input type="text" id="f-citta" class="input-text" placeholder="e.g. Florence, Chianti, Siena, Lucca" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="f-mq">3. Approximate size (m²) *</label>
+                  <input type="number" id="f-mq" class="input-text" placeholder="e.g. 280" min="30" max="10000" required />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">4. How would you like to start?</label>
+                <div class="chips-group" role="radiogroup" aria-label="Primary goal">
+                  <button type="button" class="chip-btn is-active" data-f-obiettivo="Turnkey renovation + guest management">Free 48h Feasibility Study</button>
+                  <button type="button" class="chip-btn" data-f-obiettivo="Start with 1-to-1 Masterclass (€150 credited)">Start with 1-to-1 Masterclass (€150)</button>
+                  <button type="button" class="chip-btn" data-f-obiettivo="Pre-purchase technical inspection">Pre-purchase inspection</button>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Continue to Step 2 of 2</button>
+            </div>
+
+            <div id="form-step-2" style="display:none;">
+              <div class="input-row">
+                <div class="field-group">
+                  <label class="field-label" for="f-nome">Full Name *</label>
+                  <input type="text" id="f-nome" class="input-text" placeholder="Name and Surname" required />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="f-telefono">WhatsApp or Phone Number *</label>
+                  <input type="tel" id="f-telefono" class="input-text" placeholder="+44 / +1 / +39..." required />
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="f-email">Email Address *</label>
+                <input type="email" id="f-email" class="input-text" placeholder="name@domain.com" required />
+              </div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--space-4);">
+                <button type="button" class="btn btn--secondary" id="btn-back-step-1">Back</button>
+                <button type="submit" class="btn btn--primary" style="flex:1;">Request Free Feasibility Study</button>
+              </div>
+            </div>
+
+            <div id="form-feedback" style="display:none;margin-top:var(--space-4);padding:var(--space-4);background:var(--stone);border:1px solid var(--line);border-left:4px solid var(--olive);font-weight:500;color:var(--ink);"></div>
+            <p style="font-size:0.92rem;color:var(--muted);margin-top:var(--space-3);margin-bottom:0;">
+              Reply within 24h · Free initial inspection · Protected data &amp; no contractual obligation.
+            </p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <div>
-        <strong style="color:var(--ink);">Toscan Costruzioni · Part of Blue Arroyo Group</strong><br />
-        Florence, Tuscany, Italy · Phone / WhatsApp: +39 351 038 0392 · Email: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Toscan Costruzioni · Blue Arroyo Group</h4>
+          <p style="color:var(--footer-muted);font-size:0.95rem;">
+            General Contractor in Florence and Tuscany for turnkey renovations of hotels, stone farmhouses (agriturismi) and high-yield apartments with Prezzo Chiuso Toscan and guaranteed timelines.
+          </p>
+          <p style="color:var(--stone);font-size:0.95rem;margin-bottom:0;">
+            Florence, Tuscany, Italy · Tel: +39 351 038 0392<br />
+            toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
+          </p>
+        </div>
+        <div>
+          <h4>Product Lines &amp; Scopes</h4>
+          <ul>
+            <li><a href="#filosofia-linee">Colonico Essence (Olive Line)</a></li>
+            <li><a href="#filosofia-linee">Borgo Contemporaneo (Terracotta Line)</a></li>
+            <li><a href="#filosofia-linee">Villa Toscana (Antique Gold Line)</a></li>
+            <li><a href="/costruzione-hotel-student-housing-toscana.html">Hotels &amp; Boutique Hotels</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Tools &amp; Documentation</h4>
+          <ul>
+            <li><a href="/blog">Journal &amp; 1-to-1 Masterclasses (€150)</a></li>
+            <li><a href="/stato-cantiere?view=dettaglio-cantiere&amp;quota=2000#dettaglio-cantiere">Approved Members Area (from €2,000)</a></li>
+            <li><a href="/preventivo-tipo">Itemized PDF Quote</a></li>
+            <li><a href="/data-room">5-SAL Standard Contract</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Language</h4>
+          <ul>
+            <li><a href="/">Versione Italiana (IT)</a></li>
+            <li><a href="/tuscany-renovation-contractor.html">English Version (EN)</a></li>
+            <li><a href="/styleguide">Brand Book &amp; Design System</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <a href="/" style="text-decoration:underline;">Versione Italiana</a> · <a href="/data-room" style="text-decoration:underline;">Standard Contract</a>
+      <div class="footer-bottom">
+        <span>Toscan Costruzioni · Part of Blue Arroyo Group · All rights reserved</span>
+        <span>Renaissance Efficiency · Tradition in the soul · Efficiency in execution</span>
       </div>
     </div>
   </footer>
 
+  <div class="mobile-sticky-bar" id="mobile-sticky-bar">
+    <a href="#contatti" class="btn btn--primary" style="flex:1;">Free Feasibility Study</a>
+    <a href="https://wa.me/393510380392" class="btn btn--secondary">WhatsApp</a>
+  </div>
+
   <script>
-    document.getElementById('en-lead-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var payload = {
-        source: 'tuscany-renovation-contractor-en',
-        property_type: document.getElementById('en-type').value,
-        city: document.getElementById('en-city').value,
-        sqm: document.getElementById('en-sqm').value,
-        budget: document.getElementById('en-budget').value,
-        name: document.getElementById('en-name').value,
-        contact: document.getElementById('en-contact').value,
-        notes: document.getElementById('en-notes').value,
-        timestamp: new Date().toISOString()
+    (function() {
+      var menuToggle = document.getElementById('menu-toggle');
+      var mobileDrawer = document.getElementById('mobile-drawer');
+      if (menuToggle && mobileDrawer) {
+        menuToggle.addEventListener('click', function() {
+          var open = mobileDrawer.classList.toggle('is-open');
+          menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        mobileDrawer.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileDrawer.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      var baRange = document.getElementById('ba-range');
+      var baBefore = document.getElementById('ba-before-wrap');
+      var baHandle = document.getElementById('ba-handle');
+      if (baRange && baBefore && baHandle) {
+        baRange.addEventListener('input', function() {
+          var val = baRange.value + '%';
+          baBefore.style.width = val;
+          baHandle.style.left = val;
+        });
+      }
+
+      var estState = { type: 'appartamenti', sqm: 300, level: 'completo' };
+      var EST_CONFIG = {
+        appartamenti: { label: 'Short-term rental apartments', min: 1350, max: 1700, baseMonths: 5 },
+        hotel:        { label: 'Hotel or boutique hotel', min: 1850, max: 2350, baseMonths: 8 },
+        agriturismo:  { label: 'Stone farmhouse or agriturismo', min: 1650, max: 2200, baseMonths: 8 },
+        studenti:     { label: 'Student housing / change of use', min: 1380, max: 1680, baseMonths: 6 }
       };
-      fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).catch(function(){});
-      var msg = document.getElementById('en-form-msg');
-      msg.style.display = 'block';
-      msg.textContent = 'Thank you! Your request has been received. Our Florence team will reply within 24 business hours.';
-      this.reset();
-    });
+
+      function updateEstimator() {
+        var cfg = EST_CONFIG[estState.type] || EST_CONFIG.appartamenti;
+        var mult = estState.level === 'strutturale' ? 1.12 : 1.0;
+        var minSqm = Math.round((cfg.min * mult) / 50) * 50;
+        var maxSqm = Math.round((cfg.max * mult) / 50) * 50;
+        var minTot = minSqm * estState.sqm;
+        var maxTot = maxSqm * estState.sqm;
+        var mStart = Math.max(4, Math.round(cfg.baseMonths + (estState.sqm / 350)));
+
+        document.getElementById('est-sqm-val').textContent = estState.sqm + ' m²';
+        document.getElementById('est-title').textContent = cfg.label + ' (' + estState.sqm + ' m²)';
+        document.getElementById('est-range-sqm').textContent = '€' + minSqm.toLocaleString('en-US') + ' – €' + maxSqm.toLocaleString('en-US') + ' / m²';
+        document.getElementById('est-total-cost').textContent = 'Estimated total range: €' + minTot.toLocaleString('en-US') + ' – €' + maxTot.toLocaleString('en-US');
+        document.getElementById('est-months').textContent = mStart + ' – ' + (mStart + 2) + ' months';
+        var pdfLink = document.getElementById('est-pdf-link');
+        if (pdfLink) {
+          pdfLink.href = '/preventivo-tipo?type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm);
+          pdfLink.textContent = 'Open itemized PDF quote for ' + estState.sqm + ' m²';
+        }
+        var mcLink = document.getElementById('est-mc-link');
+        if (mcLink) {
+          mcLink.href = '/blog?mc=1A&type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm) + '#prenota-step-a';
+          mcLink.textContent = 'Book the €150 Masterclass for ' + estState.sqm + ' m²';
+        }
+      }
+
+      document.querySelectorAll('[data-est-type]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-est-type]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          estState.type = btn.getAttribute('data-est-type');
+          updateEstimator();
+        });
+      });
+
+      document.querySelectorAll('[data-select-est]').forEach(function(link) {
+        link.addEventListener('click', function() {
+          var t = link.getAttribute('data-select-est');
+          var targetBtn = document.querySelector('[data-est-type="' + t + '"]');
+          if (targetBtn) targetBtn.click();
+        });
+      });
+
+      document.querySelectorAll('[data-est-level]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-est-level]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          estState.level = btn.getAttribute('data-est-level');
+          updateEstimator();
+        });
+      });
+
+      var sqmInput = document.getElementById('est-sqm');
+      if (sqmInput) {
+        sqmInput.addEventListener('input', function() {
+          estState.sqm = parseInt(sqmInput.value, 10) || 300;
+          updateEstimator();
+        });
+      }
+
+      window.prefillForm = function(tipo, citta, mq, obiettivo) {
+        if (citta) document.getElementById('f-citta').value = citta;
+        if (mq) document.getElementById('f-mq').value = mq;
+        if (tipo) document.getElementById('f-tipo').value = tipo;
+        if (obiettivo) document.getElementById('f-obiettivo').value = obiettivo;
+      };
+
+      document.querySelectorAll('[data-f-tipo]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-f-tipo]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          document.getElementById('f-tipo').value = btn.getAttribute('data-f-tipo');
+        });
+      });
+
+      document.querySelectorAll('[data-f-obiettivo]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-f-obiettivo]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          document.getElementById('f-obiettivo').value = btn.getAttribute('data-f-obiettivo');
+        });
+      });
+
+      var step1 = document.getElementById('form-step-1');
+      var step2 = document.getElementById('form-step-2');
+      var pill1 = document.getElementById('pill-step-1');
+      var pill2 = document.getElementById('pill-step-2');
+
+      document.getElementById('btn-to-step-2').addEventListener('click', function() {
+        var citta = document.getElementById('f-citta');
+        var mq = document.getElementById('f-mq');
+        if (!citta.value.trim()) { citta.focus(); return; }
+        if (!mq.value.trim()) { mq.focus(); return; }
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+        pill1.classList.remove('is-active');
+        pill2.classList.add('is-active');
+        document.getElementById('f-nome').focus();
+      });
+
+      document.getElementById('btn-back-step-1').addEventListener('click', function() {
+        step2.style.display = 'none';
+        step1.style.display = 'block';
+        pill2.classList.remove('is-active');
+        pill1.classList.add('is-active');
+      });
+
+      document.getElementById('lead-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var nome = document.getElementById('f-nome').value.trim();
+        var tel = document.getElementById('f-telefono').value.trim();
+        var email = document.getElementById('f-email').value.trim();
+        if (!nome) { document.getElementById('f-nome').focus(); return; }
+        if (!tel && !email) { document.getElementById('f-telefono').focus(); return; }
+
+        fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'tuscany-renovation-contractor-en',
+            nome: nome,
+            telefono: tel,
+            email: email,
+            citta: document.getElementById('f-citta').value.trim(),
+            mq: document.getElementById('f-mq').value.trim(),
+            tipo: document.getElementById('f-tipo').value,
+            obiettivo: document.getElementById('f-obiettivo').value
+          })
+        }).catch(function() {});
+
+        var fb = document.getElementById('form-feedback');
+        fb.style.display = 'block';
+        fb.textContent = 'Thank you, ' + nome + '. Your request has been received by our Florence engineering team. We will reply within 24 business hours.';
+      });
+    })();
   </script>
 </body>
 </html>
