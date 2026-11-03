@@ -1,36 +1,46 @@
-# DESIGN.md — Aura Design System: "Toscana Monograph & Architectural Blueprint"
+# DESIGN.md — Aura Design System × Brand Book v1.0: "Renaissance Efficiency"
 **Progetto:** Toscan Costruzioni · Blue Arroyo Group (`https://toscancostruzioni.it`)
-**Archetipo Aura.build selezionato:** *Luxury Architectural Monograph & Editorial Real Estate Design System* (ispirato a monografie d'architettura contemporanea, griglie asimmetriche da tavola tecnica con filetti `1px solid`, fondi materici in pietra serena calda `#F6F1E9`, tipografia editoriale ad alto contrasto `Cormorant Garamond` + `Inter` con numeri tabulari `tabular-nums`, e narrazione sticky allo scroll).
+**Archetipo Aura.build selezionato:** *Luxury Architectural Monograph & Editorial Real Estate Design System* integrato con il **Brand Book Ufficiale Toscan Costruzioni v1.0 ("Il Rinascimento dell'Efficienza · Scalable Craftsmanship")**.
 
 ---
 
-## 1. Perché questo Design System di Aura.build è il più adatto a Toscan Costruzioni · Blue Arroyo Group
-Tra i sistemi di `aura.build/design-systems`, l'archetipo **Architectural Monograph & Editorial Real Estate** è l'unico che unisce i due mondi del gruppo **Blue Arroyo**:
-1. **L'autorità ingegneristica e artigianale del cantiere (`Toscan Costruzioni`):** griglie strutturate con bordi sottili a vista (`1px solid #C7BCA9`) che richiamano le tavole esecutive di un computo metrico e di un progetto architettonico.
-2. **L'eleganza dell'ospitalità toscana a 5 stelle (`Ciclo Blue Arroyo`: itassistance, Blue Arroyo Cleaning, SmartsBookings):** toni caldi della materia vera (Pietra Serena, Terracotta dell'Impruneta, Verde Olivo, Carbone) e fotografia a tutto campo con luce naturale.
+## 1. Perché questo Design System di Aura.build + Brand Book v1.0 è applicato a vista su Mobile e PC
+1. **Identità Visiva Immediata ("Renaissance Efficiency"):** Split-screen Hero bicolore **Inchiostro (`#1F1B17`) + Terracotta (`#B35A3C`)** con il **Monogramma Architettonico SVG di Toscan Costruzioni** (timpano triangolare, facciata quadrata, arco a tutto sesto e croce interna) e la citazione manifesto: *"Dove altri scelgono tra velocità e bellezza, noi abbiamo progettato sistemi per conseguire entrambe simultaneamente."*
+2. **Proporzione Colori della Terra Toscana (Pag. 8 Brand Book):**
+   - **Avorio (`#F6F1E9` — 60%):** Sfondo primario per tutti i materiali digitali. **Mai bianco puro (`#FFFFFF`)**: le superfici secondarie usano Avorio Chiaro (`#FAF6F0`).
+   - **Inchiostro (`#1F1B17` — 25%):** Testo primario e grandi sezioni architettoniche scure (Hero, *I Tre Assi della Filosofia*, *Le Tre Linee di Prodotto*, Footer).
+   - **Terracotta (`#B35A3C` — 10%):** Brand primario, parole chiave in corsivo (`Cormorant Garamond Italic`), filetti sotto le etichette numerate (`01 — ...`), Linea *Borgo Contemporaneo* e fascia Manifesto (*"Ogni Pietra Racconta una Storia"*).
+   - **Accenti (5%):** **Oliva (`#4A6341`)** per garanzie e Linea *Colonico Essence*; **Oro Antico (`#B89A4F`)** per Linea *Villa Toscana*; **Pietra (`#C4BBA6`)** per fondali foto e filetti strutturali `1px`.
+3. **Tipografia Ufficiale (Pag. 9–10 Brand Book):**
+   - **Display e Titoli:** `Cormorant Garamond` (Weight `300–500`, con `Italic` in Terracotta per enfasi sulla seconda riga).
+   - **Corpo Testo, UI ed Etichette:** `Jost` (Weight `300–400` per paragrafi e UI, Weight `500–600` per etichette e bottoni).
 
 ---
 
-## 2. Design Tokens (Palette Verificata WCAG AA, Tipografia, Spaziatura 8px)
+## 2. Design Tokens (Palette Terra Toscana, Tipografia Cormorant Garamond + Jost, Spaziatura 8px)
 
 ```css
 :root {
-  /* Palette Materica Toscana Contemporanea (Contrasto Verificato WCAG AA/AAA) */
-  --stone: #F6F1E9;            /* Sfondo principale Pietra Serena Chiara (15.1:1 con --ink) */
-  --paper: #FFFFFF;            /* Superfici editoriali, schede tecniche e moduli (17.1:1 con --ink) */
-  --ink: #1F1B16;              /* Testo principale, titoli e footer Carbone Toscano */
-  --muted: #5C544B;            /* Testo secondario e didascalie (6.59:1 su --stone) */
-  --terracotta: #9E421B;       /* Azione principale e accenti in corsivo (6.70:1 con #FFFFFF) */
-  --terracotta-hover: #7D3314; /* Stato hover/active primario (8.85:1 con #FFFFFF) */
-  --terracotta-on-dark: #E89572; /* Accento su sfondo scuro --ink (7.40:1) */
-  --olive: #4E5332;            /* Etichette tecniche, garanzie e stati completati (7.92:1 con #FFFFFF) */
-  --line: #C7BCA9;             /* Filetti architettonici 1px tra blocchi e sezioni */
-  --border-control: #756B5E;   /* Bordi di input, chip e bottoni secondari (4.52:1 >= 3.0:1) */
-  --overlay: rgba(31, 27, 22, 0.74); /* Velo protettivo sopra foto e video (>= 7.5:1) */
+  /* Palette Ufficiale Brand Book v1.0 — Colori della Terra Toscana */
+  --stone: #F6F1E9;              /* Avorio (Sfondo primario 60% · Mai bianco puro) */
+  --paper: #FAF6F0;              /* Avorio Chiaro (Superfici card e moduli) */
+  --pietra: #C4BBA6;             /* Pietra (Fondali foto, divisori e filetti UI neutri) */
+  --line: #C4BBA6;               /* Filetti architettonici 1px */
+  --ink: #1F1B17;                /* Inchiostro (Testo primario e sfondi scuri 25%) */
+  --ink-card: #26211C;           /* Card su fondo scuro Inchiostro (Pag. 4 e 11) */
+  --muted: #574F46;              /* Testo secondario ad alto contrasto AA su Avorio */
+  --terracotta: #B35A3C;         /* Terracotta Brand Primario, Accenti e Linea Borgo (10%) */
+  --terracotta-strong: #9A4326;  /* Bottone primario AA */
+  --terracotta-hover: #7D3314;   /* Stato hover primario */
+  --terracotta-on-dark: #D47A5B; /* Accento Terracotta su fondo scuro Inchiostro */
+  --olive: #4A6341;              /* Oliva (Accento secondario e Linea Colonico Essence) */
+  --gold: #B89A4F;               /* Oro Antico (Accento premium e Linea Villa Toscana) */
+  --border-control: #6E6559;     /* Bordi di input, chip e bottoni secondari (>= 3.0:1) */
+  --overlay: rgba(31, 27, 23, 0.76); /* Velo protettivo sopra foto e video */
 
-  /* Tipografia (Massimo 2 Famiglie) */
+  /* Tipografia Ufficiale Brand Book (Massimo 2 Famiglie) */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Spaziatura Multipli di 8px */
   --space-1: 8px;

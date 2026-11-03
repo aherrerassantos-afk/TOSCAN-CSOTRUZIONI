@@ -8,21 +8,23 @@
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --stone: #F6F1E9;            /* Sfondo principale (contrasto con --ink: 15.1:1) */
-      --paper: #FFFFFF;            /* Sfondo superfici editoriali (contrasto con --ink: 17.1:1) */
-      --ink: #1F1B16;              /* Testo principale, titoli e footer */
-      --muted: #5C544B;            /* Testo secondario (contrasto su --stone: 6.59:1, su --paper: 7.45:1) */
-      --terracotta: #9E421B;       /* Azione principale e parola chiave in corsivo (contrasto con #FFF: 6.70:1, su --stone: 5.70:1) */
-      --terracotta-hover: #7D3314; /* Stato hover primario (contrasto con #FFF: 8.85:1) */
-      --olive: #4E5332;            /* Etichette e garanzie (contrasto con #FFF: 7.92:1, su --stone: 7.01:1) */
-      --line: #C7BCA9;             /* Divisori strutturali */
-      --border-control: #756B5E;   /* Bordi di input, chip e bottoni secondari (contrasto su --stone: 4.52:1 >= 3.0:1) */
-      --overlay: rgba(31, 27, 22, 0.72); /* Velo sopra foto e video (contrasto testo bianco >= 7.5:1) */
+      --stone: #F6F1E9;              /* Avorio (Sfondo primario 60% · Mai bianco puro) */
+      --paper: #FAF6F0;              /* Avorio Chiaro (Superfici card e moduli) */
+      --ink: #1F1B17;                /* Inchiostro (Testo primario e sezioni scure 25%) */
+      --muted: #574F46;              /* Testo secondario ad alto contrasto AA */
+      --terracotta: #B35A3C;         /* Terracotta Brand Primario, Accenti e Linea Borgo (10%) */
+      --terracotta-strong: #9A4326;  /* Terracotta bottone primario AA */
+      --terracotta-hover: #7D3314;   /* Hover primario */
+      --olive: #4A6341;              /* Oliva (Accento secondario e Linea Colonico Essence) */
+      --gold: #B89A4F;               /* Oro Antico (Accento premium e Linea Villa Toscana) */
+      --line: #C4BBA6;               /* Pietra (Fondali foto, divisori e filetti UI neutri) */
+      --border-control: #6E6559;     /* Bordi di input, chip e bottoni secondari (>= 3.0:1) */
+      --overlay: rgba(31, 27, 23, 0.76);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
       --radius: 2px;
       --max-w: 1200px;
     }
@@ -182,68 +184,56 @@
     </section>
 
     <section>
-      <span class="eyebrow">1. Palette e Contrasto Verificato WCAG AA</span>
-      <h2>Flow 2026 · Toscana <em>Contemporanea</em></h2>
+      <span class="eyebrow">06 — Sistema Colori · Palette della Terra Toscana (Brand Book v1.0)</span>
+      <h2>Colori della <em>Terra Toscana</em></h2>
       <p style="margin-top:16px;">
-        Libreria ufficiale (`noindex`) dei Design Token verificati per contrasto WCAG AA (≥ 4.5:1 per il testo, ≥ 3.0:1 per controlli e bordi interattivi), griglia basata su multipli di 8 px (`8, 16, 24, 32, 48, 64, 96, 128 px`), zero emoji e zero frasi in tutto maiuscolo.
+        L'Avorio (<code>#F6F1E9</code>) è lo sfondo predefinito per tutti i materiali cartacei e digitali (60% proporzione colore, mai bianco puro). Inchiostro (<code>#1F1B17</code>, 25%), Terracotta (<code>#B35A3C</code>, 10%) e Accenti (5%: Oliva <code>#4A6341</code> per la Linea Colonico Essence, Oro Antico <code>#B89A4F</code> per la Linea Villa Toscana, Pietra <code>#C4BBA6</code> per fondali ed elementi UI).
       </p>
 
       <div class="swatch-grid">
         <div class="swatch">
+          <div class="swatch-color" style="background:#1F1B17;"></div>
+          <div class="swatch-meta"><strong>Inchiostro (--ink)</strong><code>#1F1B17 · Testo primario e sfondi scuri (25%)</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#B35A3C;"></div>
+          <div class="swatch-meta"><strong>Terracotta (--terracotta)</strong><code>#B35A3C · Brand primario, accenti e Linea Borgo (10%)</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#4A6341;"></div>
+          <div class="swatch-meta"><strong>Oliva (--olive)</strong><code>#4A6341 · Accento secondario e Linea Colonico</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#B89A4F;"></div>
+          <div class="swatch-meta"><strong>Oro Antico (--gold)</strong><code>#B89A4F · Accento premium e Linea Villa</code></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C4BBA6;"></div>
+          <div class="swatch-meta"><strong>Pietra (--line)</strong><code>#C4BBA6 · Fondali foto ed elementi UI neutri</code></div>
+        </div>
+        <div class="swatch">
           <div class="swatch-color" style="background:#F6F1E9;"></div>
-          <div class="swatch-meta"><strong>--stone (Sfondo principale)</strong><code>#F6F1E9 · Ratio con --ink 15.1:1</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#FFFFFF;"></div>
-          <div class="swatch-meta"><strong>--paper (Superfici editoriali)</strong><code>#FFFFFF · Ratio con --ink 17.1:1</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#1F1B16;"></div>
-          <div class="swatch-meta"><strong>--ink (Testo primario e titoli)</strong><code>#1F1B16 · Contrasto AAA</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#5C544B;"></div>
-          <div class="swatch-meta"><strong>--muted (Testo secondario)</strong><code>#5C544B · Ratio 6.59:1 su --stone</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#9E421B;"></div>
-          <div class="swatch-meta"><strong>--terracotta (Azione primaria)</strong><code>#9E421B · Ratio 6.70:1 con #FFF</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#7D3314;"></div>
-          <div class="swatch-meta"><strong>--terracotta-hover (Hover CTA)</strong><code>#7D3314 · Ratio 8.85:1 con #FFF</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#4E5332;"></div>
-          <div class="swatch-meta"><strong>--olive (Etichette e garanzie)</strong><code>#4E5332 · Ratio 7.92:1 con #FFF</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#756B5E;"></div>
-          <div class="swatch-meta"><strong>--border-control (Bordi input/chip)</strong><code>#756B5E · Ratio 4.52:1 su --stone</code></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#C7BCA9;"></div>
-          <div class="swatch-meta"><strong>--line (Divisori strutturali)</strong><code>#C7BCA9 · Griglia 8 px</code></div>
+          <div class="swatch-meta"><strong>Avorio (--stone)</strong><code>#F6F1E9 · Sfondo primario (60% · Mai bianco puro)</code></div>
         </div>
       </div>
     </section>
 
     <section>
-      <span class="eyebrow">2. Tipografia e Chiarezza (Max 2 Font · Zero Maiuscolo)</span>
-      <h2>Scala fluida e <em>leggibilità</em></h2>
+      <span class="eyebrow">07 — Tipografia · La Voce del Carattere (Cormorant Garamond + Jost)</span>
+      <h2>La Scala <em>Tipografica</em></h2>
       <div class="component-grid">
         <div class="card">
-          <p style="font-size:0.875rem;margin-bottom:8px;">H1 · Cormorant Garamond · clamp(40px, 68px)</p>
-          <div style="font-family:var(--font-serif);font-weight:600;line-height:1.14;font-size:2.5rem;color:var(--ink);">Prezzo <em style="font-style:italic;color:var(--terracotta);font-weight:500;">fisso</em>, tempi garantiti.</div>
+          <p style="font-size:0.875rem;margin-bottom:8px;">Display / Titoli · Cormorant Garamond (Weight 300–500 + Italic Terracotta)</p>
+          <div style="font-family:var(--font-serif);font-weight:400;line-height:1.1;font-size:2.5rem;color:var(--ink);">Il Rinascimento <em style="font-style:italic;color:var(--terracotta);font-weight:400;">dell'Efficienza</em></div>
         </div>
         <div class="card">
-          <p style="font-size:0.875rem;margin-bottom:8px;">H2 · Cormorant Garamond · clamp(28px, 44px)</p>
-          <h2>Dal cantiere agli <em>ospiti</em></h2>
+          <p style="font-size:0.875rem;margin-bottom:8px;">Heading / Sezioni · Cormorant Garamond · 36px</p>
+          <h2>Dal Rustico <em>all'Ultra-Premium</em></h2>
         </div>
         <div class="card">
-          <p style="font-size:0.875rem;margin-bottom:8px;">Corpo testo · Inter · 16–18px · interlinea 1.6 · max 68ch</p>
+          <p style="font-size:0.875rem;margin-bottom:8px;">Corpo testo e UI · Jost (Weight 300–500) · Base 16–18px</p>
           <p style="color:var(--ink);">
-            Ristrutturiamo, arrediamo e consegniamo la tua struttura ricettiva con prezzo bloccato a contratto e penali per ogni settimana di ritardo.
+            Dove altri scelgono tra velocità e bellezza, noi abbiamo progettato sistemi per conseguire entrambe simultaneamente.
           </p>
         </div>
       </div>

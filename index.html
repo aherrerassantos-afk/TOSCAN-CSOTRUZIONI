@@ -11,7 +11,7 @@
   <link rel="alternate" hreflang="en" href="https://toscancostruzioni.it/tuscany-renovation-contractor.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXTBCDYTEK"></script>
@@ -97,26 +97,32 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — "TOSCANA CONTEMPORANEA · FLOW 2026" (Contrasto WCAG AA)
+       1. DESIGN TOKENS — AURA.BUILD × BRAND BOOK TC v1.0 ("RENAISSANCE EFFICIENCY")
+          Colori della Terra Toscana (Avorio 60% · Inchiostro 25% · Terracotta 10% · Accenti 5%)
+          Regola Brand Book Pag. 8: "L'Avorio (#F6F1E9) è lo sfondo predefinito. Mai bianco puro."
        ========================================================================== */
     :root {
-      --stone: #F6F1E9;
-      --paper: #FFFFFF;
-      --ink: #1F1B16;
-      --muted: #5C544B;
-      --terracotta: #9E421B;
-      --terracotta-hover: #7D3314;
-      --terracotta-on-dark: #E89572;
-      --olive: #4E5332;
-      --line: #C7BCA9;
-      --border-control: #756B5E;
-      --footer-muted: #D6CEC2;
-      --overlay: rgba(31, 27, 22, 0.74);
+      --stone: #F6F1E9;              /* Avorio (Sfondo primario 60% · Mai bianco puro) */
+      --paper: #FAF6F0;              /* Avorio Chiaro per superfici card e moduli */
+      --pietra: #C4BBA6;             /* Pietra (Fondali foto, divisori e filetti UI neutri) */
+      --line: #C4BBA6;               /* Filetti architettonici Pietra */
+      --ink: #1F1B17;                /* Inchiostro (Testo primario e sezioni scure 25%) */
+      --ink-card: #26211C;           /* Superfici card su fondo scuro Inchiostro (Pag. 4 e 11) */
+      --muted: #574F46;              /* Testo secondario ad alto contrasto AA su Avorio */
+      --terracotta: #B35A3C;         /* Terracotta Brand Primario, Accenti e Linea Borgo (Pag. 8) */
+      --terracotta-strong: #9A4326;  /* Terracotta bottone primario con contrasto AA testo chiaro */
+      --terracotta-hover: #7D3314;   /* Hover primario */
+      --terracotta-on-dark: #D47A5B; /* Terracotta luminoso su fondo Inchiostro */
+      --olive: #4A6341;              /* Oliva (Accento secondario e Linea Colonico Essence · Pag. 8) */
+      --gold: #B89A4F;               /* Oro Antico (Accento premium e Linea Villa Toscana · Pag. 8) */
+      --border-control: #6E6559;     /* Bordi controlli >= 3:1 su Avorio */
+      --footer-muted: #C4BBA6;
+      --overlay: rgba(31, 27, 23, 0.76);
 
       --font-serif: 'Cormorant Garamond', Georgia, serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
 
-      --max-w: 1200px;
+      --max-w: 1240px;
       --radius: 2px;
       --space-1: 8px;
       --space-2: 8px;
@@ -140,6 +146,7 @@
       background-color: var(--stone);
       color: var(--ink);
       font-family: var(--font-sans);
+      font-weight: 400;
       font-size: 1.125rem;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -153,32 +160,33 @@
       outline-offset: 2px;
     }
 
-    /* Tipografia editoriale (Max 2 font: Cormorant Garamond + Inter) */
+    /* Tipografia Brand Book Pag. 9-10 (Max 2 font: Cormorant Garamond + Jost) */
     h1, h2, h3, .serif {
       font-family: var(--font-serif);
-      font-weight: 600;
+      font-weight: 400;
       color: var(--ink);
       letter-spacing: -0.01em;
     }
     h1 {
-      font-size: clamp(2.25rem, 4.5vw + 1rem, 4.25rem);
-      line-height: 1.08;
+      font-size: clamp(2.5rem, 4.8vw + 1rem, 4.85rem);
+      line-height: 1.05;
       margin-bottom: var(--space-4);
     }
     h2 {
-      font-size: clamp(1.75rem, 3vw + 0.8rem, 3rem);
-      line-height: 1.14;
+      font-size: clamp(1.95rem, 3.2vw + 0.8rem, 3.35rem);
+      line-height: 1.1;
       margin-bottom: var(--space-3);
     }
     h3 {
-      font-size: clamp(1.35rem, 1.8vw + 0.7rem, 1.85rem);
-      line-height: 1.22;
+      font-size: clamp(1.4rem, 1.8vw + 0.7rem, 1.95rem);
+      line-height: 1.2;
+      font-weight: 500;
       margin-bottom: var(--space-2);
     }
     h1 em, h2 em, h3 em {
       font-style: italic;
       color: var(--terracotta);
-      font-weight: 600;
+      font-weight: 400;
     }
     p {
       color: var(--muted);
@@ -189,13 +197,22 @@
       overflow-wrap: break-word;
     }
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
       font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--olive);
-      margin-bottom: var(--space-2);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--terracotta-strong);
+      margin-bottom: var(--space-3);
+    }
+    .eyebrow::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      background-color: var(--terracotta);
     }
 
     /* Layout & Griglia basata su multipli di 8 px */
@@ -235,9 +252,9 @@
       transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
     .btn--primary {
-      background-color: var(--terracotta);
-      color: var(--paper);
-      border-color: var(--terracotta);
+      background-color: var(--terracotta-strong);
+      color: var(--stone);
+      border-color: var(--terracotta-strong);
     }
     .btn--primary:hover {
       background-color: var(--terracotta-hover);
@@ -254,7 +271,7 @@
     }
     .btn--secondary:hover {
       background-color: var(--ink);
-      color: var(--paper);
+      color: var(--stone);
       transform: translateY(-1px);
     }
     .btn--secondary:active {
@@ -272,16 +289,16 @@
       gap: 8px;
       color: var(--ink);
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: underline;
       text-underline-offset: 4px;
       min-height: 48px;
       padding: 8px 0;
     }
-    .link-arrow:hover { color: var(--terracotta); }
+    .link-arrow:hover { color: var(--terracotta-strong); }
 
     /* ==========================================================================
-       2. HEADER & MENU (Max 5 voci + 1 Pulsante CTA)
+       2. HEADER & MENU CON MONOGRAMMA ARCHITETTONICO TC (Brand Book Pag. 1 & 7)
        ========================================================================== */
     .site-header {
       position: sticky;
@@ -301,19 +318,31 @@
       text-decoration: none;
       color: var(--ink);
       display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand__mark {
+      width: 40px;
+      height: 44px;
+      flex-shrink: 0;
+      color: var(--ink);
+    }
+    .brand__text {
+      display: flex;
       flex-direction: column;
     }
     .brand__name {
       font-family: var(--font-serif);
-      font-size: 1.65rem;
-      font-weight: 600;
+      font-size: 1.7rem;
+      font-weight: 500;
       line-height: 1;
     }
-    .brand__name em { color: var(--terracotta); font-style: italic; }
+    .brand__name em { color: var(--terracotta); font-style: italic; font-weight: 400; }
     .brand__sub {
       font-size: 0.82rem;
       color: var(--muted);
       margin-top: 4px;
+      letter-spacing: 0.03em;
     }
     .nav-menu {
       display: flex;
@@ -328,7 +357,7 @@
       font-weight: 500;
       padding: 8px 0;
     }
-    .nav-menu a:hover { color: var(--terracotta); }
+    .nav-menu a:hover { color: var(--terracotta-strong); }
     .header-actions {
       display: flex;
       align-items: center;
@@ -336,7 +365,7 @@
     }
     .lang-link {
       font-size: 0.9rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--ink);
       text-decoration: none;
       padding: 10px 12px;
@@ -353,7 +382,7 @@
       border: 2px solid var(--ink);
       padding: 12px 16px;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--ink);
       min-height: 56px;
       border-radius: var(--radius);
@@ -367,56 +396,123 @@
     }
     .mobile-drawer.is-open { display: block; }
     .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-3); }
-    .mobile-drawer a { display: flex; align-items: center; min-height: 48px; padding: 8px 0; color: var(--ink); font-size: 1rem; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--line); }
+    .mobile-drawer a { display: flex; align-items: center; min-height: 48px; padding: 8px 0; color: var(--ink); font-size: 1rem; text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); }
 
     /* ==========================================================================
-       3. SEZIONE 1: HERO (svh, Zoom-Out Fluido 60fps & Velo Contrasto)
+       3. SEZIONE 1: HERO SPLIT-SCREEN BRAND BOOK (Inchiostro #1F1B17 + Terracotta #B35A3C)
        ========================================================================== */
     .hero {
       min-height: calc(100svh - 80px);
       display: flex;
-      align-items: center;
-      padding: clamp(3rem, 6vw, 6rem) 0;
+      align-items: stretch;
+      background-color: var(--ink);
+      color: var(--stone);
       border-bottom: 1px solid var(--line);
+      padding: 0;
     }
-    .hero__grid {
+    .hero__split {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 7fr 5fr;
-      gap: var(--space-6);
-      align-items: center;
+      min-height: calc(100svh - 80px);
+    }
+    .hero__ink-pane {
+      padding: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: var(--ink);
+      color: var(--stone);
+    }
+    .hero__ink-pane .eyebrow {
+      color: var(--pietra);
+    }
+    .hero__ink-pane h1 {
+      color: var(--stone);
+    }
+    .hero__ink-pane h1 em {
+      color: var(--terracotta-on-dark);
+    }
+    .hero__pullquote {
+      border-left: 2px solid var(--terracotta);
+      padding-left: 20px;
+      margin: 8px 0 24px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+      line-height: 1.38;
+      color: var(--stone);
     }
     .answer-summary {
-      background-color: var(--paper);
-      border: 1px solid var(--line);
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.28);
       border-left: 4px solid var(--terracotta);
       padding: var(--space-4);
-      margin: var(--space-4) 0;
+      margin: 0 0 var(--space-4);
       border-radius: var(--radius);
     }
     .answer-summary p {
       margin-bottom: 0;
       font-size: 1.0625rem;
       line-height: 1.58;
-      color: var(--ink);
+      color: var(--stone);
     }
     .hero__actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: var(--space-4);
-      margin-top: var(--space-4);
+      margin-top: var(--space-3);
+    }
+    .hero__ink-pane .link-arrow {
+      color: var(--stone);
+    }
+    .hero__ink-pane .link-arrow:hover {
+      color: var(--terracotta-on-dark);
+    }
+    .hero__terracotta-pane {
+      background-color: var(--terracotta);
+      color: var(--stone);
+      padding: clamp(2rem, 4vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+      border-left: 1px solid rgba(246, 241, 233, 0.2);
+    }
+    .hero__arch-emblem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 0;
+    }
+    .hero__arch-svg {
+      width: 128px;
+      height: 140px;
+      color: var(--stone);
+      margin-bottom: 12px;
+    }
+    .hero__arch-motto {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.2;
+      color: var(--stone);
     }
     .hero__figure {
       position: relative;
       background: var(--ink);
-      border: 1px solid var(--line);
+      border: 1px solid rgba(246, 241, 233, 0.35);
       border-radius: var(--radius);
       overflow: hidden;
     }
     .hero__figure img {
       width: 100%;
       max-width: 100%;
-      height: 520px;
+      height: 300px;
       object-fit: cover;
       display: block;
       transform: scale(1.03);
@@ -431,16 +527,120 @@
       right: 0;
       bottom: 0;
       background-color: var(--overlay);
-      color: var(--paper);
+      color: var(--stone);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 8px;
-      padding: 16px 20px;
-      font-size: 0.95rem;
+      padding: 14px 18px;
+      font-size: 0.92rem;
     }
-    .hero__caption strong { color: var(--paper); }
+    .hero__caption strong { color: var(--stone); }
+
+    /* ==========================================================================
+       3B. SEZIONE INCHIOSTRO SCURO (Brand Book Pag. 4 & 11: I Tre Assi + 3 Linee Prodotto)
+       ========================================================================== */
+    .section--ink {
+      background-color: var(--ink);
+      color: var(--stone);
+      padding: clamp(4rem, 7vw, 7rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section--ink .eyebrow { color: var(--pietra); }
+    .section--ink h2, .section--ink h3 { color: var(--stone); }
+    .section--ink h2 em, .section--ink h3 em { color: var(--terracotta-on-dark); }
+    .section--ink p { color: var(--pietra); }
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .axis-card {
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.22);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+    }
+    .axis-roman {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--terracotta-on-dark);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .product-lines-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+    .product-line-card {
+      background-color: var(--ink-card);
+      border: 1px solid rgba(196, 187, 166, 0.22);
+      border-top: 4px solid var(--terracotta);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .product-line-card--olive { border-top-color: var(--olive); }
+    .product-line-card--terracotta { border-top-color: var(--terracotta); }
+    .product-line-card--gold { border-top-color: var(--gold); }
+    .product-line-sub {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--pietra);
+      margin-bottom: 16px;
+    }
+    .product-line-specs {
+      list-style: none;
+      border-top: 1px solid rgba(196, 187, 166, 0.2);
+    }
+    .product-line-specs li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(196, 187, 166, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .product-line-specs span {
+      font-size: 0.85rem;
+      color: var(--pietra);
+    }
+    .product-line-specs strong {
+      font-size: 1.15rem;
+      color: var(--stone);
+      font-weight: 500;
+    }
+    .manifesto-terracotta {
+      background-color: var(--terracotta-strong);
+      color: var(--stone);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .manifesto-terracotta blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+      line-height: 1.3;
+      color: var(--stone);
+      max-width: 38ch;
+      margin-bottom: 20px;
+    }
+    .manifesto-terracotta cite {
+      font-style: normal;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--stone);
+      display: inline-block;
+      padding-top: 12px;
+      border-top: 1px solid rgba(246, 241, 233, 0.45);
+    }
 
     /* ==========================================================================
        4. SEZIONE 2: BARRA DI FIDUCIA (Credenziali & Garanzie Vere)
@@ -1064,9 +1264,10 @@
 
     /* Responsive Mobile-First (320, 360, 390, 430, 768, 1024, 1440 px) */
     @media (max-width: 1024px) {
-      .hero__grid, .ba-grid, .estimator-box, .map-zones-wrap, .editorial-row, .editorial-row--reverse, .sticky-narrative {
+      .hero__split, .hero__grid, .ba-grid, .estimator-box, .map-zones-wrap, .editorial-row, .editorial-row--reverse, .sticky-narrative, .axes-grid, .product-lines-grid {
         grid-template-columns: 1fr;
       }
+      .hero__terracotta-pane { border-left: none; border-top: 1px solid rgba(246, 241, 233, 0.2); }
       .sticky-narrative__pinned { position: static; }
       .estimator-controls { border-right: none; border-bottom: 1px solid var(--line); }
       .materials-grid, .team-grid, .glossary-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1079,10 +1280,11 @@
       .nav-menu, .header-actions .btn { display: none; }
       .menu-toggle { display: inline-flex; align-items: center; min-height: 56px; }
       .btn, .chip-btn, .input-text { min-height: 56px; font-size: 1rem; }
-      .projects-grid, .materials-grid, .team-grid, .testimonials-grid, .zones-list, .input-row, .chips-group, .trust-grid, .footer-grid, .glossary-grid {
+      .projects-grid, .materials-grid, .team-grid, .testimonials-grid, .zones-list, .input-row, .chips-group, .trust-grid, .footer-grid, .glossary-grid, .axes-grid, .product-lines-grid {
         grid-template-columns: 1fr;
       }
-      .hero__figure img, .ba-slider { height: 300px; }
+      .hero__figure img, .ba-slider { height: 260px; }
+      .hero__arch-svg { width: 92px; height: 100px; }
       body { padding-bottom: 88px; }
       .mobile-sticky-bar {
         position: fixed;
@@ -1137,20 +1339,31 @@
 </head>
 <body>
 
-  <!-- HEADER & MENU PRINCIPALE (5 voci + 1 Pulsante CTA) -->
+  <!-- HEADER & MENU PRINCIPALE CON LOGOTIPO ARCHITETTONICO TC (Brand Book Pag. 1 & 7) -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="/" class="brand" aria-label="Toscan Costruzioni - Torna alla home">
-        <span class="brand__name">Toscan <em>Costruzioni</em></span>
-        <span class="brand__sub">Blue Arroyo Group · Firenze</span>
+        <svg class="brand__mark" viewBox="0 0 64 70" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M4 22 L32 4 L60 22 Z" />
+          <line x1="10" y1="22" x2="10" y2="64" />
+          <line x1="54" y1="22" x2="54" y2="64" />
+          <line x1="4" y1="64" x2="60" y2="64" />
+          <path d="M18 42 A14 14 0 0 1 46 42" />
+          <line x1="32" y1="34" x2="32" y2="64" />
+          <line x1="18" y1="50" x2="46" y2="50" />
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">Toscan <em>Costruzioni</em></span>
+          <span class="brand__sub">Renaissance Efficiency · Blue Arroyo Group</span>
+        </span>
       </a>
 
       <nav aria-label="Navigazione principale">
         <ul class="nav-menu">
+          <li><a href="#filosofia-linee">Filosofia e Linee</a></li>
           <li><a href="#servizi">Servizi</a></li>
           <li><a href="#progetti">Progetti</a></li>
           <li><a href="#come-lavoriamo">Come lavoriamo</a></li>
-          <li><a href="#chi-siamo">Chi siamo</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
       </nav>
@@ -1164,10 +1377,10 @@
 
     <div class="mobile-drawer" id="mobile-drawer">
       <ul>
+        <li><a href="#filosofia-linee">Filosofia e Linee</a></li>
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="#progetti">Progetti</a></li>
         <li><a href="#come-lavoriamo">Come lavoriamo</a></li>
-        <li><a href="#chi-siamo">Chi siamo</a></li>
         <li><a href="#contatti">Contatti</a></li>
         <li><a href="/tuscany-renovation-contractor.html" lang="en">English version (EN)</a></li>
       </ul>
@@ -1176,16 +1389,20 @@
   </header>
 
   <main>
-    <!-- 1. HERO (PERCORSO COMMITTENTE: PROPRIETARI, ALBERGATORI E SVILUPPATORI) -->
+    <!-- 1. HERO MONOGRAFICA SPLIT-SCREEN (Brand Book Pag. 1 & 3: Inchiostro #1F1B17 + Terracotta #B35A3C) -->
     <section class="hero">
-      <div class="container hero__grid">
-        <div>
-          <span class="eyebrow">Toscan Costruzioni · Impresa edile e general contractor a Firenze</span>
-          <h1>Trasformiamo il tuo immobile in una struttura che rende. <em>Prezzo fisso</em>, tempi garantiti.</h1>
+      <div class="hero__split">
+        <div class="hero__ink-pane">
+          <span class="eyebrow">01 — Identità · Il Rinascimento dell'Efficienza · Firenze e Toscana</span>
+          <h1>Trasformiamo il tuo immobile in una struttura che rende. <em>Prezzo fisso, tempi garantiti.</em></h1>
+
+          <blockquote class="hero__pullquote">
+            “Dove altri scelgono tra velocità e bellezza, noi abbiamo progettato sistemi per conseguire entrambe simultaneamente.”
+          </blockquote>
 
           <div class="answer-summary">
             <p>
-              Con il <strong>Metodo Toscan</strong> (il nostro sistema che unisce in un solo contratto progetto, pratiche edilizie, cantiere, arredo e avvio ricettivo) ristrutturiamo hotel, agriturismi e appartamenti a Firenze e in Toscana. Il <strong>Prezzo Chiuso Toscan</strong> (<strong>1.350–2.400 €/m²</strong>) è bloccato prima dei lavori, la consegna avviene in <strong>5–12 mesi</strong> con penali per ritardo e la messa a reddito prosegue con il <strong>Ciclo Blue Arroyo</strong>.
+              Con il <strong>Metodo Toscan</strong> uniamo in un solo contratto progetto, pratiche edilizie, cantiere, arredo e avvio ricettivo per hotel, agriturismi e appartamenti a Firenze e in Toscana. Il <strong>Prezzo Chiuso Toscan</strong> (<strong>1.350–2.400 €/m²</strong>) è bloccato prima dei lavori, la consegna avviene in <strong>5–12 mesi</strong> con penali per ritardo e la messa a reddito prosegue con il <strong>Ciclo Blue Arroyo</strong>.
             </p>
           </div>
 
@@ -1195,13 +1412,29 @@
           </div>
         </div>
 
-        <figure class="hero__figure">
-          <img src="assets/project_casale.jpg" alt="Casale in pietra ristrutturato in Toscana da Toscan Costruzioni con corte interna e illuminazione naturale" width="640" height="520" fetchpriority="high" />
-          <figcaption class="hero__caption">
-            <span>Recupero conservativo in pietra e cotto · Colline toscane</span>
-            <strong>Toscan Costruzioni · Consegna chiavi in mano</strong>
-          </figcaption>
-        </figure>
+        <div class="hero__terracotta-pane">
+          <div class="hero__arch-emblem">
+            <svg class="hero__arch-svg" viewBox="0 0 120 132" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M8 42 L60 8 L112 42 Z" />
+              <line x1="20" y1="42" x2="20" y2="120" />
+              <line x1="100" y1="42" x2="100" y2="120" />
+              <line x1="8" y1="120" x2="112" y2="120" />
+              <path d="M34 78 A26 26 0 0 1 86 78" />
+              <line x1="60" y1="64" x2="60" y2="120" />
+              <line x1="34" y1="94" x2="86" y2="94" />
+            </svg>
+            <div class="hero__arch-motto">Renaissance Efficiency</div>
+            <div style="font-size:0.88rem;margin-top:6px;letter-spacing:0.04em;">Tradizione nell'anima · Efficienza nell'esecuzione · Redditività in ogni pietra</div>
+          </div>
+
+          <figure class="hero__figure">
+            <img src="assets/project_casale.jpg" alt="Casale in pietra ristrutturato in Toscana da Toscan Costruzioni con corte interna e illuminazione naturale" width="640" height="520" fetchpriority="high" />
+            <figcaption class="hero__caption">
+              <span>Recupero conservativo in pietra e cotto · Colline toscane</span>
+              <strong>Toscan Costruzioni · Consegna chiavi in mano</strong>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -1231,10 +1464,122 @@
       </div>
     </section>
 
+    <!-- 2B. SEZIONE BRAND BOOK SU FONDO INCHIOSTRO (#1F1B17): I TRE ASSI (Pag. 4) & LE TRE LINEE DI PRODOTTO (Pag. 8 & 11) -->
+    <section class="section--ink" id="filosofia-linee">
+      <div class="container">
+        <span class="eyebrow">02 — Filosofia · Scalable Craftsmanship</span>
+        <h2>I Tre Assi <em>della Filosofia</em></h2>
+        <p>Artigianalità toscana organizzata come sistema ingegneristico replicabile, trasparente e garantito a contratto.</p>
+
+        <div class="axes-grid">
+          <article class="axis-card">
+            <span class="axis-roman">I</span>
+            <h3>Rispetto Storico</h3>
+            <p style="margin-bottom:0;">Onoriamo la struttura originale in pietra serena, legno di olivo e terracotta, massimizzando il potenziale estetico e il valore percepito. Ogni progetto parte dall'ascolto dell'edificio.</p>
+          </article>
+          <article class="axis-card">
+            <span class="axis-roman">II</span>
+            <h3>Ottimizzazione dei Cicli</h3>
+            <p style="margin-bottom:0;">Ogni cantiere è un ingranaggio progettato per verifica tecnica rapida, ristrutturazione efficiente a 5 SAL e messa a reddito immediata. Il tempo è l'attivo più prezioso.</p>
+          </article>
+          <article class="axis-card">
+            <span class="axis-roman">III</span>
+            <h3>Qualità Democratica</h3>
+            <p style="margin-bottom:0;">Offriamo l'eccellenza costruttiva toscana attraverso processi industrializzati di progettazione BIM, approvvigionamento diretto e controllo qualità: artigianalità come sistema, non come eccezione.</p>
+          </article>
+        </div>
+
+        <div style="margin-top:var(--space-7);">
+          <span class="eyebrow">08 — Architettura di Prodotto · Codifica Colori Brand Book</span>
+          <h2>Dal Rustico <em>all'Ultra-Premium</em></h2>
+          <p>Tre linee costruttive codificate con i colori ufficiali della Terra Toscana: Oliva per il Colonico, Terracotta per il Borgo e Oro Antico per la Villa.</p>
+
+          <div class="product-lines-grid">
+            <article class="product-line-card product-line-card--olive">
+              <div>
+                <h3>Colonico Essence</h3>
+                <div class="product-line-sub">Casolari rurali e agriturismi restaurati · Linea Oliva (#4A6341)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Fascia appalto Prezzo Chiuso Toscan</span>
+                    <strong>1.650 – 2.300 €/m²</strong>
+                  </li>
+                  <li>
+                    <span>Tempi di consegna garantiti</span>
+                    <strong>8 – 12 mesi (con penali scritte)</strong>
+                  </li>
+                  <li>
+                    <span>Destinazione principale</span>
+                    <strong>Agriturismi, tenute, casali con piscina</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" class="btn btn--primary" style="background:var(--olive);border-color:var(--olive);width:100%;">Simula intervento Colonico Essence</a>
+            </article>
+
+            <article class="product-line-card product-line-card--terracotta">
+              <div>
+                <h3>Borgo Contemporaneo</h3>
+                <div class="product-line-sub">Unità nei borghi medievali e centri storici · Linea Terracotta (#B35A3C)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Fascia appalto Prezzo Chiuso Toscan</span>
+                    <strong>1.350 – 1.850 €/m²</strong>
+                  </li>
+                  <li>
+                    <span>Tempi di consegna garantiti</span>
+                    <strong>5 – 7 mesi (con penali scritte)</strong>
+                  </li>
+                  <li>
+                    <span>Destinazione principale</span>
+                    <strong>Frazionamenti in suite con bagno privato</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" class="btn btn--primary" style="width:100%;">Simula intervento Borgo Contemporaneo</a>
+            </article>
+
+            <article class="product-line-card product-line-card--gold">
+              <div>
+                <h3>Villa Toscana</h3>
+                <div class="product-line-sub">Ville storiche, boutique hotel, vigne e oliveti · Linea Oro Antico (#B89A4F)</div>
+                <ul class="product-line-specs">
+                  <li>
+                    <span>Fascia appalto Prezzo Chiuso Toscan</span>
+                    <strong>1.850 – 2.400 €/m²</strong>
+                  </li>
+                  <li>
+                    <span>Tempi di consegna garantiti</span>
+                    <strong>8 – 12 mesi (con penali scritte)</strong>
+                  </li>
+                  <li>
+                    <span>Destinazione principale</span>
+                    <strong>Ville di pregio, boutique hotel e wine resort</strong>
+                  </li>
+                </ul>
+              </div>
+              <a href="#stima-rapida" class="btn btn--secondary" style="border-color:var(--gold);background:var(--gold);color:var(--ink);width:100%;">Simula intervento Villa Toscana</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2C. MANIFESTO IN TERRACOTTA (Brand Book Pag. 5 & 15) -->
+    <section class="manifesto-terracotta" aria-label="Missione Toscan Costruzioni">
+      <div class="container">
+        <span class="eyebrow" style="color:var(--stone);">03 — Missione · La nostra ragione d'essere</span>
+        <blockquote>
+          “Ogni Pietra Racconta una Storia — Trasformiamo il patrimonio immobiliare della Toscana attraverso la ristrutturazione efficiente e il rispetto storico, consegnando strutture eccezionali pronte a rendere dal primo giorno.”
+        </blockquote>
+        <cite>Toscan Costruzioni · Brand Book Versione 1.0 · Tradizione nell'anima · Efficienza nell'esecuzione · Redditività in ogni pietra</cite>
+      </div>
+    </section>
+
     <!-- 3. I QUATTRO INTERVENTI (RACCONTO EDITORIALE ASIMMETRICO — NO 4 CARD UGUALI) -->
     <section class="section" id="servizi">
       <div class="container">
-        <span class="eyebrow">I quattro ambiti di intervento di Toscan Costruzioni</span>
+        <span class="eyebrow">04 — Interventi · I quattro ambiti operativi di Toscan Costruzioni</span>
         <h2>Cosa realizziamo per <em>proprietari</em>, albergatori e investitori</h2>
         <p>Ogni immobile richiede una strategia tecnica e distributiva precisa. Ecco come interveniamo sui quattro tagli principali del patrimonio immobiliare toscano.</p>
 
