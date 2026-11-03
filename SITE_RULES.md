@@ -113,13 +113,18 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 
 ---
 
-## 6. Sistema CRM Prima Tabella (Investitori), Acquisto Scaglionato (Step A → E) & Blog Autonomo 3x/Settimana (`/blog`)
-1. **Scala di Acquisto Scaglionato dalla A alla Z (Micro-Servizi Associati — Zero barriera d'ingresso):**
-   - **Step A (Primo Step Consigliato): Interior Design Ricettivo & Business Plan (`1.500–3.500 €`, 100% scalato dall'appalto):** layout distributivo per massimizzare camere/bagni en-suite, concept d'interni toscano contemporaneo e Business Plan ricavi/costi con dati reali del Gruppo Blue Arroyo.
-   - **Step B: Due Diligence Tecnica & Urbanistica Pre-Rogito (`1.200–2.500 €`):** verifica di strutture, tetto, pendenze scarichi, potenza elettrica e vincoli Soprintendenza prima dell'acquisto.
-   - **Step C: Pratiche Edilizie (CILA/SCIA/Soprintendenza) & Computo Metrico Esecutivo Bloccato (`2.800–5.500 €`):** trasforma il progetto in un prezzo fisso a corpo bloccato al centesimo.
-   - **Step D: Lotto Pilota / Unità Campione a Prezzo Fisso:** realizzazione della prima suite campione prima di estendere il cantiere all'intero edificio.
-   - **Step E: Appalto Completo Chiavi in Mano (5 SAL) + Ciclo Virtuoso Gruppo Blue Arroyo (`1.350–2.400 €/m²`):** `1. Toscan Costruzioni crea il bene` → `2. itassistance lo protegge` → `3. Blue Arroyo Cleaning lo allestisce` → `4. SmartsBookings lo riempie di turisti`.
+## 6. Sistema CRM Prima Tabella (Investitori), Acquisto Scaglionato per Disponibilità Economica & Blog Autonomo 3x/Settimana (`/blog`)
+1. **Scala di Acquisto Scaglionato in base alla Disponibilità Economica (Dal Primo Step Molto Accessibile "Masterclass Call" fino all'Appalto Completo):**
+   - **Step 1 (Ingresso Molto Accessibile · `150 €`, 100% scalato): "Masterclass Call" 1-to-1 (60 min) con gli Esperti della materia che più interessa al cliente:**
+     - **Masterclass 1A · Geometra & Parte Tecnica Preliminare:** fattibilità urbanistica, frazionamenti, cambi d'uso, altezze, scarichi e vincoli Soprintendenza prima dell'acquisto.
+     - **Masterclass 1B · Business Plan & Come Fare Leva con le Banche:** strutturazione del conto economico immobiliare/ricettivo e dossier bancario (mutuo acquisto + SAL edilizio) per operare in leva senza immobilizzare tutta la liquidità.
+     - **Masterclass 1C · Amministrazione Cantiere, Contratti & 5 SAL:** come funziona economicamente il cantiere, contratti a prezzo fisso con penali, controllo dei 5 SAL, DURC, Cassa Edile, Polizza CAR e gestione fornitori.
+     - **Masterclass 1D · Sales: Come Vendere un Cantiere in Pre-Sales:** come pre-vendere o pre-affittare le unità sulla carta durante i lavori tramite layout ricettivo, render, capitolato e canale Gruppo Blue Arroyo.
+     - *Durante la Masterclass Call, i tecnici e gli incaricati fanno la loro magia di vendita, accompagnando il cliente allo step successivo in base al suo budget.*
+   - **Step 2 (Budget Preliminare · `950–1.800 €`, 100% scalato):** Sopralluogo del Geometra sull'immobile + Verifica Tecnica Pre-Rogito + Business Plan Bancabile.
+   - **Step 3 (Budget Progettuale & Pre-Sales · `2.200–4.200 €`, 100% scalato):** Interior Design + Kit Pre-Sales (Render + Pratiche CILA/SCIA + Computo Esecutivo Bloccato al centesimo).
+   - **Step 4 (Budget Graduale):** Realizzazione Lotto Pilota / Unità Campione a Prezzo Fisso (per mostrare l'immobile finito a banche e acquirenti Pre-Sales).
+   - **Step 5 (Operazione Completa Chiavi in Mano · `1.350–2.400 €/m²` in 5 SAL):** Appalto Completo + Ciclo Virtuoso Gruppo Blue Arroyo (`1. Toscan Costruzioni crea il bene` → `2. itassistance lo protegge` → `3. Blue Arroyo Cleaning lo allestisce` → `4. SmartsBookings lo riempie di turisti`).
 2. **Motore Editoriale & Blog Autonomo (`/blog` — 3 Pubblicazioni a Settimana: Lunedì, Mercoledì, Venerdì):**
    - Insegna al cliente da zero come funziona davvero un'impresa di costruzioni, sempre con il box pratico ***"Cosa farei io se l'immobile fosse mio"*** e l'invito diretto al Micro-Servizio associato:
      - **Lunedì (*Il Consulente di Sviluppo, Acquisti & Transazioni Immobiliari*):** fattibilità pre-rogito, frazionamenti, cambi d'uso e business plan ricettivo.
