@@ -15,37 +15,79 @@
 
 ---
 
-## 1. Identità Visiva — "Toscana Contemporanea"
-Impaginazione editoriale da rivista di architettura toscana contemporanea: materia, luce naturale, chiarezza.
+## 1. Settings Core — Le 11 Regole Permanenti di Design & Sviluppo ("Flow 2026 · Toscana Contemporanea")
 
-### Design Token (Unica Fonte CSS Custom Properties)
+### 1) Flow 2026, Non 2000
+- Il sito è un racconto continuo: ogni sezione porta in modo naturale alla successiva.
+- Layout editoriali, ampi spazi, tipografia forte e immagini grandi.
+- **Vietati:** caroselli automatici, pop-up all'ingresso, muri di testo, griglie di card tutte uguali, icone generiche, ombre pesanti, gradienti decorativi ed effetti da template.
+
+### 2) Blocco Clean: Moderno e Pulito
+- **Una sola idea per sezione** e **una sola azione principale per schermata**.
+- Griglia coerente e spaziatura costante basata su **multipli di `8 px`** (`8, 16, 24, 32, 48, 64, 96, 128 px`).
+- Massimo **2 famiglie di font** (`Cormorant Garamond` per i titoli e `Inter` per testo, numeri e bottoni).
+- Rimuovere tutto ciò che non aiuta l'utente a capire o ad agire (*"Cosa posso togliere?"*).
+
+### 3) Niente Emoji
+- **Nessuna emoji** in testi, titoli, bottoni, menu o messaggi.
+- Usare icone SVG minimali solo se migliorano la comprensione e sempre nello stesso stile a tratto sottile.
+
+### 4) Testi Chiari
+- Frasi brevi e parole semplici; il titolo deve far capire in 3 secondi cosa offriamo e a chi.
+- Testo base di almeno `16 px` (`1rem`), `18 px` (`1.125rem`) nei paragrafi lunghi.
+- Interlinea di almeno `1.5` (`1.6` nei paragrafi) e massimo `68–70` caratteri per riga (`max-width: 68ch`).
+- **Niente frasi intere in maiuscolo** (nessun `text-transform: uppercase`).
+
+### 5) Bottoni Grandi
+- **Altezza minima:** `56 px` su telefono (`<= 768px`) e `48 px` su desktop (`> 768px`).
+- **Testo:** almeno `16 px` (`1rem`), con un verbo chiaro (*"Richiedi lo studio gratuito"*, *"Prenota la Masterclass con l'esperto"*, non *"Scopri di più"*).
+- **Spazio:** almeno `8 px` (`12 px` standard) tra elementi cliccabili.
+- **Stati visibili:** `:hover`, `:focus-visible` (contorno `3px solid #1F1B16`), `:active` e `:disabled` sempre chiaramente distinguibili.
+
+### 6) Colori e Contrasto Verificato (WCAG AA)
+Usare esclusivamente i colori della palette definiti come variabili CSS, tutti verificati per contrasto `>= 4.5:1` (testo) e `>= 3.0:1` (controlli e testo grande):
 ```css
 :root {
-  --stone: #F6F1E9;       /* Sfondo principale */
-  --paper: #FFFFFF;       /* Sfondo card e superfici */
-  --ink: #1F1B16;         /* Testo principale (contrasto WCAG AA >= 4.5:1) */
-  --muted: #6E665C;       /* Testo secondario */
-  --terracotta: #B4532A;  /* Accento primario, CTA e parola chiave in corsivo (max 10% pagina) */
-  --olive: #6B7048;       /* Accento secondario (badge, natura, garanzie) */
-  --line: #E4DCCF;        /* Bordi e divisori architettonici */
+  --stone: #F6F1E9;            /* Sfondo principale (contrasto con --ink: 15.1:1) */
+  --paper: #FFFFFF;            /* Sfondo superfici editoriali (contrasto con --ink: 17.1:1) */
+  --ink: #1F1B16;              /* Testo principale, titoli e footer */
+  --muted: #5C544B;            /* Testo secondario (contrasto su --stone: 6.59:1, su --paper: 7.45:1) */
+  --terracotta: #9E421B;       /* Azione principale e parola chiave in corsivo (contrasto con #FFF: 6.70:1, su --stone: 5.70:1) */
+  --terracotta-hover: #7D3314; /* Stato hover primario (contrasto con #FFF: 8.85:1) */
+  --olive: #4E5332;            /* Etichette e garanzie (contrasto con #FFF: 7.92:1, su --stone: 7.01:1) */
+  --line: #C7BCA9;             /* Divisori strutturali */
+  --border-control: #756B5E;   /* Bordi di input, chip e bottoni secondari (contrasto su --stone: 4.52:1 >= 3.0:1) */
+  --overlay: rgba(31, 27, 22, 0.72); /* Velo sopra foto e video (contrasto testo bianco >= 7.5:1 in ogni fotogramma) */
 }
 ```
 
-### Tipografia & Linguaggio
-- **Titoli:** `Cormorant Garamond` (serif display), con **corsivo terracotta su UNA sola parola chiave** per titolo (es. *"Prezzo *fisso*, tempi garantiti"*).
-- **Testo e Interfaccia:** `Inter` o `Manrope` (`font-display: swap`).
-- **Scala fluida `clamp()`:**
-  - `H1`: `clamp(2.5rem, 5vw, 4.5rem)` (`40–72px`)
-  - `H2`: `clamp(1.75rem, 3.5vw, 2.75rem)` (`28–44px`)
-  - Corpo testo: `16–18px`, `line-height: 1.55`, larghezza riga max `70ch`.
-- **Etichette MAIUSCOLE:** solo per eyebrow brevi (max 3 parole, max 1 per sezione). **MAI** per frasi intere né per le label dei form.
-- **Italiano chiaro, zero gergo:** vietati anglicismi inutili (`Turnkey EPC`, `Core Focus`, `Deal Flow`, `Capex`, `SPV`, `PBSA`, `Output`) nei titoli e nelle label dei form.
+### 7) Telefono Prima di Tutto (Mobile-First)
+- Progettare prima per il telefono (`320, 360, 390, 430 px`), poi adattare a tablet (`768, 1024 px`) e desktop (`1440 px`).
+- Zero scroll orizzontale (`overflow-x: clip`), dimensioni fluide con `%`, `clamp()`, `flex` e `grid`.
+- Per le altezze a tutto schermo usare `svh` o `dvh`, mai `100vh`.
+- Rispettare le aree sicure dei telefoni (`env(safe-area-inset-bottom)`) e `scroll-padding-top: 88px`.
 
-### Spaziatura, Griglia e Fotografia
-- Griglia a 12 colonne, `max-width: 1200px`, scala `4/8px`.
-- Padding verticale sezioni: `96–160px` desktop, `64–96px` mobile.
-- Angoli architettonici: `border-radius: 0–4px`.
-- **Onestà Fotografica:** foto reali di cantieri, materiali e prima/dopo; i rendering di progetti in avvio (es. Villa Claudia) devono avere sempre l'etichetta visibile **`Progetto`** o **`Cantiere in avvio — Render di progetto`**.
+### 8) Immagini Organiche e Oneste
+- Foto reali di cantieri, materiali e lavoro vero con luce naturale e resa cromatica coerente.
+- Alternare aperture a tutto schermo, dettagli ravvicinati e composizioni asimmetriche.
+- Etichettare sempre i render come **`Render di progetto — Cantiere in avvio`**.
+
+### 9) Scroll, Video e Movimento a 60 fps
+- Movimento narrativo: rivelazioni allo scroll, sezione fissata (`position: sticky`) con contenuto che scorre, zoom leggero dell'immagine di apertura.
+- Animare solo `transform` e `opacity` a `60 fps`; rispettare `@media (prefers-reduced-motion: reduce)` con versione statica completa.
+- Video in autoplay solo muti (`muted playsinline loop`) con attributo `poster` e velo di contrasto.
+
+### 10) Marchio e Glossario Aziendale ("Parole Nostre")
+Usare con coerenza in tutto il sito il vocabolario proprietario di **Toscan Costruzioni**, spiegando ogni termine la prima volta che compare:
+- **Metodo Toscan:** Il sistema di appalto chiavi in mano che unisce in un solo contratto progetto, pratiche edilizie, cantiere a prezzo bloccato, arredo e avvio della gestione ospiti.
+- **Prezzo Chiuso Toscan:** L'importo totale dei lavori bloccato alla firma del computo metrico esecutivo, con ogni imprevisto tecnico di cantiere a carico di Toscan Costruzioni.
+- **Percorso a 5 SAL:** Il piano di pagamento protetto in 5 Stati di Avanzamento Lavori (15% avvio, 25% strutture, 25% impianti, 25% finiture, 10% collaudo) pagati solo a opere verificate.
+- **Masterclass di Cantiere:** La sessione individuale di 60 minuti (`150 €`, interamente scalati dai lavori) con uno dei 4 direttori di settore (Geometra, Business Plan e Banche, Amministrazione SAL, Pre-Sales) per validare l'operazione prima di impegnare il capitale.
+- **Pre-Sales Cantiere:** La strategia per vendere o affittare le unità immobiliari già durante i lavori grazie a layout ricettivo, render e unità campione.
+- **Ciclo Blue Arroyo:** Il passaggio diretto dell'immobile finito alle società del gruppo: **itassistance** (conformità CIN/Questura e tariffe), **Blue Arroyo Cleaning** (biancheria a 60°C e kit gratuiti) e **SmartsBookings** (prenotazioni dirette con incasso all'85%).
+
+### 11) Qualità Tecnica
+- Immagini con dimensioni `width` e `height` dichiarate, `loading="lazy"` sotto la prima schermata, layout stabile (zero CLS), HTML semantico, navigazione da tastiera e contenuto principale interamente leggibile senza JavaScript.
 
 ---
 

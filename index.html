@@ -97,23 +97,28 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — "TOSCANA CONTEMPORANEA" (Unica fonte di verità)
+       1. DESIGN TOKENS — "TOSCANA CONTEMPORANEA · FLOW 2026" (Contrasto WCAG AA)
        ========================================================================== */
     :root {
       --stone: #F6F1E9;
       --paper: #FFFFFF;
       --ink: #1F1B16;
-      --muted: #6E665C;
-      --terracotta: #B4532A;
-      --olive: #6B7048;
-      --line: #E4DCCF;
+      --muted: #5C544B;
+      --terracotta: #9E421B;
+      --terracotta-hover: #7D3314;
+      --terracotta-on-dark: #E89572;
+      --olive: #4E5332;
+      --line: #C7BCA9;
+      --border-control: #756B5E;
+      --footer-muted: #D6CEC2;
+      --overlay: rgba(31, 27, 22, 0.74);
 
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
       --max-w: 1200px;
       --radius: 2px;
-      --space-1: 4px;
+      --space-1: 8px;
       --space-2: 8px;
       --space-3: 16px;
       --space-4: 24px;
@@ -125,67 +130,75 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 88px;
+      font-size: 16px;
+      overflow-x: clip;
+    }
     body {
       background-color: var(--stone);
       color: var(--ink);
       font-family: var(--font-sans);
-      font-size: clamp(1rem, 1.05vw, 1.125rem);
-      line-height: 1.58;
+      font-size: 1.125rem;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
+      overflow-x: clip;
+      font-variant-numeric: tabular-nums;
     }
 
-    /* Accessibilità: Focus visibile */
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, summary:focus-visible {
-      outline: 2px solid var(--terracotta);
-      outline-offset: 3px;
+    /* Accessibilità: Focus visibile su tutti i controlli */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
     }
 
-    /* Tipografia editoriale */
+    /* Tipografia editoriale (Max 2 font: Cormorant Garamond + Inter) */
     h1, h2, h3, .serif {
       font-family: var(--font-serif);
-      font-weight: 500;
+      font-weight: 600;
       color: var(--ink);
       letter-spacing: -0.01em;
     }
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-size: clamp(2.25rem, 4.5vw + 1rem, 4.25rem);
       line-height: 1.08;
       margin-bottom: var(--space-4);
     }
     h2 {
-      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-      line-height: 1.15;
+      font-size: clamp(1.75rem, 3vw + 0.8rem, 3rem);
+      line-height: 1.14;
       margin-bottom: var(--space-3);
     }
     h3 {
-      font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+      font-size: clamp(1.35rem, 1.8vw + 0.7rem, 1.85rem);
       line-height: 1.22;
       margin-bottom: var(--space-2);
     }
     h1 em, h2 em, h3 em {
       font-style: italic;
       color: var(--terracotta);
-      font-weight: 500;
+      font-weight: 600;
     }
     p {
       color: var(--muted);
-      max-width: 70ch;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      max-width: 68ch;
       margin-bottom: var(--space-3);
+      overflow-wrap: break-word;
     }
     .eyebrow {
       display: inline-block;
       font-family: var(--font-sans);
-      font-size: 0.75rem;
+      font-size: 1rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.02em;
       color: var(--olive);
       margin-bottom: var(--space-2);
     }
 
-    /* Layout & Griglia a 12 colonne */
+    /* Layout & Griglia basata su multipli di 8 px */
     .container {
       width: 100%;
       max-width: var(--max-w);
@@ -193,7 +206,7 @@
       padding: 0 var(--space-4);
     }
     .section {
-      padding: clamp(4rem, 8vw, 7.5rem) 0;
+      padding: clamp(4rem, 8vw, 8rem) 0;
       border-bottom: 1px solid var(--line);
     }
     .section--paper { background-color: var(--paper); }
@@ -203,7 +216,7 @@
       gap: var(--space-4);
     }
 
-    /* Componenti: Bottoni */
+    /* Regola 5: Bottoni Grandi (min 48px desktop, 56px mobile, testo >= 16px, 4 stati) */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -212,13 +225,14 @@
       min-height: 48px;
       padding: 12px 24px;
       font-family: var(--font-sans);
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
+      line-height: 1.25;
       text-decoration: none;
       border-radius: var(--radius);
-      border: 1px solid transparent;
+      border: 2px solid transparent;
       cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
     .btn--primary {
       background-color: var(--terracotta);
@@ -226,27 +240,43 @@
       border-color: var(--terracotta);
     }
     .btn--primary:hover {
-      background-color: #96421F;
-      border-color: #96421F;
+      background-color: var(--terracotta-hover);
+      border-color: var(--terracotta-hover);
+      transform: translateY(-1px);
+    }
+    .btn--primary:active {
+      transform: scale(0.99);
     }
     .btn--secondary {
-      background-color: transparent;
+      background-color: var(--paper);
       color: var(--ink);
       border-color: var(--ink);
     }
     .btn--secondary:hover {
       background-color: var(--ink);
       color: var(--paper);
+      transform: translateY(-1px);
+    }
+    .btn--secondary:active {
+      transform: scale(0.99);
+    }
+    .btn:disabled, .btn[disabled] {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+      border-style: dashed;
     }
     .link-arrow {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       color: var(--ink);
+      font-size: 1rem;
       font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 4px;
-      min-height: 44px;
+      min-height: 48px;
+      padding: 8px 0;
     }
     .link-arrow:hover { color: var(--terracotta); }
 
@@ -257,15 +287,15 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background-color: rgba(246, 241, 233, 0.96);
-      backdrop-filter: blur(8px);
+      background-color: var(--stone);
       border-bottom: 1px solid var(--line);
     }
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 76px;
+      height: 80px;
+      gap: var(--space-3);
     }
     .brand {
       text-decoration: none;
@@ -275,15 +305,15 @@
     }
     .brand__name {
       font-family: var(--font-serif);
-      font-size: 1.55rem;
+      font-size: 1.65rem;
       font-weight: 600;
       line-height: 1;
     }
     .brand__name em { color: var(--terracotta); font-style: italic; }
     .brand__sub {
-      font-size: 0.7rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      margin-top: 2px;
+      margin-top: 4px;
     }
     .nav-menu {
       display: flex;
@@ -294,7 +324,7 @@
     .nav-menu a {
       color: var(--ink);
       text-decoration: none;
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-weight: 500;
       padding: 8px 0;
     }
@@ -302,28 +332,32 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: var(--space-3);
+      gap: 12px;
     }
     .lang-link {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-decoration: none;
-      padding: 6px 8px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-    .lang-link:hover { color: var(--ink); border-color: var(--ink); }
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--line);
-      padding: 10px 14px;
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--ink);
-      min-height: 44px;
+      text-decoration: none;
+      padding: 10px 12px;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-control);
       border-radius: var(--radius);
+    }
+    .lang-link:hover { border-color: var(--ink); background-color: var(--paper); }
+    .menu-toggle {
+      display: none;
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      min-height: 56px;
+      border-radius: var(--radius);
+      cursor: pointer;
     }
     .mobile-drawer {
       display: none;
@@ -333,13 +367,16 @@
     }
     .mobile-drawer.is-open { display: block; }
     .mobile-drawer ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-3); }
-    .mobile-drawer a { display: block; padding: 10px 0; color: var(--ink); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--line); }
+    .mobile-drawer a { display: flex; align-items: center; min-height: 48px; padding: 8px 0; color: var(--ink); font-size: 1rem; text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--line); }
 
     /* ==========================================================================
-       3. SEZIONE 1: HERO (Percorso Committente)
+       3. SEZIONE 1: HERO (svh, Zoom-Out Fluido 60fps & Velo Contrasto)
        ========================================================================== */
     .hero {
-      padding: clamp(3rem, 6vw, 5.5rem) 0;
+      min-height: calc(100svh - 80px);
+      display: flex;
+      align-items: center;
+      padding: clamp(3rem, 6vw, 6rem) 0;
       border-bottom: 1px solid var(--line);
     }
     .hero__grid {
@@ -351,14 +388,15 @@
     .answer-summary {
       background-color: var(--paper);
       border: 1px solid var(--line);
-      border-left: 3px solid var(--terracotta);
-      padding: var(--space-3) var(--space-4);
+      border-left: 4px solid var(--terracotta);
+      padding: var(--space-4);
       margin: var(--space-4) 0;
       border-radius: var(--radius);
     }
     .answer-summary p {
       margin-bottom: 0;
-      font-size: 0.96rem;
+      font-size: 1.0625rem;
+      line-height: 1.58;
       color: var(--ink);
     }
     .hero__actions {
@@ -370,25 +408,39 @@
     }
     .hero__figure {
       position: relative;
-      background: var(--paper);
+      background: var(--ink);
       border: 1px solid var(--line);
-      padding: var(--space-2);
       border-radius: var(--radius);
+      overflow: hidden;
     }
     .hero__figure img {
       width: 100%;
-      height: 480px;
+      max-width: 100%;
+      height: 520px;
       object-fit: cover;
       display: block;
+      transform: scale(1.03);
+      transition: transform 0.9s ease-out;
+    }
+    .hero:hover .hero__figure img {
+      transform: scale(1);
     }
     .hero__caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--overlay);
+      color: var(--paper);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: var(--space-2) var(--space-1) 0;
-      font-size: 0.8rem;
-      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 20px;
+      font-size: 0.95rem;
     }
+    .hero__caption strong { color: var(--paper); }
 
     /* ==========================================================================
        4. SEZIONE 2: BARRA DI FIDUCIA (Credenziali & Garanzie Vere)
@@ -396,60 +448,90 @@
     .trust-bar {
       background-color: var(--paper);
       border-bottom: 1px solid var(--line);
-      padding: var(--space-4) 0;
+      padding: var(--space-5) 0;
     }
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: var(--space-3);
+      gap: var(--space-4);
     }
     .trust-item {
-      border-left: 2px solid var(--olive);
+      border-left: 3px solid var(--olive);
       padding-left: var(--space-3);
     }
     .trust-item strong {
       display: block;
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--ink);
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .trust-item span {
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.35;
+      line-height: 1.45;
       display: block;
     }
 
     /* ==========================================================================
-       5. SEZIONE 3: COSA FACCIAMO (4 Card Servizi)
+       5. SEZIONE 3: RACCONTO ASIMMETRICO DEGLI INTERVENTI (No 4 card uguali)
        ========================================================================== */
-    .cards-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-4);
-      margin-top: var(--space-5);
+    .editorial-stream {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      margin-top: var(--space-6);
     }
-    .service-card {
+    .editorial-row {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: var(--space-5);
+      align-items: stretch;
       background-color: var(--paper);
       border: 1px solid var(--line);
-      padding: var(--space-5) var(--space-4);
       border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .editorial-row--reverse {
+      grid-template-columns: 5fr 7fr;
+    }
+    .editorial-row__media {
+      position: relative;
+      min-height: 320px;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .editorial-row__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease-out;
+    }
+    .editorial-row:hover .editorial-row__media img {
+      transform: scale(1.02);
+    }
+    .editorial-row__overlay-tag {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background-color: var(--overlay);
+      color: var(--paper);
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+    }
+    .editorial-row__content {
+      padding: var(--space-5);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      text-decoration: none;
-      color: inherit;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .service-card:hover {
-      border-color: var(--terracotta);
-      transform: translateY(-2px);
     }
     .service-card__price {
       margin-top: var(--space-4);
       padding-top: var(--space-3);
       border-top: 1px solid var(--line);
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: var(--ink);
       font-weight: 600;
     }
@@ -503,17 +585,17 @@
     }
     .ba-badge {
       position: absolute;
-      top: 12px;
-      padding: 4px 10px;
-      background: rgba(31, 27, 22, 0.82);
+      top: 16px;
+      padding: 6px 12px;
+      background: var(--overlay);
       color: var(--paper);
-      font-size: 0.75rem;
+      font-size: 0.88rem;
       font-weight: 600;
       border-radius: var(--radius);
       pointer-events: none;
     }
-    .ba-badge--before { left: 12px; }
-    .ba-badge--after { right: 12px; background: var(--olive); }
+    .ba-badge--before { left: 16px; }
+    .ba-badge--after { right: 16px; background: var(--olive); }
     .ba-range {
       position: absolute;
       inset: 0;
@@ -528,8 +610,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       background: var(--terracotta);
       color: var(--paper);
       border: 2px solid var(--paper);
@@ -537,16 +619,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 600;
       pointer-events: none;
       z-index: 5;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 5fr 4fr 3fr;
       gap: var(--space-4);
     }
     .project-card {
@@ -560,7 +641,7 @@
     }
     .project-card__media {
       position: relative;
-      height: 230px;
+      height: 240px;
       overflow: hidden;
       border-bottom: 1px solid var(--line);
     }
@@ -577,8 +658,8 @@
       left: 12px;
       background: var(--olive);
       color: var(--paper);
-      padding: 4px 10px;
-      font-size: 0.74rem;
+      padding: 6px 12px;
+      font-size: 0.85rem;
       font-weight: 600;
       border-radius: var(--radius);
     }
@@ -592,26 +673,42 @@
     .case-specs li {
       display: flex;
       justify-content: space-between;
-      padding: 8px 0;
+      gap: 12px;
+      padding: 10px 0;
       border-bottom: 1px solid var(--line);
-      font-size: 0.86rem;
+      font-size: 0.95rem;
     }
     .case-specs li span { color: var(--muted); }
     .case-specs li strong { color: var(--ink); text-align: right; }
 
     /* ==========================================================================
-       7. SEZIONE 5: COME LAVORIAMO (Timeline 6 Fasi + Contratto Tipo)
+       7. SEZIONE 5: SEZIONE FISSATA ALLO SCROLL (Sticky Narrative · Percorso)
        ========================================================================== */
-    .timeline-grid {
+    .sticky-narrative {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: var(--space-3);
+      grid-template-columns: 5fr 7fr;
+      gap: var(--space-6);
+      align-items: start;
       margin-top: var(--space-5);
     }
-    .timeline-step {
-      background: var(--stone);
+    .sticky-narrative__pinned {
+      position: sticky;
+      top: 104px;
+      background: var(--paper);
       border: 1px solid var(--line);
-      padding: var(--space-4) var(--space-3);
+      border-left: 4px solid var(--terracotta);
+      padding: var(--space-5);
+      border-radius: var(--radius);
+    }
+    .sticky-narrative__steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .timeline-step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: var(--space-5);
       border-radius: var(--radius);
       display: flex;
       flex-direction: column;
@@ -619,7 +716,8 @@
     }
     .timeline-step__num {
       font-family: var(--font-serif);
-      font-size: 1.8rem;
+      font-size: 2rem;
+      font-weight: 600;
       color: var(--terracotta);
       line-height: 1;
       margin-bottom: var(--space-2);
@@ -628,16 +726,16 @@
       margin-top: var(--space-3);
       padding-top: var(--space-2);
       border-top: 1px solid var(--line);
-      font-size: 0.78rem;
+      font-size: 0.95rem;
       color: var(--ink);
       font-weight: 600;
     }
     .contract-callout {
-      margin-top: var(--space-5);
-      background: var(--stone);
+      margin-top: var(--space-6);
+      background: var(--paper);
       border: 1px solid var(--line);
-      border-left: 3px solid var(--olive);
-      padding: var(--space-4) var(--space-5);
+      border-left: 4px solid var(--olive);
+      padding: var(--space-5);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -668,46 +766,47 @@
     .field-group { margin-bottom: var(--space-4); }
     .field-label {
       display: block;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--ink);
       margin-bottom: var(--space-2);
     }
     .field-help {
       display: block;
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       color: var(--muted);
-      margin-top: 4px;
+      margin-top: 8px;
     }
     .chips-group {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-2);
+      gap: 12px;
     }
     .chip-btn {
       min-height: 48px;
-      padding: 10px 14px;
+      padding: 12px 16px;
       background: var(--paper);
-      border: 1px solid var(--line);
+      border: 2px solid var(--border-control);
       border-radius: var(--radius);
       text-align: left;
       font-family: var(--font-sans);
-      font-size: 0.88rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--ink);
       cursor: pointer;
-      transition: border-color 0.15s ease, background-color 0.15s ease;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
     }
     .chip-btn:hover { border-color: var(--ink); }
+    .chip-btn:active { transform: scale(0.99); }
     .chip-btn.is-active {
       border-color: var(--terracotta);
-      background-color: rgba(180, 83, 42, 0.08);
-      font-weight: 600;
+      background-color: var(--stone);
+      color: var(--ink);
     }
     .range-slider {
       width: 100%;
       accent-color: var(--terracotta);
-      height: 8px;
+      height: 12px;
       cursor: pointer;
     }
     .est-price-box {
@@ -719,14 +818,14 @@
     }
     .est-price-val {
       font-family: var(--font-serif);
-      font-size: 2.3rem;
+      font-size: 2.35rem;
       font-weight: 600;
       color: var(--terracotta);
       line-height: 1.1;
     }
 
     /* ==========================================================================
-       9. SEZIONE 7: DAL CANTIERE AGLI OSPITI + PALETTE MATERIALI
+       9. SEZIONE 7: DAL CANTIERE AGLI OSPITI + GLOSSARIO + PALETTE MATERIALI
        ========================================================================== */
     .materials-grid {
       display: grid;
@@ -741,10 +840,33 @@
       border-radius: var(--radius);
     }
     .material-swatch {
-      height: 88px;
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
       border-radius: var(--radius);
       margin-bottom: var(--space-3);
       border: 1px solid var(--line);
+    }
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    .glossary-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--terracotta);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+    }
+    .glossary-card strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--ink);
+      margin-bottom: 8px;
     }
 
     /* ==========================================================================
@@ -763,10 +885,10 @@
       border-radius: var(--radius);
     }
     .team-role {
-      font-size: 0.8rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--terracotta);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .testimonials-grid {
       display: grid;
@@ -776,7 +898,7 @@
     }
     .testimonial-quote {
       font-family: var(--font-serif);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-style: italic;
       color: var(--ink);
       margin-bottom: var(--space-3);
@@ -826,6 +948,7 @@
     }
     .faq-item summary {
       padding: var(--space-3) var(--space-4);
+      font-size: 1.0625rem;
       font-weight: 600;
       color: var(--ink);
       cursor: pointer;
@@ -833,7 +956,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      min-height: 54px;
+      min-height: 56px;
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item__body {
@@ -848,33 +971,34 @@
     .form-wrap {
       background: var(--paper);
       border: 1px solid var(--line);
-      padding: clamp(1.75rem, 4vw, 3.5rem);
+      padding: clamp(1.5rem, 4vw, 3.5rem);
       border-radius: var(--radius);
       max-width: 820px;
       margin: var(--space-5) auto 0;
     }
     .step-indicator {
       display: flex;
+      flex-wrap: wrap;
       gap: var(--space-3);
       margin-bottom: var(--space-4);
       padding-bottom: var(--space-3);
       border-bottom: 1px solid var(--line);
     }
     .step-pill {
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--muted);
     }
     .step-pill.is-active { color: var(--terracotta); }
     .input-text {
       width: 100%;
-      min-height: 48px;
-      padding: 12px 14px;
+      min-height: 52px;
+      padding: 12px 16px;
       font-family: var(--font-sans);
       font-size: 1rem;
       color: var(--ink);
       background: var(--stone);
-      border: 1px solid var(--line);
+      border: 2px solid var(--border-control);
       border-radius: var(--radius);
     }
     .input-row {
@@ -889,7 +1013,7 @@
       flex-wrap: wrap;
       gap: var(--space-4);
       margin-top: var(--space-3);
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       color: var(--muted);
     }
 
@@ -909,28 +1033,28 @@
     }
     .site-footer h4 {
       font-family: var(--font-sans);
-      font-size: 0.82rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: var(--paper);
       margin-bottom: var(--space-3);
     }
     .site-footer ul { list-style: none; }
-    .site-footer li { margin-bottom: 8px; }
+    .site-footer li { margin-bottom: 10px; }
     .site-footer a {
-      color: #C7BFB3;
+      color: var(--footer-muted);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.95rem;
     }
     .site-footer a:hover { color: var(--paper); text-decoration: underline; }
     .footer-bottom {
       padding-top: var(--space-4);
-      border-top: 1px solid rgba(228, 220, 207, 0.16);
+      border-top: 1px solid var(--border-control);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: var(--space-3);
-      font-size: 0.8rem;
-      color: #A69D91;
+      font-size: 0.9rem;
+      color: var(--footer-muted);
     }
 
     /* Barra fissa: SOLO SU MOBILE (eliminata su desktop) */
@@ -938,24 +1062,28 @@
       display: none;
     }
 
-    /* Responsive Mobile-First (360, 390, 768, 1280) */
+    /* Responsive Mobile-First (320, 360, 390, 430, 768, 1024, 1440 px) */
     @media (max-width: 1024px) {
-      .hero__grid, .ba-grid, .estimator-box, .map-zones-wrap { grid-template-columns: 1fr; }
+      .hero__grid, .ba-grid, .estimator-box, .map-zones-wrap, .editorial-row, .editorial-row--reverse, .sticky-narrative {
+        grid-template-columns: 1fr;
+      }
+      .sticky-narrative__pinned { position: static; }
       .estimator-controls { border-right: none; border-bottom: 1px solid var(--line); }
-      .cards-4, .materials-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
-      .timeline-grid { grid-template-columns: repeat(3, 1fr); }
+      .materials-grid, .team-grid, .glossary-grid { grid-template-columns: repeat(2, 1fr); }
       .projects-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
       .trust-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
+      .container { padding: 0 16px; }
       .nav-menu, .header-actions .btn { display: none; }
-      .menu-toggle { display: inline-flex; align-items: center; }
-      .cards-4, .projects-grid, .timeline-grid, .materials-grid, .team-grid, .testimonials-grid, .zones-list, .input-row, .chips-group, .trust-grid, .footer-grid {
+      .menu-toggle { display: inline-flex; align-items: center; min-height: 56px; }
+      .btn, .chip-btn, .input-text { min-height: 56px; font-size: 1rem; }
+      .projects-grid, .materials-grid, .team-grid, .testimonials-grid, .zones-list, .input-row, .chips-group, .trust-grid, .footer-grid, .glossary-grid {
         grid-template-columns: 1fr;
       }
-      .hero__figure img, .ba-slider { height: 290px; }
-      body { padding-bottom: 72px; }
+      .hero__figure img, .ba-slider { height: 300px; }
+      body { padding-bottom: 88px; }
       .mobile-sticky-bar {
         position: fixed;
         bottom: 0;
@@ -963,11 +1091,10 @@
         right: 0;
         z-index: 95;
         background: var(--paper);
-        border-top: 1px solid var(--line);
-        padding: 10px 16px;
+        border-top: 2px solid var(--line);
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
         display: flex;
-        gap: 10px;
-        box-shadow: 0 -4px 16px rgba(31,27,22,0.08);
+        gap: 12px;
       }
       .mobile-sticky-bar.is-hidden { display: none; }
     }
@@ -977,7 +1104,7 @@
     }
     .case-tag {
       display: inline-block;
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--olive);
       margin-bottom: var(--space-2);
@@ -995,15 +1122,16 @@
     .reveal-section {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
     }
     .js-enabled .reveal-section.is-pending {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(16px);
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
       .js-enabled .reveal-section.is-pending { opacity: 1 !important; transform: none !important; }
+      .hero__figure img { transform: none !important; }
     }
   </style>
 </head>
@@ -1048,30 +1176,30 @@
   </header>
 
   <main>
-    <!-- 1. HERO (PERCORSO COMMITTENTE: PROPRIETARI & ALBERGATORI) -->
+    <!-- 1. HERO (PERCORSO COMMITTENTE: PROPRIETARI, ALBERGATORI E SVILUPPATORI) -->
     <section class="hero">
       <div class="container hero__grid">
         <div>
-          <span class="eyebrow">Impresa edile Toscana</span>
+          <span class="eyebrow">Toscan Costruzioni · Impresa edile e general contractor a Firenze</span>
           <h1>Trasformiamo il tuo immobile in una struttura che rende. <em>Prezzo fisso</em>, tempi garantiti.</h1>
 
           <div class="answer-summary">
             <p>
-              Ristrutturiamo e convertiamo hotel, agriturismi, appartamenti per affitti brevi e dimore storiche a Firenze e in tutta la Toscana. Seguiamo progetto, permessi, cantiere chiavi in mano (<strong>1.350–2.400 €/m²</strong> bloccati a contratto, consegna in <strong>5–12 mesi</strong> con penali per ritardo), arredo completo e <strong>gestione ospiti tramite il gruppo Blue Arroyo</strong>.
+              Con il <strong>Metodo Toscan</strong> (il nostro sistema che unisce in un solo contratto progetto, pratiche edilizie, cantiere, arredo e avvio ricettivo) ristrutturiamo hotel, agriturismi e appartamenti a Firenze e in Toscana. Il <strong>Prezzo Chiuso Toscan</strong> (<strong>1.350–2.400 €/m²</strong>) è bloccato prima dei lavori, la consegna avviene in <strong>5–12 mesi</strong> con penali per ritardo e la messa a reddito prosegue con il <strong>Ciclo Blue Arroyo</strong>.
             </p>
           </div>
 
           <div class="hero__actions">
-            <a href="#contatti" class="btn btn--primary">Studio di fattibilità gratuito in 48h</a>
-            <a href="#progetti" class="link-arrow">Guarda i lavori →</a>
+            <a href="#contatti" class="btn btn--primary">Richiedi lo studio di fattibilità gratuito</a>
+            <a href="#come-lavoriamo" class="link-arrow">Scopri il percorso per budget e le Masterclass</a>
           </div>
         </div>
 
         <figure class="hero__figure">
-          <img src="assets/project_casale.jpg" alt="Casale in pietra ristrutturato in Toscana con corte interna e illuminazione serale" width="640" height="480" />
+          <img src="assets/project_casale.jpg" alt="Casale in pietra ristrutturato in Toscana da Toscan Costruzioni con corte interna e illuminazione naturale" width="640" height="520" fetchpriority="high" />
           <figcaption class="hero__caption">
             <span>Recupero conservativo in pietra e cotto · Colline toscane</span>
-            <strong>Consegna chiavi in mano</strong>
+            <strong>Toscan Costruzioni · Consegna chiavi in mano</strong>
           </figcaption>
         </figure>
       </div>
@@ -1081,67 +1209,107 @@
     <section class="trust-bar" aria-label="Garanzie contrattuali e assicurative">
       <div class="container trust-grid">
         <div class="trust-item">
-          <strong>Prezzo fisso a contratto</strong>
-          <span>Importo bloccato alla firma del progetto esecutivo, senza sorprese a fine lavori.</span>
+          <strong>Prezzo Chiuso Toscan</strong>
+          <span>Importo bloccato alla firma del computo esecutivo, senza rincari in cantiere.</span>
         </div>
         <div class="trust-item">
-          <strong>Penali per ritardo</strong>
-          <span>Data di consegna scritta a contratto con penali giornaliere a nostro carico.</span>
+          <strong>Penali scritte per ritardo</strong>
+          <span>Data di consegna a contratto con penale di 250 € al giorno a nostro carico.</span>
         </div>
         <div class="trust-item">
-          <strong>Polizza CAR e RC cantiere</strong>
-          <span>Copertura assicurativa completa su tutti i rischi di cantiere e danni a terzi.</span>
+          <strong>Percorso a 5 SAL verificati</strong>
+          <span>Paghi solo per stati di avanzamento lavori realmente eseguiti e collaudati.</span>
         </div>
         <div class="trust-item">
-          <strong>Garanzia decennale</strong>
-          <span>Polizza postuma decennale di legge sulle opere strutturali e sugli impianti.</span>
+          <strong>Polizza CAR e Decennale</strong>
+          <span>Copertura su tutti i rischi di cantiere e garanzia postuma di 10 anni per legge.</span>
         </div>
         <div class="trust-item">
-          <strong>DURC e Cassa Edile</strong>
-          <span>Piena regolarità contributiva e sicurezza di cantiere (D.Lgs. 81/2008) verificabile.</span>
+          <strong>DURC e Cassa Edile regolari</strong>
+          <span>Piena regolarità contributiva e sicurezza di cantiere verificabile ad ogni SAL.</span>
         </div>
       </div>
     </section>
 
-    <!-- 3. COSA FACCIAMO (4 CARD IN ITALIANO CHIARO) -->
+    <!-- 3. I QUATTRO INTERVENTI (RACCONTO EDITORIALE ASIMMETRICO — NO 4 CARD UGUALI) -->
     <section class="section" id="servizi">
       <div class="container">
-        <span class="eyebrow">I nostri interventi</span>
-        <h2>Cosa realizziamo per <em>proprietari</em> e albergatori</h2>
-        <p>Seguiamo l'intero lavoro con un unico contratto: dalle pratiche edilizie e di Soprintendenza fino all'arredo completo pronto per accogliere i primi ospiti.</p>
+        <span class="eyebrow">I quattro ambiti di intervento di Toscan Costruzioni</span>
+        <h2>Cosa realizziamo per <em>proprietari</em>, albergatori e investitori</h2>
+        <p>Ogni immobile richiede una strategia tecnica e distributiva precisa. Ecco come interveniamo sui quattro tagli principali del patrimonio immobiliare toscano.</p>
 
-        <div class="cards-4">
-          <a href="/costruzione-hotel-student-housing-toscana.html" class="service-card">
-            <div>
-              <h3>Hotel e <em>boutique hotel</em></h3>
-              <p>Riqualificazione di alberghi esistenti e conversione di palazzi storici in strutture ricettive: camere insonorizzate, hall, sale colazioni, area benessere, prevenzione incendi e arredo su misura.</p>
+        <div class="editorial-stream">
+          <article class="editorial-row">
+            <div class="editorial-row__media">
+              <img src="assets/project_apartment.jpg" alt="Interno di palazzo storico ristrutturato in suite per boutique hotel e ospitalità a Firenze" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Durata media: 8–12 mesi · Consegna garantita</span>
             </div>
-            <div class="service-card__price">1.850 – 2.400 €/m² indicativi →</div>
-          </a>
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">01 · Ospitalità alberghiera</span>
+                <h3>Hotel e <em>boutique hotel</em></h3>
+                <p>Riqualificazione di alberghi esistenti e conversione di palazzi cielo-terra in strutture ricettive contemporanee: camere insonorizzate con bagno privato, hall, sale colazioni, area benessere, prevenzione incendi e arredo su misura pronto per l'apertura.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Fascia Prezzo Chiuso Toscan: 1.850 – 2.400 €/m²</div>
+                <a href="/costruzione-hotel-student-housing-toscana.html" class="link-arrow">Approfondisci gli interventi su hotel e palazzi</a>
+              </div>
+            </div>
+          </article>
 
-          <a href="/agriturismo-wine-resort-siena-val-dorcia.html" class="service-card">
-            <div>
-              <h3>Agriturismi e <em>wine resort</em></h3>
-              <p>Recupero di casali in pietra, poderi e tenute agricole nel Chianti, a Siena e in Val d'Orcia: pratiche agrituristiche (PMAA), consolidamento sismico, piscine autorizzate e risparmio energetico.</p>
+          <article class="editorial-row editorial-row--reverse">
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">02 · Tenute storiche e campagna</span>
+                <h3>Agriturismi e <em>wine resort</em></h3>
+                <p>Recupero conservativo di casali in pietra, poderi e tenute agricole nel Chianti, a Siena, in Val d'Orcia e in Maremma: pratiche agrituristiche (PMAA), consolidamento sismico di solai e tetti ventilati, piscine autorizzate in Soprintendenza e impianti ad alta efficienza.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Fascia Prezzo Chiuso Toscan: 1.650 – 2.300 €/m²</div>
+                <a href="/agriturismo-wine-resort-siena-val-dorcia.html" class="link-arrow">Esplora il recupero di casali e agriturismi</a>
+              </div>
             </div>
-            <div class="service-card__price">1.650 – 2.300 €/m² indicativi →</div>
-          </a>
+            <div class="editorial-row__media">
+              <img src="assets/project_casale.jpg" alt="Casale in pietra nel Chianti ristrutturato con piscina e giardino panoramico" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Chianti · Siena · Val d'Orcia · Maremma</span>
+            </div>
+          </article>
 
-          <a href="/sviluppo-immobili-short-medium-term-firenze.html" class="service-card">
-            <div>
-              <h3>Appartamenti per <em>affitti brevi</em></h3>
-              <p>Frazionamento di appartamenti grandi o interi piani in unità indipendenti per affitti turistici e soggiorni di medio periodo (1–12 mesi), con serrature elettroniche e arredo completo.</p>
+          <article class="editorial-row">
+            <div class="editorial-row__media">
+              <img src="assets/interno-toscano.jpg" alt="Suite luminosa ricavata da frazionamento immobiliare a Firenze con travi a vista e bagno privato" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Durata media: 4–7 mesi · Arredo e domotica inclusi</span>
             </div>
-            <div class="service-card__price">1.350 – 1.750 €/m² indicativi →</div>
-          </a>
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">03 · Frazionamenti urbani ad alta resa</span>
+                <h3>Appartamenti per <em>affitti brevi</em> e medi</h3>
+                <p>Divisione di appartamenti signorili o interi piani in più unità indipendenti dotate di bagno en-suite, isolamento acustico certificato tra pareti, climatizzazione canalizzata, serrature elettroniche per l'accesso autonomo e arredo completo.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Fascia Prezzo Chiuso Toscan: 1.350 – 1.750 €/m²</div>
+                <a href="/sviluppo-immobili-short-medium-term-firenze.html" class="link-arrow">Vedi come funziona il frazionamento urbano</a>
+              </div>
+            </div>
+          </article>
 
-          <a href="/cambio-destinazione-uso-hotel-short-term-toscana.html" class="service-card">
-            <div>
-              <h3>Ristrutturazioni e <em>cambi d'uso</em></h3>
-              <p>Trasformazione di ex uffici, fondi commerciali, residenze universitarie o abitazioni private in immobili moderni in classe energetica elevata, gestendo ogni permesso comunale.</p>
+          <article class="editorial-row editorial-row--reverse">
+            <div class="editorial-row__content">
+              <div>
+                <span class="case-tag">04 · Riconversione urbana e residenziale</span>
+                <h3>Ristrutturazioni e <em>cambi d'uso</em></h3>
+                <p>Trasformazione di ex uffici, fondi commerciali, residenze per studenti o abitazioni private in immobili moderni in classe energetica elevata, curando ogni pratica comunale e strutturale fino al certificato di agibilità.</p>
+              </div>
+              <div>
+                <div class="service-card__price">Fascia Prezzo Chiuso Toscan: 1.380 – 1.900 €/m²</div>
+                <a href="/cambio-destinazione-uso-hotel-short-term-toscana.html" class="link-arrow">Scopri le pratiche di cambio destinazione d'uso</a>
+              </div>
             </div>
-            <div class="service-card__price">1.380 – 1.900 €/m² indicativi →</div>
-          </a>
+            <div class="editorial-row__media">
+              <img src="assets/artigiano.jpg" alt="Dettaglio di lavorazione artigianale su murature e materiali storici in cantiere Toscan Costruzioni" loading="lazy" width="680" height="380" />
+              <span class="editorial-row__overlay-tag">Pratiche edilizie · Soprintendenza · Strutture</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1149,9 +1317,9 @@
     <!-- 4. PROGETTI: SLIDER PRIMA/DOPO TRASCINABILE + CASI STUDIO -->
     <section class="section section--paper reveal-section" id="progetti">
       <div class="container">
-        <span class="eyebrow">Lavori prima/dopo</span>
+        <span class="eyebrow">Casi studio documentati</span>
         <h2>Lavori eseguiti e progetti <em>prima e dopo</em></h2>
-        <p>Trascina il cursore (o usa le frecce della tastiera) per confrontare lo stato dell'immobile prima dell'apertura del cantiere e il risultato a lavori ultimati.</p>
+        <p>Sposta il cursore centrale (anche da tastiera) per confrontare le condizioni dell'immobile prima dell'apertura del cantiere e l'opera consegnata da Toscan Costruzioni.</p>
 
         <!-- SLIDER PRIMA / DOPO ACCESSIBILE -->
         <div class="before-after-box">
@@ -1163,159 +1331,146 @@
               </div>
               <span class="ba-badge ba-badge--before">Prima dei lavori</span>
               <span class="ba-badge ba-badge--after">Dopo la consegna</span>
-              <div class="ba-handle" id="ba-handle" aria-hidden="true">↔</div>
+              <div class="ba-handle" id="ba-handle" aria-hidden="true">I I</div>
               <input type="range" class="ba-range" id="ba-range" min="5" max="95" value="50" aria-label="Scorri per confrontare la foto prima e dopo la ristrutturazione" />
             </div>
 
             <div>
               <span class="case-tag">Caso studio 01 · Firenze centro</span>
               <h3>Frazionamento piano nobile in <em>6 unità</em> ricettive</h3>
-              <p><strong>Il problema:</strong> appartamento unico di 280 m² con impianti degli anni '70, un solo bagno, dispersione termica elevata e canone d'affitto tradizionale insufficiente a coprire le spese straordinarie.</p>
-              <p><strong>L'intervento:</strong> frazionamento urbanistico in 6 monolocali e bilocali autonomi con bagno privato, insonorizzazione tra le pareti, climatizzazione canalizzata e arredo completo pronto per l'accoglienza.</p>
+              <p><strong>Il problema iniziale:</strong> appartamento unico di 280 m² con impianti obsoleti, un solo bagno e canone tradizionale insufficiente a ripagare la manutenzione straordinaria.</p>
+              <p><strong>L'opera eseguita:</strong> frazionamento urbanistico in 6 unità indipendenti con bagno privato, isolamento acustico certificato, climatizzazione e arredo completo.</p>
               <ul class="case-specs">
                 <li><span>Superficie e località</span><strong>280 m² · Firenze</strong></li>
                 <li><span>Durata effettiva cantiere</span><strong>6 mesi e mezzo (rispettata)</strong></li>
-                <li><span>Costo chiavi in mano + arredo</span><strong>1.500 €/m² (420.000 € totali)</strong></li>
+                <li><span>Prezzo Chiuso Toscan + arredo</span><strong>1.500 €/m² (420.000 € totali)</strong></li>
               </ul>
-              <a href="#contatti" class="link-arrow" onclick="prefillForm('Appartamento o piano da dividere', 'Firenze', 280, 'Appartamenti per affitti brevi/medi')">Hai un immobile simile? Richiedi lo studio gratuito →</a>
+              <a href="#contatti" class="btn btn--primary" onclick="prefillForm('Appartamento da dividere', 'Firenze', 280, 'Aprirlo ad affitti brevi o medi')">Richiedi lo studio per un immobile simile</a>
             </div>
           </div>
         </div>
 
-        <!-- GRIGLIA CASI STUDIO + VILLA CLAUDIA ETICHETTATA ONESTAMENTE -->
+        <!-- COMPOSIZIONE ASIMMETRICA CASI STUDIO + VILLA CLAUDIA ETICHETTATA ONESTAMENTE -->
         <div class="projects-grid">
           <article class="project-card">
             <div class="project-card__media">
-              <img src="assets/project_casale.jpg" alt="Casale a Greve in Chianti, facciata in pietra e giardino dopo la ristrutturazione" loading="lazy" width="400" height="230" />
-              <img src="assets/artigiano.png" class="img-secondary" alt="Dettaglio lavorazione artigianale della pietra e del cotto nel casale in Chianti" loading="lazy" width="400" height="230" />
-              <span class="status-badge">Lavoro consegnato</span>
+              <img src="assets/project_casale.jpg" alt="Casale a Greve in Chianti, facciata in pietra e giardino dopo la ristrutturazione" loading="lazy" width="480" height="240" />
+              <img src="assets/artigiano.jpg" class="img-secondary" alt="Dettaglio lavorazione artigianale della pietra e del cotto nel casale in Chianti" loading="lazy" width="480" height="240" />
+              <span class="status-badge">Opera consegnata</span>
             </div>
             <div class="project-card__body">
               <span class="case-tag">Caso studio 02 · Chianti e Siena</span>
               <h3>Recupero casale in pietra per <em>ospitalità</em> rurale</h3>
-              <p>Consolidamento statico dei solai in legno e cotto, rifacimento del tetto ventilato, realizzazione di 8 camere con bagno privato e adeguamento impiantistico in pompa di calore.</p>
+              <p>Consolidamento statico dei solai in legno e cotto, rifacimento del tetto ventilato, realizzazione di 8 camere con bagno privato e centrale termica in pompa di calore.</p>
               <ul class="case-specs">
                 <li><span>Superficie</span><strong>460 m² + corte esterna</strong></li>
                 <li><span>Durata lavori</span><strong>9 mesi</strong></li>
-                <li><span>Fascia di costo</span><strong>1.820 €/m² chiavi in mano</strong></li>
+                <li><span>Costo finale</span><strong>1.820 €/m² chiavi in mano</strong></li>
               </ul>
-              <a href="/ristrutturazione-casale-toscano.html" class="link-arrow">Vedi i dettagli sul recupero casali →</a>
+              <a href="/ristrutturazione-casale-toscano.html" class="link-arrow">Leggi il caso sul recupero casali</a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-card__media">
-              <img src="assets/interno-toscano.png" alt="Camera con bagno privato e arredi su misura a Firenze dopo la ristrutturazione" loading="lazy" width="400" height="230" />
-              <img src="assets/project_apartment.jpg" class="img-secondary" alt="Zona giorno luminosa con travi in legno e parquet in rovere" loading="lazy" width="400" height="230" />
-              <span class="status-badge">Lavoro consegnato</span>
+              <img src="assets/interno-toscano.jpg" alt="Camera con bagno privato e arredi su misura a Firenze dopo la ristrutturazione" loading="lazy" width="400" height="240" />
+              <img src="assets/project_apartment.jpg" class="img-secondary" alt="Zona giorno luminosa con travi in legno e parquet in rovere" loading="lazy" width="400" height="240" />
+              <span class="status-badge">Opera consegnata</span>
             </div>
             <div class="project-card__body">
               <span class="case-tag">Caso studio 03 · Polo universitario</span>
-              <h3>Conversione ex uffici in <em>camere</em> per studenti e trasfertisti</h3>
-              <p>Cambio di destinazione d'uso da ufficio direzionale a residenza per soggiorni di medio periodo: 14 camere con bagno en-suite, cucina condivisa, lavanderia e accesso con codice.</p>
+              <h3>Conversione ex uffici in <em>camere</em> per studenti</h3>
+              <p>Cambio di destinazione d'uso da ufficio a residenza per soggiorni di medio periodo: 14 camere con bagno privato, cucina condivisa, lavanderia e accesso elettronico.</p>
               <ul class="case-specs">
                 <li><span>Superficie</span><strong>390 m² · Firenze Novoli</strong></li>
                 <li><span>Durata lavori</span><strong>6 mesi</strong></li>
-                <li><span>Fascia di costo</span><strong>1.440 €/m² arredo incluso</strong></li>
+                <li><span>Costo finale</span><strong>1.440 €/m² arredo incluso</strong></li>
               </ul>
-              <a href="/student-housing-pbsa-firenze-pisa.html" class="link-arrow">Approfondisci le residenze per studenti →</a>
+              <a href="/student-housing-pbsa-firenze-pisa.html" class="link-arrow">Esplora le residenze per studenti</a>
             </div>
           </article>
 
           <article class="project-card">
             <div class="project-card__media">
-              <img src="assets/disegno-architettonico.png" alt="Tavola architettonica di progetto per il restauro di Villa Claudia a Montespertoli" loading="lazy" width="400" height="230" />
-              <img src="assets/esploso-costruttivo.png" class="img-secondary" alt="Schema costruttivo e distributivo del progetto esecutivo Villa Claudia" loading="lazy" width="400" height="230" />
-              <span class="status-badge status-badge--progetto">Progetto</span>
+              <img src="assets/disegno-architettonico.png" alt="Tavola architettonica di progetto per il restauro di Villa Claudia a Montespertoli" loading="lazy" width="360" height="240" />
+              <img src="assets/esploso-costruttivo.png" class="img-secondary" alt="Schema costruttivo e distributivo del progetto esecutivo Villa Claudia" loading="lazy" width="360" height="240" />
+              <span class="status-badge status-badge--progetto">Render di progetto — Cantiere in avvio</span>
             </div>
             <div class="project-card__body">
               <span class="case-tag">Progetto 2026 · Montespertoli (FI)</span>
-              <h3>Villa <em>Claudia</em> · Restauro villa storica nel Chianti</h3>
-              <p>Progetto esecutivo e avvio cantiere per il recupero conservativo di una villa storica di 520 m² frazionata in 6 appartamenti indipendenti con parco e piscina.</p>
+              <h3>Villa <em>Claudia</em> · Restauro villa nel Chianti</h3>
+              <p>Progetto esecutivo e avvio cantiere per il recupero conservativo di una villa storica di 520 m² divisa in 6 appartamenti indipendenti con parco e piscina.</p>
               <ul class="case-specs">
-                <li><span>Stato attuale</span><strong>Progetto · Cantiere in avvio</strong></li>
+                <li><span>Stato attuale</span><strong>Render di progetto · Avvio</strong></li>
                 <li><span>Superficie</span><strong>520 m² · 6 unità</strong></li>
-                <li><span>Ruolo</span><strong>General contractor chiavi in mano</strong></li>
+                <li><span>Metodo</span><strong>Appalto Prezzo Chiuso Toscan</strong></li>
               </ul>
-              <a href="/villa-claudia" class="link-arrow">Consulta il caso studio Villa Claudia →</a>
+              <a href="/villa-claudia" class="link-arrow">Esamina le tavole di Villa Claudia</a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 5. COME LAVORIAMO: TIMELINE DELLE 6 FASI + CONTRATTO TIPO SCARICABILE -->
+    <!-- 5. COME LAVORIAMO: SEZIONE FISSATA ALLO SCROLL (PERCORSO SCAGLIONATO PER BUDGET) -->
     <section class="section" id="come-lavoriamo">
       <div class="container">
-        <span class="eyebrow">Metodo e trasparenza</span>
-        <h2>Sei fasi chiare, dal sopralluogo alla <em>gestione</em></h2>
-        <p>Un unico contratto e un solo direttore tecnico responsabile: sai sempre quanto spendi, quando apri e cosa ricevi in ogni fase.</p>
-
-        <div class="timeline-grid">
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">01</div>
-              <h3>Fattibilità in 48h</h3>
-              <p>Sopralluogo gratuito, verifica dei vincoli urbanistici e stima dei costi e delle camere realizzabili.</p>
+        <div class="sticky-narrative">
+          <div class="sticky-narrative__pinned">
+            <span class="eyebrow">Il Metodo Toscan passo dopo passo</span>
+            <h2>Inizia secondo il tuo <em>budget</em>, dalla prima call alla gestione ospiti</h2>
+            <p>Non chiediamo mai di firmare al buio un cantiere intero. Con il nostro sistema di acquisto scaglionato puoi partire dalla <strong>Masterclass di Cantiere (150 €, interamente scalati dai lavori)</strong> con l'esperto della materia che ti serve oggi, e avanzare solo quando tutti i numeri tornano.</p>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:var(--space-4);">
+              <a href="/blog#prenota-step-a" class="btn btn--primary">Prenota la Masterclass con l'esperto</a>
+              <a href="/data-room" class="btn btn--secondary">Scarica il contratto a 5 SAL (PDF)</a>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Documento di fattibilità gratuito</div>
           </div>
 
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">02</div>
-              <h3>Progetto e permessi</h3>
-              <p>Progetto architettonico ed esecutivo, pratiche comunali (CILA, SCIA, cambio d'uso) e Soprintendenza.</p>
+          <div class="sticky-narrative__steps">
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Passo 01 · Ingresso accessibile (150 € scalati al 100%)</div>
+                <h3>Masterclass di <em>Cantiere</em> 1-to-1 con i 4 esperti</h3>
+                <p>Scegli la sessione individuale di 60 minuti sulla materia che ti interessa di più: <strong>1. Geometra e parte tecnica preliminare</strong> (frazionamenti, scarichi, Soprintendenza), <strong>2. Business Plan e leva con le banche</strong> (mutuo acquisto più SAL edilizio), <strong>3. Amministrazione cantiere e 5 SAL</strong>, oppure <strong>4. Pre-Sales Cantiere</strong> (come vendere o affittare le unità sulla carta durante i lavori).</p>
+              </div>
+              <div class="timeline-step__deliverable">Cosa ottieni: Diagnosi tecnica sul tuo immobile e piano operativo su misura</div>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Computo metrico e permessi approvati</div>
-          </div>
 
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">03</div>
-              <h3>Cantiere a prezzo fisso</h3>
-              <p>Opere strutturali, impianti certificati, isolamento acustico e finiture con report fotografico ogni settimana.</p>
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Passo 02 · Verifica pre-acquisto e banca</div>
+                <h3>Sopralluogo del <em>Geometra</em> e Business Plan bancabile</h3>
+                <p>Prima di firmare la proposta d'acquisto o di andare in banca, il nostro Geometra ispeziona strutture, tetto, impianti e colonne di scarico, consegnandoti il quadro economico ricavi/costi pronto per l'istituto di credito.</p>
+              </div>
+              <div class="timeline-step__deliverable">Cosa ottieni: Due diligence tecnica pre-rogito e Business Plan asseverabile</div>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Prezzo bloccato e SAL certificati</div>
-          </div>
 
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">04</div>
-              <h3>Arredo completo</h3>
-              <p>Fornitura e montaggio di cucine, letti, bagni, illuminazione e serrature elettroniche per il check-in automatico.</p>
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Passo 03 · Progetto, permessi e Pre-Sales Cantiere</div>
+                <h3>Interior Design, pratiche comunali e <em>Prezzo Chiuso Toscan</em></h3>
+                <p>Disegniamo il layout delle camere con bagno privato, depositiamo le pratiche (CILA, SCIA, Soprintendenza), prepariamo i render per il <strong>Pre-Sales Cantiere</strong> (per vendere o affittare già durante i lavori) e firmiamo il computo esecutivo che blocca il prezzo al centesimo.</p>
+              </div>
+              <div class="timeline-step__deliverable">Cosa ottieni: Permessi approvati, Kit Pre-Sales e contratto a prezzo bloccato</div>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Struttura arredata pronta all'uso</div>
-          </div>
 
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">05</div>
-              <h3>Consegna e garanzie</h3>
-              <p>Collaudo finale impianti, certificato di agibilità, SCIA ricettiva e rilascio della garanzia decennale.</p>
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Passo 04 · Esecuzione protetta e Lotto Pilota</div>
+                <h3>Unità campione e cantiere con <em>Percorso a 5 SAL</em></h3>
+                <p>Su immobili grandi possiamo partire da una prima unità campione. L'intero cantiere avanza con il <strong>Percorso a 5 SAL</strong> (15% avvio, 25% strutture, 25% impianti, 25% finiture, 10% collaudo), report fotografico ogni venerdì, DURC regolare e penali scritte per ogni giorno di ritardo.</p>
+              </div>
+              <div class="timeline-step__deliverable">Cosa ottieni: Pagamenti allineati alle opere reali e arredo completo montato</div>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Chiavi, certificazioni e polizza 10 anni</div>
-          </div>
 
-          <div class="timeline-step">
-            <div>
-              <div class="timeline-step__num">06</div>
-              <h3>Gestione ospiti</h3>
-              <p>Se lo desideri, il gruppo Blue Arroyo avvia subito la promozione online, l'accoglienza ospiti e le pulizie.</p>
+            <div class="timeline-step">
+              <div>
+                <div class="timeline-step__num">Passo 05 · Messa a reddito immediata</div>
+                <h3>Collaudo finale e avvio del <em>Ciclo Blue Arroyo</em></h3>
+                <p>Consegnate le chiavi e la polizza decennale, le aziende del nostro gruppo prendono in carico l'immobile a zero giorni dalla fine lavori: conformità normativa, allestimento alberghiero a 60°C e vendita diretta delle notti ai turisti.</p>
+              </div>
+              <div class="timeline-step__deliverable">Cosa ottieni: Immobile certificato, protetto, allestito e subito a reddito</div>
             </div>
-            <div class="timeline-step__deliverable">Cosa ricevi: Rendicontazione mensile degli incassi</div>
-          </div>
-        </div>
-
-        <div class="contract-callout">
-          <div>
-            <h3 style="margin-bottom:4px;">Vuoi iniziare un passo alla volta o leggere prima il <em>contratto</em> e la guida?</h3>
-            <p style="margin-bottom:0;">Puoi partire dal <strong>Primo Step (Interior Design &amp; Business Plan Ricettivo, 100% scalato dall'appalto)</strong>, leggere la nostra guida 3 volte a settimana (<em>"Cosa farei io se l'immobile fosse mio"</em>) o scaricare il contratto tipo e il preventivo standard in PDF.</p>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <a href="/blog" class="btn btn--primary">Guida &amp; Percorso a Micro-Step (Step A) →</a>
-            <a href="/data-room" class="btn btn--secondary">Contratto tipo e polizze (PDF) →</a>
-            <a href="/preventivo-tipo" class="btn btn--secondary">Preventivo standard (PDF) →</a>
           </div>
         </div>
       </div>
@@ -1324,9 +1479,9 @@
     <!-- 6. STIMA RAPIDA IN 3 DOMANDE (Sempre etichettata come stima indicativa) -->
     <section class="section section--paper reveal-section" id="stima-rapida">
       <div class="container">
-        <span class="eyebrow">Stima dei costi</span>
+        <span class="eyebrow">Calcolo trasparente al metro quadro</span>
         <h2>Calcola una <em>stima</em> rapida per il tuo immobile</h2>
-        <p>Rispondi a 3 domande per conoscere la fascia di costo indicativa al metro quadro e la durata media dei lavori in Toscana.</p>
+        <p>Seleziona la tipologia, la metratura e il livello di intervento per visualizzare subito la fascia di costo indicativa al metro quadro e i mesi di lavoro previsti in Toscana.</p>
 
         <div class="estimator-box">
           <div class="estimator-controls">
@@ -1343,7 +1498,7 @@
             <div class="field-group">
               <div style="display:flex;justify-content:space-between;align-items:baseline;">
                 <label class="field-label" for="est-sqm">2. Quanti metri quadri misura circa l'immobile?</label>
-                <strong id="est-sqm-val" style="color:var(--terracotta);font-size:1.1rem;">300 m²</strong>
+                <strong id="est-sqm-val" style="color:var(--terracotta);font-size:1.2rem;">300 m²</strong>
               </div>
               <input type="range" id="est-sqm" class="range-slider" min="80" max="2000" step="20" value="300" />
               <span class="field-help">Scorri il cursore da 80 m² fino a 2.000 m².</span>
@@ -1364,87 +1519,119 @@
               <h3 id="est-title">Appartamenti per affitti brevi (300 m²)</h3>
 
               <div class="est-price-box">
-                <div style="font-size:0.82rem;color:var(--muted);">Fascia di costo indicativa al m²</div>
+                <div style="font-size:0.95rem;color:var(--muted);">Fascia di costo indicativa al m²</div>
                 <div class="est-price-val" id="est-range-sqm">1.400 – 1.700 €/m²</div>
-                <div style="font-size:0.9rem;color:var(--ink);margin-top:6px;font-weight:600;" id="est-total-cost">Budget complessivo stimato: 420.000 € – 510.000 €</div>
+                <div style="font-size:1rem;color:var(--ink);margin-top:8px;font-weight:600;" id="est-total-cost">Fascia complessiva stimata: 420.000 € – 510.000 €</div>
               </div>
 
               <ul class="case-specs" style="margin-top:var(--space-3);">
                 <li><span>Durata media cantiere</span><strong id="est-months">6 – 7 mesi</strong></li>
                 <li><span>Cosa comprende</span><strong>Progetto, pratiche, impianti e arredo</strong></li>
-                <li><span>Detrazioni edilizie 2026</span><strong>Verificate nello studio gratuito</strong></li>
+                <li><span>Modalità di pagamento</span><strong>Percorso a 5 SAL verificati</strong></li>
               </ul>
             </div>
 
             <div>
-              <p style="font-size:0.78rem;color:var(--muted);margin-bottom:var(--space-3);">
-                *Nota importante: questa è una <strong>stima parametrica indicativa</strong> basata sui nostri cantieri in Toscana e non costituisce un preventivo contrattuale. Il prezzo fisso viene definito solo dopo il sopralluogo gratuito.
+              <p style="font-size:0.92rem;color:var(--muted);margin-bottom:var(--space-3);">
+                Nota: questa è una <strong>stima parametrica indicativa</strong> basata sui cantieri di Toscan Costruzioni e non costituisce un preventivo contrattuale. Il <strong>Prezzo Chiuso Toscan</strong> viene fissato dopo il sopralluogo gratuito.
               </p>
               <a href="#contatti" class="btn btn--primary" id="est-cta-btn" style="width:100%;">Ricevi lo studio di fattibilità gratuito</a>
-              <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow" style="display:inline-flex;margin-top:12px;font-size:0.88rem;">Apri la distinta voci in PDF per 300 m² →</a>
+              <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow" style="display:inline-flex;margin-top:12px;">Apri la distinta voci in PDF per 300 m²</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 7. IL VANTAGGIO DEL GRUPPO ("DAL CANTIERE AGLI OSPITI") + PALETTE MATERIALI -->
+    <!-- 7. IL VANTAGGIO DEL GRUPPO ("DAL CANTIERE AGLI OSPITI") + GLOSSARIO + MATERIALI REALI -->
     <section class="section reveal-section" id="vantaggio-gruppo">
       <div class="container">
         <div class="hero__grid">
           <div>
-            <span class="eyebrow">Vantaggio del gruppo</span>
-            <h2>Dal cantiere agli <em>ospiti</em>: progetto, lavori e gestione nello stesso gruppo</h2>
-            <p>Un'impresa edile tradizionale ti consegna le chiavi e sparisce: se durante i lavori sono state fatte scelte sbagliate su impianti, acustica o disposizione delle camere, te ne accorgi solo quando arrivano le prime recensioni negative o le bollette fuori controllo.</p>
-            <p><strong>Toscan Costruzioni fa parte del gruppo Blue Arroyo</strong>, che gestisce direttamente strutture ricettive, boutique hotel e appartamenti turistici in Toscana. Progettiamo e costruiamo ogni immobile sapendo già come dovrà funzionare quando sarà pieno di ospiti: facile da pulire, silenzioso, automatizzato negli accessi e pronto a essere gestito dal nostro stesso gruppo.</p>
+            <span class="eyebrow">Sinergia industriale · Gruppo Blue Arroyo</span>
+            <h2>Dal cantiere agli <em>ospiti</em>: quattro aziende autonome nello stesso gruppo</h2>
+            <p>Un'impresa edile tradizionale ti consegna le chiavi e sparisce: se durante i lavori sono state fatte scelte sbagliate su impianti, acustica o disposizione delle camere, te ne accorgi solo quando arrivano le prime manutenzioni o le recensioni negative.</p>
+            <p><strong>Toscan Costruzioni è la prima azienda del gruppo Blue Arroyo</strong>. Costruiamo ogni immobile sapendo già come dovrà funzionare quando sarà abitato dagli ospiti, attivando il <strong>Ciclo Blue Arroyo</strong> non appena firmiamo il verbale di collaudo.</p>
           </div>
           <div style="background:var(--paper);border:1px solid var(--line);padding:var(--space-5);border-radius:var(--radius);">
-            <h3>Il ciclo virtuoso del <em>Gruppo Blue Arroyo</em></h3>
+            <h3>Il <em>Ciclo Blue Arroyo</em> in 4 passi</h3>
             <ul class="case-specs" style="margin-bottom:0;">
               <li style="flex-direction:column;align-items:flex-start;gap:4px;">
-                <strong style="color:var(--terracotta);">1. Toscan Costruzioni · Crea il bene</strong>
+                <strong style="color:var(--terracotta);text-align:left;">1. Toscan Costruzioni crea il bene</strong>
                 <span>Consegna un immobile nuovo, cablato e collaudato che non ha bisogno di riparazioni per anni.</span>
               </li>
               <li style="flex-direction:column;align-items:flex-start;gap:4px;">
-                <strong>2. itassistance · Lo protegge</strong>
+                <strong style="text-align:left;">2. itassistance lo protegge</strong>
                 <span>Lo rende subito conforme alla legge (Questura, CIN e Comune) e ne ottimizza le tariffe dinamiche.</span>
               </li>
               <li style="flex-direction:column;align-items:flex-start;gap:4px;">
-                <strong>3. Blue Arroyo Cleaning · Lo allestisce</strong>
-                <span>Lo trasforma in una suite d'albergo con biancheria a 60°C, kit biologici e spugne sigillate a costo zero per il PM.</span>
+                <strong style="text-align:left;">3. Blue Arroyo Cleaning lo allestisce</strong>
+                <span>Lo trasforma in una suite d'albergo con biancheria a 60°C, kit biologici e spugne sigillate a costo zero per il Property Manager.</span>
               </li>
               <li style="flex-direction:column;align-items:flex-start;gap:4px;">
-                <strong>4. SmartsBookings · Lo riempie di turisti</strong>
-                <span>Vende le notti senza regalare il 20% alle multinazionali OTA, restituisce il 15% di cashback all'ospite e bonifica l'85% al proprietario.</span>
+                <strong style="text-align:left;">4. SmartsBookings lo riempie di turisti</strong>
+                <span>Vende le notti senza cedere il 20% alle OTA internazionali, restituisce il 15% di cashback all'ospite e bonifica l'85% al proprietario.</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- PALETTE MATERIALI TOSCANI -->
+        <!-- GLOSSARIO AZIENDALE: LE PAROLE DI TOSCAN COSTRUZIONI -->
+        <div style="margin-top:var(--space-7);">
+          <span class="case-tag">Vocabolario ufficiale del nostro lavoro</span>
+          <h3>Il glossario di <em>Toscan Costruzioni</em></h3>
+          <div class="glossary-grid">
+            <div class="glossary-card">
+              <strong>Metodo Toscan</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Il sistema di appalto chiavi in mano che unisce in un solo contratto progetto, pratiche edilizie, cantiere, arredo e avvio della gestione ricettiva.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Prezzo Chiuso Toscan</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">L'importo totale bloccato alla firma del computo esecutivo: ogni imprevisto tecnico di cantiere resta a carico di Toscan Costruzioni.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Percorso a 5 SAL</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Il pagamento protetto in 5 Stati di Avanzamento Lavori (15%, 25%, 25%, 25%, 10%) versati solo dopo la verifica delle opere in cantiere.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Masterclass di Cantiere</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">La call individuale di 60 minuti (150 € scalati al 100%) con il nostro Geometra, esperto Business Plan e Banche, Admin SAL o esperto Pre-Sales.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Pre-Sales Cantiere</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">La strategia per vendere o affittare le unità immobiliari sulla carta mentre il cantiere è ancora in corso grazie a render e unità campione.</p>
+            </div>
+            <div class="glossary-card">
+              <strong>Ciclo Blue Arroyo</strong>
+              <p style="font-size:0.96rem;margin-bottom:0;">Il passaggio immediato dell'immobile finito a itassistance, Blue Arroyo Cleaning e SmartsBookings per generare rendita fin dal primo giorno.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATERIALI REALI TOSCANI (FOTO ORGANICHE, ZERO GRADIENTI DECORATIVI) -->
         <div style="margin-top:var(--space-7);">
           <span class="case-tag">Materia e architettura toscana</span>
           <h3>I materiali autentici dei nostri <em>cantieri</em></h3>
           <div class="materials-grid">
             <div class="material-card">
-              <div class="material-swatch" style="background:linear-gradient(135deg, #7A7D7E 0%, #5B5E60 100%);"></div>
+              <img src="assets/artigiano.jpg" alt="Lavorazione artigianale della pietra serena e murature storiche in Toscana" class="material-swatch" loading="lazy" width="280" height="120" />
               <strong>Pietra serena di Firenzuola</strong>
-              <p style="font-size:0.84rem;margin-bottom:0;margin-top:4px;">Soglie, scale, architravi e pavimentazioni storiche lavorate a mano da scalpellini locali.</p>
+              <p style="font-size:0.95rem;margin-bottom:0;margin-top:6px;">Soglie, scale, architravi e pavimentazioni storiche lavorate da scalpellini locali.</p>
             </div>
             <div class="material-card">
-              <div class="material-swatch" style="background:linear-gradient(135deg, #B85A3A 0%, #8E3F24 100%);"></div>
+              <img src="assets/project_casale.jpg" alt="Pavimentazione e coperture in cotto dell'Impruneta su casale toscano" class="material-swatch" loading="lazy" width="280" height="120" />
               <strong>Cotto dell'Impruneta</strong>
-              <p style="font-size:0.84rem;margin-bottom:0;margin-top:4px;">Resistente al gelo e all'usura, trattato con oli naturali per interni di casali e corti esterne.</p>
+              <p style="font-size:0.95rem;margin-bottom:0;margin-top:6px;">Resistente al gelo e all'usura, trattato con oli naturali per interni di casali e corti.</p>
             </div>
             <div class="material-card">
-              <div class="material-swatch" style="background:linear-gradient(135deg, #B68F62 0%, #8A6740 100%);"></div>
+              <img src="assets/project_apartment.jpg" alt="Parquet in rovere naturale spazzolato posato in appartamento fiorentino" class="material-swatch" loading="lazy" width="280" height="120" />
               <strong>Rovere naturale spazzolato</strong>
-              <p style="font-size:0.84rem;margin-bottom:0;margin-top:4px;">Plance ad alta resistenza al calpestio con posa fonoisolante certificata per camere e suite.</p>
+              <p style="font-size:0.95rem;margin-bottom:0;margin-top:6px;">Plance ad alta resistenza al calpestio con materassino fonoisolante certificato.</p>
             </div>
             <div class="material-card">
-              <div class="material-swatch" style="background:linear-gradient(135deg, #EFE9DD 0%, #D8CEBE 100%);"></div>
+              <img src="assets/interno-toscano.jpg" alt="Pareti risanate con intonaco a calce naturale traspirante NHL" class="material-swatch" loading="lazy" width="280" height="120" />
               <strong>Intonaco a calce naturale NHL</strong>
-              <p style="font-size:0.84rem;margin-bottom:0;margin-top:4px;">Traspirante e antibatterico, ideale per risanare murature storiche in pietra e mattoni.</p>
+              <p style="font-size:0.95rem;margin-bottom:0;margin-top:6px;">Traspirante e antibatterico, ideale per risanare murature storiche in pietra e mattoni.</p>
             </div>
           </div>
         </div>
@@ -1454,30 +1641,30 @@
     <!-- 8. CHI SIAMO, IL TEAM E LE CREDENZIALI -->
     <section class="section section--paper reveal-section" id="chi-siamo">
       <div class="container">
-        <span class="eyebrow">Il nostro team</span>
+        <span class="eyebrow">I responsabili del tuo progetto</span>
         <h2>Chi siamo e chi segue il tuo <em>immobile</em></h2>
-        <p>Toscan Costruzioni opera a Firenze e in Toscana con una struttura tecnica interna composta da direzione lavori, architetti abilitati per pratiche comunali e Soprintendenza, capi cantiere e squadre specializzate.</p>
+        <p>Toscan Costruzioni opera a Firenze e in Toscana con una struttura tecnica interna composta da direzione lavori, geometri e architetti abilitati per pratiche comunali e Soprintendenza, amministrazione SAL e specialisti di sviluppo.</p>
 
         <div class="team-grid">
           <div class="team-card">
-            <div class="team-role">Direzione e Coordinamento Committenti</div>
+            <div class="team-role">Direzione Sviluppo e Pre-Sales</div>
             <h3>Giuliano · Responsabile Sviluppo</h3>
-            <p style="font-size:0.88rem;margin-bottom:0;">Primo referente per proprietari e albergatori: coordina lo studio di fattibilità in 48 ore, la definizione del budget a prezzo fisso e il raccordo con la gestione ricettiva del gruppo Blue Arroyo.</p>
+            <p style="font-size:0.95rem;margin-bottom:0;">Primo referente per proprietari e investitori: coordina la Masterclass di Cantiere, lo studio di fattibilità in 48 ore, il Business Plan e il raccordo con il Ciclo Blue Arroyo.</p>
           </div>
           <div class="team-card">
-            <div class="team-role">Ufficio Tecnico e Pratiche Edilizie</div>
+            <div class="team-role">Geometra e Parte Tecnica Preliminare</div>
             <h3>Architettura e Soprintendenza</h3>
-            <p style="font-size:0.88rem;margin-bottom:0;">Team di architetti e ingegneri iscritti agli Albi di Firenze e Siena, specializzati in cambi di destinazione d'uso, autorizzazioni paesaggistiche, vincoli monumentali e prevenzione incendi (oltre 15 anni di esperienza).</p>
+            <p style="font-size:0.95rem;margin-bottom:0;">Geometri, architetti e ingegneri iscritti agli Albi di Firenze e Siena, dedicati a verifiche pre-rogito, frazionamenti, cambi d'uso e autorizzazioni paesaggistiche.</p>
           </div>
           <div class="team-card">
             <div class="team-role">Direzione Esecutiva Cantiere</div>
             <h3>Ingegneria Strutturale e Impianti</h3>
-            <p style="font-size:0.88rem;margin-bottom:0;">Coordinamento quotidiano delle maestranze, controllo del cronoprogramma, collaudi acustici e idrotermici, sicurezza in cantiere (CSP/CSE) e redazione degli stati di avanzamento lavori.</p>
+            <p style="font-size:0.95rem;margin-bottom:0;">Coordinamento quotidiano delle maestranze, controllo del cronoprogramma, collaudi acustici e idrotermici, sicurezza (CSP/CSE) e certificazione del Percorso a 5 SAL.</p>
           </div>
           <div class="team-card">
-            <div class="team-role">Arredo e Avvio Ricettivo</div>
-            <h3>Arredo e Accoglienza Blue Arroyo</h3>
-            <p style="font-size:0.88rem;margin-bottom:0;">Progettazione degli interni, fornitura degli arredi su misura, installazione delle serrature elettroniche e preparazione della struttura per le prenotazioni e l'accoglienza degli ospiti.</p>
+            <div class="team-role">Amministrazione Cantiere e Arredo</div>
+            <h3>Controllo SAL e Allestimento</h3>
+            <p style="font-size:0.95rem;margin-bottom:0;">Gestione trasparente di contratti a Prezzo Chiuso Toscan, regolarità DURC/Cassa Edile, fornitura degli arredi su misura e passaggio alle società di gestione del gruppo.</p>
           </div>
         </div>
       </div>
@@ -1486,24 +1673,24 @@
     <!-- 9. TESTIMONIANZE DEI COMMITTENTI -->
     <section class="section reveal-section" id="testimonianze">
       <div class="container">
-        <span class="eyebrow">Recensioni dei clienti</span>
-        <h2>Cosa raccontano i nostri <em>committenti</em></h2>
+        <span class="eyebrow">Esperienze dirette dei committenti</span>
+        <h2>Cosa raccontano i nostri <em>clienti</em></h2>
 
         <div class="testimonials-grid">
           <div class="testimonial-card">
             <p class="testimonial-quote">«Avevo un appartamento di oltre 250 m² a Firenze fermo da anni. Mi hanno consegnato lo studio di fattibilità in due giorni, seguito il frazionamento in Comune e chiuso il cantiere senza chiedere un euro in più rispetto al contratto firmato.»</p>
             <strong>Lorenzo M.</strong>
-            <span style="display:block;font-size:0.82rem;color:var(--muted);">Proprietario immobiliare · Firenze</span>
+            <span style="display:block;font-size:0.92rem;color:var(--muted);margin-top:4px;">Proprietario immobiliare · Firenze</span>
           </div>
           <div class="testimonial-card">
             <p class="testimonial-quote">«Per un albergatore la certezza della data di apertura vale quanto il costo dei lavori. Avere le penali per ritardo scritte nel contratto e ricevere ogni venerdì le foto dell'avanzamento ci ha permesso di aprire puntuali per la primavera.»</p>
-            <strong> Famiglia Rinaldi</strong>
-            <span style="display:block;font-size:0.82rem;color:var(--muted);">Proprietari struttura ricettiva · Chianti senese</span>
+            <strong>Famiglia Rinaldi</strong>
+            <span style="display:block;font-size:0.92rem;color:var(--muted);margin-top:4px;">Proprietari struttura ricettiva · Chianti senese</span>
           </div>
           <div class="testimonial-card">
             <p class="testimonial-quote">«Vivendo all'estero cercavamo un unico referente in grado di gestire permessi in Soprintendenza, lavori strutturali, arredo e poi la gestione degli ospiti. Avere costruttore e gestore nello stesso gruppo ha fatto tutta la differenza.»</p>
-            <strong>David &amp; Claire H.</strong>
-            <span style="display:block;font-size:0.82rem;color:var(--muted);">Committenti internazionali · Colline di Lucca</span>
+            <strong>David e Claire H.</strong>
+            <span style="display:block;font-size:0.92rem;color:var(--muted);margin-top:4px;">Committenti internazionali · Colline di Lucca</span>
           </div>
         </div>
       </div>
@@ -1514,39 +1701,38 @@
       <div class="container">
         <span class="eyebrow">Presenza sul territorio</span>
         <h2>Dove operiamo in <em>Toscana</em></h2>
-        <p>Con sede a Firenze, seguiamo cantieri in tutte le province toscane con squadre e fornitori locali selezionati. Clicca su una zona per consultare la guida dedicata.</p>
+        <p>Con sede a Firenze, seguiamo cantieri in tutte le province toscane con squadre e fornitori locali selezionati. Tocca una zona per aprire la guida territoriale.</p>
 
         <div class="map-zones-wrap">
           <div class="svg-map-box">
             <svg viewBox="0 0 360 360" width="100%" height="300" role="img" aria-label="Mappa interattiva delle zone servite in Toscana da Toscan Costruzioni">
-              <path d="M95,35 L165,25 L230,60 L290,115 L315,180 L270,255 L210,335 L145,320 L110,255 L75,180 L55,105 Z" fill="#F6F1E9" stroke="#B4532A" stroke-width="2" />
-              <!-- Nodi cliccabili -->
+              <path d="M95,35 L165,25 L230,60 L290,115 L315,180 L270,255 L210,335 L145,320 L110,255 L75,180 L55,105 Z" fill="#F6F1E9" stroke="#9E421B" stroke-width="2" />
               <a href="/sviluppo-immobili-short-medium-term-firenze.html" aria-label="Firenze e provincia">
-                <circle cx="185" cy="115" r="9" fill="#B4532A" />
+                <circle cx="185" cy="115" r="9" fill="#9E421B" />
                 <text x="198" y="119" font-size="13" font-weight="600" fill="#1F1B16">Firenze (Sede)</text>
               </a>
               <a href="/villa-claudia.html" aria-label="Chianti fiorentino e senese">
-                <circle cx="180" cy="152" r="7" fill="#6B7048" />
+                <circle cx="180" cy="152" r="7" fill="#4E5332" />
                 <text x="192" y="156" font-size="12" fill="#1F1B16">Chianti</text>
               </a>
               <a href="/agriturismo-wine-resort-siena-val-dorcia.html" aria-label="Siena e Val d'Orcia">
-                <circle cx="195" cy="195" r="8" fill="#B4532A" />
+                <circle cx="195" cy="195" r="8" fill="#9E421B" />
                 <text x="208" y="199" font-size="12" font-weight="600" fill="#1F1B16">Siena e Val d'Orcia</text>
               </a>
               <a href="/hotel-ville-short-term-lucca-versilia.html" aria-label="Lucca e Versilia">
-                <circle cx="105" cy="92" r="8" fill="#B4532A" />
+                <circle cx="105" cy="92" r="8" fill="#9E421B" />
                 <text x="118" y="96" font-size="12" font-weight="600" fill="#1F1B16">Lucca e Versilia</text>
               </a>
               <a href="/student-housing-pbsa-firenze-pisa.html" aria-label="Pisa">
-                <circle cx="95" cy="130" r="7" fill="#6B7048" />
+                <circle cx="95" cy="130" r="7" fill="#4E5332" />
                 <text x="108" y="134" font-size="12" fill="#1F1B16">Pisa</text>
               </a>
               <a href="/agriturismo-resort-arezzo-maremma-grosseto.html" aria-label="Arezzo e Cortona">
-                <circle cx="255" cy="165" r="7" fill="#6B7048" />
+                <circle cx="255" cy="165" r="7" fill="#4E5332" />
                 <text x="266" y="169" font-size="12" fill="#1F1B16">Arezzo</text>
               </a>
               <a href="/agriturismo-resort-arezzo-maremma-grosseto.html" aria-label="Maremma e Argentario">
-                <circle cx="155" cy="275" r="8" fill="#B4532A" />
+                <circle cx="155" cy="275" r="8" fill="#9E421B" />
                 <text x="168" y="279" font-size="12" font-weight="600" fill="#1F1B16">Maremma e Argentario</text>
               </a>
             </svg>
@@ -1555,27 +1741,27 @@
           <div class="zones-list">
             <a href="/sviluppo-immobili-short-medium-term-firenze.html" class="zone-card">
               <strong>Firenze e provincia</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Frazionamenti per affitti brevi e medi, hotel in palazzi storici e residenze universitarie.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Frazionamenti per affitti brevi e medi, hotel in palazzi storici e residenze universitarie.</p>
             </a>
             <a href="/agriturismo-wine-resort-siena-val-dorcia.html" class="zone-card">
               <strong>Chianti, Siena e Val d'Orcia</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Recupero di casali in pietra, agriturismi, cantine, piscine panoramiche e relais di campagna.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Recupero di casali in pietra, agriturismi, cantine, piscine panoramiche e relais di campagna.</p>
             </a>
             <a href="/hotel-ville-short-term-lucca-versilia.html" class="zone-card">
               <strong>Lucca, Forte dei Marmi e Versilia</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Riqualificazione di hotel sulla costa, ville storiche lucchesi e appartamenti turistici.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Riqualificazione di hotel sulla costa, ville storiche lucchesi e appartamenti turistici.</p>
             </a>
             <a href="/student-housing-pbsa-firenze-pisa.html" class="zone-card">
               <strong>Pisa e poli universitari</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Conversione di immobili cielo-terra ed ex uffici in alloggi per studenti e ricercatori.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Conversione di immobili cielo-terra ed ex uffici in alloggi per studenti e ricercatori.</p>
             </a>
             <a href="/agriturismo-resort-arezzo-maremma-grosseto.html" class="zone-card">
               <strong>Arezzo, Cortona e Valdichiana</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Tenute rurali e ville con piscina destinate all'ospitalità internazionale.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Tenute rurali e ville con piscina destinate all'ospitalità internazionale.</p>
             </a>
             <a href="/agriturismo-resort-arezzo-maremma-grosseto.html" class="zone-card">
               <strong>Maremma e Monte Argentario</strong>
-              <p style="font-size:0.84rem;margin:4px 0 0;">Eco-resort, boutique hotel sul mare e ristrutturazioni di pregio sulla Costa d'Argento.</p>
+              <p style="font-size:0.95rem;margin:6px 0 0;">Eco-resort, boutique hotel sul mare e ristrutturazioni di pregio sulla Costa d'Argento.</p>
             </a>
           </div>
         </div>
@@ -1592,21 +1778,21 @@
           <details class="faq-item" open>
             <summary>Quanto costa al metro quadro ristrutturare un hotel, un agriturismo o un appartamento in Toscana? <span>+</span></summary>
             <div class="faq-item__body">
-              <p style="margin-bottom:0;">I costi indicativi chiavi in mano vanno da <strong>1.350 a 1.750 €/m²</strong> per appartamenti destinati ad affitti brevi e medi (inclusi impianti, bagni e arredo), da <strong>1.650 a 2.300 €/m²</strong> per il recupero di casali e agriturismi in pietra, e da <strong>1.850 a 2.400 €/m²</strong> per hotel e boutique hotel 4 o 5 stelle. Nel prezzo sono compresi progettazione, direzione lavori, impianti certificati e arredo; restano esclusi solo gli oneri comunali e l'IVA di legge.</p>
+              <p style="margin-bottom:0;">Con il <strong>Prezzo Chiuso Toscan</strong> i costi indicativi chiavi in mano vanno da <strong>1.350 a 1.750 €/m²</strong> per appartamenti destinati ad affitti brevi e medi (inclusi impianti, bagni e arredo), da <strong>1.650 a 2.300 €/m²</strong> per il recupero di casali e agriturismi in pietra, e da <strong>1.850 a 2.400 €/m²</strong> per hotel e boutique hotel 4 o 5 stelle. Nel prezzo sono compresi progettazione, direzione lavori, impianti certificati e arredo; restano esclusi solo gli oneri comunali e l'IVA di legge.</p>
             </div>
           </details>
 
           <details class="faq-item">
-            <summary>Come garantite che il prezzo non aumenti durante il cantiere? <span>+</span></summary>
+            <summary>Come posso iniziare senza impegnare subito il budget dell'intero cantiere? <span>+</span></summary>
             <div class="faq-item__body">
-              <p style="margin-bottom:0;">Non iniziamo mai un cantiere con preventivi approssimativi: eseguiamo prima i rilievi tecnici, le indagini sulle murature e il computo metrico dettagliato. L'importo che firmi nel contratto di appalto è bloccato a corpo e può variare solo se sei tu a richiedere per iscritto modifiche o aggiunte in corso d'opera.</p>
+              <p style="margin-bottom:0;">Puoi partire dal primo gradino della nostra scala scaglionata: la <strong>Masterclass di Cantiere (150 €, interamente scalati se prosegui coi lavori)</strong>, una sessione individuale di 60 minuti con il nostro Geometra, l'esperto di Business Plan e leva bancaria, il responsabile Amministrazione SAL o il direttore Pre-Sales Cantiere. Da lì decidi passo dopo passo come proseguire in base alla tua disponibilità economica.</p>
             </div>
           </details>
 
           <details class="faq-item">
             <summary>Cosa succede se i lavori finiscono in ritardo rispetto alla data prevista? <span>+</span></summary>
             <div class="faq-item__body">
-              <p style="margin-bottom:0;">Nel settore ricettivo perdere l'inizio della stagione estiva o dell'anno accademico significa perdere mesi di incassi. Per questo inseriamo nel contratto una data certa di fine lavori con penali giornaliere a nostro carico per ogni giorno di ritardo non dovuto a cause di forza maggiore.</p>
+              <p style="margin-bottom:0;">Nel settore ricettivo perdere l'inizio della stagione estiva o dell'anno accademico significa perdere mesi di incassi. Per questo inseriamo nel contratto una data certa di fine lavori con penali giornaliere di 250 € a nostro carico per ogni giorno di ritardo non dovuto a cause di forza maggiore.</p>
             </div>
           </details>
 
@@ -1624,15 +1810,15 @@
     <section class="section section--paper reveal-section" id="contatti">
       <div class="container">
         <div style="text-align:center;max-width:680px;margin:0 auto;">
-          <span class="eyebrow">Studio gratuito</span>
-          <h2>Richiedi lo studio di <em>fattibilità</em> in 48 ore</h2>
-          <p style="margin:0 auto;">Raccontaci il tuo immobile: entro 24 ore ti ricontattiamo per fissare un sopralluogo gratuito e consegnarti una valutazione chiara su costi, tempi e permessi necessari.</p>
+          <span class="eyebrow">Studio gratuito in 48 ore</span>
+          <h2>Richiedi lo studio di <em>fattibilità</em> per il tuo immobile</h2>
+          <p style="margin:0 auto;">Raccontaci il tuo immobile in due passaggi: entro 24 ore ti ricontattiamo per fissare un sopralluogo gratuito o la tua prima Masterclass di Cantiere.</p>
         </div>
 
         <form class="form-wrap" id="lead-form" novalidate>
           <div class="step-indicator" aria-label="Passaggi del modulo">
             <span class="step-pill is-active" id="pill-step-1">Passaggio 1 di 2 · Il tuo immobile</span>
-            <span class="step-pill" id="pill-step-2">Passaggio 2 di 2 · I tuoi contatti</span>
+            <span class="step-pill" id="pill-step-2">Passaggio 2 di 2 · I tuoi recapiti</span>
           </div>
 
           <!-- STEP 1: L'IMMOBILE -->
@@ -1670,7 +1856,7 @@
               <input type="hidden" id="f-obiettivo" name="obiettivo" value="Aprirlo ad affitti brevi o medi" />
             </div>
 
-            <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Continua con i tuoi recapiti →</button>
+            <button type="button" class="btn btn--primary" id="btn-to-step-2" style="width:100%;">Procedi al passaggio 2 (I tuoi recapiti)</button>
           </div>
 
           <!-- STEP 2: I CONTATTI (Solo 2 campi obbligatori per ridurre l'attrito al minimo) -->
@@ -1688,24 +1874,24 @@
 
             <div class="input-row">
               <div>
-                <label class="field-label" for="f-email">A quale indirizzo email inviamo lo studio preliminare? (facoltativo)</label>
+                <label class="field-label" for="f-email">Indirizzo email per ricevere lo studio (facoltativo)</label>
                 <input type="email" id="f-email" name="email" class="input-text" placeholder="nome@azienda.it" />
               </div>
               <div>
-                <label class="field-label" for="f-note">Vuoi aggiungere qualche dettaglio? (facoltativo)</label>
+                <label class="field-label" for="f-note">Dettagli aggiuntivi (facoltativo)</label>
                 <input type="text" id="f-note" name="note" class="input-text" placeholder="Es. immobile già di proprietà, orario preferito..." />
               </div>
             </div>
             <input type="hidden" id="f-budget" name="budget" value="" />
 
             <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--space-3);">
-              <button type="button" class="btn btn--secondary" id="btn-back-step-1">← Indietro</button>
-              <button type="submit" class="btn btn--primary" id="btn-submit-form" style="flex:1;">Richiedi lo studio gratuito</button>
+              <button type="button" class="btn btn--secondary" id="btn-back-step-1">Torna al passaggio 1</button>
+              <button type="submit" class="btn btn--primary" id="btn-submit-form" style="flex:1;">Invia la richiesta di studio gratuito</button>
             </div>
           </div>
 
           <div class="reassurances">
-            <span>Risposta entro 24h</span>
+            <span>Risposta entro 24 ore</span>
             <span>·</span>
             <span>Sopralluogo gratuito</span>
             <span>·</span>
@@ -1713,12 +1899,12 @@
           </div>
 
           <!-- MESSAGGIO DI CONFERMA INLINE -->
-          <div id="form-confirmation" style="display:none;margin-top:var(--space-4);padding:var(--space-4);background:var(--stone);border:1px solid var(--olive);border-radius:var(--radius);">
-            <h3 style="color:var(--ink);">Richiesta ricevuta. Ecco i prossimi passi:</h3>
+          <div id="form-confirmation" style="display:none;margin-top:var(--space-4);padding:var(--space-4);background:var(--stone);border:2px solid var(--olive);border-radius:var(--radius);">
+            <h3 style="color:var(--ink);">Richiesta ricevuta da Toscan Costruzioni. Ecco i prossimi passi:</h3>
             <p style="color:var(--ink);margin-bottom:var(--space-2);">1. <strong>Entro 24 ore lavorative</strong> il nostro responsabile sviluppo (Giuliano) ti contatterà telefonicamente o su WhatsApp.<br/>
             2. Concordiamo il <strong>sopralluogo gratuito</strong> (entro 7 giorni) o l'analisi delle planimetrie.<br/>
             3. <strong>Entro 48 ore dal sopralluogo</strong> ricevi lo studio di fattibilità con fascia di costo e tempi.</p>
-            <a id="confirm-wa-link" href="https://wa.me/393510380392" target="_blank" rel="noopener" class="btn btn--primary">Scrivici subito su WhatsApp (+39 351 038 0392)</a>
+            <a id="confirm-wa-link" href="https://wa.me/393510380392" target="_blank" rel="noopener" class="btn btn--primary">Avvia subito la conversazione su WhatsApp</a>
           </div>
         </form>
       </div>
@@ -1730,10 +1916,10 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="serif" style="font-size:1.5rem;color:var(--paper);margin-bottom:4px;">Toscan <em style="color:var(--terracotta);">Costruzioni</em></div>
-          <div style="font-size:0.78rem;color:#C7BFB3;margin-bottom:12px;">Blue Arroyo Group · Firenze, Toscana</div>
-          <p style="font-size:0.86rem;color:#C7BFB3;margin-bottom:12px;">Impresa di costruzioni e general contractor per strutture ricettive, hotel, agriturismi e appartamenti per affitti brevi e medi in Toscana. Prezzo fisso a contratto, tempi garantiti e gestione ospiti inclusa.</p>
-          <p style="font-size:0.86rem;color:var(--paper);margin-bottom:0;">
+          <div class="serif" style="font-size:1.65rem;color:var(--paper);margin-bottom:4px;">Toscan <em style="color:var(--terracotta-on-dark);">Costruzioni</em></div>
+          <div style="font-size:0.9rem;color:var(--footer-muted);margin-bottom:12px;">Blue Arroyo Group · Firenze, Toscana</div>
+          <p style="font-size:0.95rem;color:var(--footer-muted);margin-bottom:12px;">Impresa di costruzioni e general contractor per strutture ricettive, hotel, agriturismi e appartamenti per affitti brevi e medi in Toscana. Prezzo Chiuso Toscan, Percorso a 5 SAL e Ciclo Blue Arroyo incluso.</p>
+          <p style="font-size:0.95rem;color:var(--paper);margin-bottom:0;">
             Tel / WhatsApp: <a href="tel:+393510380392" style="color:var(--paper);font-weight:600;">+39 351 038 0392</a><br/>
             Email: <a href="mailto:toscancostruzioni@bluearroyo.it" style="color:var(--paper);">toscancostruzioni@bluearroyo.it</a>
           </p>
@@ -1766,16 +1952,16 @@
         <div>
           <h4>Documenti e gruppo</h4>
           <ul>
-            <li><a href="/blog">Blog &amp; Guida Edilizia (Lun · Mer · Ven)</a></li>
-            <li><a href="/data-room">Contratto tipo e garanzie (PDF)</a></li>
+            <li><a href="/blog">Blog e Masterclass di Cantiere (Lun · Mer · Ven)</a></li>
+            <li><a href="/data-room">Contratto tipo e Percorso a 5 SAL (PDF)</a></li>
             <li><a href="/preventivo-tipo">Preventivo standard in PDF</a></li>
-            <li><a href="/stato-cantiere">Portale Stato Cantiere &amp; 5 SAL</a></li>
+            <li><a href="/stato-cantiere">Portale Stato Cantiere e 5 SAL</a></li>
             <li><a href="/foglio-lavori">Elenco cantieri e casi studio</a></li>
             <li><a href="/villa-claudia">Progetto Villa Claudia</a></li>
             <li><a href="/ristrutturazione-toscana.html">Percorso privati (Case e ville)</a></li>
             <li><a href="/partner">Collabora: Architetti, Agenzie e Host</a></li>
             <li><a href="/tuscany-renovation-contractor.html" lang="en">English version (EN)</a></li>
-            <li><a href="/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html" style="font-size:0.8rem;color:#9A9186;">Informativa percorsi e operatori</a></li>
+            <li><a href="/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html">Informativa percorsi e operatori</a></li>
           </ul>
         </div>
       </div>
@@ -1787,10 +1973,10 @@
     </div>
   </footer>
 
-  <!-- BARRA FISSA IN BASSO: VISIBILE SOLO SU MOBILE E NASCOSTA QUANDO IL FORM È VISIBILE -->
+  <!-- BARRA FISSA IN BASSO: VISIBILE SOLO SU MOBILE (MIN 56PX, TESTO 16PX, VERBO CHIARO) -->
   <div class="mobile-sticky-bar" id="mobile-sticky-bar">
-    <a href="#contatti" class="btn btn--primary" style="flex:1;padding:10px 14px;font-size:0.88rem;">Studio gratuito</a>
-    <a href="https://wa.me/393510380392?text=Buongiorno%20Toscan%20Costruzioni%2C%20vorrei%20richiedere%20uno%20studio%20di%20fattibilit%C3%A0%20per%20un%20immobile%20in%20Toscana." target="_blank" rel="noopener" class="btn btn--secondary" style="padding:10px 14px;font-size:0.88rem;">WhatsApp</a>
+    <a href="#contatti" class="btn btn--primary" style="flex:1;">Richiedi studio</a>
+    <a href="https://wa.me/393510380392?text=Buongiorno%20Toscan%20Costruzioni%2C%20vorrei%20richiedere%20uno%20studio%20di%20fattibilit%C3%A0%20per%20un%20immobile%20in%20Toscana." target="_blank" rel="noopener" class="btn btn--secondary">Scrivi su WhatsApp</a>
   </div>
 
   <script>
@@ -1849,7 +2035,7 @@
         var pdfLink = document.getElementById('est-pdf-link');
         if (pdfLink) {
           pdfLink.href = '/preventivo-tipo?type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm);
-          pdfLink.textContent = 'Apri la distinta voci in PDF per ' + estState.sqm + ' m² →';
+          pdfLink.textContent = 'Apri la distinta voci in PDF per ' + estState.sqm + ' m²';
         }
       }
 
