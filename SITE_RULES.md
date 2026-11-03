@@ -150,7 +150,8 @@ Usare con coerenza in tutto il sito il vocabolario proprietario di **Toscan Cost
 | **Esterno: Cliente Attivo (F5.3)** | Consultazione Report del Venerdì, avanzamento 5 SAL e attivazione Blue Arroyo | `/stato-cantiere?cliente=...&sal=...` | 10+ messaggi WA sparsi · 12 min | **1 tap da link WA · 0 campi · 20 sec** | **−90% clic / −97% tempo** |
 | **Interno: Vendite (F5.1)** | Presa in carico lead inbound da notifica `n8n` a Console già compilata | `link_console_vendite_1tap` → `/kit-commerciale` | 11 clic · 5 campi ridigitati · 4 min | **1 tap su link notifica · 0 campi · 10 sec** | **−91% clic / −96% tempo** |
 | **Interno: Vendite (CRM Tabella 1)** | Cold Calling Investitore + Offerta Micro-Servizio Step A + Invio Articolo Blog su WA + CRM | `/kit-commerciale?role=sales` | 12 clic · 5 campi · 6 min | **1 tap su riga CRM · 0 campi · 15 sec** | **−92% clic / −96% tempo** |
-| **Esterno: Investitore / Prospect** | Prenotazione Micro-Servizio d'Ingresso (Step A: Interior Design + Business Plan) dal Blog | `/blog#prenota-step-a` | 9 clic · 6 campi · 4 min | **2 tap · 2 campi (`Nome`+`Tel`) · 20 sec** | **−78% clic / −92% tempo** |
+| **Esterno: Investitore / Prospect** | Prenotazione Masterclass di Cantiere (Step 1: `150 €` scalati) dal Blog | `/blog#prenota-masterclass` | 9 clic · 6 campi · 4 min | **2 tap · 2 campi (`Nome`+`Tel`) · 20 sec** | **−78% clic / −92% tempo** |
+| **Esterno: Membro Approvato (Cipolla L1–L4)** | Navigazione Area Riservata Post-Login (5 SAL, Documenti, Allocazione Cantieri da 2.000 €) | `/stato-cantiere#/livello/1` | 11 clic · pagina unica caotica · 8 min | **3 tap guidati (Livelli 1→4) · 1 chip · 25 sec** | **−73% clic / −95% tempo** |
 | **Esterno: Partner / Fornitore** | Segnalazione immobile e generazione Accordo Partner (2–3%) | `/partner#attiva-partner` | 9 clic · 7 campi impropri · 4 min | **2 tap · 2 campi (`Studio`+`Tel`) · 25 sec** | **−78% clic / −90% tempo** |
 
 ---

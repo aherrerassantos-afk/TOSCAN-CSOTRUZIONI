@@ -273,6 +273,15 @@
               <button type="button" class="btn btn-olive" id="btn-dir-sal-ok">Autorizza Fattura SAL Corrente (1 tap) →</button>
             </div>
           </div>
+
+          <div class="card" style="grid-column:1 / -1;border-left:4px solid var(--olive);">
+            <h4>3. Governance &amp; Tutela Co-Investitori: Approva Membro per Area Riservata (Cantieri da 2.000 €)</h4>
+            <p style="font-size:0.85rem;">Esamina e abilita il profilo del membro corrente all'accesso riservato post-login (Sistema Cipolla · Livello 2 Cantieri in Corso di Apertura da 2.000 € in su) a tutela degli altri investitori del gruppo.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+              <button type="button" class="btn btn-primary" id="btn-dir-approve-member">Approva Membro &amp; Invia Accesso Cantieri 2.000 €+ (1 tap) →</button>
+              <a href="/stato-cantiere?member=approved#/livello-2/cantieri-apertura" class="btn btn-secondary" id="dir-open-member-portal">Apri Area Riservata Membro Approvato</a>
+            </div>
+          </div>
         </div>
         <div id="dir-status" class="status-toast"></div>
       </div>
@@ -990,6 +999,20 @@
         document.getElementById('dir-status').textContent = 'Confermato: Autorizzazione SAL inviata ad Amministrazione!';
         openWhatsApp('NULLA OSTA DIREZIONE SAL — Commessa ' + state.client + ' (' + state.city + '): autorizzata emissione fattura per ' + state.sal + ' su contratto da ' + fmtEur(total) + '.', false);
       });
+
+      var btnDirMember = document.getElementById('btn-dir-approve-member');
+      if (btnDirMember) {
+        btnDirMember.addEventListener('click', function() {
+          state.memberApproved = true;
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+          var memberPortalUrl = 'https://toscancostruzioni.it/stato-cantiere?member=approved&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#/livello-2/cantieri-apertura';
+          var mLink = document.getElementById('dir-open-member-portal');
+          if (mLink) mLink.href = '/stato-cantiere?member=approved&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#/livello-2/cantieri-apertura';
+          sendCrm('governance_approva_membro_area_riservata_2k', memberPortalUrl);
+          document.getElementById('dir-status').textContent = 'Confermato: Membro esaminato e abilitato ai Cantieri in Apertura (da 2.000 €)!';
+          openWhatsApp('Buongiorno ' + state.client + ', la Direzione di Governance di Toscan Costruzioni (Blue Arroyo Group) ha esaminato e approvato il suo profilo a tutela dei co-investitori. Può ora accedere alla sua Area Riservata Post-Login e ai Cantieri in Corso di Apertura (da 2.000 € in su) da questo link personale: ' + memberPortalUrl, true);
+        });
+      }
 
       /* AZIONI 1-TAP TECNICO / CANTIERE */
       document.querySelectorAll('[data-t-sal]').forEach(function(btn) {
