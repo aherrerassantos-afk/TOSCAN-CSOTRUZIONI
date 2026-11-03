@@ -107,7 +107,24 @@ Impaginazione editoriale da rivista di architettura toscana contemporanea: mater
 | **Esterno: Cliente Attivo** | Controllo piano 5 SAL in € e richiesta verbale SAL + DURC | `/stato-cantiere` e `/data-room` | 7 clic · messaggio manuale · 5 min | **1 tap · 0 campi · 15 sec** | **−86% clic / −95% tempo** |
 | **Esterno: Cliente Attivo (F5.3)** | Consultazione Report del Venerdì, avanzamento 5 SAL e attivazione Blue Arroyo | `/stato-cantiere?cliente=...&sal=...` | 10+ messaggi WA sparsi · 12 min | **1 tap da link WA · 0 campi · 20 sec** | **−90% clic / −97% tempo** |
 | **Interno: Vendite (F5.1)** | Presa in carico lead inbound da notifica `n8n` a Console già compilata | `link_console_vendite_1tap` → `/kit-commerciale` | 11 clic · 5 campi ridigitati · 4 min | **1 tap su link notifica · 0 campi · 10 sec** | **−91% clic / −96% tempo** |
+| **Interno: Vendite (CRM Tabella 1)** | Cold Calling Investitore + Offerta Micro-Servizio Step A + Invio Articolo Blog su WA + CRM | `/kit-commerciale?role=sales` | 12 clic · 5 campi · 6 min | **1 tap su riga CRM · 0 campi · 15 sec** | **−92% clic / −96% tempo** |
+| **Esterno: Investitore / Prospect** | Prenotazione Micro-Servizio d'Ingresso (Step A: Interior Design + Business Plan) dal Blog | `/blog#prenota-step-a` | 9 clic · 6 campi · 4 min | **2 tap · 2 campi (`Nome`+`Tel`) · 20 sec** | **−78% clic / −92% tempo** |
 | **Esterno: Partner / Fornitore** | Segnalazione immobile e generazione Accordo Partner (2–3%) | `/partner#attiva-partner` | 9 clic · 7 campi impropri · 4 min | **2 tap · 2 campi (`Studio`+`Tel`) · 25 sec** | **−78% clic / −90% tempo** |
+
+---
+
+## 6. Sistema CRM Prima Tabella (Investitori), Acquisto Scaglionato (Step A → E) & Blog Autonomo 3x/Settimana (`/blog`)
+1. **Scala di Acquisto Scaglionato dalla A alla Z (Micro-Servizi Associati — Zero barriera d'ingresso):**
+   - **Step A (Primo Step Consigliato): Interior Design Ricettivo & Business Plan (`1.500–3.500 €`, 100% scalato dall'appalto):** layout distributivo per massimizzare camere/bagni en-suite, concept d'interni toscano contemporaneo e Business Plan ricavi/costi con dati reali del Gruppo Blue Arroyo.
+   - **Step B: Due Diligence Tecnica & Urbanistica Pre-Rogito (`1.200–2.500 €`):** verifica di strutture, tetto, pendenze scarichi, potenza elettrica e vincoli Soprintendenza prima dell'acquisto.
+   - **Step C: Pratiche Edilizie (CILA/SCIA/Soprintendenza) & Computo Metrico Esecutivo Bloccato (`2.800–5.500 €`):** trasforma il progetto in un prezzo fisso a corpo bloccato al centesimo.
+   - **Step D: Lotto Pilota / Unità Campione a Prezzo Fisso:** realizzazione della prima suite campione prima di estendere il cantiere all'intero edificio.
+   - **Step E: Appalto Completo Chiavi in Mano (5 SAL) + Ciclo Virtuoso Gruppo Blue Arroyo (`1.350–2.400 €/m²`):** `1. Toscan Costruzioni crea il bene` → `2. itassistance lo protegge` → `3. Blue Arroyo Cleaning lo allestisce` → `4. SmartsBookings lo riempie di turisti`.
+2. **Motore Editoriale & Blog Autonomo (`/blog` — 3 Pubblicazioni a Settimana: Lunedì, Mercoledì, Venerdì):**
+   - Insegna al cliente da zero come funziona davvero un'impresa di costruzioni, sempre con il box pratico ***"Cosa farei io se l'immobile fosse mio"*** e l'invito diretto al Micro-Servizio associato:
+     - **Lunedì (*Il Consulente di Sviluppo, Acquisti & Transazioni Immobiliari*):** fattibilità pre-rogito, frazionamenti, cambi d'uso e business plan ricettivo.
+     - **Mercoledì (*Il Direttore di Cantiere*):** dietro le quinte del cantiere, perché i preventivi bassi raddoppiano, varianti, 5 SAL, DURC, impianti e isolamento acustico.
+     - **Venerdì (*L'Architetto & Interior Designer Ricettivo*):** layout distributivo, bagni en-suite, materiali toscani durevoli e arredo che alza la tariffa media giornaliera (ADR).
 
 ---
 

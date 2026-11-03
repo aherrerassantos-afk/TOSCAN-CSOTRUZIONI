@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal Sviluppo Immobiliare, Cantiere e Interior Design in Toscana | Toscan Costruzioni</title>
+  <meta name="description" content="Guida pratica per investitori e committenti immobiliari in Toscana (3 uscite a settimana: Lunedì Transazioni e Business Plan, Mercoledì Come funziona un cantiere edile, Venerdì Interior Design ricettivo). Scopri il percorso scaglionato dallo studio d'interni al chiavi in mano." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://toscancostruzioni.it/blog" />
+  <link rel="alternate" hreflang="it" href="https://toscancostruzioni.it/blog" />
+  <link rel="alternate" hreflang="x-default" href="https://toscancostruzioni.it/blog" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["HomeAndConstructionBusiness", "GeneralContractor"],
+        "@id": "https://toscancostruzioni.it/#organization",
+        "name": "Toscan Costruzioni",
+        "url": "https://toscancostruzioni.it/",
+        "telephone": "+39 351 038 0392",
+        "email": "toscancostruzioni@bluearroyo.it",
+        "parentOrganization": {
+          "@type": "Organization",
+          "name": "Blue Arroyo Group",
+          "email": "admin@bluearroyo.it"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Firenze",
+          "addressRegion": "Toscana",
+          "addressCountry": "IT"
+        }
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://toscancostruzioni.it/blog#blog",
+        "name": "Journal di Sviluppo Immobiliare, Cantiere e Interior Design — Toscan Costruzioni",
+        "description": "Rubrica trisettimanale (Lunedì, Mercoledì, Venerdì) per chi investe in immobili da ristrutturare e mettere a reddito a Firenze e in Toscana.",
+        "publisher": { "@id": "https://toscancostruzioni.it/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://toscancostruzioni.it/" },
+          { "@type": "ListItem", "position": 2, "name": "Journal & Guida Investitori", "item": "https://toscancostruzioni.it/blog" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Da dove conviene partire prima di acquistare o ristrutturare un immobile per investimento in Toscana?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prima di firmare un contratto edile completo o un preliminare d'acquisto, conviene partire dallo Step A: Studio di Interior Design distributivo e Business Plan ricettivo, seguito dalla Due Diligence tecnica e urbanistica pre-rogito. In questo modo si conoscono esattamente il numero di unità realizzabili, il costo a corpo (1.350–2.400 €/m²) e i ricavi attesi senza impegnare subito l'intero capitale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come funziona una ditta di costruzioni seria e come si evitano i rincari a metà cantiere?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I rincari nascono quando si avvia il cantiere con un preventivo sommario senza progetto esecutivo degli impianti e dell'interior design. Separando la fase di progettazione/computo esecutivo dalla fase di cantiere, l'impresa può bloccare il prezzo fisso a corpo a contratto con pagamenti divisi in 5 SAL verificati e penali giornaliere per ritardo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --stone: #F6F1E9;
+      --paper: #FFFFFF;
+      --ink: #1F1B16;
+      --muted: #6E665C;
+      --terracotta: #B4532A;
+      --terracotta-dark: #93401D;
+      --olive: #6B7048;
+      --line: #E4DCCF;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius: 2px;
+      --max-w: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--ink); }
+    h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
+    h1 { font-size: clamp(2.2rem, 1.8rem + 2.2vw, 3.6rem); }
+    h2 { font-size: clamp(1.65rem, 1.35rem + 1.2vw, 2.4rem); }
+    h3 { font-size: clamp(1.28rem, 1.1rem + 0.5vw, 1.65rem); }
+    p { max-width: 70ch; color: var(--muted); }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    header { background: rgba(246, 241, 233, 0.96); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 100; }
+    .nav-bar { display: flex; justify-content: space-between; align-items: center; height: 74px; gap: 16px; flex-wrap: wrap; }
+    .brand { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 600; }
+    .brand em { color: var(--terracotta); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 20px; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; border: 1px solid transparent; cursor: pointer; min-height: 44px; font-family: var(--font-sans); }
+    .btn-primary { background: var(--terracotta); color: #FFF; }
+    .btn-primary:hover { background: var(--terracotta-dark); }
+    .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+    .btn-olive { background: var(--olive); color: #FFF; }
+    section { padding: 68px 0; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: inline-block; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--olive); margin-bottom: 10px; }
+
+    /* SCALA A-Z MICRO-SERVIZI */
+    .ladder-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
+    @media (max-width: 980px) { .ladder-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .ladder-grid { grid-template-columns: 1fr; } }
+    .ladder-step {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 20px;
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .ladder-step.is-entry { border: 2px solid var(--terracotta); border-top: 4px solid var(--terracotta); }
+    .step-tag { font-size: 0.72rem; font-weight: 700; color: var(--terracotta); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* FILTRI 3 VOCI EDITORIALI (LUN / MER / VEN) */
+    .chips-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .chip-btn { min-height: 44px; padding: 9px 16px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); font-size: 0.88rem; font-weight: 500; cursor: pointer; font-family: var(--font-sans); color: var(--ink); }
+    .chip-btn.is-active { border-color: var(--terracotta); background: rgba(180,83,42,0.12); font-weight: 600; }
+
+    /* GRIGLIA ARTICOLI */
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 28px; }
+    @media (max-width: 920px) { .articles-grid { grid-template-columns: 1fr; } }
+    .article-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .voice-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      background: #EFE8DC;
+      color: var(--ink);
+    }
+    .what-i-would-do {
+      background: var(--stone);
+      border-left: 3px solid var(--terracotta);
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: var(--ink);
+      margin-top: 12px;
+    }
+    footer { padding: 48px 0; font-size: 0.88rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-bar">
+      <a href="/" class="brand">Toscan <em>Costruzioni</em> · Journal Sviluppo &amp; Cantiere</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="#scala-servizi" class="btn btn-secondary">Percorso A–Z (Micro-Servizi)</a>
+        <a href="#prenota-step-a" class="btn btn-primary">Richiedi Step A: Interior Design &amp; Business Plan</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 1. HERO RISPOSTA PRIMA (ANSWER-FIRST) -->
+    <section>
+      <span class="eyebrow">Educazione per chi investe in Toscana · Lun · Mer · Ven</span>
+      <h1>Come funziona davvero uno sviluppo <em>immobiliare</em> (spiegato senza segreti prima di firmare un cantiere)</h1>
+      <p style="margin-top:12px;color:var(--ink);">
+        Molti investitori e proprietari rinunciano a un'operazione immobiliare profittevole a Firenze e in Toscana perché temono di dover firmare subito un contratto edile da centinaia di migliaia di euro al buio. Qui ti spieghiamo <strong>passo dopo passo cosa faremmo noi al tuo posto</strong> per risolvere ogni problema tecnico, urbanistico e di design, partendo da un <strong>primo micro-servizio leggero (Interior Design + Business Plan)</strong> prima di toccare un solo muro.
+      </p>
+
+      <!-- SCALA DI ACQUISTO SCAGLIONATO DALLA A ALLA Z (5 GRADINI) -->
+      <div id="scala-servizi" style="margin-top:36px;">
+        <span class="eyebrow">Non comprare tutto il cantiere subito · Acquisto Scaglionato A–Z</span>
+        <h2>I 5 passi progressivi: entra dallo <em>Step A</em> e avanza solo quando i numeri tornano</h2>
+
+        <div class="ladder-grid">
+          <div class="ladder-step is-entry">
+            <div>
+              <span class="step-tag">Step A · Primo Ingresso</span>
+              <h3 style="margin-top:6px;font-size:1.22rem;">Interior Design &amp; Business Plan</h3>
+              <p style="font-size:0.84rem;margin-top:6px;">
+                Disegniamo il nuovo layout (quante camere/bagni escono), lo stile d'interni e il Business Plan dei ricavi turistici e del budget lavori.
+              </p>
+            </div>
+            <div>
+              <strong style="display:block;font-size:0.9rem;color:var(--terracotta);">1.500 – 3.500 € (Scontato al 100% se prosegui coi lavori)</strong>
+              <a href="#prenota-step-a" class="btn btn-primary" style="width:100%;margin-top:8px;" data-select-step="Step A · Interior Design & Business Plan">Inizia dallo Step A →</a>
+            </div>
+          </div>
+
+          <div class="ladder-step">
+            <div>
+              <span class="step-tag" style="color:var(--olive);">Step B · Pre-Acquisto</span>
+              <h3 style="margin-top:6px;font-size:1.22rem;">Due Diligence Tecnica &amp; Rogito</h3>
+              <p style="font-size:0.84rem;margin-top:6px;">
+                Prima che tu compri l'immobile verifichiamo conformità urbanistica, vincoli Soprintendenza, strutture, solai e allacci fognari/elettrici.
+              </p>
+            </div>
+            <div>
+              <strong style="display:block;font-size:0.86rem;color:var(--ink);">Zero sorprese dopo il notaio</strong>
+              <a href="#prenota-step-a" class="btn btn-secondary" style="width:100%;margin-top:8px;" data-select-step="Step B · Due Diligence Pre-Rogito">Richiedi Step B →</a>
+            </div>
+          </div>
+
+          <div class="ladder-step">
+            <div>
+              <span class="step-tag" style="color:var(--olive);">Step C · Numeri Bloccati</span>
+              <h3 style="margin-top:6px;font-size:1.22rem;">Permessi (SCIA) &amp; Computo Esecutivo</h3>
+              <p style="font-size:0.84rem;margin-top:6px;">
+                Depositiamo la pratica edilizia in Comune e trasformiamo l'Interior Design in un computo analitico che blocca il prezzo al centesimo.
+              </p>
+            </div>
+            <div>
+              <strong style="display:block;font-size:0.86rem;color:var(--ink);">Elimina le varianti in cantiere</strong>
+              <a href="#prenota-step-a" class="btn btn-secondary" style="width:100%;margin-top:8px;" data-select-step="Step C · Pratiche Edilizie & Computo">Richiedi Step C →</a>
+            </div>
+          </div>
+
+          <div class="ladder-step">
+            <div>
+              <span class="step-tag" style="color:var(--olive);">Step D · Test Operativo</span>
+              <h3 style="margin-top:6px;font-size:1.22rem;">Lotto Pilota / Unità Campione</h3>
+              <p style="font-size:0.84rem;margin-top:6px;">
+                Su palazzi o hotel grandi realizziamo prima 1 unità campione completa di impianti, bagno, acustica e arredo per toccare con mano la qualità.
+              </p>
+            </div>
+            <div>
+              <strong style="display:block;font-size:0.86rem;color:var(--ink);">Verifichi prima di scalare</strong>
+              <a href="#prenota-step-a" class="btn btn-secondary" style="width:100%;margin-top:8px;" data-select-step="Step D · Lotto Pilota / Unità Campione">Richiedi Step D →</a>
+            </div>
+          </div>
+
+          <div class="ladder-step">
+            <div>
+              <span class="step-tag" style="color:var(--olive);">Step E · Opera Completa</span>
+              <h3 style="margin-top:6px;font-size:1.22rem;">Cantiere 5 SAL &amp; Messa a Reddito</h3>
+              <p style="font-size:0.84rem;margin-top:6px;">
+                Esecuzione chiavi in mano (1.350–2.400 €/m², penali ritardo) e subentro di itassistance, Blue Arroyo Cleaning e SmartsBookings.
+              </p>
+            </div>
+            <div>
+              <strong style="display:block;font-size:0.86rem;color:var(--ink);">Il Ciclo Virtuoso completo</strong>
+              <a href="/preventivo-tipo" class="btn btn-secondary" style="width:100%;margin-top:8px;">Vedi Computo 5 SAL →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. RUBRICA TRI-SETTIMANALE AUTONOMA (3 VOCI DIVERSE: LUNEDÌ, MERCOLEDÌ, VENERDÌ) -->
+    <section>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+        <div>
+          <span class="eyebrow">Pubblicazione trisettimanale · 3 Esperti al tuo fianco</span>
+          <h2>Le 3 rubriche per capire costruzioni, <em>sviluppi</em> e acquisizioni</h2>
+          <p style="margin-top:6px;">
+            Ogni settimana pubblichiamo 3 analisi pratiche firmate dai nostri 3 specialisti: <strong>Lunedì (Acquisti, Sviluppi &amp; Business Plan)</strong>, <strong>Mercoledì (Dietro le Quinte del Cantiere)</strong> e <strong>Venerdì (Interior Design &amp; Valorizzazione al m²)</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="chips-row" role="tablist" aria-label="Filtra per rubrica e voce">
+        <button type="button" class="chip-btn is-active" data-filter-voice="all">Tutte le 3 Voci (Lun · Mer · Ven)</button>
+        <button type="button" class="chip-btn" data-filter-voice="lunedi">Lunedì · Sviluppo, Acquisti &amp; Business Plan</button>
+        <button type="button" class="chip-btn" data-filter-voice="mercoledi">Mercoledì · Il Direttore di Cantiere Spiega Tutto</button>
+        <button type="button" class="chip-btn" data-filter-voice="venerdi">Venerdì · Interior Design &amp; Architettura Ricettiva</button>
+      </div>
+
+      <div class="articles-grid" id="blog-articles-container">
+        <!-- ARTICOLO 1: LUNEDÌ (TRANSAZIONI, ACQUISTI & BUSINESS PLAN) -->
+        <article class="article-card" data-voice="lunedi">
+          <div>
+            <span class="voice-badge">Lunedì · Sviluppo &amp; Transazioni Immobiliari</span>
+            <h3 style="margin-top:12px;">Come capire in 48 ore se un appartamento grande a Firenze può diventare 4–6 unità ad alta resa (prima di fare l'offerta d'acquisto)</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Quando un investitore visita un piano nobile di 250 m² da ristrutturare, l'errore più costoso è fare un'offerta basandosi solo sul prezzo al metro quadro della zona, senza verificare dove passano le colonne di scarico e cosa permette il regolamento edilizio comunale.
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Non firmerei mai la proposta d'acquisto al buio. Partirei dallo <strong>Step A (Interior Design distributivo + Business Plan)</strong>: verifichiamo i rapporti aeroilluminanti delle finestre, posizioniamo i nuovi bagni entro 3 metri dalle colonne feci o progettiamo pompe di scarico silenziate, e calcoliamo al centesimo quanto costa la trasformazione rispetto all'incasso netto annuo.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="#prenota-step-a" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;" data-select-step="Step A · Interior Design & Business Plan (Frazionamento)">Richiedi Step A su questo tema →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="Come valutare un frazionamento prima dell'offerta d'acquisto">Invia su WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- ARTICOLO 2: MERCOLEDÌ (DIRETTORE DI CANTIERE — COME FUNZIONA UNA DITTA EDILE) -->
+        <article class="article-card" data-voice="mercoledi">
+          <div>
+            <span class="voice-badge">Mercoledì · Il Direttore di Cantiere</span>
+            <h3 style="margin-top:12px;">Perché i preventivi edili "bassi" costano il 35% in più a fine lavori: come funziona davvero una ditta di costruzioni</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Se non hai mai gestito un cantiere, tre preventivi per lo stesso immobile possono sembrare identici pur variando da 280.000 € a 420.000 €. Il segreto? Chi ti offre 280.000 € ha escluso massetti, linee vita, acustica o allacci, sapendo che a metà demolizioni sarai costretto a pagare qualsiasi "variante".
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Non chiederei mai un preventivo a una ditta senza aver prima fatto il <strong>Progetto d'Interni e il Computo Metrico Esecutivo (Step A + Step C)</strong>. Quando ogni presa elettrica, ogni metro quadro di parquet e ogni serratura smart sono scritti prima di iniziare, l'impresa ti firma il <strong>Prezzo Fisso a Corpo</strong> con penale di 250 €/giorno per ogni ritardo.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="/data-room" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;">Vedi il Contratto Prezzo Fisso →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="Perché i preventivi edili bassi raddoppiano in cantiere">Invia su WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- ARTICOLO 3: VENERDÌ (ARCHITETTO & INTERIOR DESIGNER RICETTIVO) -->
+        <article class="article-card" data-voice="venerdi">
+          <div>
+            <span class="voice-badge">Venerdì · Interior Design &amp; Valorizzazione</span>
+            <h3 style="margin-top:12px;">Interior Design che si ripaga da solo: le 4 scelte progettuali che alzano la tariffa notte del +30% e azzerano le manutenzioni</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Arredare una casa privata e progettare gli interni di una struttura per investitori sono due mestieri opposti. Un materiale delicato o un bagno singolo su un appartamento da 6 posti letto distruggono il rendimento netto nei primi 18 mesi di apertura.
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Nello <strong>Step A di Interior Design</strong> inseriamo sempre: 1) Bagno en-suite per ogni camera con docce walk-in filo pavimento; 2) Contropareti acustiche certificate tra le stanze; 3) Rovere spazzolato, pietra serena e intonaci a calce lavabili; 4) Vano biancheria dedicato per i kit sigillati a 60°C di Blue Arroyo Cleaning.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="#prenota-step-a" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;" data-select-step="Step A · Interior Design & Business Plan">Parti dall'Interior Design →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="Interior Design ricettivo che alza la tariffa del +30%">Invia su WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- ARTICOLO 4: LUNEDÌ (CASALI & VINCOLI PAESAGGISTICI) -->
+        <article class="article-card" data-voice="lunedi">
+          <div>
+            <span class="voice-badge">Lunedì · Acquisizioni Casali &amp; Hospitality</span>
+            <h3 style="margin-top:12px;">Comprare un casale in pietra in Chianti o Val d'Orcia: i 5 controlli tecnici da fare prima del preliminare notarile</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Un casale toscano affascina qualsiasi investitore italiano o internazionale, ma tetti non ventilati, umidità di risalita, assenza di acquedotto e vincoli paesaggistici sulla piscina possono spostare il budget di 200.000 €.
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Attiverei subito lo <strong>Step B (Due Diligence Pre-Rogito in 48h)</strong> insieme allo <strong>Step A (Business Plan 8 Suite + Piscina)</strong>: usciamo col nostro Direttore Tecnico prima dell'offerta per darti per iscritto quanto costa davvero metterlo a norma e portarlo a rendita.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="#prenota-step-a" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;" data-select-step="Step B · Due Diligence Pre-Rogito Casale">Richiedi Due Diligence Casale →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="I 5 controlli tecnici prima di comprare un casale in Toscana">Invia su WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- ARTICOLO 5: MERCOLEDÌ (COME FUNZIONANO I 5 SAL E IL DURC) -->
+        <article class="article-card" data-voice="mercoledi">
+          <div>
+            <span class="voice-badge">Mercoledì · Tutela del Committente in Cantiere</span>
+            <h3 style="margin-top:12px;">Come pagare un'impresa edile senza rischiare un euro: la regola dei 5 SAL verificati e della responsabilità solidale sul DURC</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Pochi proprietari sanno che se l'impresa edile non versa i contributi ai propri operai (DURC irregolare), la legge può rivalersi sul committente. E chi versa acconti del 40–50% all'inizio perde ogni leva sui tempi di consegna.
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Esigerei un contratto diviso in <strong>5 Stati di Avanzamento Lavori (15% avvio · 25% murarie · 25% impianti · 25% finiture · 10% collaudo)</strong> dove ogni rata viene pagata solo dopo aver ricevuto il report fotografico del venerdì e il DURC regolare allegato.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="/stato-cantiere" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;">Vedi il Portale 5 SAL dal Vivo →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="La regola dei 5 SAL e del DURC per tutelare chi ristruttura">Invia su WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- ARTICOLO 6: VENERDÌ (HOTEL & CAMBIO D'USO) -->
+        <article class="article-card" data-voice="venerdi">
+          <div>
+            <span class="voice-badge">Venerdì · Riconversione Hotel &amp; Palazzi</span>
+            <h3 style="margin-top:12px;">Riqualificare un hotel datato o convertire un ufficio in residenza turistica nei mesi di bassa stagione senza perdere la primavera</h3>
+            <p style="font-size:0.9rem;margin-top:8px;">
+              Per un albergatore o un investitore, ogni mese di cantiere in alta stagione costa due volte: la spesa dei lavori più il mancato incasso delle camere chiuse.
+            </p>
+            <div class="what-i-would-do">
+              <strong>Cosa farei io se l'immobile fosse mio:</strong><br />
+              Farei lo <strong>Step A (Interior Design)</strong> e lo <strong>Step C (Permessi e ordine materiali)</strong> tra settembre e ottobre, per aprire il cantiere solo quando tutti i materiali sono già a magazzino, lavorando per piani separati o chiudendo i lavori entro febbraio con penale giornaliera garantita.
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line);">
+            <a href="#prenota-step-a" class="btn btn-primary" style="font-size:0.82rem;padding:9px 14px;" data-select-step="Step A · Interior Design & Pianificazione Riqualificazione Hotel">Pianifica Riqualificazione →</a>
+            <button type="button" class="btn btn-secondary" style="font-size:0.82rem;padding:9px 14px;" data-share-article="Come riqualificare un hotel in bassa stagione senza ritardi">Invia su WhatsApp</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- GENERATORE AUTONOMO IA DI RISPOSTE & NUOVI ARTICOLI LUN/MER/VEN -->
+      <div style="background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--olive);padding:28px;margin-top:36px;border-radius:var(--radius);">
+        <span class="eyebrow">Sistema Editoriale Autonomo (Lunedì · Mercoledì · Venerdì)</span>
+        <h3>Genera l'analisi su misura: <em>"Cosa faremmo noi nel tuo caso specifico"</em></h3>
+        <p style="font-size:0.9rem;margin-top:6px;">
+          Scegli la voce dell'esperto, il tipo di operazione e l'ostacolo che stai affrontando: il motore genera subito la guida operativa passo-passo (pronta anche da inviare via WhatsApp a un socio o a un cliente).
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;">
+          <div>
+            <span style="display:block;font-size:0.82rem;font-weight:600;margin-bottom:6px;">1. Voce Editoriale (Lun / Mer / Ven)</span>
+            <div style="display:flex;flex-direction:column;gap:6px;" id="gen-voice-chips">
+              <button type="button" class="chip-btn is-active" data-g-voice="Lunedì · Consulente Sviluppo & Acquisizioni">Lunedì · Sviluppo &amp; Acquisti</button>
+              <button type="button" class="chip-btn" data-g-voice="Mercoledì · Direttore Tecnico di Cantiere">Mercoledì · Direttore di Cantiere</button>
+              <button type="button" class="chip-btn" data-g-voice="Venerdì · Architetto & Interior Designer">Venerdì · Interior Design &amp; Resa</button>
+            </div>
+          </div>
+
+          <div>
+            <span style="display:block;font-size:0.82rem;font-weight:600;margin-bottom:6px;">2. Operazione Immobiliare</span>
+            <div style="display:flex;flex-direction:column;gap:6px;" id="gen-asset-chips">
+              <button type="button" class="chip-btn is-active" data-g-asset="Frazionamento appartamento storico (200–400 m²)">Frazionamento appartamento storico</button>
+              <button type="button" class="chip-btn" data-g-asset="Acquisto e recupero Casale / Agriturismo">Acquisto e recupero Casale</button>
+              <button type="button" class="chip-btn" data-g-asset="Riqualificazione Hotel / Palazzo Cielo-Terra">Riqualificazione Hotel / Palazzo</button>
+            </div>
+          </div>
+
+          <div>
+            <span style="display:block;font-size:0.82rem;font-weight:600;margin-bottom:6px;">3. Problema da Risolvere</span>
+            <div style="display:flex;flex-direction:column;gap:6px;" id="gen-prob-chips">
+              <button type="button" class="chip-btn is-active" data-g-prob="Capire costi reali e ricavi prima di comprare">Capire costi e ricavi prima del rogito</button>
+              <button type="button" class="chip-btn" data-g-prob="Evitare rincari, varianti e ritardi della ditta edile">Evitare rincari e ritardi in cantiere</button>
+              <button type="button" class="chip-btn" data-g-prob="Progettare interni e bagni per massimizzare la tariffa">Massimizzare camere, bagni e tariffa</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="generated-article-box" style="margin-top:20px;background:var(--stone);border:1px solid var(--line);padding:20px;border-radius:var(--radius);font-size:0.92rem;color:var(--ink);white-space:pre-wrap;"></div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">
+          <button type="button" class="btn btn-primary" id="btn-gen-wa">Invia questa analisi su WhatsApp + Richiedi Step A →</button>
+          <button type="button" class="btn btn-secondary" id="btn-gen-copy">Copia Articolo Completo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. MODULO RAPIDO INGRESSO SCAGLIONATO (STEP A: INTERIOR DESIGN & BUSINESS PLAN) -->
+    <section id="prenota-step-a">
+      <div style="background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--terracotta);padding:36px;border-radius:var(--radius);">
+        <span class="eyebrow">Parti dal primo passo senza impegnare l'intero cantiere</span>
+        <h2>Richiedi il tuo Micro-Servizio iniziale: <em>Interior Design</em> &amp; Business Plan</h2>
+        <p style="margin-top:6px;color:var(--ink);">
+          Scegli il gradino con cui vuoi iniziare e inserisci solo Nome e Telefono: entro 24 ore analizzeremo insieme l'operazione immobiliare senza alcun obbligo di appalto completo.
+        </p>
+
+        <div style="margin-top:16px;">
+          <span style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:8px;">1. Con quale Micro-Servizio preferisci partire?</span>
+          <div class="chips-row" style="margin-top:0;" id="step-choice-chips">
+            <button type="button" class="chip-btn is-active" data-step-val="Step A · Interior Design & Business Plan Ricettivo">Step A · Interior Design &amp; Business Plan</button>
+            <button type="button" class="chip-btn" data-step-val="Step B · Due Diligence Tecnica Pre-Rogito">Step B · Due Diligence Pre-Rogito</button>
+            <button type="button" class="chip-btn" data-step-val="Step C · Pratiche Edilizie & Computo Bloccato">Step C · Pratiche &amp; Computo Esecutivo</button>
+            <button type="button" class="chip-btn" data-step-val="Step D/E · Lotto Pilota o Cantiere Chiavi in Mano">Step D/E · Lotto Pilota o Chiavi in Mano</button>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;">
+          <div>
+            <label for="b-name" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">2. Nome e Cognome / Società *</label>
+            <input type="text" id="b-name" placeholder="Es. Marco Ferri" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+          <div>
+            <label for="b-phone" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">3. Telefono o WhatsApp *</label>
+            <input type="tel" id="b-phone" placeholder="+39 333 1234567" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+          <div>
+            <label for="b-city" style="display:block;font-size:0.84rem;font-weight:600;margin-bottom:4px;">Comune e m² indicativi (opz.)</label>
+            <input type="text" id="b-city" placeholder="Es. Firenze · 260 m²" style="width:100%;min-height:44px;padding:10px 12px;border:1px solid var(--line);background:var(--stone);border-radius:var(--radius);font-family:var(--font-sans);" />
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;align-items:center;">
+          <button type="button" class="btn btn-primary" id="btn-submit-step-a">Richiedi Primo Step Scaglionato (1 tap) →</button>
+          <span style="font-size:0.82rem;color:var(--muted);">Costo dello Step A integralmente detratto se prosegui col cantiere · Risposta entro 24h</span>
+        </div>
+        <div id="step-a-feedback" style="font-size:0.88rem;color:var(--olive);font-weight:600;display:none;margin-top:10px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div>
+        <strong style="color:var(--ink);">Toscan Costruzioni · Part of Blue Arroyo Group</strong><br />
+        Firenze, Toscana · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
+      </div>
+      <div>
+        <a href="/" style="text-decoration:underline;">Torna alla Home</a> · <a href="/preventivo-tipo" style="text-decoration:underline;">Preventivo PDF</a> · <a href="/data-room" style="text-decoration:underline;">Contratto 5 SAL</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      /* 1. Filtro rubriche Lun / Mer / Ven */
+      document.querySelectorAll('[data-filter-voice]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('[data-filter-voice]').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          var v = btn.getAttribute('data-filter-voice');
+          document.querySelectorAll('#blog-articles-container .article-card').forEach(function(card) {
+            card.style.display = (v === 'all' || card.getAttribute('data-voice') === v) ? 'flex' : 'none';
+          });
+        });
+      });
+
+      /* 2. Selezione rapida Step dalla scala A-Z */
+      var chosenStep = 'Step A · Interior Design & Business Plan Ricettivo';
+      function selectStepChip(label) {
+        chosenStep = label;
+        document.querySelectorAll('#step-choice-chips .chip-btn').forEach(function(b) {
+          b.classList.toggle('is-active', b.getAttribute('data-step-val').indexOf(label.substring(0, 6)) !== -1);
+        });
+      }
+      document.querySelectorAll('[data-select-step]').forEach(function(a) {
+        a.addEventListener('click', function() {
+          selectStepChip(a.getAttribute('data-select-step'));
+        });
+      });
+      document.querySelectorAll('#step-choice-chips .chip-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#step-choice-chips .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          chosenStep = btn.getAttribute('data-step-val');
+        });
+      });
+
+      /* 3. Condivisione rapida articolo su WhatsApp */
+      document.querySelectorAll('[data-share-article]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var title = btn.getAttribute('data-share-article');
+          var msg = 'Guida tecnica Toscan Costruzioni ("' + title + '"): https://toscancostruzioni.it/blog — Possiamo partire dallo Step A (Interior Design + Business Plan) prima di impegnare il cantiere.';
+          window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+        });
+      });
+
+      /* 4. Motore Editoriale Autonomo Lun / Mer / Ven */
+      var gVoice = 'Lunedì · Consulente Sviluppo & Acquisizioni';
+      var gAsset = 'Frazionamento appartamento storico (200–400 m²)';
+      var gProb = 'Capire costi reali e ricavi prima di comprare';
+      var outBox = document.getElementById('generated-article-box');
+
+      function updateGeneratedArticle() {
+        outBox.textContent =
+          'RUBRICA AUTONOMA [' + gVoice.toUpperCase() + ']\n' +
+          'OPERAZIONE: ' + gAsset + ' in Toscana\n' +
+          'OBIETTIVO: ' + gProb + '\n\n' +
+          '1. LA DIAGNOSI (Perché molti investitori si bloccano qui):\n' +
+          'Chi affronta "' + gAsset + '" senza conoscere dall\'interno come lavora un\'impresa edile rischia di impegnare capitale senza sapere quante camere con bagno privato siano realmente autorizzabili e quale sia il costo bloccato al m².\n\n' +
+          '2. COSA FAREI IO SE L\'IMMOBILE FOSSE MIO (Il Percorso Scaglionato):\n' +
+          '• PRIMO PASSO (Step A · Interior Design & Business Plan): Prima di firmare un appalto, disegniamo la pianta esecutiva d\'interni per ricavare il massimo numero di suite insonorizzate e calcoliamo il Business Plan con tariffe reali.\n' +
+          '• SECONDO PASSO (Step B/C · Due Diligence & Computo Bloccato): Verifichiamo scarichi, strutture e pratiche SCIA/Soprintendenza, trasformando ogni scelta di design in un contratto a Prezzo Fisso (1.350–2.400 €/m²) diviso in 5 SAL con penale di 250 €/giorno.\n' +
+          '• TERZO PASSO (Ciclo Virtuoso Gruppo Blue Arroyo): Consegnato il bene chiavi in mano, itassistance lo protegge (CIN/Questura e tariffe dinamiche), Blue Arroyo Cleaning lo allestisce (biancheria 60°C e kit gratuiti) e SmartsBookings lo riempie di turisti (payout 85% entro le 12:00).';
+      }
+
+      function bindGeneratorChips(containerId, setter) {
+        document.querySelectorAll('#' + containerId + ' .chip-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            document.querySelectorAll('#' + containerId + ' .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
+            btn.classList.add('is-active');
+            setter(btn);
+            updateGeneratedArticle();
+          });
+        });
+      }
+      bindGeneratorChips('gen-voice-chips', function(b) { gVoice = b.getAttribute('data-g-voice'); });
+      bindGeneratorChips('gen-asset-chips', function(b) { gAsset = b.getAttribute('data-g-asset'); });
+      bindGeneratorChips('gen-prob-chips', function(b) { gProb = b.getAttribute('data-g-prob'); });
+      updateGeneratedArticle();
+
+      document.getElementById('btn-gen-copy').addEventListener('click', function() {
+        navigator.clipboard.writeText(outBox.textContent);
+        this.textContent = '✓ Articolo copiato!';
+      });
+
+      document.getElementById('btn-gen-wa').addEventListener('click', function() {
+        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(outBox.textContent + '\n\nVorrei partire dallo Step A (Interior Design & Business Plan): https://toscancostruzioni.it/blog#prenota-step-a'), '_blank');
+      });
+
+      /* 5. Invio Richiesta Step A al CRM n8n */
+      document.getElementById('btn-submit-step-a').addEventListener('click', function() {
+        var name = document.getElementById('b-name').value.trim();
+        var phone = document.getElementById('b-phone').value.trim();
+        var city = document.getElementById('b-city').value.trim() || 'Firenze / Toscana';
+        if (!name) { document.getElementById('b-name').focus(); return; }
+        if (!phone) { document.getElementById('b-phone').focus(); return; }
+
+        fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            source: 'blog_step_scaglionato',
+            micro_servizio_scelto: chosenStep,
+            nome: name,
+            telefono: phone,
+            zona: city,
+            note: '[INVESTITORE DA BLOG] Ha richiesto: ' + chosenStep
+          })
+        }).catch(function(){});
+
+        var fb = document.getElementById('step-a-feedback');
+        fb.style.display = 'block';
+        fb.textContent = '✓ Richiesta per "' + chosenStep + '" registrata nel CRM! Apertura WhatsApp Direzione...';
+        var waMsg = 'Buongiorno Toscan Costruzioni, sono ' + name + ' (' + city + '). Ho letto il vostro Journal e vorrei iniziare con "' + chosenStep + '".';
+        window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');
+      });
+    })();
+  </script>
+</body>
+</html>

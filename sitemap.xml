@@ -31,8 +31,16 @@
   <!-- Preventivo Standard in PDF -->
   <url>
     <loc>https://toscancostruzioni.it/preventivo-tipo.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Blog & Guida Edilizia per Investitori e Proprietari (3 pubblicazioni a settimana: Lun/Mer/Ven) -->
+  <url>
+    <loc>https://toscancostruzioni.it/blog</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
 

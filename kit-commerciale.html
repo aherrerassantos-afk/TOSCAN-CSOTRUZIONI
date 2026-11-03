@@ -146,6 +146,7 @@
     <div class="container nav-bar">
       <a href="/" class="brand">Toscan <em>Costruzioni</em> · Console Ruoli</a>
       <div style="display:flex;gap:8px;flex-wrap:wrap;" class="no-print">
+        <a href="/blog" class="btn btn-olive">Blog &amp; Guida Investitori (3x/sett.)</a>
         <a href="/preventivo-tipo" id="nav-quote-link" class="btn btn-secondary">Preventivo PDF</a>
         <a href="/data-room" id="nav-contract-link" class="btn btn-secondary">Contratto &amp; 5 SAL</a>
         <a href="/stato-cantiere" id="nav-cantiere-link" class="btn btn-secondary">Portale Cliente SAL</a>
@@ -316,6 +317,96 @@
             </div>
             <div id="sales-status" class="status-toast"></div>
           </div>
+        </div>
+
+        <!-- =================================================================
+             PRIMA TABELLA DEL CRM: RICERCA & COLD CALLING INVESTITORI + ACQUISTO SCAGLIONATO (STEP A → E)
+             ================================================================= -->
+        <div class="card" style="background:#FFF;margin-top:20px;border-left:4px solid var(--terracotta);">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+            <div>
+              <span class="eyebrow">CRM Tabella 1 · Ricerca Potenziali Clienti &amp; Acquisto Scaglionato (Step A → Z)</span>
+              <h3>Pipeline <em>Investitori</em>, Micro-Servizi d'Ingresso &amp; Invio Blog Educativo in 1 Tap</h3>
+              <p style="font-size:0.86rem;margin-top:4px;">
+                Non chiediamo mai a un investitore freddo di firmare subito 450.000 € di lavori: entriamo con il <strong>Micro-Servizio Step A (Interior Design + Business Plan, 100% scalato dall'appalto)</strong> e lo educhiamo con il <a href="/blog" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">Blog Autonomo 3x/Settimana (Lun · Mer · Ven)</a>.
+              </p>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <a href="/blog" class="btn btn-olive">Apri Motore Blog (Lun/Mer/Ven) →</a>
+              <a href="/blog#prenota-step-a" class="btn btn-secondary">Pagina Step A Cliente</a>
+            </div>
+          </div>
+
+          <!-- SCALA DI ACQUISTO SCAGLIONATO DALLA A ALLA Z (SELETTORE MICRO-SERVIZIO ATTIVO) -->
+          <div style="margin-top:10px;padding:14px;background:var(--stone);border:1px solid var(--line);border-radius:var(--radius);">
+            <span class="field-label">Scala di Acquisto Scaglionato (Tocca lo Step per preparare l'offerta micro-servizio da inviare all'investitore):</span>
+            <div class="chips-row" id="crm-ladder-chips" style="margin-top:6px;">
+              <button type="button" class="chip-btn is-active" data-step-code="A" data-step-name="Step A · Interior Design & Business Plan (1.500–3.500 € scalati al 100%)" data-step-blog="https://toscancostruzioni.it/blog#art-1">
+                Step A · Interior Design + Business Plan (Ingresso Consigliato)
+              </button>
+              <button type="button" class="chip-btn" data-step-code="B" data-step-name="Step B · Due Diligence Tecnica Pre-Rogito (1.200–2.500 €)" data-step-blog="https://toscancostruzioni.it/blog#art-1">
+                Step B · Verifica Tecnica Pre-Rogito
+              </button>
+              <button type="button" class="chip-btn" data-step-code="C" data-step-name="Step C · Pratiche Edilizie + Computo Esecutivo Bloccato (2.800–5.500 €)" data-step-blog="https://toscancostruzioni.it/blog#art-2">
+                Step C · Pratiche + Computo Bloccato
+              </button>
+              <button type="button" class="chip-btn" data-step-code="D" data-step-name="Step D · Unità Campione / Lotto Pilota a Prezzo Fisso" data-step-blog="https://toscancostruzioni.it/blog#art-3">
+                Step D · Unità Campione Pilota
+              </button>
+              <button type="button" class="chip-btn" data-step-code="E" data-step-name="Step E · Appalto Chiavi in Mano (5 SAL) + Ecosistema Blue Arroyo" data-step-blog="https://toscancostruzioni.it/blog#art-5">
+                Step E · Cantiere Completo (5 SAL) + Gestione
+              </button>
+            </div>
+            <p style="font-size:0.8rem;color:var(--muted);margin-top:8px;" id="crm-ladder-desc">
+              <strong>Step A selezionato:</strong> Layout distributivo per ricavare il massimo numero di camere/bagni en-suite + concept d'interni + Business Plan ricettivo con costi di cantiere al m² e ricavi operativi reali del Gruppo Blue Arroyo. Costo 1.500–3.500 € interamente dedotto se prosegue con il cantiere.
+            </p>
+          </div>
+
+          <!-- AGGIUNTA RAPIDA NUOVO POTENZIALE INVESTITORE ALLA PRIMA TABELLA CRM -->
+          <div style="margin-top:10px;padding:12px 14px;background:var(--stone);border:1px solid var(--line);border-radius:var(--radius);">
+            <span class="field-label">Aggiungi Nuovo Potenziale Cliente / Investitore alla Tabella Cold Calling (1 tap):</span>
+            <div style="display:grid;grid-template-columns:1.2fr 1fr 0.7fr 1fr 1.2fr auto;gap:8px;align-items:end;margin-top:6px;">
+              <div>
+                <label class="field-label" for="crm-new-name" style="font-size:0.74rem;">Nome / Società Investitore</label>
+                <input type="text" id="crm-new-name" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Es. Marco Bellini / Holding" />
+              </div>
+              <div>
+                <label class="field-label" for="crm-new-city" style="font-size:0.74rem;">Città / Zona</label>
+                <input type="text" id="crm-new-city" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Firenze Centro" />
+              </div>
+              <div>
+                <label class="field-label" for="crm-new-sqm" style="font-size:0.74rem;">m²</label>
+                <input type="number" id="crm-new-sqm" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="320" value="320" />
+              </div>
+              <div>
+                <label class="field-label" for="crm-new-phone" style="font-size:0.74rem;">Telefono WhatsApp</label>
+                <input type="tel" id="crm-new-phone" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="+39 335..." />
+              </div>
+              <div>
+                <label class="field-label" for="crm-new-issue" style="font-size:0.74rem;">Problema / Obiettivo</label>
+                <input type="text" id="crm-new-issue" class="input-text" style="background:#FFF;min-height:38px;padding:6px 10px;" placeholder="Frazionare in 5 suite ricettive" />
+              </div>
+              <button type="button" class="btn btn-primary" id="btn-crm-add-row" style="min-height:38px;padding:8px 14px;">+ Aggiungi al CRM</button>
+            </div>
+          </div>
+
+          <!-- TABELLA 1 CRM: COLD CALLING & STATO ACQUISTO SCAGLIONATO -->
+          <div style="overflow-x:auto;margin-top:10px;">
+            <table class="sal-mini-table" aria-label="Prima Tabella CRM Cold Calling Investitori">
+              <thead>
+                <tr>
+                  <th>Potenziale Cliente (Investitore)</th>
+                  <th>Profilo &amp; Immobile</th>
+                  <th>Problema da Risolvere</th>
+                  <th>Step Attuale (Scala A→E)</th>
+                  <th>Articolo Blog ("Cosa farei io")</th>
+                  <th>Azioni 1-Tap (Console + WA + CRM)</th>
+                </tr>
+              </thead>
+              <tbody id="crm-cold-tbody"></tbody>
+            </table>
+          </div>
+          <div id="crm-cold-status" class="status-toast"></div>
         </div>
 
         <!-- CASSETTO A 1 TAP PER SPRINT 10 CONTATTI OUTBOUND & ACCORDO PARTNER -->
@@ -974,6 +1065,223 @@
           openWhatsApp('TICKET ASSISTENZA POST-CANTIERE [' + state.client + ' · ' + state.city + ']: ' + t, false);
         });
       });
+
+      /* =================================================================
+         PRIMA TABELLA CRM: COLD CALLING INVESTITORI & ACQUISTO SCAGLIONATO (STEP A → E)
+         ================================================================= */
+      var CRM_COLD_KEY = 'tc_crm_cold_investors_v1';
+      var activeStepCode = 'A';
+      var stepMeta = {
+        A: {
+          badge: 'Step A · Interior Design + Business Plan (1.500–3.500 €)',
+          desc: 'Step A selezionato: Layout distributivo per ricavare il massimo numero di camere/bagni en-suite + concept d\'interni + Business Plan ricettivo con costi di cantiere al m² e ricavi operativi reali del Gruppo Blue Arroyo. Costo 1.500–3.500 € interamente dedotto se prosegue con il cantiere.',
+          blogUrl: 'https://toscancostruzioni.it/blog#art-1',
+          blogTitle: 'Lun · I 3 controlli prima del rogito'
+        },
+        B: {
+          badge: 'Step B · Due Diligence Pre-Rogito (1.200–2.500 €)',
+          desc: 'Step B selezionato: Ispezione congiunta pre-acquisto di strutture, tetto, pendenze scarichi, potenza elettrica e vincoli Soprintendenza prima di firmare la proposta d\'acquisto.',
+          blogUrl: 'https://toscancostruzioni.it/blog#art-4',
+          blogTitle: 'Lun · Come ristrutturare un casale senza sforare'
+        },
+        C: {
+          badge: 'Step C · Pratiche + Computo Esecutivo Bloccato',
+          desc: 'Step C selezionato: Pratiche edilizie (CILA/SCIA/Soprintendenza) e Computo Metrico Esecutivo Analitico che blocca il prezzo fisso a corpo al centesimo prima di aprire il cantiere.',
+          blogUrl: 'https://toscancostruzioni.it/blog#art-2',
+          blogTitle: 'Mer · Perché i preventivi bassi raddoppiano'
+        },
+        D: {
+          badge: 'Step D · Unità Campione / Lotto Pilota',
+          desc: 'Step D selezionato: Realizzazione a prezzo fisso della prima suite o camera campione per verificare sul campo acustica, materiali e puntualità prima dell\'intero edificio.',
+          blogUrl: 'https://toscancostruzioni.it/blog#art-3',
+          blogTitle: 'Ven · Interior design che alza l\'ADR del +30%'
+        },
+        E: {
+          badge: 'Step E · Cantiere 5 SAL + Ciclo Blue Arroyo',
+          desc: 'Step E selezionato: Appalto completo chiavi in mano con pagamenti in 5 SAL verificati, penali di ritardo e attivazione immediata di itassistance, Blue Arroyo Cleaning e SmartsBookings.',
+          blogUrl: 'https://toscancostruzioni.it/blog#art-5',
+          blogTitle: 'Mer · I 5 SAL e il controllo del cantiere'
+        }
+      };
+
+      var defaultColdInvestors = [
+        {
+          name: 'Lorenzo Medici (Holding FI)',
+          city: 'Firenze · Oltrarno',
+          sqm: 280,
+          type: 'appartamenti',
+          phone: '+393331234567',
+          profile: 'Frazionamento Urbano (4 Suite)',
+          issue: 'Capire quante camere col bagno ci stanno prima del rogito',
+          step: 'A'
+        },
+        {
+          name: 'Famiglia Rinaldi (Wine Estate)',
+          city: 'Greve in Chianti',
+          sqm: 460,
+          type: 'agriturismo',
+          phone: '+393357654321',
+          profile: 'Casale / Wine Resort (8 Suite)',
+          issue: 'Timore di imprevisti sul tetto e vincoli Soprintendenza',
+          step: 'A'
+        },
+        {
+          name: 'Hotel Savoia Srl',
+          city: 'Lucca · Centro Storico',
+          sqm: 650,
+          type: 'hotel',
+          phone: '+393481122334',
+          profile: 'Boutique Hotel 4★ (14 Camere)',
+          issue: 'Riqualificare in bassa stagione senza sforare i tempi di riapertura',
+          step: 'C'
+        },
+        {
+          name: 'Vanguard Family Office',
+          city: 'Siena · Val d\'Orcia',
+          sqm: 520,
+          type: 'agriturismo',
+          phone: '+393409988776',
+          profile: 'Investitore Internazionale',
+          issue: 'Cerca referente unico: progetto + cantiere a prezzo fisso + gestione ospiti',
+          step: 'A'
+        },
+        {
+          name: 'Palazzo Tornabuoni Real Estate',
+          city: 'Firenze · Centro',
+          sqm: 380,
+          type: 'appartamenti',
+          phone: '+393394455667',
+          profile: 'Cambio d\'Uso Uffici → Ricettivo',
+          issue: 'Verificare scarichi verticali e insonorizzazione tra le unità',
+          step: 'B'
+        }
+      ];
+
+      var coldInvestors = defaultColdInvestors;
+      try {
+        var savedCold = JSON.parse(localStorage.getItem(CRM_COLD_KEY) || 'null');
+        if (Array.isArray(savedCold) && savedCold.length > 0) {
+          coldInvestors = savedCold;
+        }
+      } catch (e) {}
+
+      function saveColdInvestors() {
+        try { localStorage.setItem(CRM_COLD_KEY, JSON.stringify(coldInvestors)); } catch (e) {}
+      }
+
+      function renderColdTable() {
+        var tbody = document.getElementById('crm-cold-tbody');
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        coldInvestors.forEach(function(inv, idx) {
+          var sm = stepMeta[inv.step] || stepMeta.A;
+          var tr = document.createElement('tr');
+          tr.innerHTML =
+            '<td><strong>' + inv.name + '</strong><br><span style="font-size:0.76rem;color:var(--muted);">' + (inv.phone || 'Tel da inserire') + '</span></td>' +
+            '<td>' + inv.profile + '<br><span style="font-size:0.78rem;color:var(--muted);">' + inv.city + ' · <strong>' + inv.sqm + ' m²</strong></span></td>' +
+            '<td style="font-size:0.82rem;max-width:220px;">' + inv.issue + '</td>' +
+            '<td><span style="display:inline-block;padding:4px 8px;background:rgba(180,83,42,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);">' + sm.badge + '</span></td>' +
+            '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + ' →</a></td>' +
+            '<td>' +
+              '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
+                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:34px;padding:4px 10px;font-size:0.78rem;">1 · Carica in Console</button>' +
+                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:34px;padding:4px 10px;font-size:0.78rem;">2 · Invia Step ' + inv.step + ' + Blog su WA →</button>' +
+              '</div>' +
+            '</td>';
+          tbody.appendChild(tr);
+        });
+
+        tbody.querySelectorAll('[data-cold-load]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var i = parseInt(btn.getAttribute('data-cold-load'), 10);
+            var inv = coldInvestors[i];
+            if (!inv) return;
+            sClient.value = inv.name;
+            sCity.value = inv.city.split('·')[0].trim();
+            sSqm.value = inv.sqm;
+            sPhone.value = inv.phone || '';
+            state.type = inv.type || 'appartamenti';
+            saveAndRender();
+            document.getElementById('crm-cold-status').textContent = '✓ ' + inv.name + ' caricato nella Barra Commessa Condivisa (0 campi digitati)!';
+          });
+        });
+
+        tbody.querySelectorAll('[data-cold-wa]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var i = parseInt(btn.getAttribute('data-cold-wa'), 10);
+            var inv = coldInvestors[i];
+            if (!inv) return;
+            sClient.value = inv.name;
+            sCity.value = inv.city.split('·')[0].trim();
+            sSqm.value = inv.sqm;
+            sPhone.value = inv.phone || '';
+            state.type = inv.type || 'appartamenti';
+            saveAndRender();
+
+            var sm = stepMeta[inv.step] || stepMeta.A;
+            var msg =
+              'Buongiorno ' + inv.name + ',\n' +
+              'per un\'operazione come la Sua a ' + inv.city + ' (' + inv.sqm + ' m² — ' + inv.issue + '), il modo più sicuro per partire senza impegnarsi subito sull\'intero appalto è il nostro percorso scaglionato:\n\n' +
+              '👉 ' + sm.badge + ' (importo 100% scalato se poi decide di affidarci il cantiere a prezzo fisso con penali).\n\n' +
+              'Le lascio anche la nostra guida pratica ("Cosa farei io se l\'immobile fosse mio") scritta proprio su questo tema: ' + sm.blogUrl + '\n\n' +
+              'Se vuole, qui trova la pagina dedicata al primo step: https://toscancostruzioni.it/blog#prenota-step-a\n' +
+              'Ci sentiamo 10 minuti in settimana? Giuliano · Toscan Costruzioni (+39 351 038 0392)';
+
+            sendCrm('cold_calling_step_' + inv.step + '_blog_wa', sm.badge + ' | ' + sm.blogUrl);
+            document.getElementById('crm-cold-status').textContent = '✓ Offerta Scaglionata (' + sm.badge + ') + Articolo Blog inviati su WhatsApp e salvati nel CRM!';
+            openWhatsApp(msg, true);
+          });
+        });
+      }
+
+      document.querySelectorAll('#crm-ladder-chips [data-step-code]').forEach(function(chip) {
+        chip.addEventListener('click', function() {
+          document.querySelectorAll('#crm-ladder-chips [data-step-code]').forEach(function(c) { c.classList.remove('is-active'); });
+          chip.classList.add('is-active');
+          activeStepCode = chip.getAttribute('data-step-code') || 'A';
+          var sm = stepMeta[activeStepCode] || stepMeta.A;
+          document.getElementById('crm-ladder-desc').innerHTML = '<strong>' + sm.desc + '</strong>';
+        });
+      });
+
+      var btnAddCold = document.getElementById('btn-crm-add-row');
+      if (btnAddCold) {
+        btnAddCold.addEventListener('click', function() {
+          var nName = document.getElementById('crm-new-name').value.trim();
+          var nCity = document.getElementById('crm-new-city').value.trim() || 'Firenze';
+          var nSqm = parseInt(document.getElementById('crm-new-sqm').value, 10) || 300;
+          var nPhone = document.getElementById('crm-new-phone').value.trim();
+          var nIssue = document.getElementById('crm-new-issue').value.trim() || 'Valutazione fattibilità e layout ricettivo';
+          if (!nName) { document.getElementById('crm-new-name').focus(); return; }
+
+          var newEntry = {
+            name: nName,
+            city: nCity,
+            sqm: nSqm,
+            type: state.type || 'appartamenti',
+            phone: nPhone,
+            profile: 'Investitore Immobiliare (' + (rates[state.type] ? rates[state.type].label : 'Ricettivo') + ')',
+            issue: nIssue,
+            step: activeStepCode
+          };
+          coldInvestors.unshift(newEntry);
+          saveColdInvestors();
+          renderColdTable();
+
+          sClient.value = nName;
+          sCity.value = nCity;
+          sSqm.value = nSqm;
+          sPhone.value = nPhone;
+          saveAndRender();
+          sendCrm('nuovo_investitore_tabella_cold_calling', 'Step ' + activeStepCode + ' | ' + nIssue);
+
+          document.getElementById('crm-new-name').value = '';
+          document.getElementById('crm-new-issue').value = '';
+          document.getElementById('crm-cold-status').textContent = '✓ Nuovo investitore aggiunto alla Prima Tabella CRM e sincronizzato con n8n!';
+        });
+      }
+
+      renderColdTable();
 
       /* Avvio iniziale sul ruolo richiesto */
       activateRole(state.role);

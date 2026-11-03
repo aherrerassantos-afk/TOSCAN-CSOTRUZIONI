@@ -6,6 +6,7 @@
     { "src": "/data-room", "dest": "/data-room.html" },
     { "src": "/preventivo-tipo", "dest": "/preventivo-tipo.html" },
     { "src": "/stato-cantiere", "dest": "/stato-cantiere.html" },
+    { "src": "/blog", "dest": "/blog.html" },
     { "src": "/partner", "dest": "/partner-architetti-agenzie-property-manager-toscana.html" },
     { "src": "/kit-commerciale", "dest": "/kit-commerciale.html" },
     { "src": "/styleguide", "dest": "/styleguide.html" },
