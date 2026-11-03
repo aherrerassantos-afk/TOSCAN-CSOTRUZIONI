@@ -1537,7 +1537,10 @@
                 Nota: questa è una <strong>stima parametrica indicativa</strong> basata sui cantieri di Toscan Costruzioni e non costituisce un preventivo contrattuale. Il <strong>Prezzo Chiuso Toscan</strong> viene fissato dopo il sopralluogo gratuito.
               </p>
               <a href="#contatti" class="btn btn--primary" id="est-cta-btn" style="width:100%;">Ricevi lo studio di fattibilità gratuito</a>
-              <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow" style="display:inline-flex;margin-top:12px;">Apri la distinta voci in PDF per 300 m²</a>
+              <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;">
+                <a href="/preventivo-tipo?type=appartamenti&amp;sqm=300" id="est-pdf-link" class="link-arrow">Apri la distinta voci in PDF per 300 m²</a>
+                <a href="/blog?mc=1A&amp;type=appartamenti&amp;sqm=300#prenota-step-a" id="est-mc-link" class="link-arrow">Prenota la Masterclass 150 € su questa stima</a>
+              </div>
             </div>
           </div>
         </div>
@@ -2037,6 +2040,11 @@
         if (pdfLink) {
           pdfLink.href = '/preventivo-tipo?type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm);
           pdfLink.textContent = 'Apri la distinta voci in PDF per ' + estState.sqm + ' m²';
+        }
+        var mcLink = document.getElementById('est-mc-link');
+        if (mcLink) {
+          mcLink.href = '/blog?mc=1A&type=' + encodeURIComponent(estState.type) + '&sqm=' + encodeURIComponent(estState.sqm) + '#prenota-step-a';
+          mcLink.textContent = 'Prenota la Masterclass 150 € per ' + estState.sqm + ' m²';
         }
       }
 

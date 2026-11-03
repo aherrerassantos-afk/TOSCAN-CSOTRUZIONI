@@ -659,8 +659,10 @@
       var urlP = new URLSearchParams(window.location.search);
       if (urlP.get('cliente') || urlP.get('client')) document.getElementById('b-name').value = urlP.get('cliente') || urlP.get('client');
       if (urlP.get('phone') || urlP.get('tel')) document.getElementById('b-phone').value = urlP.get('phone') || urlP.get('tel');
-      if (urlP.get('city') || urlP.get('citta')) {
-        var cVal = urlP.get('city') || urlP.get('citta');
+      if (urlP.get('city') || urlP.get('citta') || urlP.get('sqm') || urlP.get('mq') || urlP.get('type') || urlP.get('tipo')) {
+        var typeLabels = { appartamenti: 'Appartamenti Toscana', hotel: 'Hotel Toscana', agriturismo: 'Casale Toscana', studenti: 'Cambio d\'uso Toscana' };
+        var rawType = urlP.get('type') || urlP.get('tipo') || '';
+        var cVal = urlP.get('city') || urlP.get('citta') || typeLabels[rawType] || rawType || 'Toscana';
         var qVal = urlP.get('sqm') || urlP.get('mq');
         document.getElementById('b-city').value = cVal + (qVal ? ' · ' + qVal + ' m²' : '');
       }
