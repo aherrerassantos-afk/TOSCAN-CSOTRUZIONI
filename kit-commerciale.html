@@ -6,6 +6,7 @@
   <title>Console Operativa per Ruolo — Piano degli Input | Toscan Costruzioni</title>
   <meta name="description" content="Console operativa interna di Toscan Costruzioni · Blue Arroyo Group: una Home dedicata per ciascuno dei 5 ruoli interni (Direzione, Vendite, Operativo/Cantiere, Amministrazione, Assistenza & Ospiti) con dato inserito una sola volta e azioni in 1 tap." />
   <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://toscancostruzioni.it/kit-commerciale" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -150,6 +151,17 @@
       #accordo-partner { display: block !important; border: none; padding: 0; }
       body { background: #FFF; }
     }
+  
+    html, body { overflow-x: clip; }
+    @media (max-width: 768px) { .btn { min-height: 56px; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -287,7 +299,7 @@
             <p style="font-size:0.85rem;">Esamina e abilita il profilo del membro corrente all'accesso riservato post-login (Sistema Cipolla · Livello 2 Cantieri in Corso di Apertura da 2.000 € in su) a tutela degli altri investitori del gruppo.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
               <button type="button" class="btn btn-primary" id="btn-dir-approve-member">Approva Membro &amp; Invia Accesso Cantieri 2.000 €+ (1 tap)</button>
-              <a href="/stato-cantiere?member=approved#/livello-2/cantieri-apertura" class="btn btn-secondary" id="dir-open-member-portal">Apri Area Riservata Membro Approvato</a>
+              <a href="/stato-cantiere?ruolo=membro&amp;view=area-apertura#area-apertura" class="btn btn-secondary" id="dir-open-member-portal">Apri Area Riservata Membro Approvato</a>
             </div>
           </div>
         </div>
@@ -1071,9 +1083,9 @@
         btnDirMember.addEventListener('click', function() {
           state.memberApproved = true;
           try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
-          var memberPortalUrl = 'https://toscancostruzioni.it/stato-cantiere?member=approved&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#/livello-2/cantieri-apertura';
+          var memberPortalUrl = 'https://toscancostruzioni.it/stato-cantiere?ruolo=membro&view=area-apertura&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#area-apertura';
           var mLink = document.getElementById('dir-open-member-portal');
-          if (mLink) mLink.href = '/stato-cantiere?member=approved&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#/livello-2/cantieri-apertura';
+          if (mLink) mLink.href = '/stato-cantiere?ruolo=membro&view=area-apertura&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#area-apertura';
           sendCrm('governance_approva_membro_area_riservata_2k', memberPortalUrl);
           document.getElementById('dir-status').textContent = 'Confermato: Membro esaminato e abilitato ai Cantieri in Apertura (da 2.000 €)!';
           openWhatsApp('Buongiorno ' + state.client + ', la Direzione di Governance di Toscan Costruzioni (Blue Arroyo Group) ha esaminato e approvato il suo profilo a tutela dei co-investitori. Può ora accedere alla sua Area Riservata Post-Login e ai Cantieri in Corso di Apertura (da 2.000 € in su) da questo link personale: ' + memberPortalUrl, true);

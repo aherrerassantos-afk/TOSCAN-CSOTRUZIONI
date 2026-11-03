@@ -175,6 +175,17 @@
       margin-top: 12px;
     }
     footer { padding: 48px 0; font-size: 0.95rem; color: var(--muted); }
+  
+    html, body { overflow-x: clip; }
+    @media (max-width: 768px) { .btn { min-height: 56px; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -264,7 +275,7 @@
         </div>
 
         <!-- I 5 GRADINI DELLA SCALA ECONOMICA DOPO LA MASTERCLASS -->
-        <div class="ladder-grid" style="margin-top:18px;">
+        <div class="ladder-grid" id="scala-acquisto" style="margin-top:18px;">
           <div class="ladder-step is-entry">
             <div>
               <span class="step-tag">Step 1 · Budget Entry (150 €)</span>
@@ -331,6 +342,7 @@
             </div>
             <div>
               <strong style="display:block;font-size:0.88rem;color:var(--ink);">Dal cantiere agli ospiti</strong>
+              <a href="/stato-cantiere?view=dettaglio-cantiere&amp;quota=2000#dettaglio-cantiere" class="btn btn-primary" style="width:100%;margin-top:8px;">Simulatore 5 SAL · Area Membri</a>
               <a href="/preventivo-tipo" class="btn btn-secondary" style="width:100%;margin-top:8px;">Vedi Computo 5 SAL</a>
             </div>
           </div>

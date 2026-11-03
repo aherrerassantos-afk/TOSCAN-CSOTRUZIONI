@@ -119,6 +119,17 @@
     .quote-strip { margin-top: 24px; padding: 18px 22px; background: var(--stone); border-left: 3px solid var(--terracotta); font-family: var(--font-serif); font-size: 1.18rem; font-style: italic; color: var(--ink); }
     .quote-strip cite { display: block; margin-top: 6px; font-family: var(--font-sans); font-size: 0.82rem; font-style: normal; color: var(--muted); }
     footer { padding: 48px 0; font-size: 0.88rem; color: var(--muted); }
+  
+    html, body { overflow-x: clip; }
+    @media (max-width: 768px) { .btn { min-height: 56px; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
