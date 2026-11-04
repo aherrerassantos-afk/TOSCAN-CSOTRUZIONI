@@ -8,4 +8,7 @@ web pague
 GEMINI.md
 node_modules/
 bob/node_modules/
+package.json
+package-lock.json
+scripts/
 .DS_Store

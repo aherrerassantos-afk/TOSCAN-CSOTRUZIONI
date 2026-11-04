@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Caso Studio Progetto Villa Claudia — Restauro e Frazionamento in 6 Unità | Toscan Costruzioni</title>
   <meta name="description" content="Scheda progetto Villa Claudia (Montespertoli, Chianti): caso studio di progettazione esecutiva per il frazionamento di una villa storica di 520 m² in 6 appartamenti ricettivi con parco, piscina, prezzo fisso e gestione Blue Arroyo." />
   <meta name="robots" content="index, follow" />
@@ -69,8 +69,8 @@
       --max-w: 1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px; overflow-x: clip; }
-    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px;  }
+    body { background: var(--stone); color: var(--ink); font-family: var(--font-sans); font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem); line-height: 1.6; -webkit-font-smoothing: antialiased;  }
     h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.14; color: var(--ink); }
     h1 em, h2 em, h3 em { font-style: italic; color: var(--terracotta); font-weight: 500; }
     h1 { font-size: clamp(2.3rem, 1.8rem + 2.2vw, 3.8rem); }
@@ -114,7 +114,7 @@
     .ba-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: var(--terracotta); color: #FFF; border: 2px solid #FFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; pointer-events: none; z-index: 5; }
     footer { padding: 48px 0; font-size: 0.88rem; color: var(--muted); }
   
-    html, body { overflow-x: clip; }
+    
     @media (max-width: 768px) { .btn { min-height: 56px; } }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -122,6 +122,66 @@
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+      }
+    }
+  
+    /* REGOLA BASE PERMANENTE — IL DESIGN NON SI TAGLIA MAI */
+    img, video, iframe, svg { max-width: 100%; }
+    .container, .header-inner {
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+    .grid, .grid-2, .grid-3, .grid-4, .shared-grid, .role-tabs, .crm-add-grid, .card, .kpi-card, pre, code, a, p, h1, h2, h3, h4, td, th, div {
+      min-width: 0;
+    }
+    pre, code, a, p, h1, h2, h3, h4, td, th, .card, .chip-btn {
+      overflow-wrap: anywhere;
+    }
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+    }
+    @media (max-width: 768px) {
+      .nav-bar {
+        height: auto !important;
+        min-height: 64px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .nav-bar > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 100%;
+      }
+      .nav-bar .btn {
+        padding: 10px 12px;
+        font-size: 0.875rem;
+        min-height: 48px;
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+      }
+      table, thead, tbody, tfoot, tr, th, td {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+      }
+      thead {
+        display: none;
+      }
+      tr {
+        margin-bottom: 12px;
+        border: 1px solid var(--line, #C4BBA6);
+        padding: 12px;
+        background: var(--paper, #FAF6F0);
+      }
+      th, td {
+        padding: 6px 0 !important;
+        border-bottom: none !important;
+        text-align: left !important;
+        overflow-wrap: anywhere;
       }
     }
   </style>

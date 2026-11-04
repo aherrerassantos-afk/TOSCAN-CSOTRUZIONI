@@ -1,0 +1,13 @@
+{
+  "name": "toscan-costruzioni",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Toscan Costruzioni · Blue Arroyo Group — General Contractor Firenze e Toscana",
+  "scripts": {
+    "check:mobile": "node scripts/check-mobile.js"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.2",
+    "playwright": "1.48.2"
+  }
+}

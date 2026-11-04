@@ -61,11 +61,11 @@ Usare esclusivamente i colori della palette definiti come variabili CSS, tutti v
 }
 ```
 
-### 7) Telefono Prima di Tutto (Mobile-First)
-- Progettare prima per il telefono (`320, 360, 390, 430 px`), poi adattare a tablet (`768, 1024 px`) e desktop (`1440 px`).
-- Zero scroll orizzontale (`overflow-x: clip`), dimensioni fluide con `%`, `clamp()`, `flex` e `grid`.
-- Per le altezze a tutto schermo usare `svh` o `dvh`, mai `100vh`.
-- Rispettare le aree sicure dei telefoni (`env(safe-area-inset-bottom)`) e `scroll-padding-top: 88px`.
+### 7) Telefono Prima di Tutto (Mobile-First) — Il Design Non Si Taglia Mai
+- Progettare prima per il telefono (`320, 360, 390, 430 px` + `844x390` orizzontale), poi adattare a tablet (`768, 1024 px`) e desktop (`1440 px`).
+- Zero scroll orizzontale nativo senza usare `overflow: hidden` o `overflow-x: hidden`/`clip` su `html` e `body`; dimensioni fluide con `%`, `clamp()`, `flex` e `grid` con `min-width: 0` sui figli.
+- Per le altezze a tutto schermo usare `svh` o `dvh`, mai `100vh`. Vietato usare `100vw` per la larghezza dei contenitori.
+- Margini laterali della pagina: `max(16px, env(safe-area-inset-left))` a sinistra e `max(16px, env(safe-area-inset-right))` a destra; rispettare `env(safe-area-inset-top)` e `env(safe-area-inset-bottom)` e `scroll-padding-top: 88px`.
 
 ### 8) Immagini Organiche e Oneste
 - Foto reali di cantieri, materiali e lavoro vero con luce naturale e resa cromatica coerente.
@@ -238,6 +238,71 @@ Non mostrare mai tutto insieme: l'utente apre un livello alla volta e vede solo 
 - **Header fisso (`56 px`):** titolo del livello corrente e bottone **Indietro** nei livelli 2, 3 e 4 (sincronizzato con URL `#/livello/...` e tasto Indietro del telefono `popstate`, preservando scroll e dati inseriti).
 - **Barra inferiore fissa (`>= 64 px` + `env(safe-area-inset-bottom)`):** massimo **4 o 5 voci** sempre uguali con icona SVG a tratto sottile ed etichetta chiara.
 - **Misure mobile-first (`320–1440 px`):** margini laterali `16 px`, una sola colonna su telefono, bottoni principali alti `56 px` (`100%` larghezza su mobile), aree toccabili `>= 48 × 48 px` distanziate di almeno `8 px`, input `>= 16 px`, tabelle trasformate in schede su telefono, pannelli dal basso (`max-height: 90dvh`), zero scroll orizzontale e stati completi (Caricamento, Stato vuoto, Errore, Conferma).
+
+---
+
+## 8. REGOLA BASE PERMANENTE — IL DESIGN NON SI TAGLIA MAI (Priorità Assoluta sul Layout)
+
+Questa regola vale per ogni progetto, pagina, componente e modifica, e ha priorità su qualsiasi scelta estetica.
+
+### 8.1 Obiettivo
+Su ogni schermo devono restare completamente visibili e utilizzabili: logo, menu hamburger, bottoni, testi, bordi, schede, immagini importanti, tabelle e finestre.
+Se un elemento non entra, il layout deve adattarsi: va a capo, si impila o passa al livello successivo della cipolla. Non deve mai essere tagliato, rimpicciolito fino a diventare illeggibile o spinto fuori schermo.
+
+### 8.2 Fase 1 — Controllo Iniziale
+Prima di modificare il codice:
+1. Apri il progetto alle larghezze indicate sotto.
+2. Trova ogni elemento che esce dallo schermo o viene tagliato.
+3. Identifica la causa nel codice.
+4. Correggi la causa nel componente condiviso, non con eccezioni pagina per pagina.
+
+### 8.3 Base Tecnica Obbligatoria
+- Meta viewport: `width=device-width, initial-scale=1, viewport-fit=cover`.
+- Imposta `box-sizing: border-box` su tutti gli elementi.
+- Progetta prima per il telefono, poi amplia per schermi maggiori.
+- Usa `flex` e `grid` con `gap`, `min-width: 0` sui figli e dimensioni fluide.
+- Immagini, video, iframe e SVG: `max-width: 100%`.
+- Margini laterali della pagina: `max(16px, env(safe-area-inset-left))` a sinistra e `max(16px, env(safe-area-inset-right))` a destra.
+- Rispetta anche le aree sicure in alto e in basso (`env(safe-area-inset-top)`, `env(safe-area-inset-bottom)`).
+- Altezze a schermo intero: usa `dvh` o `svh`.
+
+### 8.4 Vietato
+- Usare `100vw` per la larghezza dei contenitori.
+- Impostare `width` o `min-width` fissi che superano lo schermo.
+- Usare margini negativi o `transform` che portano contenuti fuori dallo schermo.
+- Usare `overflow: hidden` o `overflow-x: hidden` (o `overflow-x: clip`) su `html` e `body` per nascondere il problema.
+- Usare `white-space: nowrap` su testi lunghi senza verificare che entrino.
+- Posizionare header, menu o bottoni con coordinate fisse o `position: absolute` che causano sovrapposizioni o fuoriuscite.
+- Bloccare lo zoom con `user-scalable=no` o `maximum-scale=1`.
+
+### 8.5 Header e Menu Hamburger
+- Struttura consigliata: `grid-template-columns: auto minmax(0, 1fr) auto`.
+- Hamburger: area di almeno `48 x 48 px`, sempre interamente visibile e con `flex-shrink: 0`.
+- Logo: si adatta allo spazio disponibile senza spingere l'hamburger fuori.
+- Header e icone rispettano i margini laterali e le aree sicure.
+- Il menu aperto occupa la larghezza disponibile e scorre verticalmente se le voci sono tante.
+- Il bottone di chiusura e tutte le voci restano raggiungibili anche con schermo basso o in orizzontale.
+
+### 8.6 Bordi, Schede e Componenti Larghi
+- Schede e pannelli: `width: 100%`, `max-width: 100%`. Tutti e quattro i bordi devono restare visibili.
+- Le ombre non devono essere tagliate dai contenitori.
+- Tabelle: su telefono diventano schede. Se una tabella deve restare tale, solo la tabella scorre dentro il proprio contenitore.
+- Calendari, tab e filtri: adattali al telefono oppure rendi chiaro lo scorrimento interno, senza far scorrere la pagina.
+- Finestre e pannelli: larghezza entro lo schermo, altezza massima `90dvh`, scroll interno e chiusura sempre visibile.
+- Testi lunghi, URL e codici: usa `overflow-wrap: anywhere` dove serve.
+- Immagini importanti: non usare `object-fit: cover` se taglia volti, prodotti o testi. Prevedi un'inquadratura per telefono o usa `object-fit: contain`.
+
+### 8.7 Test Obbligatori Dopo Ogni Modifica (`npm run check:mobile`)
+Comando `npm run check:mobile` con Playwright eseguito su tutte le pagine pubbliche e interne, con menu e finestre sia chiusi sia aperti, in ogni lingua e ruolo disponibile:
+- **Dimensioni:** `320 x 568`, `360 x 800`, `390 x 844`, `430 x 932`, `768 x 1024`, `844 x 390` (telefono orizzontale).
+- **Motori:** Chromium con profilo telefono Android e WebKit con profilo iPhone.
+- **Il test fallisce se:**
+  1. `document.documentElement.scrollWidth` è maggiore di `clientWidth`.
+  2. Un elemento visibile ha `left < 0` oppure `right > larghezza dello schermo`, salvo contenuti dentro uno scroller intenzionale.
+  3. Hamburger, logo o bottoni principali non sono interamente visibili.
+  4. Un testo o controllo risulta tagliato dal contenitore.
+  5. Un elemento cliccabile è coperto da un altro.
+
 
 
 
