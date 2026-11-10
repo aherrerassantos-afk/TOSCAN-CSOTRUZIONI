@@ -7,3 +7,7 @@ app uso interno /
 web pague
 web pague 
 .DS_Store
+.env
+palazzina-holding/
+config/progetti.json
+data/storico.json

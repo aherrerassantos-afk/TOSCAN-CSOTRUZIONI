@@ -2,33 +2,30 @@
 
 > **Hospitality & Living General Contractor | Firenze, Toscana**  
 > **Specializzazione:** Immobili Short & Medium Term · Boutique Hotel · Agriturismi & Resort · Student Hotel (PBSA)  
-> **Modelli di Business:** Crowdfunding Chiuso per Transazione (SPV) · Unico Investitore (Visione & Realizzazione Chiavi in Mano)
+> **Modello Operativo (Percorso A):** Appalto Chiavi in Mano a Prezzo Chiuso (1.350–2.400 €/m²) e 5 SAL Verificati per Proprietari, Albergatori e Imprenditori Ricettivi
 
 ---
 
 ## 🏢 L'Azienda Dietro al Sito
 
-**Toscan Costruzioni** (`https://toscancostruzioni.it`) è il General Contractor operativo parte del **Gruppo Blue Arroyo**. Nasce e si specializza nella creazione, riconversione e sviluppo chiavi in mano di asset immobiliari a reddito nel settore ricettivo e living moderno:
+**Toscan Costruzioni** (`https://toscancostruzioni.it`) è il General Contractor operativo parte del **Gruppo Blue Arroyo**. È specializzato nella ristrutturazione, riconversione e sviluppo chiavi in mano di immobili ricettivi e residenziali a destinazione turistico-alberghiera in Toscana:
 
-1. **🔑 Immobili Short & Medium Term (Core Focus):** Frazionamenti cielo-terra, Serviced Apartments e Aparthotel ad alta redditività per affitti brevi turistici e soggiorni medio-termine (1–12 mesi per digital nomads, corporate, docenti ed expat).
-2. **🏨 Hotel & Boutique Hotel:** Riqualificazione integrale di palazzi storici in strutture alberghiere 4★ e 5★ complete di hall, F&B, SPA e adeguamento normativo/antincendio.
-3. **🌿 Agriturismi & Luxury Country Resort:** Recupero di casali toscani e tenute vitivinicole con bio-piscine, cantine degustazione e sostenibilità ESG.
-4. **🎓 Student Hotel & PBSA (Co-Living Universitario):** Residenze per studenti e young professionals nei poli universitari di Firenze, Pisa e Siena.
+1. **🔑 Immobili Short & Medium Term (Core Focus):** Frazionamenti cielo-terra, Serviced Apartments e Aparthotel per affitti brevi turistici e soggiorni medio-termine (1–12 mesi), con predisposizione domotica, bagni en-suite e vani operativi Runner/biancheria.
+2. **🏨 Hotel & Boutique Hotel:** Riqualificazione integrale di palazzi storici in strutture alberghiere complete di hall, F&B, SPA e adeguamento normativo/antincendio.
+3. **🌿 Agriturismi & Luxury Country Resort:** Recupero di casali toscani e tenute vitivinicole con piscine, aree degustazione e sostenibilità energetica.
+4. **🎓 Student Hotel & PBSA (Co-Living Universitario):** Residenze per studenti e professionisti nei poli universitari di Firenze, Pisa e Siena.
 
 ---
 
-## 🤝 I 2 Modelli di Business
+## 🤝 Il Modello Operativo Chiavi in Mano (Percorso A)
 
-Toscan Costruzioni rende possibile ogni operazione attraverso due modelli distinti:
+Toscan Costruzioni opera come **General Contractor unico** per proprietari immobiliari, albergatori, family office e operatori ricettivi con regole contrattuali trasparenti:
 
-### 1. 🔐 Crowdfunding Chiuso per Transazione (Club Deal SPV)
-- Strutturato dal **Gruppo Blue Arroyo** su singola operazione immobiliare.
-- Un pool chiuso e selezionato di investitori finanzia una specifica transazione (acquisizione + cantiere di trasformazione + messa a reddito o exit).
-- **Toscan Costruzioni** agisce come General Contractor esecutivo a **Capex e tempi bloccati**, azzerando il rischio di sforamento costi per la SPV.
-
-### 2. 🏛️ Unico Investitore (Appalto Visione & Realizzazione Turnkey)
-- Dedicato a un **unico investitore, family office, catena alberghiera o proprietario immobiliare** che appalta a Toscan Costruzioni l'intero ciclo: **dalla visione strategica e concept ricettivo fino alla realizzazione chiavi in mano** del proprio nuovo Hotel, Agriturismo, Student Hotel o complesso Short/Medium Term.
-- Unico contratto EPC con prezzo bloccato, penali sui ritardi (per proteggere l'apertura stagionale o l'anno accademico), FF&E contract incluso e International Investor Desk.
+- **Studio di fattibilità gratuito in 48h** e **Masterclass Call 150 €** (100% scalati dal contratto).
+- **Prezzo chiuso a corpo (1.350–2.400 €/m²)** bloccato da computo metrico esecutivo firmato.
+- **Pagamento in 5 SAL (15% / 25% / 25% / 25% / 10%)** liquidati esclusivamente a opere verificate dalla Direzione Lavori.
+- **Tempi garantiti 5–12 mesi** con penali giornaliere contrattuali per ritardo, **Polizza CAR/RC**, **DURC regolare** a ogni SAL, **Garanzia decennale postuma** e **Report fotografico ogni venerdì**.
+- **Subentro 1-Tap nel Ciclo Blue Arroyo** a fine cantiere: attivazione coordinata di gestione e compliance ricettiva (**Itassitance**), deep cleaning e turnover (**PBA**) e distribuzione diretta (**SmartsBookings**).
 
 ---
 
@@ -36,10 +33,15 @@ Toscan Costruzioni rende possibile ogni operazione attraverso due modelli distin
 
 | Campo | Valore |
 |---|---|
-| **Società** | Toscan Costruzioni |
-| **Gruppo** | Blue Arroyo Group |
+| **Divisione / Piano** | Piano 1 · Toscan Costruzioni |
+| **Ragione Sociale** | Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze |
+| **P.IVA / C.F.** | 07480210488 |
+| **REA** | FI-706161 |
+| **Codice SDI** | M5UXCR1 |
+| **PEC** | [DA CONFERMARE] |
+| **Capitale sociale** | [DA CONFERMARE] |
+| **Sede/Riferimento Toscan Costruzioni (D5)** | [DA CONFERMARE] |
 | **Posizionamento** | Hospitality & Living General Contractor |
-| **Sede** | Firenze, Toscana, Italia |
 | **Email Operativa** | toscancostruzioni@bluearroyo.it |
 | **Email Holding** | admin@bluearroyo.it |
 | **Telefono** | +39 351 038 0392 |
@@ -48,21 +50,18 @@ Toscan Costruzioni rende possibile ogni operazione attraverso due modelli distin
 
 ---
 
-## 📁 Struttura del Progetto (Vercel + GitHub DB)
+## 📁 Struttura del Progetto (Vercel)
 
 ```
 toscan costruzioni/
-├── index.html           ← Piattaforma web ufficiale + Deal Flow Dashboard
+├── index.html           ← Piattaforma web ufficiale, Stima Rapida €/m², Simulatore 5 SAL e Form 48h
+├── preventivo-tipo.html ← Preventivo tipo / distinta PDF precompilata
+├── data-room.html       ← Schema contrattuale 5 SAL, DURC e polizze
+├── stato-cantiere.html  ← Portale committente con avanzamento 5 SAL e Report del Venerdì
+├── kit-commerciale.html ← Console operativa interna per ruolo (dir/sales/tech/admin/hosp)
+├── foglio-lavori.html   ← Giornale dei lavori digitale
 ├── style.css            ← Design system Toscano & Corporate Blue Arroyo
-├── app.js               ← Logica CRUD, filtri per Modello Business, Simulatore Capex & Yield
 ├── vercel.json          ← Configurazione deploy Vercel
-├── README.md            ← Documentazione aziendale e tecnica
-├── .gitignore           ← Esclusioni Git
-├── assets/
-│   ├── villa_renovation.jpg
-│   ├── project_casale.jpg
-│   └── project_apartment.jpg
-└── database/
-    ├── db.json          ← Database JSON con operazioni, modelli di business e pipeline investitori
-    └── schema.sql       ← Schema SQL relazionale (Supabase / PostgreSQL / SQLite)
+├── docs/                ← Checklist 100, ruoli, flussi e modello economico
+└── coordinamento/       ← Board di governance, ordini agenti 1..4, inbox manager e report Holding
 ```

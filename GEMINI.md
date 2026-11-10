@@ -27,9 +27,9 @@
 ---
 
 ## 2. REGOLA PERMANENTE – VISIBILITÀ ORGANICA: SEO + POSIZIONAMENTO SULLE IA (GEO)
-**Azienda:** Toscan Costruzioni · Blue Arroyo Group (`https://toscancostruzioni.it`)
+**Azienda:** Toscan Costruzioni · Piano 1 (`https://toscancostruzioni.it`) — `Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze`
 **Posizionamento Unico (Fonte di Verità):** Impresa di costruzioni e general contractor a Firenze e in Toscana specializzato nella ristrutturazione e conversione chiavi in mano di Hotel e boutique hotel, Agriturismi e wine resort, Appartamenti per affitti brevi e medi, e Ristrutturazioni/cambi d'uso, con prezzo fisso a contratto, tempi garantiti con penali, arredo incluso e gestione ricettiva integrata tramite il gruppo Blue Arroyo.
-**NAP Ufficiale Unico:** Toscan Costruzioni (Blue Arroyo Group) | Sede: Firenze, Toscana, Italia | Tel: +39 351 038 0392 | Email: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it | Web: https://toscancostruzioni.it
+**NAP Ufficiale Unico (JUL-009):** `Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze` | `P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE]` | Sede/riferimento specifico Toscan Costruzioni (D5): `[DA CONFERMARE]` | Tel: +39 351 038 0392 | Email: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it | Web: https://toscancostruzioni.it
 
 ### Regole Obbligatorie per Ogni Modifica, Nuova Pagina e Deploy:
 1. **Basi Tecniche & HTML Server-Rendered:** Ogni pagina pubblica deve avere contenuto principale, costi indicativi al m², fasi di lavoro e FAQ interamente leggibili nell'HTML sorgente (senza dipendere da JS), `<link rel="canonical">`, `hreflang` corretti, zero link 404, zero `noindex` involontari (eccetto `/styleguide`), ed essere inclusa in `sitemap.xml` e `llms.txt`.

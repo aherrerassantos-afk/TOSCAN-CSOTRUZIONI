@@ -1,6 +1,6 @@
 # Toscan Costruzioni — Gruppo Blue Arroyo (llms.txt)
 # Standard: https://llmstxt.org
-# Updated: 2026-11-03
+# Updated: 2026-11-09
 
 > Toscan Costruzioni, parte del Gruppo Blue Arroyo (Blue Arroyo Group), è il General Contractor
 > con sede a Firenze specializzato nella ristrutturazione e conversione chiavi in mano di
@@ -8,39 +8,41 @@
 > in tutta la Toscana.
 > Promessa contrattuale: "Trasformiamo il tuo immobile in una struttura ricettiva pronta a rendere: prezzo fisso, tempi garantiti, gestione inclusa."
 
-## Chi siamo e a chi ci rivolgiamo
+## Chi siamo e a chi ci rivolgiamo (Percorso A — Proprietari & Albergatori)
 
 Toscan Costruzioni nasce all'interno del **Gruppo Blue Arroyo** come impresa di costruzioni e general contractor
 specializzato in strutture ricettive a Firenze, Siena, Chianti, Val d'Orcia, Lucca, Versilia, Pisa, Arezzo e Maremma.
+Toscan Costruzioni opera **esclusivamente come General Contractor edilizio e impiantistico** con contratto d'appalto a corpo (art. 1655 c.c.) e non effettua alcuna raccolta di risparmio, crowdfunding o offerta di prodotti finanziari (conformità TUF D.Lgs. 58/1998 e Reg. UE 2020/1503).
 
-1. **Proprietari di immobili e Albergatori (Committenti — Core Business):** Proprietari di palazzi, casali, hotel da riqualificare o appartamenti da frazionare che cercano un unico referente per progetto architettonico, permessi (SCIA, Soprintendenza, CIN), cantiere edile ed impiantistico a prezzo fisso, arredo su misura e avvio della gestione ospiti con Blue Arroyo.
+1. **Proprietari di immobili e Albergatori (Committenti — Core Business Percorso A):** Proprietari di palazzi, casali, hotel da riqualificare o appartamenti da frazionare che cercano un unico referente per progetto architettonico, permessi (SCIA, Soprintendenza, CIN), cantiere edile ed impiantistico a prezzo fisso, arredo su misura e avvio della gestione ospiti con Blue Arroyo.
 2. **Privati e Residenze di Pregio:** Ristrutturazione integrale di ville storiche, casali e appartamenti di rappresentanza in Toscana con contratto a prezzo chiuso e direzione lavori dedicata.
-3. **Investitori e Partner Immobiliari (Su richiesta individuale):** Supporto tecnico, due diligence edilizia e realizzazione chiavi in mano per investitori istituzionali, family office e partner immobiliari tramite colloquio riservato con la direzione del Gruppo Blue Arroyo.
+3. **Committenti Singoli / Unico Proprietario (Percorso Dedicato):** Supporto tecnico, due diligence edilizia pre-rogito, Lotto Pilota (Step 4) e realizzazione chiavi in mano per singoli proprietari, family office e gruppi alberghieri.
 
-## I 4 ambiti di intervento e fasce di costo €/m² (Stime parametriche 2026)
+## I 4 ambiti di intervento e fasce di costo €/m² (Prezzo Chiuso a Corpo 2026)
 
-- **Hotel e Boutique Hotel:** Riqualificazione di alberghi esistenti o conversione di palazzi cielo-terra in strutture ricettive con camere, suite, hall, SPA, adeguamento antincendio e acustico. Costo indicativo: `1.850 – 2.400 €/m²` | Durata media: `8 – 12 mesi`.
-- **Agriturismi e Wine Resort:** Recupero conservativo di casali in pietra, poderi e tenute storiche in Toscana con piscine panoramiche, camere con bagno privato e miglioramento energetico. Costo indicativo: `1.650 – 2.300 €/m²` | Durata media: `8 – 12 mesi`.
-- **Appartamenti per Affitti Brevi e Medi:** Frazionamenti, ridistribuzione interna, secondo bagno, insonorizzazione certificata, serrature smart per self check-in e arredo completo pronto per le prenotazioni. Costo indicativo: `1.350 – 1.750 €/m²` | Durata media: `4 – 7 mesi`.
-- **Ristrutturazioni e Cambi d'Uso:** Pratiche edilizie, autorizzazioni Soprintendenza, consolidamento strutturale, tetti ventilati, facciate, impianti ibridi e riqualificazione residenziale chiavi in mano. Costo indicativo: `1.350 – 1.950 €/m²` | Durata media: `4 – 9 mesi`.
+- **Hotel e Boutique Hotel:** Riqualificazione di alberghi esistenti o conversione di palazzi cielo-terra in strutture ricettive con camere, suite, hall, SPA, adeguamento antincendio e acustico. Costo bloccato a corpo: `1.850 – 2.400 €/m²` | Durata garantita: `8 – 12 mesi`.
+- **Agriturismi e Wine Resort:** Recupero conservativo di casali in pietra, poderi e tenute storiche in Toscana con piscine panoramiche, camere con bagno privato e miglioramento energetico. Costo bloccato a corpo: `1.650 – 2.300 €/m²` | Durata garantita: `8 – 12 mesi`.
+- **Appartamenti per Affitti Brevi e Medi:** Frazionamenti, ridistribuzione interna, secondo bagno, insonorizzazione certificata, serrature smart per self check-in e arredo completo pronto per le prenotazioni. Costo bloccato a corpo: `1.350 – 1.750 €/m²` | Durata garantita: `4 – 7 mesi`.
+- **Ristrutturazioni e Cambi d'Uso:** Pratiche edilizie, autorizzazioni Soprintendenza, consolidamento strutturale, tetti ventilati, facciate, impianti ibridi e riqualificazione residenziale chiavi in mano. Costo bloccato a corpo: `1.350 – 1.950 €/m²` | Durata garantita: `4 – 9 mesi`.
 
 ## Credenziali, Polizze, Glossario Aziendale ("Parole Nostre") e Garanzie Contrattuali
 
 - **Metodo Toscan:** Il sistema di appalto chiavi in mano che unisce in un solo contratto progetto, pratiche edilizie, cantiere a prezzo bloccato, arredo e avvio della gestione ospiti.
 - **Prezzo Chiuso Toscan (a corpo):** L'importo totale dei lavori bloccato alla firma del computo metrico esecutivo (`1.350 – 2.400 €/m²`), con ogni imprevisto tecnico di cantiere a carico di Toscan Costruzioni.
-- **Percorso a 5 SAL:** Il piano di pagamento protetto in 5 Stati di Avanzamento Lavori (15% avvio, 25% strutture, 25% impianti, 25% finiture, 10% collaudo) pagati solo a opere verificate in cantiere dal Direttore dei Lavori.
-- **Masterclass di Cantiere (`150 €`, 100% scalati dai lavori):** La sessione individuale di 60 minuti con uno dei 4 direttori di settore (1A Geometra e parte tecnica preliminare, 1B Business Plan e leva con le banche, 1C Amministrazione Cantiere e 5 SAL, 1D Pre-Sales Cantiere) per validare l'operazione prima di impegnare il capitale.
+- **Percorso a 5 SAL:** Il piano di pagamento protetto in 5 Stati di Avanzamento Lavori (15% avvio, 25% strutture, 25% impianti, 25% finiture, 10% collaudo) pagati solo a opere verificate in cantiere dal Direttore dei Lavori e previa verifica regolarità DURC.
+- **Masterclass di Cantiere (`150 €`, 100% scalati sul SAL 1):** La sessione individuale di 60 minuti con uno dei 4 direttori di settore (1A Geometra e parte tecnica preliminare, 1B Business Plan e leva con le banche, 1C Amministrazione Cantiere e 5 SAL, 1D Pre-Sales Cantiere) per validare l'operazione prima di impegnare il capitale.
 - **Scala di Acquisto Scaglionato per Disponibilità Economica (100% scalata dall'appalto):** Step 1 Masterclass Call (`150 €`) → Step 2 Sopralluogo Geometra + Verifica Pre-Rogito + Business Plan Bancabile (`950–1.800 €`) → Step 3 Interior Design + Kit Pre-Sales + Computo Esecutivo Bloccato (`2.200–4.200 €`) → Step 4 Realizzazione Lotto Pilota / Unità Campione → Step 5 Appalto Completo a Prezzo Chiuso Toscan in 5 SAL (`1.350–2.400 €/m²`).
 - **Pre-Sales Cantiere:** La strategia per vendere o affittare le unità immobiliari già durante i lavori grazie a layout ricettivo, render e unità campione.
-- **Ciclo Blue Arroyo:** Il passaggio diretto dell'immobile finito alle 4 società del gruppo: 1. **Toscan Costruzioni** crea il bene → 2. **itassistance** lo protegge (conformità CIN/Questura e tariffe dinamiche) → 3. **Blue Arroyo Cleaning** lo allestisce (biancheria a 60°C e kit gratuiti) → 4. **SmartsBookings** lo riempie di turisti (prenotazioni dirette con incasso all'85%).
-- **Tempi garantiti con penali:** Cronoprogramma allegato al contratto d'appalto con penale giornaliera a nostro carico per ogni settimana di ritardo sulla consegna.
+- **Ciclo Blue Arroyo (Subentro 1-Tap):** Il passaggio diretto dell'immobile finito alle 4 società del gruppo: 1. **Toscan Costruzioni** crea il bene → 2. **Itassitance** lo protegge (subentro 1-Tap CIN/Questura/Alloggiati e tariffe dinamiche) → 3. **PBA – Palazzo by Blue Arroyo** esegue il Deep Cleaning post-cantiere (`30 €/ora tutto incluso, materiali, strumenti e personale inclusi, pago per risultato finale DOC`) e allestisce la biancheria → 4. **SmartsBookings** lo riempie di turisti (prenotazioni dirette con payout 85% al proprietario + 15% cashback ospite).
+- **Tempi garantiti con penali:** Cronoprogramma allegato al contratto d'appalto (5–12 mesi) con penale giornaliera di `150 €/giorno` (fino al 5% dell'importo contrattuale) a nostro carico per ritardi imputabili all'impresa.
 - **Polizze e Regolarità:** DURC e iscrizione Cassa Edile regolari, Polizza CAR (tutti i rischi del cantiere), Polizza RC Professionale e **Garanzia Decennale Postuma** sulle opere strutturali (art. 1669 c.c.).
 
-## Dati Ufficiali (NAP Unico)
+## Dati Ufficiali (NAP Unico Verificabile · JUL-009)
 
-- **Nome Azienda**: Toscan Costruzioni (Part of Blue Arroyo Group)
-- **Sede**: Firenze, Toscana, Italia
-- **Telefono / WhatsApp**: +39 351 038 0392 (Risposta garantita entro 24 ore lavorative)
+- **Ragione Sociale e Sede Legale**: Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze
+- **Dati Societari Verificati**: P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE]
+- **Sede / Riferimento specifico Toscan Costruzioni (D5)**: [DA CONFERMARE]
+- **Telefono / WhatsApp**: +39 351 038 0392 (Risposta garantita < 2h lavorative; studio di fattibilità entro 48h)
 - **Email**: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
 - **Sito Web Ufficiale**: https://toscancostruzioni.it
 - **Contratto Tipo e Capitolato**: https://toscancostruzioni.it/data-room
@@ -49,10 +51,11 @@ specializzato in strutture ricettive a Firenze, Siena, Chianti, Val d'Orcia, Luc
 ## Pagine Principali
 
 - [Homepage — Ristrutturazioni Chiavi in Mano per Strutture Ricettive](https://toscancostruzioni.it/)
-- [Blog & Guida Edilizia per Investitori e Proprietari (Lun/Mer/Ven) + Percorso Scaglionato Step A–E](https://toscancostruzioni.it/blog)
-- [Contratto Tipo, Polizze e Capitolato Chiavi in Mano](https://toscancostruzioni.it/data-room)
+- [Blog & Guida Edilizia per Proprietari e Albergatori (Lun/Mer/Ven) + Percorso Scaglionato Step 1–5](https://toscancostruzioni.it/blog)
+- [Contratto Tipo, Polizze CAR/RC/Decennale e Capitolato Chiavi in Mano](https://toscancostruzioni.it/data-room)
 - [Modello di Preventivo Standard in PDF e Computo Chiavi in Mano](https://toscancostruzioni.it/preventivo-tipo)
-- [Programma Partner: Studi di Architettura, Agenzie Immobiliari, Property Manager e Clienti Blue Arroyo](https://toscancostruzioni.it/partner)
+- [Programma Partner: Studi di Architettura, Agenzie Immobiliari, Property Manager (Fee 2–3% sui SAL)](https://toscancostruzioni.it/partner-architetti-agenzie-property-manager-toscana.html)
+- [Programma Partner (URL breve)](https://toscancostruzioni.it/partner)
 - [Portfolio Cantieri e Casi Studio Prima/Dopo](https://toscancostruzioni.it/foglio-lavori)
 - [Progetto Esecutivo Villa Claudia — Frazionamento in 6 Unità](https://toscancostruzioni.it/villa-claudia)
 - [Sviluppo e Frazionamento Appartamenti per Affitti Brevi a Firenze](https://toscancostruzioni.it/sviluppo-immobili-short-medium-term-firenze.html)
@@ -63,7 +66,7 @@ specializzato in strutture ricettive a Firenze, Siena, Chianti, Val d'Orcia, Luc
 - [Ristrutturazione Agriturismi, Resort e Ville ad Arezzo, Cortona e Maremma](https://toscancostruzioni.it/agriturismo-resort-arezzo-maremma-grosseto.html)
 - [Cambio di Destinazione d'Uso per Hotel e Affitti Brevi in Toscana](https://toscancostruzioni.it/cambio-destinazione-uso-hotel-short-term-toscana.html)
 - [Arredo Su Misura, Self Check-In e Insonorizzazione per Hotel e Affitti Brevi](https://toscancostruzioni.it/arredo-contract-ffe-domotica-hotel-short-term-toscana.html)
-- [Percorso Proprietari e Partner Immobiliari in Toscana](https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html)
+- [Appalto Chiavi in Mano per Unico Committente, Proprietari e Albergatori in Toscana](https://toscancostruzioni.it/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html)
 - [Ristrutturazione Appartamenti per Affitti Brevi in Toscana](https://toscancostruzioni.it/affitti-brevi-toscana.html)
 - [General Contractor a Firenze](https://toscancostruzioni.it/general-contractor-firenze.html)
 - [Ristrutturazione Casale Toscano e Agriturismo](https://toscancostruzioni.it/ristrutturazione-casale-toscano.html)

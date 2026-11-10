@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Area Riservata Membri e Avanzamento Cantieri | Toscan Costruzioni</title>
-  <meta name="description" content="Area personale riservata ai membri approvati di Toscan Costruzioni (Blue Arroyo Group): cantieri in corso di apertura con quote da 2.000 euro, stato avanzamento 5 SAL, documenti e tutela co-investitori." />
+  <title>Portale Committente e Avanzamento 5 SAL | Toscan Costruzioni</title>
+  <meta name="description" content="Portale riservato ai committenti di Toscan Costruzioni (Blue Arroyo Group): stato avanzamento 5 SAL (1.350–2.400 €/m²), Masterclass 150 € scalata, Lotto Pilota Step 4, Deep Cleaning PBA 30 €/ora DOC e documenti." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://toscancostruzioni.it/stato-cantiere" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -707,12 +707,12 @@
       </button>
 
       <div class="header-title-wrap">
-        <span class="header-level-tag" id="header-level-indicator">Livello 1 · Area Riservata</span>
-        <div class="header-page-title" id="header-page-title">Home Area Membri</div>
+        <span class="header-level-tag" id="header-level-indicator">Livello 1 · Portale Committente</span>
+        <div class="header-page-title" id="header-page-title">Home Portale Committente</div>
       </div>
 
       <button type="button" class="header-role-btn" id="btn-open-role-sheet" aria-label="Cambia profilo o ruolo attivo">
-        <span id="header-role-label">Membro Approvato</span>
+        <span id="header-role-label">Committente Attivo</span>
       </button>
     </div>
   </header>
@@ -721,20 +721,20 @@
 
     <!-- ===================================================================
          LIVELLO 1 — HOME DOPO IL LOGIN (#home)
-         Risponde a: "Qual è lo stato attuale e la cosa più importante oggi?"
+         Risponde a: "Qual è lo stato attuale del mio appalto e dei 5 SAL oggi?"
          =================================================================== -->
-    <section class="onion-view is-active" id="view-home" data-level="1" data-title="Home Area Membri" data-parent="">
+    <section class="onion-view is-active" id="view-home" data-level="1" data-title="Home Portale Committente" data-parent="">
 
-      <!-- BLOCCO PRINCIPALE PER MEMBRO APPROVATO -->
+      <!-- BLOCCO PRINCIPALE PER COMMITTENTE ATTIVO -->
       <div class="surface-card surface-card--highlight" id="home-hero-approved">
-        <span class="status-pill" id="home-badge-role">Membro Approvato · Tutela Co-Investitori Attiva</span>
-        <h1 id="home-greeting">Bentornato, <em>Lorenzo Medici</em></h1>
+        <span class="status-pill" id="home-badge-role">Committente Verificato · Contratto 5 SAL a Prezzo Chiuso</span>
+        <h1 id="home-greeting">Bentornato, <em>[DA CONFERMARE]</em></h1>
         <p id="home-status-line" style="color:var(--ink);">
-          Il tuo profilo è abilitato dalla Governance: hai 3 cantieri in corso di apertura accessibili con quote da 2.000 € e il 1° SAL del tuo cantiere a Firenze pronto per verifica.
+          La tua commessa è attiva con Prezzo Chiuso a corpo (1.350–2.400 €/m²), credito Masterclass 150 € scalato sul SAL 1, Deep Cleaning finale PBA a 30 €/ora tutto incluso DOC e 1° SAL pronto per verifica.
         </p>
         <div class="actions-stack" style="display:flex;gap:12px;flex-wrap:wrap;">
           <button type="button" class="btn btn-primary" data-nav-to="area-apertura">
-            Esplora i cantieri in apertura da 2.000 €
+            Esplora Lotti Pilota &amp; Modelli Chiavi in Mano
           </button>
           <a href="/blog?mc=1B#prenota-step-a" class="btn btn-secondary">
             Prenota Masterclass di Cantiere (150 € scalati)
@@ -742,52 +742,52 @@
         </div>
       </div>
 
-      <!-- STATO SPECIFICO SE L'UTENTE NON È ANCORA APPROVATO DALLA GOVERNANCE -->
+      <!-- STATO SPECIFICO SE IL COMMITTENTE È IN FASE DI VERIFICA PRE-CONTRATTO -->
       <div class="surface-card surface-card--highlight" id="home-hero-pending" hidden>
-        <span class="status-pill status-pill--terracotta">Profilo in Attesa di Approvazione Governance</span>
-        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Accesso protetto al <em>Crowdfunding Chiuso</em></h2>
+        <span class="status-pill status-pill--terracotta">Commessa in Fase di Studio Fattibilità 48h</span>
+        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Attivazione <em>Contratto a Prezzo Chiuso</em></h2>
         <p style="color:var(--ink);">
-          Regola di tutela Toscan Costruzioni: per partecipare ai cantieri in corso di apertura con capitali da 2.000 € in su, ogni membro deve essere prima verificato e approvato dal profilo Governance che tutela tutti gli altri investitori.
+          Regola di garanzia Toscan Costruzioni: prima dell'apertura cantiere (o dello Step 4 Lotto Pilota), la Direzione Tecnica verifica visura, computo metrico bloccato (1.350–2.400 €/m²), DURC e Polizza CAR/RC.
         </p>
         <div class="actions-stack">
           <button type="button" class="btn btn-primary" data-nav-to="azione-qualifica">
-            Richiedi l'approvazione del tuo profilo
+            Richiedi l'attivazione della tua commessa
           </button>
         </div>
       </div>
 
-      <!-- STATO SPECIFICO SE IL RUOLO È GOVERNANCE / DIREZIONE -->
+      <!-- STATO SPECIFICO SE IL RUOLO È DIREZIONE / DL -->
       <div class="surface-card surface-card--olive" id="home-hero-governance" hidden>
-        <span class="status-pill">Profilo Governance · Tutela Co-Investitori</span>
-        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Controllo <em>Approvazioni</em> e Cantieri</h2>
+        <span class="status-pill">Direzione Tecnica &amp; DL · Controllo Commesse</span>
+        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Controllo <em>Verbali SAL</em> e Commesse</h2>
         <p style="color:var(--ink);">
-          Hai 2 nuove richieste di qualifica investitore da verificare prima di abilitare l'accesso ai cantieri in apertura da 2.000 €.
+          Hai 2 nuove richieste di avvio commessa / Lotto Pilota (Step 4) da validare prima dello sblocco contrattuale a 5 SAL.
         </p>
         <div class="actions-stack">
           <button type="button" class="btn btn-primary" data-nav-to="area-profilo">
-            Verifica i profili investitore in attesa
+            Verifica le commesse in attesa di avvio
           </button>
         </div>
       </div>
 
-      <!-- I 4 GRANDI BLOCCHI D'AREA DEL LIVELLO 1 (TITOLO + 1 RIGA + DATO CHIAVE) -->
+      <!-- I 4 GRANDI BLOCCHI D'AREA DEL LIVELLO 1 -->
       <div class="blocks-stack blocks-stack--2col" aria-label="Aree principali">
 
-        <!-- BLOCCO 1: CANTIERI IN CORSO DI APERTURA (DA 2.000 €) -->
+        <!-- BLOCCO 1: MODELLI ESECUTIVI & LOTTI PILOTA STEP 4 -->
         <article class="surface-card">
           <div>
-            <span class="status-pill status-pill--terracotta">Area 1 · Crowdfunding Chiuso</span>
-            <h2 style="margin-top:8px;">Cantieri in corso di <em>apertura</em></h2>
+            <span class="status-pill status-pill--terracotta">Area 1 · General Contractor a Corpo</span>
+            <h2 style="margin-top:8px;">Lotti Pilota e <em>Modelli Chiavi in Mano</em></h2>
             <p style="margin-top:4px;">
-              Partecipa ai nuovi sviluppi immobiliari riservati ai membri già approvati.
+              Consulta i 3 modelli di intervento ricettivo a Prezzo Chiuso (1.350–2.400 €/m²) e avvia uno Step scaglionato.
             </p>
           </div>
           <div>
-            <span class="key-metric">3 cantieri aperti · Quote da 2.000 € in su</span>
+            <span class="key-metric">3 modelli · Masterclass 150 € scalata · 5 SAL</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-secondary btn--full" data-nav-to="area-apertura">
-              Apri i cantieri in corso di apertura
+              Apri i modelli esecutivi e Lotti Pilota
             </button>
           </div>
         </article>
@@ -802,7 +802,7 @@
             </p>
           </div>
           <div>
-            <span class="key-metric" id="home-metric-cantiere">Firenze 280 m² · 1° SAL (40%)</span>
+            <span class="key-metric" id="home-metric-cantiere">[DA CONFERMARE] · 5 SAL (15/25/25/25/10%)</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-secondary btn--full" data-nav-to="area-mio-cantiere">
@@ -817,7 +817,7 @@
             <span class="status-pill status-pill--neutral">Area 3 · Conformità</span>
             <h2 style="margin-top:8px;">Documenti e <em>garanzie</em></h2>
             <p style="margin-top:4px;">
-              DURC regolare, Polizza CAR, contratto Prezzo Chiuso Toscan e computo metrico.
+              DURC regolare, Polizza CAR/RC, Decennale Postuma, contratto Prezzo Chiuso Toscan e computo metrico.
             </p>
           </div>
           <div>
@@ -830,21 +830,21 @@
           </div>
         </article>
 
-        <!-- BLOCCO 4: PROFILO, GOVERNANCE E TUTELA CO-INVESTITORI -->
+        <!-- BLOCCO 4: PROFILO COMMITTENTE & SUBENTRO CICLO BLUE ARROYO -->
         <article class="surface-card">
           <div>
-            <span class="status-pill status-pill--neutral">Area 4 · Regola di Accesso</span>
-            <h2 style="margin-top:8px;">Profilo e <em>tutela</em></h2>
+            <span class="status-pill status-pill--neutral">Area 4 · Tutele &amp; Sinergia Gruppo</span>
+            <h2 style="margin-top:8px;">Commessa e <em>Subentro 1-Tap</em></h2>
             <p style="margin-top:4px;">
-              Verifica di idoneità a tutela degli altri investitori e passaggio al Ciclo Blue Arroyo.
+              Garanzie contrattuali (penale 150 €/gg), Deep Cleaning PBA 30 €/ora DOC e subentro Ciclo Blue Arroyo.
             </p>
           </div>
           <div>
-            <span class="key-metric" id="home-metric-profilo">Stato: Membro Approvato (da 2.000 €)</span>
+            <span class="key-metric" id="home-metric-profilo">Stato: Committente Verificato (5 SAL)</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-secondary btn--full" data-nav-to="area-profilo">
-              Apri il profilo e la tutela
+              Apri tutele e subentro Blue Arroyo
             </button>
           </div>
         </article>
@@ -853,54 +853,54 @@
     </section>
 
     <!-- ===================================================================
-         LIVELLO 2 — AREA 1: CANTIERI IN CORSO DI APERTURA (#area-apertura)
-         Risponde a: "Quali cantieri in apertura posso sottoscrivere da 2.000 €?"
+         LIVELLO 2 — AREA 1: MODELLI ESECUTIVI & LOTTI PILOTA (#area-apertura)
+         Risponde a: "Quali interventi chiavi in mano o Lotti Pilota posso attivare?"
          =================================================================== -->
-    <section class="onion-view" id="view-area-apertura" data-level="2" data-title="Cantieri in Apertura" data-parent="home">
+    <section class="onion-view" id="view-area-apertura" data-level="2" data-title="Lotti Pilota & Appalti" data-parent="home">
       <div class="surface-card surface-card--highlight">
-        <span class="status-pill status-pill--terracotta">Livello 2 · Riservato a Membri Già Approvati</span>
-        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Cantieri in corso di <em>apertura</em></h2>
+        <span class="status-pill status-pill--terracotta">Livello 2 · Prezzo Chiuso a Corpo (1.350–2.400 €/m²)</span>
+        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Modelli Esecutivi e <em>Lotti Pilota (Step 4)</em></h2>
         <p style="color:var(--ink);">
-          Ogni operazione è accessibile solo ai profili approvati dalla Governance per tutelare tutti i partecipanti, con ingresso a partire da 2.000 € e contratto a Prezzo Chiuso Toscan.
+          Ogni commessa è regolata da contratto d'appalto a Prezzo Chiuso Toscan (5 SAL: 15/25/25/25/10%), con ingresso graduale dalla Masterclass (150 € scalati al 100%) e Deep Cleaning finale PBA a 30 €/ora tutto incluso (pago per risultato finale DOC).
         </p>
 
         <!-- RICERCA E FILTRO RAPIDO -->
         <div class="field-group" style="margin-top:4px;">
-          <label class="field-label" for="search-cantieri">Cerca per città o tipologia</label>
+          <label class="field-label" for="search-cantieri">Cerca per città o tipologia di immobile</label>
           <input type="search" id="search-cantieri" class="input-field" placeholder="Es. Firenze, Chianti, Lucca..." />
         </div>
 
-        <div class="chips-group" role="group" aria-label="Filtra cantieri in apertura">
-          <button type="button" class="chip-btn is-active" data-filter-open="tutti">Tutti i 3 cantieri</button>
-          <button type="button" class="chip-btn" data-filter-open="2000">Ingresso da 2.000 €</button>
+        <div class="chips-group" role="group" aria-label="Filtra modelli esecutivi">
+          <button type="button" class="chip-btn is-active" data-filter-open="tutti">Tutti i 3 modelli</button>
+          <button type="button" class="chip-btn" data-filter-open="pilota">Step 4 Lotto Pilota</button>
           <button type="button" class="chip-btn" data-filter-open="firenze">Firenze e Chianti</button>
         </div>
       </div>
 
-      <!-- AVVISO DI BLOCCO SE IL PROFILO NON È ANCORA APPROVATO -->
+      <!-- AVVISO DI BLOCCO SE LA COMMESSA NON È ANCORA VERIFICATA -->
       <div class="state-banner state-banner--error" id="apertura-locked-banner" hidden>
-        <h3>Abilitazione richiesta prima di prenotare una quota</h3>
+        <h3>Verifica preliminare richiesta prima di bloccare lo Step</h3>
         <p>
-          Stai visualizzando i cantieri con un profilo non ancora approvato. Per tutelare gli altri investitori, devi prima completare la verifica di idoneità con il profilo Governance.
+          Stai consultando il portale con una commessa in attesa di verifica tecnica. Completa la richiesta dati immobile per abilitare l'ordine dello Step operativo.
         </p>
         <button type="button" class="btn btn-primary" data-nav-to="azione-qualifica">
-          Invia richiesta di approvazione profilo
+          Invia dati immobile per attivazione commessa
         </button>
       </div>
 
-      <!-- LISTA CANTIERI IN APERTURA (1 COLONNA SU TELEFONO) -->
+      <!-- LISTA MODELLI / CANTIERI TIPO -->
       <div class="blocks-stack" id="open-projects-list">
 
-        <!-- CANTIERE 1 -->
-        <article class="surface-card open-project-card" data-tags="2000 firenze appartamenti" data-title="firenze santa croce suite">
-          <span class="status-pill">Apertura Cantiere · Raccolta al 68%</span>
-          <h2>1. Firenze Santa Croce · <em>4 Suite Ricettive</em></h2>
+        <!-- MODELLO 1 -->
+        <article class="surface-card open-project-card" data-tags="pilota firenze appartamenti" data-title="firenze santa croce suite">
+          <span class="status-pill">Modello Short-Term · 1.550 €/m² a Corpo</span>
+          <h2>1. Firenze Santa Croce · <em>[DA CONFERMARE]</em></h2>
           <p>
-            Frazionamento di piano nobile (240 m²) in 4 suite con bagno privato, insonorizzazione certificata e gestione Ciclo Blue Arroyo.
+            Frazionamento ricettivo ([DA CONFERMARE]) con bagno en-suite, insonorizzazione certificata, Deep Cleaning PBA (30 €/h DOC) e subentro 1-Tap Ciclo Blue Arroyo.
           </p>
           <div class="chips-group">
-            <span class="key-metric">Quota minima: 2.000 €</span>
-            <span class="key-metric">Durata garantita: 6 mesi</span>
+            <span class="key-metric">Ingresso Step 1: 150 € (scalati)</span>
+            <span class="key-metric">Durata garantita: [DA CONFERMARE]</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" data-open-project="firenze">
@@ -909,16 +909,16 @@
           </div>
         </article>
 
-        <!-- CANTIERE 2 -->
-        <article class="surface-card open-project-card" data-tags="2000 firenze chianti casale" data-title="casale greve in chianti">
-          <span class="status-pill">Apertura Cantiere · Raccolta al 45%</span>
-          <h2>2. Greve in Chianti · <em>Casale in Pietra (6 Suite)</em></h2>
+        <!-- MODELLO 2 -->
+        <article class="surface-card open-project-card" data-tags="pilota firenze chianti casale" data-title="casale greve in chianti">
+          <span class="status-pill">Modello Agriturismo · 1.950 €/m² a Corpo</span>
+          <h2>2. Greve in Chianti · <em>[DA CONFERMARE]</em></h2>
           <p>
-            Recupero conservativo di colonica toscana (380 m²) con piscina panoramica, tetto ventilato e Prezzo Chiuso Toscan.
+            Recupero conservativo di colonica toscana ([DA CONFERMARE]) con piscina panoramica, tetto ventilato e contratto 5 SAL a Prezzo Chiuso Toscan.
           </p>
           <div class="chips-group">
-            <span class="key-metric">Quota minima: 2.000 €</span>
-            <span class="key-metric">Durata garantita: 9 mesi</span>
+            <span class="key-metric">Ingresso Step 1: 150 € (scalati)</span>
+            <span class="key-metric">Durata garantita: [DA CONFERMARE]</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" data-open-project="chianti">
@@ -927,16 +927,16 @@
           </div>
         </article>
 
-        <!-- CANTIERE 3 -->
-        <article class="surface-card open-project-card" data-tags="2000 lucca hotel" data-title="boutique hotel lucca centro">
-          <span class="status-pill status-pill--neutral">Nuova Apertura · Raccolta al 30%</span>
-          <h2>3. Lucca Centro Storico · <em>Boutique Hotel 10 Camere</em></h2>
+        <!-- MODELLO 3 -->
+        <article class="surface-card open-project-card" data-tags="pilota lucca hotel" data-title="boutique hotel lucca centro">
+          <span class="status-pill status-pill--neutral">Modello Boutique Hotel · 2.150 €/m² a Corpo</span>
+          <h2>3. Lucca Centro Storico · <em>[DA CONFERMARE]</em></h2>
           <p>
-            Riqualificazione energetica e d'interni in bassa stagione con consegna garantita prima della primavera.
+            Riqualificazione energetica, impianti DM 37/08 e arredo FF&amp;E in bassa stagione con consegna garantita prima della primavera.
           </p>
           <div class="chips-group">
-            <span class="key-metric">Quota minima: 2.000 €</span>
-            <span class="key-metric">Durata garantita: 8 mesi</span>
+            <span class="key-metric">Ingresso Step 1: 150 € (scalati)</span>
+            <span class="key-metric">Durata garantita: [DA CONFERMARE]</span>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" data-open-project="lucca">
@@ -949,56 +949,56 @@
 
       <!-- STATO VUOTO RICERCA -->
       <div class="state-banner" id="open-projects-empty" hidden>
-        <h3>Nessun cantiere corrisponde alla ricerca</h3>
-        <p>Prova a cancellare il testo cercato per rivedere tutti i 3 cantieri in corso di apertura.</p>
+        <h3>Nessun modello corrisponde alla ricerca</h3>
+        <p>Prova a cancellare il testo cercato per rivedere tutti i 3 modelli chiavi in mano.</p>
         <button type="button" class="btn btn-secondary" id="btn-reset-search">
-          Mostra tutti i cantieri in apertura
+          Mostra tutti i modelli esecutivi
         </button>
       </div>
     </section>
 
     <!-- ===================================================================
-         LIVELLO 3 — DETTAGLIO SINGOLO CANTIERE IN APERTURA (#dettaglio-cantiere)
-         Risponde a: "Quali sono i numeri e le tutele di questo singolo cantiere?"
+         LIVELLO 3 — DETTAGLIO SINGOLO MODELLO / CANTIERE (#dettaglio-cantiere)
+         Risponde a: "Quali sono i numeri e le tutele di questo appalto a 5 SAL?"
          =================================================================== -->
-    <section class="onion-view" id="view-dettaglio-cantiere" data-level="3" data-title="Dettaglio Cantiere" data-parent="area-apertura">
+    <section class="onion-view" id="view-dettaglio-cantiere" data-level="3" data-title="Dettaglio Commessa 5 SAL" data-parent="area-apertura">
       <div class="surface-card surface-card--highlight">
-        <span class="status-pill" id="det-proj-status">Apertura Cantiere · Membri Approvati</span>
+        <span class="status-pill" id="det-proj-status">Contratto a Prezzo Chiuso · 5 SAL Verificati</span>
         <h2 id="det-proj-title" style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Firenze Santa Croce · <em>4 Suite Ricettive</em></h2>
         <p id="det-proj-summary" style="color:var(--ink);">
-          Intervento di frazionamento chiavi in mano di 240 m² a Firenze con Prezzo Chiuso Toscan bloccato prima dell'avvio e penale ritardo di 250 €/giorno.
+          Intervento di frazionamento chiavi in mano di 240 m² a Firenze con Prezzo Chiuso Toscan bloccato da computo esecutivo e penale ritardo di 150 €/giorno (max 5%).
         </p>
 
         <div class="blocks-stack blocks-stack--2col" style="margin-top:8px;">
-          <div class="key-metric" id="det-proj-min">Partecipazione minima: 2.000 €</div>
-          <div class="key-metric" id="det-proj-cost">Valore appalto bloccato: 372.000 €</div>
-          <div class="key-metric" id="det-proj-duration">Tempi garantiti: 6 mesi (5 SAL)</div>
+          <div class="key-metric" id="det-proj-min">Step 1 Masterclass: 150 € (100% scalati)</div>
+          <div class="key-metric" id="det-proj-cost">Valore appalto bloccato: [DA CONFERMARE]</div>
+          <div class="key-metric" id="det-proj-duration">Tempi garantiti: [DA CONFERMARE] (5 SAL)</div>
           <div class="key-metric" id="det-proj-protection">Tutela: DURC, Polizza CAR e Decennale</div>
         </div>
 
-        <!-- SIMULATORE QUOTA MEMBRO APPROVATO (RIPARTIZIONE IN 5 SAL A 1 TOCCO) -->
+        <!-- SIMULATORE SCAGLIONI & 5 SAL COMMITTENTE -->
         <div class="surface-card" style="background:var(--stone);margin-top:8px;">
-          <span class="field-label">Simulatore Quota Membro Approvato (vedi come viene protetta nei 5 SAL)</span>
+          <span class="field-label">Simulatore Scaglioni &amp; Lotto Pilota (100% scalabili sul Contratto 5 SAL)</span>
           <div class="chips-group" id="sim-quota-chips">
-            <button type="button" class="chip-btn is-active" data-sim-amt="2000">Quota 2.000 €</button>
-            <button type="button" class="chip-btn" data-sim-amt="5000">Quota 5.000 €</button>
-            <button type="button" class="chip-btn" data-sim-amt="10000">Quota 10.000 €</button>
-            <button type="button" class="chip-btn" data-sim-amt="25000">Quota 25.000 €</button>
+            <button type="button" class="chip-btn is-active" data-sim-amt="150">Step 1 Masterclass (150 €)</button>
+            <button type="button" class="chip-btn" data-sim-amt="950">Step 2 Sopralluogo (950 €)</button>
+            <button type="button" class="chip-btn" data-sim-amt="2200">Step 3 Kit Pre-Sales (2.200 €)</button>
+            <button type="button" class="chip-btn" data-sim-amt="18500">Step 4 Lotto Pilota (18.500 €)</button>
           </div>
           <p id="sim-quota-breakdown" style="color:var(--ink);font-size:0.95rem;">
-            Con 2.000 € la tua quota segue i 5 SAL certificati: Avvio (15%): 300 € · 1° SAL Murarie (25%): 500 € · 2° SAL Impianti (25%): 500 € · 3° SAL Finiture (25%): 500 € · Collaudo e Ciclo Blue Arroyo (10%): 200 €.
+            Step selezionato: 150 € (100% scalato sul SAL 1). Il contratto d'appalto segue i 5 SAL certificati dalla DL: 15% Avvio · 25% Opere Murarie · 25% Impianti · 25% Finiture · 10% Collaudo e Subentro Ciclo Blue Arroyo.
           </p>
         </div>
 
         <!-- CONTENUTI SECONDARI RACCOLTI IN SEZIONI ESPANDIBILI -->
         <details class="expand-box">
           <summary>
-            <span>1. Come vengono protetti i membri co-investitori</span>
+            <span>1. Come viene protetto il Committente nei 5 SAL</span>
             <span>Apri</span>
           </summary>
           <div class="expand-box__body">
             <p>
-              L'ingresso in questo cantiere è riservato esclusivamente a membri già approvati dal profilo Governance di Toscan Costruzioni. I fondi seguono il Percorso a 5 SAL (15% avvio, 25% murarie, 25% impianti, 25% finiture, 10% collaudo) e vengono sbloccati solo a opere certificate.
+              Ogni commessa è regolata da contratto d'appalto a Prezzo Chiuso (1.350–2.400 €/m²). I pagamenti seguono il Percorso a 5 SAL (15% avvio, 25% murarie, 25% impianti, 25% finiture, 10% collaudo) e vengono liquidati solo a opere verificate dalla Direzione Lavori con DURC regolare.
             </p>
           </div>
         </details>
@@ -1017,25 +1017,25 @@
 
         <details class="expand-box">
           <summary>
-            <span>3. Messa a reddito con il Ciclo Blue Arroyo</span>
+            <span>3. Deep Cleaning PBA (30 €/h DOC) e Subentro 1-Tap Blue Arroyo</span>
             <span>Apri</span>
           </summary>
           <div class="expand-box__body">
             <p>
-              Al collaudo finale, itassistance attiva CIN e Questura, Blue Arroyo Cleaning allestisce le suite con biancheria a 60°C e SmartsBookings avvia le prenotazioni dirette.
+              Al collaudo finale: PBA esegue il Deep Cleaning post-cantiere a tariffa intercompany approvata (30 €/ora tutto incluso, pago solo per risultato finale DOC) e avvia il turnover con biancheria a 60°C; Itassitance attiva CIN e Alloggiati Web; SmartsBookings attiva le prenotazioni dirette con payout 85% al proprietario.
             </p>
           </div>
         </details>
 
         <div class="actions-stack" style="margin-top:8px;">
           <button type="button" class="btn btn-primary btn--full" id="btn-go-invest-action">
-            Prenota una quota da 2.000 € su questo cantiere
+            Attiva questo Step / Richiedi Contratto 5 SAL
           </button>
           <button type="button" class="btn btn-secondary btn--full" id="btn-print-quota-pdf">
-            Stampa Scheda Quota 5 SAL (PDF 1 Pagina)
+            Stampa Scheda Commessa 5 SAL (PDF 1 Pagina)
           </button>
           <button type="button" class="btn btn-secondary btn--full" id="btn-wa-quota-summary">
-            Invia Riepilogo Quota 5 SAL su WhatsApp
+            Invia Riepilogo 5 SAL su WhatsApp
           </button>
           <a href="/preventivo-tipo" class="btn btn-secondary btn--full">
             Consulta il Computo Esecutivo PDF
@@ -1045,67 +1045,67 @@
     </section>
 
     <!-- ===================================================================
-         LIVELLO 4 — AZIONE: PRENOTA QUOTA CANTIERE IN 3 PASSAGGI (#azione-partecipa)
-         Risponde a: "Come confermo la mia quota a partire da 2.000 €?"
+         LIVELLO 4 — AZIONE: ATTIVA STEP / LOTTO PILOTA IN 3 PASSAGGI (#azione-partecipa)
+         Risponde a: "Come confermo lo Step scaglionato o il Lotto Pilota?"
          =================================================================== -->
-    <section class="onion-view" id="view-azione-partecipa" data-level="4" data-title="Prenota Quota Cantiere" data-parent="dettaglio-cantiere">
+    <section class="onion-view" id="view-azione-partecipa" data-level="4" data-title="Attiva Step Operativo" data-parent="dettaglio-cantiere">
       <div class="surface-card surface-card--highlight">
         <div class="step-indicator">
-          <span class="status-pill status-pill--terracotta" id="invest-step-label">Passaggio 1 di 3 · Importo della quota</span>
+          <span class="status-pill status-pill--terracotta" id="invest-step-label">Passaggio 1 di 3 · Scelta dello Step</span>
           <div class="step-progress-bar" aria-hidden="true">
             <div class="step-progress-fill" id="invest-step-bar" style="width: 33%;"></div>
           </div>
         </div>
 
-        <h2 id="invest-action-title" style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Scegli il capitale da allocare sul <em>cantiere</em></h2>
+        <h2 id="invest-action-title" style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Scegli lo Step operativo da attivare sulla <em>commessa</em></h2>
         <p id="invest-action-desc">
-          Seleziona un taglio rapido a partire da 2.000 € oppure inserisci l'importo esatto che desideri prenotare come Membro Approvato.
+          Seleziona lo Step scaglionato (a partire dalla Masterclass da 150 € fino al Lotto Pilota Step 4), interamente scalabile dal contratto d'appalto a 5 SAL.
         </p>
 
-        <!-- MESSAGGIO DI ERRORE SE IMPORTO < 2.000 € O PROFILO NON APPROVATO -->
+        <!-- MESSAGGIO DI ERRORE SE IMPORTO < 150 € -->
         <div class="state-banner state-banner--error" id="invest-error-box" hidden>
           <strong style="color:var(--terracotta);">Controlla i dati inseriti</strong>
           <p id="invest-error-text" style="color:var(--ink);">
-            L'importo minimo per i membri approvati è di 2.000 €. Inserisci un valore pari o superiore a 2.000 €.
+            L'importo minimo per lo Step 1 (Masterclass Call scalabile al 100%) è di 150 €.
           </p>
         </div>
 
-        <!-- PASSAGGIO 1 DI 3: SCELTA IMPORTO (DA 2.000 € IN SU) -->
+        <!-- PASSAGGIO 1 DI 3: SCELTA STEP (DA 150 € IN SU) -->
         <div id="invest-step-1" class="blocks-stack">
           <div class="field-group">
-            <span class="field-label">Tagli rapidi riservati ai Membri Approvati (1 tocco)</span>
+            <span class="field-label">Scaglioni operativi 100% scalabili dal contratto (1 tocco)</span>
             <div class="chips-group" id="invest-amount-chips">
-              <button type="button" class="chip-btn is-active" data-amt="2000">2.000 € (Ingresso base)</button>
-              <button type="button" class="chip-btn" data-amt="5000">5.000 €</button>
-              <button type="button" class="chip-btn" data-amt="10000">10.000 €</button>
-              <button type="button" class="chip-btn" data-amt="25000">25.000 €</button>
+              <button type="button" class="chip-btn is-active" data-amt="150">150 € (Step 1 Masterclass)</button>
+              <button type="button" class="chip-btn" data-amt="950">950 € (Step 2 Sopralluogo)</button>
+              <button type="button" class="chip-btn" data-amt="2200">2.200 € (Step 3 Kit Pre-Sales)</button>
+              <button type="button" class="chip-btn" data-amt="18500">18.500 € (Step 4 Lotto Pilota)</button>
             </div>
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="invest-custom-amount">Importo scelto in Euro (minimo 2.000 €)</label>
-            <input type="number" id="invest-custom-amount" class="input-field" value="2000" min="2000" step="500" />
+            <label class="field-label" for="invest-custom-amount">Importo Step selezionato in Euro (minimo 150 €)</label>
+            <input type="number" id="invest-custom-amount" class="input-field" value="150" min="150" step="50" />
           </div>
 
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" id="btn-invest-to-step-2">
-              Vai al Passaggio 2 di 3: Verifica tutela
+              Vai al Passaggio 2 di 3: Regola di scalo 100%
             </button>
           </div>
         </div>
 
-        <!-- PASSAGGIO 2 DI 3: VERIFICA REGOLE DI TUTELA CO-INVESTITORI -->
+        <!-- PASSAGGIO 2 DI 3: VERIFICA REGOLE CONTRATTUALI 5 SAL -->
         <div id="invest-step-2" class="blocks-stack" hidden>
           <div class="surface-card" style="background:var(--stone);">
-            <h3>Clausola di tutela dei Membri Approvati</h3>
+            <h3>Clausola di scalo 100% e Prezzo Chiuso 5 SAL</h3>
             <p style="color:var(--ink);">
-              Confermo di essere un Membro Approvato dalla Governance di Toscan Costruzioni e che l'importo selezionato verrà versato esclusivamente sul conto dedicato del cantiere secondo il Percorso a 5 SAL verificati.
+              Confermo la richiesta dello Step tecnico selezionato: l'importo versato verrà integralmente detratto dal 1° SAL alla sottoscrizione del contratto d'appalto a Prezzo Chiuso Toscan (1.350–2.400 €/m²).
             </p>
           </div>
 
           <div class="field-group">
-            <label class="field-label" for="invest-member-note">Note opzionali per l'Amministrazione</label>
-            <input type="text" id="invest-member-note" class="input-field" placeholder="Es. Richiedo ricevuta intestata a società..." />
+            <label class="field-label" for="invest-member-note">Note opzionali per l'Amministrazione (dati fatturazione)</label>
+            <input type="text" id="invest-member-note" class="input-field" placeholder="Es. Fattura intestata a società proprietaria..." />
           </div>
 
           <div class="actions-stack">
@@ -1121,15 +1121,15 @@
         <!-- PASSAGGIO 3 DI 3: RIEPILOGO E INVIO ORDINE -->
         <div id="invest-step-3" class="blocks-stack" hidden>
           <div class="surface-card" style="background:var(--stone);">
-            <h3>Riepilogo della tua prenotazione</h3>
+            <h3>Riepilogo della tua richiesta</h3>
             <p style="color:var(--ink);" id="invest-summary-box">
-              Cantiere: Firenze Santa Croce · Importo prenotato: 2.000 € · Stato profilo: Membro Approvato.
+              Intervento: [DA CONFERMARE] · Step selezionato: 150 € (100% scalabile) · Committente: [DA CONFERMARE].
             </p>
           </div>
 
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" id="btn-invest-submit">
-              Conferma prenotazione quota da 2.000 €
+              Conferma attivazione Step operativo
             </button>
             <button type="button" class="btn btn-secondary btn--full" id="btn-invest-back-2">
               Torna al Passaggio 2 di 3
@@ -1139,16 +1139,16 @@
 
         <!-- STATO DI CONFERMA FINALE DOPO L'AZIONE -->
         <div id="invest-step-confirm" class="state-banner state-banner--confirm" hidden>
-          <h2>Quota prenotata con <em>successo</em></h2>
+          <h2>Step operativo registrato con <em>successo</em></h2>
           <p style="color:var(--ink);" id="invest-confirm-text">
-            La tua prenotazione è stata registrata e inviata all'Amministrazione di Toscan Costruzioni. Riceverai le coordinate del primo SAL verificato.
+            La tua richiesta è stata registrata e inviata all'Amministrazione di Toscan Costruzioni con credito 100% scalabile sul 1° SAL.
           </p>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" data-nav-to="area-apertura">
-              Torna ai cantieri in corso di apertura
+              Torna ai modelli esecutivi
             </button>
             <button type="button" class="btn btn-secondary btn--full" data-nav-to="home">
-              Torna alla Home Area Membri
+              Torna alla Home Portale Committente
             </button>
           </div>
         </div>
@@ -1165,7 +1165,7 @@
         <span class="status-pill">Livello 2 · Avanzamento Opere</span>
         <h2 id="mc-title" style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Il mio cantiere e <em>Percorso a 5 SAL</em></h2>
         <p id="mc-subtitle" style="color:var(--ink);">
-          Commessa attiva: Firenze · 280 m² · Prezzo Chiuso Toscan 434.000 € · Consegna garantita in 5–7 mesi.
+          Commessa attiva: [DA CONFERMARE] · Prezzo Chiuso Toscan [DA CONFERMARE] · Consegna garantita: [DA CONFERMARE].
         </p>
         <div class="actions-stack">
           <button type="button" class="btn btn-primary btn--full" data-nav-to="azione-approva-sal">
@@ -1174,12 +1174,12 @@
         </div>
       </div>
 
-      <!-- LISTA VERTICALE DEI 5 SAL (1 COLONNA SU TELEFONO, NESSUNA TABELLA ORIZZONTALE) -->
+      <!-- LISTA VERTICALE DEI 5 SAL -->
       <div class="blocks-stack" id="sal-cards-list">
         <article class="surface-card surface-card--olive">
           <span class="status-pill">Completato e Verificato</span>
-          <h3>1. Avvio Cantiere (15%) · <span id="amt-sal-1">65.100 €</span></h3>
-          <p>Pratiche edilizie CILA/SCIA, allestimento ponteggi, demolizioni selettive e smaltimento certificato.</p>
+          <h3>1. Avvio Cantiere (15%) · <span id="amt-sal-1">[DA CONFERMARE]</span></h3>
+          <p>Pratiche edilizie CILA/SCIA, allestimento ponteggi, demolizioni selettive e smaltimento certificato (al netto dello scalo Masterclass 150 €).</p>
           <button type="button" class="btn btn-secondary btn--full" data-open-sal="1">
             Apri dettaglio 1° stato (Avvio 15%)
           </button>
@@ -1187,7 +1187,7 @@
 
         <article class="surface-card surface-card--highlight">
           <span class="status-pill status-pill--terracotta">SAL Attuale in Corso</span>
-          <h3>2. 1° SAL Opere Murarie (25%) · <span id="amt-sal-2">108.500 €</span></h3>
+          <h3>2. 1° SAL Opere Murarie (25%) · <span id="amt-sal-2">[DA CONFERMARE]</span></h3>
           <p>Consolidamenti strutturali, tramezzature per le nuove suite e tracciamento impianti idrici ed elettrici.</p>
           <button type="button" class="btn btn-primary btn--full" data-open-sal="2">
             Apri dettaglio 1° SAL e Report del Venerdì
@@ -1196,7 +1196,7 @@
 
         <article class="surface-card">
           <span class="status-pill status-pill--neutral">Programmato</span>
-          <h3>3. 2° SAL Impianti e Massetti (25%) · <span id="amt-sal-3">108.500 €</span></h3>
+          <h3>3. 2° SAL Impianti e Massetti (25%) · <span id="amt-sal-3">[DA CONFERMARE]</span></h3>
           <p>Posa impianti completi, isolamento acustico certificato tra le unità, massetti e intonaci a calce.</p>
           <button type="button" class="btn btn-secondary btn--full" data-open-sal="3">
             Apri dettaglio 2° SAL Impianti
@@ -1205,7 +1205,7 @@
 
         <article class="surface-card">
           <span class="status-pill status-pill--neutral">Programmato</span>
-          <h3>4. 3° SAL Finiture e Bagni (25%) · <span id="amt-sal-4">108.500 €</span></h3>
+          <h3>4. 3° SAL Finiture e Bagni (25%) · <span id="amt-sal-4">[DA CONFERMARE]</span></h3>
           <p>Pavimenti in rovere e gres, rivestimenti bagni en-suite, sanitari, rubinetterie, infissi e porte.</p>
           <button type="button" class="btn btn-secondary btn--full" data-open-sal="4">
             Apri dettaglio 3° SAL Finiture
@@ -1214,10 +1214,10 @@
 
         <article class="surface-card">
           <span class="status-pill status-pill--neutral">Programmato</span>
-          <h3>5. Collaudo Finale e Ciclo Blue Arroyo (10%) · <span id="amt-sal-5">43.400 €</span></h3>
-          <p>Montaggio arredi, certificazioni DM 37/08, pulizia profonda e avvio gestione ospiti.</p>
+          <h3>5. Collaudo Finale, Deep Cleaning PBA e Ciclo Blue Arroyo (10%) · <span id="amt-sal-5">[DA CONFERMARE]</span></h3>
+          <p>Montaggio arredi, certificazioni DM 37/08, Deep Cleaning PBA (30 €/ora tutto incluso DOC) e Subentro 1-Tap Itassitance + SmartsBookings.</p>
           <button type="button" class="btn btn-secondary btn--full" data-open-sal="5">
-            Apri dettaglio Collaudo e Avvio Ospiti
+            Apri dettaglio Collaudo e Subentro 1-Tap
           </button>
         </article>
       </div>
@@ -1232,7 +1232,7 @@
         <span class="status-pill status-pill--terracotta" id="det-sal-badge">SAL Attuale in Verifica</span>
         <h2 id="det-sal-title" style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">1° SAL · <em>Opere Murarie (25%)</em></h2>
         <p id="det-sal-desc" style="color:var(--ink);">
-          Importo rata contrattuale: 108.500 € · Pagabile solo dopo verifica fotografica del venerdì e controllo regolarità DURC.
+          Importo rata contrattuale: [DA CONFERMARE] · Pagabile solo dopo verifica fotografica del venerdì e controllo regolarità DURC.
         </p>
 
         <div class="surface-card" style="background:var(--stone);">
@@ -1249,7 +1249,7 @@
           </summary>
           <div class="expand-box__body">
             <p>
-              DURC regolare in corso di validità allegato al verbale · Attestazione Cassa Edile Firenze attiva · Polizza CAR/RC di cantiere regolarmente quietanzata · Penale ritardo contrattuale: 250 €/giorno.
+              DURC regolare in corso di validità allegato al verbale · Attestazione Cassa Edile Firenze attiva · Polizza CAR/RC di cantiere e Decennale Postuma attive · Penale ritardo contrattuale: 150 €/giorno (max 5%).
             </p>
           </div>
         </details>
@@ -1333,7 +1333,7 @@
         <span class="status-pill">Livello 2 · Archivio Verificato</span>
         <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Documenti, contratti e <em>polizze</em></h2>
         <p style="color:var(--ink);">
-          Tutti i documenti contrattuali e assicurativi della tua operazione sono aggiornati e scaricabili in formato PDF.
+          Tutti i documenti contrattuali e assicurativi della tua commessa sono aggiornati e scaricabili in formato PDF.
         </p>
 
         <div class="actions-stack">
@@ -1347,61 +1347,60 @@
             Stampa Riepilogo Stato Cantiere (PDF)
           </button>
           <a href="/blog" class="btn btn-secondary btn--full">
-            Apri Journal e Guida Investitori
+            Apri Blog Tecnico Proprietari &amp; Albergatori
           </a>
         </div>
       </div>
     </section>
 
     <!-- ===================================================================
-         LIVELLO 2 — AREA 4: PROFILO, GOVERNANCE E TUTELA CO-INVESTITORI (#area-profilo)
-         Risponde a: "Qual è il mio stato di approvazione e come funziona la tutela?"
+         LIVELLO 2 — AREA 4: GARANZIE CONTRATTUALI & SUBENTRO CICLO BLUE ARROYO (#area-profilo)
          =================================================================== -->
-    <section class="onion-view" id="view-area-profilo" data-level="2" data-title="Profilo e Tutela" data-parent="home">
+    <section class="onion-view" id="view-area-profilo" data-level="2" data-title="Tutele e Subentro" data-parent="home">
       <div class="surface-card surface-card--highlight">
-        <span class="status-pill" id="prof-status-badge">Stato: Membro Approvato</span>
-        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Regola di tutela dei <em>co-investitori</em></h2>
+        <span class="status-pill" id="prof-status-badge">Stato: Committente Verificato</span>
+        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Garanzie contrattuali e <em>Subentro 1-Tap</em></h2>
         <p style="color:var(--ink);">
-          Per entrare nel crowdfunding chiuso sui cantieri in corso di apertura (con capitali da 2.000 € in su), ogni membro viene preventivamente approvato dal profilo Governance di Toscan Costruzioni, a tutela della solidità e della trasparenza verso tutti gli altri investitori.
+          Ogni commessa Toscan Costruzioni è protetta da Prezzo Chiuso a corpo (1.350–2.400 €/m²), 5 SAL verificati dalla DL, penale ritardo (150 €/gg), Deep Cleaning fine cantiere PBA (30 €/ora tutto incluso pago per risultato finale DOC) e subentro 1-Tap verso Itassitance e SmartsBookings (payout 85%).
         </p>
 
         <div class="blocks-stack blocks-stack--2col">
-          <div class="key-metric" id="prof-metric-state">Abilitazione: Attiva (Membro Verificato)</div>
-          <div class="key-metric">Soglia minima per cantiere: 2.000 €</div>
+          <div class="key-metric" id="prof-metric-state">Commessa: Attiva (5 SAL Certificati)</div>
+          <div class="key-metric">Deep Cleaning PBA: 30 €/ora tutto incluso DOC</div>
         </div>
 
         <div class="actions-stack">
           <button type="button" class="btn btn-primary btn--full" data-nav-to="azione-qualifica">
-            Aggiorna profilo o richiedi verifica Governance
+            Aggiorna dati commessa o richiedi verifica DL
           </button>
           <button type="button" class="btn btn-secondary btn--full" id="btn-switch-role-modal">
-            Simula cambio profilo (Membro / In Attesa / Governance)
+            Cambia vista (Committente / In Verifica / Direzione Lavori)
           </button>
         </div>
       </div>
 
-      <!-- SEZIONE VISIBILE AL RUOLO GOVERNANCE PER APPROVARE I NUOVI MEMBRI -->
+      <!-- SEZIONE VISIBILE ALLA DIREZIONE TECNICA PER ABILITARE LE COMMESSE -->
       <div class="surface-card surface-card--olive" id="governance-approval-box">
-        <span class="status-pill">Pannello Profilo Governance</span>
-        <h2>Approvazione nuovi membri <em>(Tutela Co-Investitori)</em></h2>
+        <span class="status-pill">Pannello Direzione Tecnica &amp; DL</span>
+        <h2>Validazione nuove commesse <em>(Prezzo Chiuso 5 SAL)</em></h2>
         <p>
-          Come profilo Governance, approvi l'ingresso nell'Area Privata solo dopo aver verificato l'idoneità del candidato.
+          Come Direzione Tecnica, abiliti il Portale Committente dopo aver verificato visura, titolo di proprietà e computo metrico esecutivo.
         </p>
 
         <div class="blocks-stack" id="gov-candidates-list">
           <div class="surface-card" style="background:var(--stone);">
-            <strong>Candidato 1: Marco Bellini (Firenze)</strong>
-            <p>Capitale dichiarato per cantieri in apertura: da 5.000 € · Documenti identità e origine fondi verificati.</p>
-            <button type="button" class="btn btn-primary btn--full" data-approve-candidate="Marco Bellini">
-              Approva Marco Bellini come Membro Abilitato
+            <strong>Commessa 1: [DA CONFERMARE]</strong>
+            <p>Appalto 5 SAL · Visura catastale e computo metrico: [DA CONFERMARE].</p>
+            <button type="button" class="btn btn-primary btn--full" data-approve-candidate="Commessa 1 [DA CONFERMARE]">
+              Abilita Commessa 1 (Portale 5 SAL)
             </button>
           </div>
 
           <div class="surface-card" style="background:var(--stone);">
-            <strong>Candidato 2: Studio Rinaldi Srl (Siena)</strong>
-            <p>Capitale dichiarato per cantieri in apertura: da 10.000 € · Visura camerale e requisiti verificati.</p>
-            <button type="button" class="btn btn-primary btn--full" data-approve-candidate="Studio Rinaldi Srl">
-              Approva Studio Rinaldi Srl come Membro Abilitato
+            <strong>Commessa 2: [DA CONFERMARE]</strong>
+            <p>Step 4 Lotto Pilota + Appalto 5 SAL · Visura camerale e pratiche edilizie: [DA CONFERMARE].</p>
+            <button type="button" class="btn btn-primary btn--full" data-approve-candidate="Commessa 2 [DA CONFERMARE]">
+              Abilita Commessa 2 (Portale 5 SAL)
             </button>
           </div>
         </div>
@@ -1410,21 +1409,20 @@
     </section>
 
     <!-- ===================================================================
-         LIVELLO 4 — AZIONE: QUALIFICA E APPROVAZIONE PROFILO IN 3 PASSAGGI (#azione-qualifica)
-         Risponde a: "Come ottengo l'approvazione per entrare nei cantieri da 2.000 €?"
+         LIVELLO 4 — AZIONE: ATTIVAZIONE COMMESSA IN 3 PASSAGGI (#azione-qualifica)
          =================================================================== -->
-    <section class="onion-view" id="view-azione-qualifica" data-level="4" data-title="Qualifica Profilo Membro" data-parent="area-profilo">
+    <section class="onion-view" id="view-azione-qualifica" data-level="4" data-title="Attivazione Commessa" data-parent="area-profilo">
       <div class="surface-card surface-card--highlight">
         <div class="step-indicator">
-          <span class="status-pill status-pill--terracotta" id="qual-step-label">Passaggio 1 di 3 · Dati del Membro</span>
+          <span class="status-pill status-pill--terracotta" id="qual-step-label">Passaggio 1 di 3 · Dati del Committente</span>
           <div class="step-progress-bar" aria-hidden="true">
             <div class="step-progress-fill" id="qual-step-bar" style="width: 33%;"></div>
           </div>
         </div>
 
-        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Richiesta di approvazione <em>Profilo Membro</em></h2>
+        <h2 style="font-size:clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);">Richiesta di attivazione <em>Portale Commessa 5 SAL</em></h2>
         <p style="color:var(--ink);">
-          Compila i 3 passaggi per sottoporre il tuo profilo al responsabile Governance che tutela gli investitori del gruppo e abilitare l'accesso ai cantieri da 2.000 €.
+          Compila i 3 passaggi per associare il tuo immobile al Portale Committente 5 SAL e richiedere lo Studio di Fattibilità in 48h o lo Step 4 Lotto Pilota.
         </p>
 
         <div class="state-banner state-banner--error" id="qual-error-box" hidden>
@@ -1435,31 +1433,31 @@
         <!-- PASSAGGIO 1 DI 3 -->
         <div id="qual-step-1" class="blocks-stack">
           <div class="field-group">
-            <label class="field-label" for="q-name">Nome e Cognome o Ragione Sociale *</label>
-            <input type="text" id="q-name" class="input-field" value="Lorenzo Medici" placeholder="Es. Lorenzo Medici" />
+            <label class="field-label" for="q-name">Nome e Cognome o Ragione Sociale Committente *</label>
+            <input type="text" id="q-name" class="input-field" value="[DA CONFERMARE]" placeholder="Inserisci Nome e Cognome o Ragione Sociale" />
           </div>
           <div class="field-group">
             <label class="field-label" for="q-phone">Telefono o WhatsApp diretto *</label>
-            <input type="tel" id="q-phone" class="input-field" placeholder="+39 333 1234567" />
+            <input type="tel" id="q-phone" class="input-field" placeholder="Inserisci numero WhatsApp / Telefono" />
           </div>
           <button type="button" class="btn btn-primary btn--full" id="btn-qual-to-2">
-            Vai al Passaggio 2 di 3: Fascia di capitale
+            Vai al Passaggio 2 di 3: Tipologia di intervento
           </button>
         </div>
 
         <!-- PASSAGGIO 2 DI 3 -->
         <div id="qual-step-2" class="blocks-stack" hidden>
           <div class="field-group">
-            <span class="field-label">Fascia di capitale prevista per i cantieri in apertura (da 2.000 € in su)</span>
+            <span class="field-label">Modalità operativa richiesta (Prezzo Chiuso 1.350–2.400 €/m²)</span>
             <div class="chips-group" id="qual-cap-chips">
-              <button type="button" class="chip-btn is-active" data-q-cap="Da 2.000 € a 5.000 €">Da 2.000 € a 5.000 €</button>
-              <button type="button" class="chip-btn" data-q-cap="Da 5.000 € a 20.000 €">Da 5.000 € a 20.000 €</button>
-              <button type="button" class="chip-btn" data-q-cap="Oltre 20.000 €">Oltre 20.000 €</button>
+              <button type="button" class="chip-btn is-active" data-q-cap="Step 1 Masterclass (150 € scalati)">Step 1 Masterclass (150 € scalati)</button>
+              <button type="button" class="chip-btn" data-q-cap="Step 4 Lotto Pilota / Unità Campione">Step 4 Lotto Pilota / Unità Campione</button>
+              <button type="button" class="chip-btn" data-q-cap="Appalto Completo 5 SAL Chiavi in Mano">Appalto Completo 5 SAL Chiavi in Mano</button>
             </div>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" id="btn-qual-to-3">
-              Vai al Passaggio 3 di 3: Impegno di tutela
+              Vai al Passaggio 3 di 3: Riepilogo garanzie
             </button>
             <button type="button" class="btn btn-secondary btn--full" id="btn-qual-back-1">
               Torna al Passaggio 1 di 3
@@ -1470,14 +1468,14 @@
         <!-- PASSAGGIO 3 DI 3 -->
         <div id="qual-step-3" class="blocks-stack" hidden>
           <div class="surface-card" style="background:var(--stone);">
-            <h3>Impegno di reciprocità e tutela</h3>
+            <h3>Conferma percorso General Contractor a Corpo</h3>
             <p style="color:var(--ink);">
-              Richiedo la qualifica di Membro Approvato consapevole che l'ingresso nel crowdfunding chiuso è subordinato alla convalida del profilo Governance a tutela di tutti i co-investitori.
+              Richiedo l'attivazione del Portale Committente con contratto a Prezzo Chiuso Toscan, 5 SAL verificati dalla DL e subentro 1-Tap nel Ciclo Blue Arroyo.
             </p>
           </div>
           <div class="actions-stack">
             <button type="button" class="btn btn-primary btn--full" id="btn-qual-submit">
-              Invia richiesta di approvazione profilo
+              Invia richiesta di attivazione commessa
             </button>
             <button type="button" class="btn btn-secondary btn--full" id="btn-qual-back-2">
               Torna al Passaggio 2 di 3
@@ -1487,48 +1485,52 @@
 
         <!-- CONFERMA FINALE -->
         <div id="qual-step-confirm" class="state-banner state-banner--confirm" hidden>
-          <h2>Richiesta inviata al <em>Profilo Governance</em></h2>
+          <h2>Richiesta inviata alla <em>Direzione Tecnica</em></h2>
           <p style="color:var(--ink);">
-            Il tuo profilo è stato trasmesso per la convalida e abilitato in modalità Membro Approvato per permetterti di consultare e prenotare i cantieri da 2.000 €.
+            La tua commessa è stata registrata e abilitata nel Portale Committente 5 SAL per consultare computi, avanzamento lavori e Lotti Pilota.
           </p>
           <button type="button" class="btn btn-primary btn--full" data-nav-to="area-apertura">
-            Apri ora i cantieri in corso di apertura
+            Apri ora i modelli esecutivi e Lotti Pilota
           </button>
         </div>
       </div>
     </section>
 
+    <footer style="margin-top:24px;padding:16px;border-top:1px solid var(--line);font-size:0.875rem;color:var(--muted);">
+      <strong>Toscan Costruzioni</strong> — Piano 1 · Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze · P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE] · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE]
+    </footer>
+
   </main>
 
-  <!-- PANNELLO DAL BASSO (BOTTOM SHEET MAX 90DVH) PER SELEZIONE RUOLO / STATO DI TEST -->
+  <!-- PANNELLO DAL BASSO PER SELEZIONE RUOLO / VISTA -->
   <div class="bottom-sheet-backdrop" id="role-sheet-backdrop" role="dialog" aria-modal="true" aria-labelledby="role-sheet-title">
     <div class="bottom-sheet">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
-        <h3 id="role-sheet-title">Vista attiva nell'Area Riservata</h3>
+        <h3 id="role-sheet-title">Vista attiva nel Portale Committente</h3>
         <button type="button" class="header-role-btn" id="btn-close-role-sheet">Chiudi</button>
       </div>
       <p>
-        Scegli il profilo con cui visualizzare l'Area Personale per verificare che ogni ruolo veda solo ciò che gli compete:
+        Scegli il profilo con cui visualizzare il Portale Committente 5 SAL:
       </p>
       <div class="actions-stack">
         <button type="button" class="btn btn-primary btn--full" data-set-role="membro">
-          1. Membro Già Approvato (Accesso completo da 2.000 €)
+          1. Committente Verificato (Contratto 5 SAL attivo)
         </button>
         <button type="button" class="btn btn-secondary btn--full" data-set-role="in-attesa">
-          2. Utente Non Ancora Approvato (Blocco di tutela attivo)
+          2. Committente in Studio Fattibilità 48h
         </button>
         <button type="button" class="btn btn-secondary btn--full" data-set-role="governance">
-          3. Profilo Governance (Chi approva e tutela gli investitori)
+          3. Direzione Tecnica &amp; DL (Validazione SAL e Commesse)
         </button>
         <a href="/" class="btn btn-secondary btn--full">
-          Torna al Sito Pubblico (Livello 0)
+          Torna al Sito Pubblico
         </a>
       </div>
     </div>
   </div>
 
-  <!-- BARRA INFERIORE FISSA (64PX + SAFE AREA) CON 4 VOCI COSTANTI E ICONE SVG A TRATTO SOTTILE -->
-  <nav class="bottom-nav" aria-label="Navigazione principale Area Riservata">
+  <!-- BARRA INFERIORE FISSA CON 4 VOCI COSTANTI -->
+  <nav class="bottom-nav" aria-label="Navigazione principale Portale Committente">
     <div class="bottom-nav__inner">
       <button type="button" class="bottom-nav__btn is-active" data-bottom-nav="home">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -1541,7 +1543,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3v18M3 12h18M5 5h14v14H5z" />
         </svg>
-        <span>Nuovi Cantieri</span>
+        <span>Lotti Pilota</span>
       </button>
 
       <button type="button" class="bottom-nav__btn" data-bottom-nav="area-mio-cantiere">
@@ -1555,43 +1557,43 @@
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3l7 4v5c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V7l7-4z" />
         </svg>
-        <span>Tutela e Profilo</span>
+        <span>Tutele &amp; Subentro</span>
       </button>
     </div>
   </nav>
 
   <script>
     (function() {
-      /* 1. DATI DEI 3 CANTIERI IN CORSO DI APERTURA (DA 2.000 €) E DEI 5 SAL */
+      /* 1. DATI DEI 3 MODELLI ESECUTIVI A CORPO E DEI 5 SAL */
       var openProjects = {
         firenze: {
-          title: 'Firenze Santa Croce · <em>4 Suite Ricettive</em>',
-          plainTitle: 'Firenze Santa Croce (4 Suite)',
-          status: 'Apertura Cantiere · Raccolta al 68%',
-          summary: 'Intervento di frazionamento chiavi in mano di 240 m² a Firenze con Prezzo Chiuso Toscan bloccato prima dell\'avvio e penale ritardo di 250 €/giorno.',
-          min: 'Partecipazione minima: 2.000 €',
-          cost: 'Valore appalto bloccato: 372.000 €',
-          duration: 'Tempi garantiti: 6 mesi (5 SAL)',
+          title: 'Firenze Santa Croce · <em>[DA CONFERMARE]</em>',
+          plainTitle: 'Firenze Santa Croce ([DA CONFERMARE])',
+          status: 'Appalto a Corpo · 1.550 €/m² (5 SAL)',
+          summary: 'Intervento di frazionamento chiavi in mano ([DA CONFERMARE]) a Firenze con Prezzo Chiuso Toscan bloccato da computo esecutivo, penale ritardo di 150 €/giorno e Deep Cleaning PBA 30 €/ora DOC.',
+          min: 'Step 1 Masterclass: 150 € (100% scalati)',
+          cost: 'Valore appalto bloccato: [DA CONFERMARE]',
+          duration: 'Tempi garantiti: [DA CONFERMARE] (5 SAL)',
           protection: 'Tutela: DURC, Polizza CAR e Decennale'
         },
         chianti: {
-          title: 'Greve in Chianti · <em>Casale in Pietra (6 Suite)</em>',
-          plainTitle: 'Casale Greve in Chianti (6 Suite)',
-          status: 'Apertura Cantiere · Raccolta al 45%',
-          summary: 'Recupero conservativo di colonica toscana (380 m²) con piscina panoramica, tetto ventilato e messa a reddito tramite il Ciclo Blue Arroyo.',
-          min: 'Partecipazione minima: 2.000 €',
-          cost: 'Valore appalto bloccato: 741.000 €',
-          duration: 'Tempi garantiti: 9 mesi (5 SAL)',
+          title: 'Greve in Chianti · <em>[DA CONFERMARE]</em>',
+          plainTitle: 'Casale Greve in Chianti ([DA CONFERMARE])',
+          status: 'Appalto a Corpo · 1.950 €/m² (5 SAL)',
+          summary: 'Recupero conservativo di colonica toscana ([DA CONFERMARE]) con piscina panoramica, tetto ventilato e subentro 1-Tap nel Ciclo Blue Arroyo.',
+          min: 'Step 1 Masterclass: 150 € (100% scalati)',
+          cost: 'Valore appalto bloccato: [DA CONFERMARE]',
+          duration: 'Tempi garantiti: [DA CONFERMARE] (5 SAL)',
           protection: 'Tutela: DURC, Polizza CAR e Decennale'
         },
         lucca: {
-          title: 'Lucca Centro Storico · <em>Boutique Hotel 10 Camere</em>',
-          plainTitle: 'Boutique Hotel Lucca (10 Camere)',
-          status: 'Nuova Apertura · Raccolta al 30%',
+          title: 'Lucca Centro Storico · <em>[DA CONFERMARE]</em>',
+          plainTitle: 'Boutique Hotel Lucca ([DA CONFERMARE])',
+          status: 'Appalto a Corpo · 2.150 €/m² (5 SAL)',
           summary: 'Riqualificazione energetica e d\'interni in bassa stagione con consegna garantita prima della primavera e Prezzo Chiuso Toscan.',
-          min: 'Partecipazione minima: 2.000 €',
-          cost: 'Valore appalto bloccato: 890.000 €',
-          duration: 'Tempi garantiti: 8 mesi (5 SAL)',
+          min: 'Step 1 Masterclass: 150 € (100% scalati)',
+          cost: 'Valore appalto bloccato: [DA CONFERMARE]',
+          duration: 'Tempi garantiti: [DA CONFERMARE] (5 SAL)',
           protection: 'Tutela: DURC, Polizza CAR e Decennale'
         }
       };
@@ -1606,9 +1608,9 @@
       var cfg = {
         role: 'membro',
         type: 'appartamenti',
-        city: 'Firenze',
-        sqm: 280,
-        client: 'Lorenzo Medici',
+        city: '[DA CONFERMARE]',
+        sqm: 0,
+        client: '[DA CONFERMARE]',
         salIdx: 2,
         selectedProjectKey: 'firenze',
         selectedSalIdx: 2,
@@ -1620,7 +1622,7 @@
         if (saved && typeof saved === 'object') {
           if (saved.type && rates[saved.type]) cfg.type = saved.type;
           if (saved.city) cfg.city = saved.city;
-          if (saved.sqm) cfg.sqm = parseInt(saved.sqm, 10) || 280;
+          if (saved.sqm) cfg.sqm = parseInt(saved.sqm, 10) || 0;
           if (saved.client) cfg.client = saved.client;
           if (saved.notes) cfg.notes = saved.notes;
         }
@@ -1637,13 +1639,13 @@
       }
       if (params.get('cliente') || params.get('client')) cfg.client = params.get('cliente') || params.get('client');
       if (params.get('city') || params.get('citta')) cfg.city = params.get('city') || params.get('citta');
-      if (params.get('sqm') || params.get('mq')) cfg.sqm = Math.max(40, parseInt(params.get('sqm') || params.get('mq'), 10) || 280);
+      if (params.get('sqm') || params.get('mq')) cfg.sqm = Math.max(40, parseInt(params.get('sqm') || params.get('mq'), 10) || 0);
 
       function fmtEuro(n) {
         return Math.round(n).toLocaleString('it-IT') + ' €';
       }
 
-      /* 2. GESTIONE RUOLO E FILTRO DI TUTELA CO-INVESTITORI */
+      /* 2. GESTIONE RUOLO COMMITTENTE / DIREZIONE TECNICA */
       function applyRoleUI() {
         var isApproved = (cfg.role === 'membro' || cfg.role === 'governance');
         var isPending = (cfg.role === 'in-attesa');
@@ -1656,28 +1658,28 @@
         document.getElementById('governance-approval-box').hidden = !isGov;
 
         var roleLabels = {
-          'membro': 'Membro Approvato',
-          'in-attesa': 'Da Approvare',
-          'governance': 'Governance'
+          'membro': 'Committente Attivo',
+          'in-attesa': 'In Verifica 48h',
+          'governance': 'Direzione Lavori'
         };
-        document.getElementById('header-role-label').textContent = roleLabels[cfg.role] || 'Membro Approvato';
+        document.getElementById('header-role-label').textContent = roleLabels[cfg.role] || 'Committente Attivo';
 
         var profBadge = document.getElementById('prof-status-badge');
         var profMetric = document.getElementById('prof-metric-state');
         var homeMetricProf = document.getElementById('home-metric-profilo');
 
         if (isPending) {
-          profBadge.textContent = 'Stato: In Attesa di Approvazione Governance';
-          profMetric.textContent = 'Abilitazione: Richiede convalida Governance';
-          homeMetricProf.textContent = 'Stato: In attesa di approvazione';
+          profBadge.textContent = 'Stato: In Fase di Studio Fattibilità 48h';
+          profMetric.textContent = 'Commessa: In verifica tecnica preliminare';
+          homeMetricProf.textContent = 'Stato: In verifica tecnica 48h';
         } else if (isGov) {
-          profBadge.textContent = 'Stato: Responsabile Governance e Tutela';
-          profMetric.textContent = 'Abilitazione: Approvazione Membri Attiva';
-          homeMetricProf.textContent = 'Stato: Profilo Governance';
+          profBadge.textContent = 'Stato: Direzione Tecnica & DL';
+          profMetric.textContent = 'Abilitazione: Controllo Commesse e 5 SAL';
+          homeMetricProf.textContent = 'Stato: Direzione Tecnica & DL';
         } else {
-          profBadge.textContent = 'Stato: Membro Approvato';
-          profMetric.textContent = 'Abilitazione: Attiva (Membro Verificato)';
-          homeMetricProf.textContent = 'Stato: Membro Approvato (da 2.000 €)';
+          profBadge.textContent = 'Stato: Committente Verificato';
+          profMetric.textContent = 'Commessa: Attiva (5 SAL Certificati)';
+          homeMetricProf.textContent = 'Stato: Committente Verificato (5 SAL)';
         }
       }
 
@@ -1687,18 +1689,29 @@
         var total = cfg.sqm * info.rate;
 
         document.getElementById('home-greeting').innerHTML = 'Bentornato, <em>' + cfg.client + '</em>';
-        document.getElementById('home-metric-cantiere').textContent = cfg.city + ' ' + cfg.sqm + ' m² · 1° SAL (40%)';
-        document.getElementById('mc-subtitle').textContent =
-          'Commessa attiva: ' + cfg.city + ' · ' + cfg.sqm + ' m² · Prezzo Chiuso Toscan ' + fmtEuro(total) + ' · Consegna garantita in ' + info.months + '.';
+        if (cfg.sqm > 0) {
+          document.getElementById('home-metric-cantiere').textContent = cfg.city + ' ' + cfg.sqm + ' m² · 1° SAL (40%)';
+          document.getElementById('mc-subtitle').textContent =
+            'Commessa attiva: ' + cfg.city + ' · ' + cfg.sqm + ' m² · Prezzo Chiuso Toscan ' + fmtEuro(total) + ' · Consegna garantita in ' + info.months + '.';
 
-        document.getElementById('amt-sal-1').textContent = fmtEuro(total * 0.15);
-        document.getElementById('amt-sal-2').textContent = fmtEuro(total * 0.25);
-        document.getElementById('amt-sal-3').textContent = fmtEuro(total * 0.25);
-        document.getElementById('amt-sal-4').textContent = fmtEuro(total * 0.25);
-        document.getElementById('amt-sal-5').textContent = fmtEuro(total * 0.10);
+          document.getElementById('amt-sal-1').textContent = fmtEuro(Math.max(0, (total * 0.15) - 150));
+          document.getElementById('amt-sal-2').textContent = fmtEuro(total * 0.25);
+          document.getElementById('amt-sal-3').textContent = fmtEuro(total * 0.25);
+          document.getElementById('amt-sal-4').textContent = fmtEuro(total * 0.25);
+          document.getElementById('amt-sal-5').textContent = fmtEuro(total * 0.10);
+        } else {
+          document.getElementById('home-metric-cantiere').textContent = '[DA CONFERMARE] · 5 SAL (15/25/25/25/10%)';
+          document.getElementById('mc-subtitle').textContent =
+            'Commessa attiva: [DA CONFERMARE] · Prezzo Chiuso Toscan [DA CONFERMARE] · Consegna garantita: [DA CONFERMARE].';
+          document.getElementById('amt-sal-1').textContent = '[DA CONFERMARE]';
+          document.getElementById('amt-sal-2').textContent = '[DA CONFERMARE]';
+          document.getElementById('amt-sal-3').textContent = '[DA CONFERMARE]';
+          document.getElementById('amt-sal-4').textContent = '[DA CONFERMARE]';
+          document.getElementById('amt-sal-5').textContent = '[DA CONFERMARE]';
+        }
       }
 
-      /* 4. MOTORE DI NAVIGAZIONE MULTI-LIVELLO (SISTEMA CIPOLLA LIVELLI 1–4 + POPSTATE + CONSERVAZIONE SCROLL) */
+      /* 4. MOTORE DI NAVIGAZIONE MULTI-LIVELLO */
       var scrollPositions = {};
       var currentViewId = 'home';
       var currentLevel = 1;
@@ -1732,8 +1745,8 @@
         backBtn.hidden = (newLevel === 1 || !parentKey);
         backBtn.setAttribute('data-back-target', parentKey || 'home');
 
-        document.getElementById('header-level-indicator').textContent = 'Livello ' + newLevel + ' di 4 · Sistema Cipolla';
-        document.getElementById('header-page-title').textContent = targetEl.getAttribute('data-title') || 'Area Riservata';
+        document.getElementById('header-level-indicator').textContent = 'Livello ' + newLevel + ' di 4 · Portale Committente';
+        document.getElementById('header-page-title').textContent = targetEl.getAttribute('data-title') || 'Portale Committente';
 
         /* Aggiorna stato attivo nella barra inferiore fissa */
         document.querySelectorAll('[data-bottom-nav]').forEach(function(btn) {
@@ -1782,7 +1795,7 @@
         });
       });
 
-      /* 5. APERTURA DETTAGLIO CANTIERE IN CORSO DI APERTURA (LIVELLO 2 -> LIVELLO 3) */
+      /* 5. APERTURA DETTAGLIO MODELLO ESECUTIVO (LIVELLO 2 -> LIVELLO 3) */
       function loadProjectDetail(projKey) {
         cfg.selectedProjectKey = projKey;
         var p = openProjects[projKey] || openProjects.firenze;
@@ -1802,20 +1815,17 @@
         });
       });
 
-      var simulatedQuota = 2000;
+      var simulatedQuota = 150;
       document.querySelectorAll('#sim-quota-chips .chip-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
           document.querySelectorAll('#sim-quota-chips .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
           btn.classList.add('is-active');
-          simulatedQuota = parseInt(btn.getAttribute('data-sim-amt'), 10) || 2000;
-          var s1 = Math.round(simulatedQuota * 0.15).toLocaleString('it-IT');
-          var s2 = Math.round(simulatedQuota * 0.25).toLocaleString('it-IT');
-          var s5 = Math.round(simulatedQuota * 0.10).toLocaleString('it-IT');
+          simulatedQuota = parseInt(btn.getAttribute('data-sim-amt'), 10) || 150;
           var qFmt = simulatedQuota.toLocaleString('it-IT');
           document.getElementById('sim-quota-breakdown').textContent =
-            'Con ' + qFmt + ' € la tua quota segue i 5 SAL certificati: Avvio (15%): ' + s1 + ' € · 1° SAL Murarie (25%): ' + s2 + ' € · 2° SAL Impianti (25%): ' + s2 + ' € · 3° SAL Finiture (25%): ' + s2 + ' € · Collaudo e Ciclo Blue Arroyo (10%): ' + s5 + ' €.';
+            'Con lo Step da ' + qFmt + ' € (100% scalato sul SAL 1) il tuo appalto segue i 5 SAL certificati dalla DL: Avvio (15% netto scalo) · 1° SAL Murarie (25%) · 2° SAL Impianti (25%) · 3° SAL Finiture (25%) · Collaudo, Deep Cleaning PBA 30 €/h DOC e Subentro Ciclo Blue Arroyo (10%).';
           document.getElementById('btn-go-invest-action').textContent =
-            'Prenota la quota di ' + qFmt + ' € su questo cantiere';
+            'Attiva lo Step di ' + qFmt + ' € (100% scalato dall\'appalto)';
         });
       });
 
@@ -1845,12 +1855,12 @@
         btnWaQuota.addEventListener('click', function() {
           var p = openProjects[cfg.selectedProjectKey] || openProjects.firenze;
           var breakdownText = document.getElementById('sim-quota-breakdown').textContent;
-          var msg = 'Scheda Quota Membro Approvato (' + cfg.client + ') — Cantiere: ' + p.plainTitle + ' (' + p.cost + ', ' + p.duration + ').\n' + breakdownText + '\nLink Area Membri: https://toscancostruzioni.it/stato-cantiere?ruolo=membro#dettaglio-cantiere';
+          var msg = 'Scheda Commessa 5 SAL (' + cfg.client + ') — Modello: ' + p.plainTitle + ' (' + p.cost + ', ' + p.duration + ').\n' + breakdownText + '\nLink Portale Committente: https://toscancostruzioni.it/stato-cantiere?ruolo=membro#dettaglio-cantiere';
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(msg), '_blank');
         });
       }
 
-      /* 6. RICERCA E FILTRO CANTIERI IN APERTURA + STATO VUOTO */
+      /* 6. RICERCA E FILTRO MODELLI + STATO VUOTO */
       var activeOpenFilter = 'tutti';
       var searchInput = document.getElementById('search-cantieri');
 
@@ -1885,7 +1895,7 @@
         filterOpenProjects();
       });
 
-      /* 7. FLUSSO LIVELLO 4: PRENOTA QUOTA CANTIERE IN 3 PASSAGGI (MINIMO 2.000 €) */
+      /* 7. FLUSSO LIVELLO 4: ATTIVA STEP OPERATIVO IN 3 PASSAGGI (MINIMO 150 €) */
       var amountInput = document.getElementById('invest-custom-amount');
       var investErrorBox = document.getElementById('invest-error-box');
 
@@ -1897,10 +1907,10 @@
         document.getElementById('invest-step-confirm').hidden = (stepNum !== 4);
 
         var labels = {
-          1: 'Passaggio 1 di 3 · Importo della quota (da 2.000 €)',
-          2: 'Passaggio 2 di 3 · Verifica tutela co-investitori',
+          1: 'Passaggio 1 di 3 · Scelta dello Step (da 150 € scalabili)',
+          2: 'Passaggio 2 di 3 · Conferma regola di scalo 100% sul SAL 1',
           3: 'Passaggio 3 di 3 · Riepilogo e conferma',
-          4: 'Operazione completata · Quota registrata'
+          4: 'Operazione completata · Step registrato'
         };
         var widths = { 1: '33%', 2: '66%', 3: '100%', 4: '100%' };
         document.getElementById('invest-step-label').textContent = labels[stepNum];
@@ -1922,10 +1932,10 @@
 
       document.getElementById('btn-invest-to-step-2').addEventListener('click', function() {
         var val = parseInt(amountInput.value, 10) || 0;
-        if (val < 2000) {
+        if (val < 150) {
           investErrorBox.hidden = false;
           document.getElementById('invest-error-text').textContent =
-            'Il capitale minimo per entrare nei cantieri in corso di apertura è di 2.000 €. Inserisci un importo pari o superiore a 2.000 €.';
+            'L\'importo minimo per attivare lo Step 1 (Masterclass Call 100% scalabile) è di 150 €.';
           amountInput.focus();
           return;
         }
@@ -1935,32 +1945,32 @@
       document.getElementById('btn-invest-back-1').addEventListener('click', function() { setInvestStep(1); });
 
       document.getElementById('btn-invest-to-step-3').addEventListener('click', function() {
-        var val = parseInt(amountInput.value, 10) || 2000;
+        var val = parseInt(amountInput.value, 10) || 150;
         var p = openProjects[cfg.selectedProjectKey] || openProjects.firenze;
         document.getElementById('invest-summary-box').textContent =
-          'Cantiere selezionato: ' + p.plainTitle + ' · Capitale prenotato: ' + fmtEuro(val) + ' · Membro Approvato: ' + cfg.client + '.';
+          'Modello selezionato: ' + p.plainTitle + ' · Step operativo: ' + fmtEuro(val) + ' (100% scalabile sul 1° SAL) · Committente: ' + cfg.client + '.';
         setInvestStep(3);
       });
 
       document.getElementById('btn-invest-back-2').addEventListener('click', function() { setInvestStep(2); });
 
       document.getElementById('btn-invest-submit').addEventListener('click', function() {
-        var val = parseInt(amountInput.value, 10) || 2000;
+        var val = parseInt(amountInput.value, 10) || 150;
         var p = openProjects[cfg.selectedProjectKey] || openProjects.firenze;
         fetch('https://aherreras.app.n8n.cloud/webhook/leads/toscan-costruzioni', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            source: 'area_membri_cantiere_apertura',
-            membro: cfg.client,
-            stato_membro: cfg.role,
-            cantiere: p.plainTitle,
-            importo_euro: val
+            source: 'portale_committente_step_scaglionato',
+            committente: cfg.client,
+            stato_commessa: cfg.role,
+            modello: p.plainTitle,
+            importo_step_scalabile_euro: val
           })
         }).catch(function() {});
 
         document.getElementById('invest-confirm-text').textContent =
-          'Confermata la prenotazione di ' + fmtEuro(val) + ' sul cantiere "' + p.plainTitle + '" a nome di ' + cfg.client + ' (Membro Approvato). Protocollo trasmesso all\'Amministrazione.';
+          'Confermata l\'attivazione dello Step da ' + fmtEuro(val) + ' (100% scalabile sul SAL 1) per "' + p.plainTitle + '" a nome di ' + cfg.client + '. Protocollo trasmesso all\'Amministrazione.';
         setInvestStep(4);
       });
 
@@ -1970,7 +1980,7 @@
         2: { title: '1° SAL · <em>Opere Murarie (25%)</em>', badge: 'SAL Attuale in Corso', pct: 0.25 },
         3: { title: '2° SAL · <em>Impianti e Isolamento Acustico (25%)</em>', badge: 'Programmato', pct: 0.25 },
         4: { title: '3° SAL · <em>Finiture e Bagni En-Suite (25%)</em>', badge: 'Programmato', pct: 0.25 },
-        5: { title: 'Collaudo Finale · <em>Consegna e Ciclo Blue Arroyo (10%)</em>', badge: 'Programmato', pct: 0.10 }
+        5: { title: 'Collaudo Finale · <em>Deep Cleaning PBA (30 €/h DOC) e Subentro Blue Arroyo (10%)</em>', badge: 'Programmato', pct: 0.10 }
       };
 
       document.querySelectorAll('[data-open-sal]').forEach(function(btn) {
@@ -1983,7 +1993,7 @@
           document.getElementById('det-sal-badge').textContent = m.badge;
           document.getElementById('det-sal-title').innerHTML = m.title;
           document.getElementById('det-sal-desc').textContent =
-            'Importo rata contrattuale: ' + fmtEuro(total * m.pct) + ' · Pagabile solo dopo verifica fotografica del venerdì e controllo regolarità DURC.';
+            'Importo rata contrattuale: ' + (cfg.sqm > 0 ? fmtEuro(total * m.pct) : '[DA CONFERMARE]') + ' · Pagabile solo dopo verifica fotografica del venerdì e controllo regolarità DURC.';
           showView('dettaglio-sal', true);
         });
       });
@@ -2014,8 +2024,8 @@
         document.getElementById('sal-action-step-label').textContent = 'Operazione completata · SAL approvato';
       });
 
-      /* 9. FLUSSO LIVELLO 4: QUALIFICA E APPROVAZIONE PROFILO IN 3 PASSAGGI */
-      var qCap = 'Da 2.000 € a 5.000 €';
+      /* 9. FLUSSO LIVELLO 4: ATTIVAZIONE COMMESSA IN 3 PASSAGGI */
+      var qCap = 'Step 1 Masterclass (150 € scalati)';
       document.querySelectorAll('#qual-cap-chips .chip-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
           document.querySelectorAll('#qual-cap-chips .chip-btn').forEach(function(b) { b.classList.remove('is-active'); });
@@ -2031,10 +2041,10 @@
         document.getElementById('qual-step-3').hidden = (step !== 3);
         document.getElementById('qual-step-confirm').hidden = (step !== 4);
         var labels = {
-          1: 'Passaggio 1 di 3 · Dati del Membro',
-          2: 'Passaggio 2 di 3 · Fascia di capitale (da 2.000 €)',
-          3: 'Passaggio 3 di 3 · Impegno di tutela co-investitori',
-          4: 'Conferma · Richiesta registrata'
+          1: 'Passaggio 1 di 3 · Dati del Committente',
+          2: 'Passaggio 2 di 3 · Scelta percorso (Masterclass / Lotto Pilota / 5 SAL)',
+          3: 'Passaggio 3 di 3 · Conferma Prezzo Chiuso a Corpo',
+          4: 'Conferma · Commessa registrata'
         };
         var bars = { 1: '33%', 2: '66%', 3: '100%', 4: '100%' };
         document.getElementById('qual-step-label').textContent = labels[step];
@@ -2063,15 +2073,15 @@
         setQualStep(4);
       });
 
-      /* 10. APPROVAZIONE CANDIDATI DA PARTE DEL PROFILO GOVERNANCE */
+      /* 10. ABILITAZIONE COMMESSE DA PARTE DELLA DIREZIONE TECNICA */
       document.querySelectorAll('[data-approve-candidate]').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var cand = btn.getAttribute('data-approve-candidate');
-          btn.textContent = 'Membro approvato: ' + cand;
+          btn.textContent = 'Commessa abilitata: ' + cand;
           btn.disabled = true;
           var fb = document.getElementById('gov-approval-feedback');
           fb.hidden = false;
-          fb.textContent = 'Il profilo di "' + cand + '" è stato approvato dalla Governance e abilitato ad accedere ai cantieri in apertura da 2.000 €.';
+          fb.textContent = 'La commessa di "' + cand + '" è stata validata dalla Direzione Tecnica e abilitata al Portale Committente 5 SAL.';
         });
       });
 

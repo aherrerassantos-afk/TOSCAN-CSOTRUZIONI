@@ -1,14 +1,6 @@
+.env
+palazzina-holding/
+config/
+data/
 app uso interno/
 app uso interno /
-web pague
-web pague 
-.git/
-.claude/
-.agents/
-GEMINI.md
-node_modules/
-bob/node_modules/
-package.json
-package-lock.json
-scripts/
-.DS_Store
