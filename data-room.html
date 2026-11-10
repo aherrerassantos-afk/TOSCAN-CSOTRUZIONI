@@ -527,7 +527,7 @@
 
     <!-- TASK #37: Modulo Firma Elettronica (FEA/FEQ) & Archiviazione Dossier Commessa -->
     <section id="firma-elettronica-feq-fea" class="no-print" style="width:100%;max-width:100%;box-sizing:border-box;">
-      <div class="card" style="width:100%;max-width:100%;box-sizing:border-box;border-left:4px solid var(--terracotta);display:grid;gap:18px;">
+      <div class="card" style="width:100%;max-width:100%;box-sizing:border-box;border-left:4px solid var(--terracotta);display:grid;grid-template-columns:minmax(0,1fr);gap:18px;">
         <div>
           <span class="eyebrow">Sprint JUL-003 · Task #37 · Contrattualistica Esecutiva</span>
           <h2 style="margin-top:4px;">Modulo Firma Elettronica (FEA/FEQ) &amp; Archiviazione Dossier Commessa (Task #37)</h2>
@@ -536,32 +536,32 @@
           </p>
         </div>
 
-        <div style="background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px;width:100%;max-width:100%;box-sizing:border-box;">
+        <div style="background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:16px;width:100%;max-width:100%;box-sizing:border-box;min-width:0;">
           <h3 style="font-size:1.1rem;margin-bottom:10px;">Riepilogo Vincoli Contrattuali Garantiti a Contratto</h3>
-          <ul style="padding-left:18px;color:var(--ink);display:grid;gap:8px;font-size:0.92rem;overflow-wrap:anywhere;">
-            <li><strong>Prezzo Chiuso a Corpo:</strong> Fascia bloccata <code>1.350–2.400 €/m²</code> da Computo Metrico Estimativo (CME) senza sorprese a consuntivo.</li>
-            <li><strong>Pagamenti a 5 SAL Certificati:</strong> <code>15% / 25% / 25% / 25% / 10%</code> pagabili esclusivamente previa emissione di verbale DL e verifica fotografica.</li>
-            <li><strong>Scalo 100% Masterclass Tecnica:</strong> Detrazione integrale del ticket di <code>150 €</code> della Masterclass 1-to-1 sul primo SAL contrattuale.</li>
-            <li><strong>Garanzia Tempi &amp; Penale Giornaliera Automatica:</strong> Penale di <code>150 €/giorno</code> di ritardo imputabile (fino al tetto massimo del <code>5%</code> dell'importo contrattuale) detratta in automatico sul SAL finale.</li>
-            <li><strong>Conformità Documentale &amp; Assicurativa Obbligatoria:</strong> <code>DURC Online regolare</code> ad ogni SAL + <code>Polizza CAR/RC Cantiere</code> (massimale: <code>[DA CONFERMARE]</code>) + <code>Polizza Decennale Postuma</code> (art. 1669 c.c.) consegnata al collaudo.</li>
+          <ul style="padding-left:18px;color:var(--ink);display:grid;grid-template-columns:minmax(0,1fr);gap:8px;font-size:0.92rem;overflow-wrap:anywhere;">
+            <li style="min-width:0;overflow-wrap:anywhere;"><strong>Prezzo Chiuso a Corpo:</strong> Fascia bloccata <code>1.350–2.400 €/m²</code> da Computo Metrico Estimativo (CME) senza sorprese a consuntivo.</li>
+            <li style="min-width:0;overflow-wrap:anywhere;"><strong>Pagamenti a 5 SAL Certificati:</strong> <code>15% / 25% / 25% / 25% / 10%</code> pagabili esclusivamente previa emissione di verbale DL e verifica fotografica.</li>
+            <li style="min-width:0;overflow-wrap:anywhere;"><strong>Scalo 100% Masterclass Tecnica:</strong> Detrazione integrale del ticket di <code>150 €</code> della Masterclass 1-to-1 sul primo SAL contrattuale.</li>
+            <li style="min-width:0;overflow-wrap:anywhere;"><strong>Garanzia Tempi &amp; Penale Giornaliera Automatica:</strong> Penale di <code>150 €/giorno</code> di ritardo imputabile (fino al tetto massimo del <code>5%</code> dell'importo contrattuale) detratta in automatico sul SAL finale.</li>
+            <li style="min-width:0;overflow-wrap:anywhere;"><strong>Conformità Documentale &amp; Assicurativa Obbligatoria:</strong> <code>DURC Online regolare</code> ad ogni SAL + <code>Polizza CAR/RC Cantiere</code> (massimale: <code>[DA CONFERMARE]</code>) + <code>Polizza Decennale Postuma</code> (art. 1669 c.c.) consegnata al collaudo.</li>
           </ul>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;width:100%;max-width:100%;box-sizing:border-box;">
-          <div style="min-width:0;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px;width:100%;max-width:100%;box-sizing:border-box;min-width:0;">
+          <div style="min-width:0;max-width:100%;">
             <label for="feq-signer-name" style="display:block;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">Firmatario / Committente</label>
-            <input id="feq-signer-name" type="text" placeholder="Nome Cognome o Ragione Sociale" style="width:100%;max-width:100%;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.95rem;" />
+            <input id="feq-signer-name" type="text" placeholder="Nome o Ragione Sociale" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.95rem;" />
           </div>
-          <div style="min-width:0;">
+          <div style="min-width:0;max-width:100%;">
             <label for="feq-signature-mode" style="display:block;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">Modalità Firma Elettronica (eIDAS)</label>
-            <select id="feq-signature-mode" style="width:100%;max-width:100%;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.95rem;">
-              <option value="FEQ – Firma Elettronica Qualificata OTP/SPID">FEQ – Firma Elettronica Qualificata OTP/SPID</option>
-              <option value="FEA – Firma Elettronica Avanzata 1-Tap">FEA – Firma Elettronica Avanzata 1-Tap</option>
+            <select id="feq-signature-mode" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.9rem;overflow:hidden;text-overflow:ellipsis;">
+              <option value="FEQ – Firma Elettronica Qualificata OTP/SPID">FEQ – Firma Qualificata OTP/SPID</option>
+              <option value="FEA – Firma Elettronica Avanzata 1-Tap">FEA – Firma Avanzata 1-Tap</option>
             </select>
           </div>
-          <div style="min-width:0;">
+          <div style="min-width:0;max-width:100%;">
             <label for="feq-otp-code" style="display:block;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:6px;">Codice OTP / Identificativo Marca Temporale</label>
-            <input id="feq-otp-code" type="text" value="OTP-TSCN-2026-FEQ" style="width:100%;max-width:100%;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.95rem;" />
+            <input id="feq-otp-code" type="text" value="OTP-TSCN-2026-FEQ" style="width:100%;max-width:100%;min-width:0;box-sizing:border-box;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);font-size:0.95rem;" />
           </div>
         </div>
 
@@ -582,8 +582,8 @@
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
       <div>
-        <strong style="color:var(--ink);">Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze</strong><br />
-        P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE] · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] · Tel: +39 351 038 0392 · Email: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
+        <strong style="color:var(--ink);">Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI)</strong><br />
+        P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: bluearroyosrl@pec.it · Capitale sociale: € 50.000,00 i.v. · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] · Tel: +39 351 038 0392 · Email: toscancostruzioni@bluearroyo.it / admin@bluearroyo.it
       </div>
       <div>
         <a href="/" style="text-decoration:underline;">Torna alla Home</a> · Aggiornato: Novembre 2026

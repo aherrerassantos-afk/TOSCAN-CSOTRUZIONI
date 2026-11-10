@@ -34,12 +34,12 @@ Toscan Costruzioni opera come **General Contractor unico** per proprietari immob
 | Campo | Valore |
 |---|---|
 | **Divisione / Piano** | Piano 1 · Toscan Costruzioni |
-| **Ragione Sociale** | Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze |
+| **Ragione Sociale** | Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI) |
 | **P.IVA / C.F.** | 07480210488 |
 | **REA** | FI-706161 |
 | **Codice SDI** | M5UXCR1 |
-| **PEC** | [DA CONFERMARE] |
-| **Capitale sociale** | [DA CONFERMARE] |
+| **PEC** | bluearroyosrl@pec.it |
+| **Capitale sociale** | € 50.000,00 i.v. |
 | **Sede/Riferimento Toscan Costruzioni (D5)** | [DA CONFERMARE] |
 | **Posizionamento** | Hospitality & Living General Contractor |
 | **Email Operativa** | toscancostruzioni@bluearroyo.it |

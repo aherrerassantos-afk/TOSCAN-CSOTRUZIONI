@@ -106,11 +106,11 @@
     .case-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
     .badge { display: inline-block; padding: 5px 12px; font-size: 0.76rem; font-weight: 600; border-radius: var(--radius); background: var(--olive); color: #FFF; }
     .badge--progetto { background: var(--terracotta); }
-    .metrics-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
-    @media (max-width: 768px) { .metrics-4 { grid-template-columns: repeat(2, 1fr); } }
-    .metric-box { background: var(--stone); border: 1px solid var(--line); padding: 16px; border-radius: var(--radius); }
-    .metric-box strong { display: block; font-family: var(--font-serif); font-size: 1.65rem; color: var(--ink); line-height: 1.1; }
-    .metric-box span { font-size: 0.8rem; color: var(--muted); }
+    .metrics-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 16px; margin: 24px 0; }
+    @media (max-width: 768px) { .metrics-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); } }
+    .metric-box { background: var(--stone); border: 1px solid var(--line); padding: 16px; border-radius: var(--radius); min-width: 0; overflow-wrap: anywhere; }
+    .metric-box strong { display: block; font-family: var(--font-serif); font-size: 1.65rem; color: var(--ink); line-height: 1.1; overflow-wrap: anywhere; }
+    .metric-box span { font-size: 0.8rem; color: var(--muted); overflow-wrap: anywhere; }
     .case-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 32px; align-items: center; margin-top: 24px; }
     @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
     .ba-slider { position: relative; width: 100%; height: 380px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); user-select: none; }
@@ -673,8 +673,8 @@
   <footer>
     <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
       <div>
-        <strong style="color:var(--ink);">Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze</strong><br />
-        P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE] · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it
+        <strong style="color:var(--ink);">Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI)</strong><br />
+        P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: bluearroyosrl@pec.it · Capitale sociale: € 50.000,00 i.v. · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] · Tel: +39 351 038 0392 · toscancostruzioni@bluearroyo.it
       </div>
       <div><a href="/" style="text-decoration:underline;">Torna alla Home</a></div>
     </div>

@@ -113,7 +113,7 @@ Usare con coerenza in tutto il sito il vocabolario proprietario di **Toscan Cost
 
 ## 3. Pagina `/styleguide` e SEO/GEO
 - Mantenere attiva `/styleguide` (`styleguide.html`, `noindex`) con i design token e tutti i componenti riutilizzabili (`Button`, `ProjectCard`, `BeforeAfter`, `Timeline`, `Chip`, `FormStep`, `FAQ`, `Testimonial`).
-- Applicare la regola SEO/GEO del gruppo su tutte le pagine pubbliche (HTML leggibile senza JS, JSON-LD `HomeAndConstructionBusiness`/`GeneralContractor`, `Service`, `FAQPage`, `BreadcrumbList`, NAP coerente: `Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze | P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: [DA CONFERMARE] · Capitale sociale: [DA CONFERMARE] | Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] | +39 351 038 0392 | toscancostruzioni@bluearroyo.it`).
+- Applicare la regola SEO/GEO del gruppo su tutte le pagine pubbliche (HTML leggibile senza JS, JSON-LD `HomeAndConstructionBusiness`/`GeneralContractor`, `Service`, `FAQPage`, `BreadcrumbList`, NAP coerente: `Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI) | P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: bluearroyosrl@pec.it · Capitale sociale: € 50.000,00 i.v. | Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] | +39 351 038 0392 | toscancostruzioni@bluearroyo.it`).
 
 ---
 
