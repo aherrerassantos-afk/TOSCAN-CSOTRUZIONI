@@ -827,7 +827,7 @@
 
   <footer>
     <div class="container">
-      <strong>Toscan Costruzioni</strong> — Piano 1 · Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI) · P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: bluearroyosrl@pec.it · Capitale sociale: € 50.000,00 i.v. · Riferimento Toscan Costruzioni (D5): [DA CONFERMARE] · <a href="/" style="text-decoration:underline;">Torna alla Home</a>
+      <strong>Toscan Costruzioni</strong> — Piano 1 · Opera sotto <strong>BLUEARROYO S.R.L.</strong> – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI) · P.IVA / C.F. 07480210488 · REA FI-706161 · SDI M5UXCR1 · PEC: bluearroyosrl@pec.it · Capitale sociale: € 50.000,00 i.v. · <a href="/" style="text-decoration:underline;">Torna alla Home</a>
     </div>
   </footer>
 
@@ -999,10 +999,10 @@
         document.getElementById('partner-doc-city').textContent = state.city;
 
         document.getElementById('tpl-1').textContent =
-          'Gentile ' + state.client + ',\ndai dati di gestione del nostro gruppo su ' + state.city + ' vediamo che gli immobili riqualificati con standard ricettivo ottengono performance superiori.\n\nCon Toscan Costruzioni (Blue Arroyo S.r.l.) abbiamo riservato ai nostri proprietari uno Studio di Fattibilità in 48 ore con prezzo fisso bloccato a contratto e penale per ritardo.\n\nPossiamo sentirci 10 minuti questa settimana?\nGiuliano — Toscan Costruzioni (+39 351 038 0392)';
+          'Gentile ' + state.client + ',\ndai dati di gestione del nostro gruppo su ' + state.city + ' vediamo che gli immobili riqualificati con standard ricettivo ottengono performance superiori.\n\nCon Toscan Costruzioni (BLUEARROYO S.R.L.) abbiamo riservato ai nostri proprietari uno Studio di Fattibilità in 48 ore con prezzo fisso bloccato a contratto e penale per ritardo.\n\nPossiamo sentirci 10 minuti questa settimana?\nGiuliano — Toscan Costruzioni (+39 351 038 0392)';
 
         document.getElementById('tpl-2').textContent =
-          'Gentile ' + state.client + ',\nsappiamo quanto sia importante per uno studio tecnico a ' + state.city + ' affiancarsi a un\'impresa edile puntuale che rispetti i disegni esecutivi e i tempi di consegna.\n\nToscan Costruzioni (Blue Arroyo S.r.l.) opera con DURC e Cassa Edile regolari, Polizza CAR/RC e contratti a prezzo fisso con penali. Voi mantenete Progettazione e Direzione Lavori; noi quotiamo i vostri computi entro 5 giorni lavorativi con accordo partner dedicato (2–3%).\n\nPassiamo volentieri in studio per 15 minuti: https://toscancostruzioni.it/partner';
+          'Gentile ' + state.client + ',\nsappiamo quanto sia importante per uno studio tecnico a ' + state.city + ' affiancarsi a un\'impresa edile puntuale che rispetti i disegni esecutivi e i tempi di consegna.\n\nToscan Costruzioni (BLUEARROYO S.R.L.) opera con DURC e Cassa Edile regolari, Polizza CAR/RC e contratti a prezzo fisso con penali. Voi mantenete Progettazione e Direzione Lavori; noi quotiamo i vostri computi entro 5 giorni lavorativi con accordo partner dedicato (2–3%).\n\nPassiamo volentieri in studio per 15 minuti: https://toscancostruzioni.it/partner';
 
         document.getElementById('tpl-3').textContent =
           'Gentile ' + state.client + ',\nspesso l\'acquirente di un immobile da ristrutturare a ' + state.city + ' si blocca prima della proposta per il timore di costi e tempi incerti.\n\nCon Toscan Costruzioni vi affianchiamo in visita e consegniamo in 48 ore uno studio di fattibilità con fascia di costo chiavi in mano garantita a contratto, più accordo di segnalazione scritto (2–3%) per l\'agenzia.\n\nFissiamo una breve chiamata questa settimana? Giuliano (+39 351 038 0392)';
@@ -1019,7 +1019,7 @@
           'Cronoprogramma: In linea con la consegna contrattuale (' + info.months + ').\n' +
           'Documentazione: Foto allegate e DURC regolare.\n' +
           'Portale Stato SAL e Documenti: https://toscancostruzioni.it' + cantierePath + '\n' +
-          '— Direzione Tecnica Toscan Costruzioni · Blue Arroyo S.r.l.';
+          '— Direzione Tecnica Toscan Costruzioni · BLUEARROYO S.R.L.';
 
         /* 4. Render Amministrazione (5 SAL in Euro) */
         document.getElementById('adm-sal-1').textContent = state.sqm > 0 ? fmtEur(total * 0.15) : '[DA CONFERMARE]';
@@ -1284,7 +1284,7 @@
             tipologia: info.label,
             endpoints_collaudati: [
               { piano: 4, target: 'Itassitance', endpoint: 'subentroToscanCollaudoOneTap', task_itass: '#91, #92', stato: 'OK_VERIFICATO', cin_alloggiati_domotica: true },
-              { piano: 2, target: 'PBA', endpoint: 'deepCleaningToscanPba30EurDoc', listino: '30 EUR/ora tutto incluso pago per risultato finale DOC', sede_legale: 'Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20R, Firenze', p_iva: '07480210488', rea: 'FI-706161', sdi: 'M5UXCR1', ore_stimate: oreCleaning, importo_doc_eur: oreCleaning * 30, foto_sha256_1500: true, stato: 'OK_VERIFICATO' },
+              { piano: 2, target: 'PBA', endpoint: 'deepCleaningToscanPba30EurDoc', listino: '30 EUR/ora tutto incluso pago per risultato finale DOC', sede_legale: 'BLUEARROYO S.R.L. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI)', p_iva: '07480210488', rea: 'FI-706161', sdi: 'M5UXCR1', ore_stimate: oreCleaning, importo_doc_eur: oreCleaning * 30, foto_sha256_1500: true, stato: 'OK_VERIFICATO' },
               { piano: 3, target: 'SmartsBookings', endpoint: 'smartsBookingsFeedIcalCashback48h', payout_proprietario_pct: 85, cashback_ospite_pct: 15, stato: 'OK_VERIFICATO' }
             ]
           };
@@ -1662,14 +1662,14 @@
 
         return {
           azienda_id: 'toscan',
-          azienda_nome: 'Toscan Costruzioni (Piano 1 · Blue Arroyo S.r.l.)',
-          sede_legale: 'Blue Arroyo S.r.l. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI)',
+          azienda_nome: 'Toscan Costruzioni (Piano 1 · Opera sotto BLUEARROYO S.R.L.)',
+          sede_legale: 'BLUEARROYO S.R.L. – Sede legale: Via Matteo Palmieri 20/R, 50122 Firenze (FI)',
           p_iva: '07480210488',
           rea: 'FI-706161',
           sdi: 'M5UXCR1',
           pec: 'bluearroyosrl@pec.it',
           capitale_sociale: '€ 50.000,00 i.v.',
-          riferimento_d5: '[DA CONFERMARE]',
+          titolarita_societaria: 'Toscan Costruzioni opera sotto BLUEARROYO S.R.L. (Visura CCIAA Firenze FI-706161)',
           tipo_report: reportType || 'pacchetto_completo_operativo_commerciale',
           timestamp: new Date().toISOString(),
           destinatari_controllo: ['Gabriela', 'Biviana', 'Julian'],
