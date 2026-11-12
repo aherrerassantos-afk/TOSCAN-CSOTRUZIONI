@@ -1,0 +1,18 @@
+Da,A,Input,Output,Canale,Tempo/SLA
+Prospect,Vendite,"Form studio di fattibilità (Nome + Tel) / stima €/m²",Lead in CRM con notifica,"index.html #contatti → n8n → CRM",Notifica entro 5 min; risposta < 2h lavorative
+Partner (architetti/agenzie/PM),Vendite,Segnalazione immobile,Lead partner + accordo 2–3% (fee decisa da Julian),partner-architetti-agenzie-property-manager-toscana.html,Presa in carico < 24h
+Vendite,Tech,"Lead qualificato + rilievo sommario",Studio di fattibilità gratuito,CRM + WhatsApp interno,Consegna al cliente entro 48h
+Vendite,Prospect,"Studio 48h, preventivo tipo, proposta Masterclass 150 € scalati",Preventivo PDF + link prenotazione,"preventivo-tipo.html / blog.html via WhatsApp",Entro 48h dal lead
+Tech,Direzione,"Computo esecutivo bloccato + cronoprogramma",Richiesta approvazione prezzo chiuso,kit-commerciale.html?role=dir / email,Approvazione entro 2 giorni lavorativi
+Direzione,Legale,"Contratto tipo, penali, polizze, testi investitori",Parere/approvazione,Email + data-room.html,Entro 5 giorni lavorativi
+Direzione,Cliente,Contratto a prezzo chiuso con 5 SAL (15/25/25/25/10%),Contratto firmato,data-room.html?cliente= + firma elettronica,Entro 7 giorni dall'offerta
+Operativo/Field,Cliente,Foto + avanzamento settimanale,Report fotografico del venerdì,stato-cantiere.html?cliente= via WhatsApp,Ogni venerdì entro le 18:00
+Operativo/Field,Direzione,Urgenza cantiere (materiali / variante / sblocco SAL),Ticket urgente,kit-commerciale.html?role=tech (chip 1-tap),Risposta Direzione < 4h
+Operativo/Field,Amministrazione,Verbale SAL firmato dalla DL,Richiesta emissione fattura SAL,kit-commerciale.html?role=admin,Entro 24h dal verbale
+Amministrazione,Cliente,Fattura SAL + DURC regolare,Avviso pagamento SAL,SDI + WhatsApp/email,Entro 48h dal verbale SAL
+Amministrazione,Fornitori/Subappaltatori,Verifica DURC + scadenziario,Pagamento fornitore,Banca + albo fornitori,Alla scadenza solo con DURC regolare
+Operativo/Field,Assistenza/Ospiti,Verbale di consegna + fascicolo fabbricato,Avvio subentro 1-Tap,kit-commerciale.html?role=hosp,Entro 24h dalla consegna
+Assistenza/Ospiti,HOLDING (→ Itassitance / PBA / SmartsBookings),"Unità consegnata: CIN, DiCo, serrature smart, vani biancheria",Richiesta subentro (gestione / pulizie / pubblicazione),coordinamento/report-holding.md (riga DIPENDENZA),Entro 48h dalla consegna
+Cliente,Assistenza/Ospiti,Segnalazione post-cantiere,Ticket al Direttore Tecnico,kit-commerciale.html?role=hosp,Presa in carico < 24h; risoluzione < 10 giorni
+Agenti 1–4,Manager,Report di fine sessione (5 punti),Aggiornamento Stato/Note in docs/checklist.csv,coordinamento/inbox-manager.md,A fine di ogni sessione
+Manager,HOLDING,"Avanzamento, blocchi, dipendenze, decisioni per Julian",Report di piano,coordinamento/report-holding.md,A fine ordine / settimanale
