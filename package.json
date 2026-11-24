@@ -5,7 +5,9 @@
   "description": "Toscan Costruzioni · Blue Arroyo Group — General Contractor Firenze e Toscana",
   "scripts": {
     "dev": "node palazzina-holding/server.js",
-    "check:mobile": "node scripts/check-mobile.js"
+    "brand:check": "node scripts/brand-check.js",
+    "check:mobile": "node scripts/check-mobile.js",
+    "test": "npm run brand:check && npm run check:mobile"
   },
   "devDependencies": {
     "axe-core": "^4.10.2",

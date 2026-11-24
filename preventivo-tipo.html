@@ -117,7 +117,7 @@
     section { padding: 64px 0; border-bottom: 1px solid var(--line); }
     .eyebrow { display: inline-block; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; color: var(--olive); margin-bottom: 10px; }
 
-    /* BARRA INPUT RAPIDI CON CHIP (Zero <select>) */
+    /* BARRA INPUT RAPIDI CON CHIP (Zero tendine grezze) */
     .controls-bar {
       background: var(--paper);
       border: 1px solid var(--line);
@@ -513,7 +513,7 @@
             <div style="background:var(--paper);padding:12px;border:1px solid var(--line);">
               <span style="display:block;color:var(--muted);font-size:0.76rem;">3. Unità Ricavabili &amp; Kit 0 €</span>
               <strong id="ba-units" style="font-size:1.05rem;color:var(--ink);">4 Suite con bagno</strong>
-              <span style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">itassistance + Cleaning 60°C</span>
+              <span style="display:block;font-size:0.75rem;color:var(--muted);margin-top:2px;">itassistance + Cleaning 90°C</span>
             </div>
             <div style="background:var(--paper);padding:12px;border:1px solid var(--olive);">
               <span style="display:block;color:var(--olive);font-size:0.76rem;font-weight:600;">4. Payout 85% SmartsBookings</span>
@@ -734,7 +734,11 @@
           var cUrl = document.getElementById('pt-to-contract').getAttribute('href');
           var fb = document.getElementById('accept-quote-feedback');
           fb.style.display = 'block';
-          fb.innerHTML = 'Stima approvata e registrata. <a href="' + cUrl + '" style="text-decoration:underline;margin-left:8px;color:var(--terracotta);">Apri ora il tuo Contratto Tipo con i 5 SAL in Euro</a>';
+          var link = document.createElement('a');
+          link.href = cUrl;
+          link.style.cssText = 'text-decoration:underline;margin-left:8px;color:var(--terracotta);';
+          link.textContent = 'Apri ora il tuo Contratto Tipo con i 5 SAL in Euro';
+          fb.replaceChildren(document.createTextNode('Stima approvata e registrata. '), link);
 
           var waMsg = 'Buongiorno Toscan Costruzioni, confermo l\'approvazione preliminare della stima per l\'immobile di ' + city + ' (' + sqm + ' m² — ' + fmt(total) + ' € a corpo, rif. ' + client + ') e richiedo il sopralluogo tecnico gratuito.';
           window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');

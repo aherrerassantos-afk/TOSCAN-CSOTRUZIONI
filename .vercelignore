@@ -1,6 +1,17 @@
 .env
-palazzina-holding/
+.agents/
+bob/
 config/
+coordinamento/
 data/
+docs/
+palazzina-holding/
+scripts/
 app uso interno/
 app uso interno /
+web pague
+web pague 
+DESIGN.md
+GEMINI.md
+README.md
+SITE_RULES.md

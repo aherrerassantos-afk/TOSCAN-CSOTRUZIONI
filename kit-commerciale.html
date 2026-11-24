@@ -252,20 +252,20 @@
             <span style="font-size:0.8rem;color:var(--muted);margin-left:8px;">Modifica qui una sola volta: aggiorna automaticamente Preventivo, Contratto, SAL, Report e Avvio Ospiti.</span>
           </div>
           <div class="chips-row" aria-label="Commessa rapida">
-            <button type="button" class="chip-btn" data-preset-client="[DA CONFERMARE]" data-preset-city="Firenze" data-preset-sqm="0" data-preset-type="appartamenti" data-preset-phone="">Modello 1 · [DA CONFERMARE]</button>
-            <button type="button" class="chip-btn" data-preset-client="[DA CONFERMARE]" data-preset-city="Greve in Chianti" data-preset-sqm="0" data-preset-type="agriturismo" data-preset-phone="">Modello 2 · [DA CONFERMARE]</button>
-            <button type="button" class="chip-btn" data-preset-client="[DA CONFERMARE]" data-preset-city="Lucca" data-preset-sqm="0" data-preset-type="hotel" data-preset-phone="">Modello 3 · [DA CONFERMARE]</button>
+            <button type="button" class="chip-btn" data-preset-client="Committente Modello Suite" data-preset-city="Firenze" data-preset-sqm="0" data-preset-type="appartamenti" data-preset-phone="">Modello 1 · Appartamenti</button>
+            <button type="button" class="chip-btn" data-preset-client="Committente Modello Casale" data-preset-city="Greve in Chianti" data-preset-sqm="0" data-preset-type="agriturismo" data-preset-phone="">Modello 2 · Casale</button>
+            <button type="button" class="chip-btn" data-preset-client="Committente Modello Hotel" data-preset-city="Lucca" data-preset-sqm="0" data-preset-type="hotel" data-preset-phone="">Modello 3 · Boutique Hotel</button>
           </div>
         </div>
 
         <div class="shared-grid">
           <div>
             <label class="field-label" for="s-client">Cliente / Struttura</label>
-            <input type="text" id="s-client" class="input-text" value="[DA CONFERMARE]" />
+            <input type="text" id="s-client" class="input-text" value="" placeholder="Nome o Ragione Sociale" />
           </div>
           <div>
             <label class="field-label" for="s-phone">Telefono WhatsApp (opz.)</label>
-            <input type="tel" id="s-phone" class="input-text" placeholder="[DA CONFERMARE]" />
+            <input type="tel" id="s-phone" class="input-text" placeholder="+39 ..." />
           </div>
           <div>
             <label class="field-label" for="s-city">Comune immobile</label>
@@ -320,7 +320,7 @@
 
         <div class="grid-4">
           <div class="kpi-card">
-            <strong id="dir-kpi-total">[DA CONFERMARE]</strong>
+            <strong id="dir-kpi-total">Da computo esecutivo</strong>
             <span id="dir-kpi-rate">Valore a corpo (1.550 €/m²)</span>
           </div>
           <div class="kpi-card">
@@ -332,7 +332,7 @@
             <span>Documenti Pre-Firma (DURC/CAR)</span>
           </div>
           <div class="kpi-card">
-            <strong id="dir-kpi-fee">[DA CONFERMARE]</strong>
+            <strong id="dir-kpi-fee">2,5% su computo</strong>
             <span>Accantonamento Fee Partner (2–3%)</span>
           </div>
         </div>
@@ -401,8 +401,8 @@
           <div class="card" style="justify-content:space-between;">
             <div>
               <span class="eyebrow">Azione unica (Eliminato doppio clic)</span>
-              <h4 id="sales-summary-title">[DA CONFERMARE]</h4>
-              <p style="font-size:0.86rem;margin-top:4px;" id="sales-summary-sub">Stima a corpo: <strong>[DA CONFERMARE]</strong> (1.550 €/m²) · Durata: 5–7 mesi con penali.</p>
+              <h4 id="sales-summary-title">Commessa in preparazione</h4>
+              <p style="font-size:0.86rem;margin-top:4px;" id="sales-summary-sub">Stima a corpo su computo esecutivo (1.550 €/m²) · Durata: 5–7 mesi con penali.</p>
             </div>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
               <button type="button" class="btn btn-primary" id="btn-sales-one-tap">Invia Preventivo su WhatsApp + Salva CRM</button>
@@ -487,7 +487,7 @@
             <div class="crm-add-grid">
               <div>
                 <label class="field-label" for="crm-new-name">Nome / Società Committente</label>
-                <input type="text" id="crm-new-name" class="input-text" style="background:#FFF;" placeholder="[DA CONFERMARE]" />
+                <input type="text" id="crm-new-name" class="input-text" style="background:#FFF;" placeholder="Nome o Ragione Sociale" />
               </div>
               <div>
                 <label class="field-label" for="crm-new-city">Città / Zona</label>
@@ -495,15 +495,15 @@
               </div>
               <div>
                 <label class="field-label" for="crm-new-sqm">m²</label>
-                <input type="number" id="crm-new-sqm" class="input-text" style="background:#FFF;" placeholder="[DA CONFERMARE]" value="" />
+                <input type="number" id="crm-new-sqm" class="input-text" style="background:#FFF;" placeholder="es. 240" value="" />
               </div>
               <div>
                 <label class="field-label" for="crm-new-phone">Telefono WhatsApp</label>
-                <input type="tel" id="crm-new-phone" class="input-text" style="background:#FFF;" placeholder="[DA CONFERMARE]" />
+                <input type="tel" id="crm-new-phone" class="input-text" style="background:#FFF;" placeholder="+39 ..." />
               </div>
               <div>
                 <label class="field-label" for="crm-new-issue">Problema / Obiettivo</label>
-                <input type="text" id="crm-new-issue" class="input-text" style="background:#FFF;" placeholder="[DA CONFERMARE]" />
+                <input type="text" id="crm-new-issue" class="input-text" style="background:#FFF;" placeholder="Es. Frazionamento in 4 suite" />
               </div>
               <button type="button" class="btn btn-primary" id="btn-crm-add-row">Aggiungi al CRM</button>
             </div>
@@ -549,7 +549,7 @@
             <button type="button" class="chip-btn sprint-slot" data-slot="10">10 · Hotel / Agriturismo</button>
           </div>
 
-          <p style="font-size:0.82rem;margin-top:10px;color:var(--muted);">Ogni messaggio qui sotto inserisce in automatico il nome (<strong id="out-tpl-name" style="color:var(--ink);">[DA CONFERMARE]</strong>) e la città (<strong id="out-tpl-city" style="color:var(--ink);">Firenze</strong>) dalla barra superiore:</p>
+          <p style="font-size:0.82rem;margin-top:10px;color:var(--muted);">Ogni messaggio qui sotto inserisce in automatico il nome (<strong id="out-tpl-name" style="color:var(--ink);">Committente</strong>) e la città (<strong id="out-tpl-city" style="color:var(--ink);">Firenze</strong>) dalla barra superiore:</p>
           <div class="grid-2" style="margin-top:12px;">
             <div class="card" style="background:#FFF;">
               <strong>1. Proprietario già cliente Gruppo Blue Arroyo</strong>
@@ -665,11 +665,11 @@
                   <tr><th>Traguardo SAL</th><th>Quota</th><th class="num">Importo Imponibile</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Acconto all'Avvio Cantiere</td><td>15%</td><td class="num" id="adm-sal-1">[DA CONFERMARE]</td></tr>
-                  <tr><td>1° SAL · Strutture e Murature</td><td>25%</td><td class="num" id="adm-sal-2">[DA CONFERMARE]</td></tr>
-                  <tr><td>2° SAL · Impianti e Massetti</td><td>25%</td><td class="num" id="adm-sal-3">[DA CONFERMARE]</td></tr>
-                  <tr><td>3° SAL · Pavimenti, Bagni e Infissi</td><td>25%</td><td class="num" id="adm-sal-4">[DA CONFERMARE]</td></tr>
-                  <tr><td>Saldo al Collaudo e Chiavi</td><td>10%</td><td class="num" id="adm-sal-5">[DA CONFERMARE]</td></tr>
+                  <tr><td>Acconto all'Avvio Cantiere</td><td>15%</td><td class="num" id="adm-sal-1">15% su computo</td></tr>
+                  <tr><td>1° SAL · Strutture e Murature</td><td>25%</td><td class="num" id="adm-sal-2">25% su computo</td></tr>
+                  <tr><td>2° SAL · Impianti e Massetti</td><td>25%</td><td class="num" id="adm-sal-3">25% su computo</td></tr>
+                  <tr><td>3° SAL · Pavimenti, Bagni e Infissi</td><td>25%</td><td class="num" id="adm-sal-4">25% su computo</td></tr>
+                  <tr><td>Saldo al Collaudo e Chiavi</td><td>10%</td><td class="num" id="adm-sal-5">10% su computo</td></tr>
                 </tbody>
               </table>
             </div>
@@ -722,20 +722,20 @@
             <h4>1. Checklist Passaggio Cantiere Gruppo (<span id="hosp-check-count">5/5</span> pronti)</h4>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 1. <strong>Per itassistance / itsdreamteam:</strong> DM 37/08, APE, Agibilità, CIN e Dotazioni Sicurezza (Cartello A4 + Alloggiati Web / Ross1000)</label>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 2. <strong>Per SmartsBookings:</strong> Serrature Smart Keyless, Wi-Fi cablato e vano bagagli Runner attivi (Payout 85% entro le 12:00)</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. <strong>Per Palazzo Blue Arroyo (PBA):</strong> Deep Cleaning fine cantiere (30 €/ora tutto incluso pago per risultato finale DOC), Biancheria 60°C, Kit Bagno/Cucina sigillati e Dossier Foto SHA-256</label>
-            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 4. <strong>Revenue &amp; Prezzi:</strong> Scheda immobile caricata su Matrice 14gg (Floor/Cap e sblocco notti orfane: [DA CONFERMARE])</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 3. <strong>Per Palazzo Blue Arroyo (PBA):</strong> Deep Cleaning fine cantiere (30 €/ora tutto incluso pago per risultato finale DOC), Biancheria 90°C, Kit Bagno/Cucina sigillati e Dossier Foto SHA-256</label>
+            <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 4. <strong>Revenue &amp; Prezzi:</strong> Scheda immobile caricata su Matrice 14gg (Floor/Cap e sblocco notti orfane da tariffario itassistance)</label>
             <label class="check-row"><input type="checkbox" class="hosp-chk" checked /> 5. <strong>Garanzia Post-Cantiere:</strong> Copertura manutenzioni e verbali danni AirCover collegati alla Direzione Tecnica</label>
 
             <div style="margin-top:6px;">
               <span class="field-label">Invia ordine rapido e collaudo live endpoint tra le aziende del Gruppo (DEC-16 · 1 tap)</span>
               <div class="chips-row">
-                <button type="button" class="chip-btn" data-hosp-endpoint="deepCleaningToscanPba30EurDoc" data-hosp-ticket="[PBA · Palazzo Blue Arroyo] Attivare Deep Cleaning fine cantiere (Listino DEC-05: 30 €/ora tutto incluso pago per risultato finale DOC) + Fornitura Biancheria 60°C, Kit Bagno/Cucina e Dossier SHA-256">1 · Attiva PBA (Deep Cleaning 30 €/h DOC &amp; Kit)</button>
+                <button type="button" class="chip-btn" data-hosp-endpoint="deepCleaningToscanPba30EurDoc" data-hosp-ticket="[PBA · Palazzo Blue Arroyo] Attivare Deep Cleaning fine cantiere (Listino DEC-05: 30 €/ora tutto incluso pago per risultato finale DOC) + Fornitura Biancheria 90°C, Kit Bagno/Cucina e Dossier SHA-256">1 · Attiva PBA (Deep Cleaning 30 €/h DOC &amp; Kit)</button>
                 <button type="button" class="chip-btn" data-hosp-endpoint="subentroToscanCollaudoOneTap" data-hosp-ticket="[itassistance · subentroToscanCollaudoOneTap] Verbale collaudo fine lavori: attivare Subentro 1-Tap (Cartello A4 CIN, Alloggiati Web, ISTAT Ross1000, test check-in remoto domotica e Report h08:00)">2 · Attiva itassistance (subentroToscanCollaudoOneTap)</button>
                 <button type="button" class="chip-btn" data-hosp-endpoint="smartsBookingsPayout85Direct" data-hosp-ticket="[SmartsBookings · Feed iCal + Cashback 48h] Inserire immobile consegnato nel Canale Chiuso (Payout 85% h12:00 al proprietario, Cashback 15% ospite e logistica Runner valigie)">3 · Attiva SmartsBookings (Payout 85% + Cashback)</button>
                 <button type="button" class="chip-btn" data-hosp-endpoint="toscanManutenzioneAirCover" data-hosp-ticket="[Toscan Costruzioni · Manutenzione/AirCover] Intervento tecnico rapido o preventivo ripristino danni per unità del Gruppo">4 · Intervento Tecnico / AirCover</button>
               </div>
               <div style="margin-top:8px;">
-                <button type="button" class="btn btn-olive" id="btn-dec16-test-all" style="width:100%;">Collaudo Live 3 Endpoint Gruppo (DEC-16: Toscan → Itassitance + PBA 30 €/h DOC + SmartsBookings)</button>
+                <button type="button" class="btn btn-olive" id="btn-dec16-test-all" style="width:100%;">Collaudo Live 3 Endpoint Gruppo (DEC-16: Toscan → itassistance + PBA 30 €/h DOC + SmartsBookings)</button>
               </div>
             </div>
           </div>
@@ -764,10 +764,10 @@
           <div style="margin-top:12px;">
             <span class="field-label">1. Scegli il Pacchetto di Riqualificazione Rapida (1 tap)</span>
             <div class="chips-row" id="hosp-upgrade-chips">
-              <button type="button" class="chip-btn is-active" data-up-pkg="Realizzazione 2° Bagno En-Suite Completo" data-up-cost="0" data-up-adr="0" data-up-weeks="[DA CONFERMARE]">1 · 2° Bagno En-Suite ([DA CONFERMARE])</button>
-              <button type="button" class="chip-btn" data-up-pkg="Kit Acustica Certificata + Serrature Smart + Wi-Fi Mesh" data-up-cost="0" data-up-adr="0" data-up-weeks="[DA CONFERMARE]">2 · Acustica + Domotica ([DA CONFERMARE])</button>
-              <button type="button" class="chip-btn" data-up-pkg="Restyling Completo Cucina, Bagno e Illuminazione Calda" data-up-cost="0" data-up-adr="0" data-up-weeks="[DA CONFERMARE]">3 · Restyling Suite &amp; Cucina ([DA CONFERMARE])</button>
-              <button type="button" class="chip-btn" data-up-pkg="Frazionamento Appartamento in 2 Unità Indipendenti Chiavi in Mano" data-up-cost="0" data-up-adr="0" data-up-weeks="[DA CONFERMARE]">4 · Frazionamento in 2 Unità ([DA CONFERMARE])</button>
+              <button type="button" class="chip-btn is-active" data-up-pkg="Realizzazione 2° Bagno En-Suite Completo" data-up-cost="0" data-up-adr="0" data-up-weeks="Da cronoprogramma esecutivo">1 · 2° Bagno En-Suite (Su computo)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Kit Acustica Certificata + Serrature Smart + Wi-Fi Mesh" data-up-cost="0" data-up-adr="0" data-up-weeks="Da cronoprogramma esecutivo">2 · Acustica + Domotica (Su computo)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Restyling Completo Cucina, Bagno e Illuminazione Calda" data-up-cost="0" data-up-adr="0" data-up-weeks="Da cronoprogramma esecutivo">3 · Restyling Suite &amp; Cucina (Su computo)</button>
+              <button type="button" class="chip-btn" data-up-pkg="Frazionamento Appartamento in 2 Unità Indipendenti Chiavi in Mano" data-up-cost="0" data-up-adr="0" data-up-weeks="Da cronoprogramma esecutivo">4 · Frazionamento in 2 Unità (Su computo)</button>
             </div>
           </div>
 
@@ -793,7 +793,7 @@
           <button type="button" onclick="window.print()" class="btn btn-primary no-print">Stampa / Salva PDF</button>
         </div>
         <p style="margin-top:6px;color:var(--ink);">
-          Accordo riservato a Studi Tecnici, Agenzie Immobiliari, Property Manager e Consulenti — Partner di riferimento: <strong id="partner-doc-name">[DA CONFERMARE]</strong> (<span id="partner-doc-city">Firenze</span>).
+          Accordo riservato a Studi Tecnici, Agenzie Immobiliari, Property Manager e Consulenti — Partner di riferimento: <strong id="partner-doc-name">Partner B2B</strong> (<span id="partner-doc-city">Firenze</span>).
         </p>
 
         <div style="margin-top:18px;display:grid;gap:12px;font-size:0.9rem;color:var(--ink);">
@@ -854,7 +854,7 @@
 
       var state = {
         role: 'sales',
-        client: '[DA CONFERMARE]',
+        client: 'Committente',
         phone: '',
         city: 'Firenze',
         sqm: 0,
@@ -939,7 +939,7 @@
       }
 
       function saveAndRender() {
-        state.client = sClient.value.trim() || '[DA CONFERMARE]';
+        state.client = sClient.value.trim() || 'Committente';
         state.phone = sPhone.value.trim();
         state.city = sCity.value.trim() || 'Firenze';
         state.sqm = Math.max(0, parseInt(sSqm.value, 10) || 0);
@@ -973,21 +973,36 @@
         document.getElementById('btn-admin-contract').href = contractPath;
 
         /* 1. Render Direzione */
-        document.getElementById('dir-kpi-total').textContent = state.sqm > 0 ? fmtEur(total) : '[DA CONFERMARE]';
+        document.getElementById('dir-kpi-total').textContent = state.sqm > 0 ? fmtEur(total) : 'Da computo esecutivo';
         document.getElementById('dir-kpi-rate').textContent = 'Prezzo fisso a corpo (' + info.rate + ' €/m²)';
         document.getElementById('dir-kpi-sal').textContent = state.sal.split('·')[0].trim();
         document.getElementById('dir-kpi-months').textContent = 'Durata garantita: ' + info.months;
-        document.getElementById('dir-kpi-fee').textContent = state.sqm > 0 ? fmtEur(total * 0.025) : '[DA CONFERMARE]';
+        document.getElementById('dir-kpi-fee').textContent = state.sqm > 0 ? fmtEur(total * 0.025) : '2,5% su computo';
 
         /* 2. Render Vendite + Outbound precompilati */
+        var summarySubEl = document.getElementById('sales-summary-sub');
+        var strongAmt = document.createElement('strong');
+        var strongMonths = document.createElement('strong');
+        strongMonths.textContent = info.months;
         if (state.sqm > 0) {
           document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' (' + state.sqm + ' m²)';
-          document.getElementById('sales-summary-sub').innerHTML =
-            'Importo a corpo: <strong>' + fmtEur(total) + '</strong> (' + info.rate + ' €/m²) · Durata: <strong>' + info.months + '</strong> · Payout 85% Ciclo Blue Arroyo: <strong style="color:var(--terracotta);">[DA CONFERMARE]</strong>.';
+          strongAmt.textContent = fmtEur(total);
+          var strongPo = document.createElement('strong');
+          strongPo.style.color = 'var(--terracotta)';
+          strongPo.textContent = '85% su prenotazioni dirette';
+          summarySubEl.replaceChildren(
+            document.createTextNode('Importo a corpo: '), strongAmt,
+            document.createTextNode(' (' + info.rate + ' €/m²) · Durata: '), strongMonths,
+            document.createTextNode(' · Payout Ciclo Blue Arroyo: '), strongPo, document.createTextNode('.')
+          );
         } else {
-          document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' ([DA CONFERMARE])';
-          document.getElementById('sales-summary-sub').innerHTML =
-            'Importo a corpo: <strong>[DA CONFERMARE]</strong> (' + info.rate + ' €/m²) · Durata: <strong>' + info.months + '</strong> · Payout 85% Ciclo Blue Arroyo.';
+          document.getElementById('sales-summary-title').textContent = state.client + ' · ' + state.city + ' (Su rilievo)';
+          strongAmt.textContent = 'Su computo esecutivo';
+          summarySubEl.replaceChildren(
+            document.createTextNode('Importo a corpo: '), strongAmt,
+            document.createTextNode(' (' + info.rate + ' €/m²) · Durata: '), strongMonths,
+            document.createTextNode(' · Payout 85% Ciclo Blue Arroyo.')
+          );
         }
         var memPortal = document.getElementById('dir-open-member-portal');
         if (memPortal) {
@@ -1008,12 +1023,12 @@
           'Gentile ' + state.client + ',\nspesso l\'acquirente di un immobile da ristrutturare a ' + state.city + ' si blocca prima della proposta per il timore di costi e tempi incerti.\n\nCon Toscan Costruzioni vi affianchiamo in visita e consegniamo in 48 ore uno studio di fattibilità con fascia di costo chiavi in mano garantita a contratto, più accordo di segnalazione scritto (2–3%) per l\'agenzia.\n\nFissiamo una breve chiamata questa settimana? Giuliano (+39 351 038 0392)';
 
         document.getElementById('tpl-4').textContent =
-          'Gentile Titolare di ' + state.client + ' (' + state.city + '),\nriqualifichiamo hotel, boutique hotel e agriturismi in Toscana con prezzo fisso bloccato a contratto (' + info.rate + ' €/m² — importo totale: ' + (state.sqm > 0 ? fmtEur(total) : '[DA CONFERMARE]') + '), cantiere nei mesi di bassa stagione e penali giornaliere a nostro carico per ogni ritardo sulla riapertura.\n\nEcco la distinta analitica pre-compilata per la Sua struttura: https://toscancostruzioni.it' + quotePath;
+          'Gentile Titolare di ' + state.client + ' (' + state.city + '),\nriqualifichiamo hotel, boutique hotel e agriturismi in Toscana con prezzo fisso bloccato a contratto (' + info.rate + ' €/m² — importo totale: ' + (state.sqm > 0 ? fmtEur(total) : 'su computo metrico esecutivo') + '), cantiere nei mesi di bassa stagione e penali giornaliere a nostro carico per ogni ritardo sulla riapertura.\n\nEcco la distinta analitica pre-compilata per la Sua struttura: https://toscancostruzioni.it' + quotePath;
 
         /* 3. Render Tecnico / Cantiere */
         document.getElementById('t-out-msg').textContent =
           'REPORT AVANZAMENTO CANTIERE DEL VENERDÌ\n' +
-          'Commessa: ' + state.client + ' — ' + state.city + ' (' + (state.sqm > 0 ? state.sqm + ' m²' : '[DA CONFERMARE]') + ')\n' +
+          'Commessa: ' + state.client + ' — ' + state.city + ' (' + (state.sqm > 0 ? state.sqm + ' m²' : 'superficie su rilievo') + ')\n' +
           'Stato attuale: ' + state.sal + '\n' +
           'Lavorazioni eseguite: ' + state.notes + '\n' +
           'Cronoprogramma: In linea con la consegna contrattuale (' + info.months + ').\n' +
@@ -1022,11 +1037,11 @@
           '— Direzione Tecnica Toscan Costruzioni · BLUEARROYO S.R.L.';
 
         /* 4. Render Amministrazione (5 SAL in Euro) */
-        document.getElementById('adm-sal-1').textContent = state.sqm > 0 ? fmtEur(total * 0.15) : '[DA CONFERMARE]';
-        document.getElementById('adm-sal-2').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '[DA CONFERMARE]';
-        document.getElementById('adm-sal-3').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '[DA CONFERMARE]';
-        document.getElementById('adm-sal-4').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '[DA CONFERMARE]';
-        document.getElementById('adm-sal-5').textContent = state.sqm > 0 ? fmtEur(total * 0.10) : '[DA CONFERMARE]';
+        document.getElementById('adm-sal-1').textContent = state.sqm > 0 ? fmtEur(total * 0.15) : '15% su computo';
+        document.getElementById('adm-sal-2').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '25% su computo';
+        document.getElementById('adm-sal-3').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '25% su computo';
+        document.getElementById('adm-sal-4').textContent = state.sqm > 0 ? fmtEur(total * 0.25) : '25% su computo';
+        document.getElementById('adm-sal-5').textContent = state.sqm > 0 ? fmtEur(total * 0.10) : '10% su computo';
 
         /* 5. Render Gestione Ospiti Blue Arroyo (Ponte 3 Aziende del Gruppo) */
         document.getElementById('h-welcome-msg').textContent =
@@ -1034,7 +1049,7 @@
           'il collaudo finale di Toscan Costruzioni per l\'immobile di ' + state.city + ' (' + state.sqm + ' m²) è completato. Ecco attivo il Ciclo Virtuoso del Gruppo Blue Arroyo:\n\n' +
           '1. TOSCAN COSTRUZIONI (Crea il bene): immobile nuovo, cablato e collaudato (DM 37/08, APE, Agibilità) che non ha bisogno di riparazioni per anni.\n' +
           '2. ITASSISTANCE (Lo protegge): immediatamente conforme alla legge (Questura, CIN e Comune) con tariffe dinamiche ottimizzate.\n' +
-          '3. BLUE ARROYO CLEANING (Lo allestisce): trasformato in suite d\'albergo con biancheria a 60°C, kit biologici e spugne sigillate a costo zero per il PM.\n' +
+          '3. BLUE ARROYO CLEANING (Lo allestisce): trasformato in suite d\'albergo con biancheria a 90°C, kit biologici e spugne sigillate a costo zero per il PM.\n' +
           '4. SMARTSBOOKINGS (Lo riempie di turisti): vende le notti senza regalare il 20% alle multinazionali OTA, restituisce il 15% di cashback all\'ospite e bonifica l\'85% al proprietario.';
       }
 
@@ -1302,15 +1317,30 @@
         pkg: 'Realizzazione 2° Bagno En-Suite Completo',
         cost: 0,
         adr: 0,
-        weeks: '[DA CONFERMARE]'
+        weeks: 'Da cronoprogramma esecutivo'
       };
       function renderHospUpgrade() {
         var box = document.getElementById('hosp-upgrade-summary');
         if (!box) return;
-        box.innerHTML =
-          '<strong>Immobile Gruppo (' + state.client + ' · ' + state.city + '):</strong> Intervento <strong>' + upState.pkg + '</strong> · ' +
-          'Prezzo Chiuso Toscan: <strong style="color:var(--terracotta);">[DA CONFERMARE]</strong> (consegna garantita: <strong>' + upState.weeks + '</strong>) · ' +
-          'Incremento su SmartsBookings (Payout 85%): <strong style="color:var(--olive);">[DA CONFERMARE]</strong>.';
+        var sHead = document.createElement('strong');
+        sHead.textContent = 'Immobile Gruppo (' + state.client + ' · ' + state.city + '):';
+        var sPkg = document.createElement('strong');
+        sPkg.textContent = upState.pkg;
+        var sPrice = document.createElement('strong');
+        sPrice.style.color = 'var(--terracotta)';
+        sPrice.textContent = upState.cost > 0 ? fmtEur(upState.cost) : 'Su computo esecutivo';
+        var sWeeks = document.createElement('strong');
+        sWeeks.textContent = upState.weeks;
+        var sAdr = document.createElement('strong');
+        sAdr.style.color = 'var(--olive)';
+        sAdr.textContent = upState.adr > 0 ? ('+' + upState.adr + ' €/notte stimati') : 'Da stima Revenue su immobile';
+        box.replaceChildren(
+          sHead, document.createTextNode(' Intervento '), sPkg,
+          document.createTextNode(' · Prezzo Chiuso Toscan: '), sPrice,
+          document.createTextNode(' (consegna: '), sWeeks,
+          document.createTextNode(') · Incremento su SmartsBookings (Payout 85%): '), sAdr,
+          document.createTextNode('.')
+        );
         var mcLink = document.getElementById('hosp-upgrade-mc-link');
         if (mcLink) {
           mcLink.href = '/blog?mc=1D&cliente=' + encodeURIComponent(state.client) + '&city=' + encodeURIComponent(state.city) + '&sqm=' + encodeURIComponent(state.sqm) + '#prenota-step-a';
@@ -1390,64 +1420,15 @@
         }
       };
 
-      var defaultColdInvestors = [
-        {
-          name: '[DA CONFERMARE — Committente 1]',
-          city: 'Firenze',
-          sqm: '[DA CONFERMARE]',
-          type: 'appartamenti',
-          phone: '[DA CONFERMARE]',
-          profile: 'Frazionamento Urbano ([DA CONFERMARE])',
-          issue: '[DA CONFERMARE]',
-          step: 'M1'
-        },
-        {
-          name: '[DA CONFERMARE — Committente 2]',
-          city: 'Greve in Chianti',
-          sqm: '[DA CONFERMARE]',
-          type: 'agriturismo',
-          phone: '[DA CONFERMARE]',
-          profile: 'Casale / Agriturismo ([DA CONFERMARE])',
-          issue: '[DA CONFERMARE]',
-          step: 'M2'
-        },
-        {
-          name: '[DA CONFERMARE — Committente 3]',
-          city: 'Firenze',
-          sqm: '[DA CONFERMARE]',
-          type: 'appartamenti',
-          phone: '[DA CONFERMARE]',
-          profile: 'Frazionamento & Rivendita ([DA CONFERMARE])',
-          issue: '[DA CONFERMARE]',
-          step: 'M4'
-        },
-        {
-          name: '[DA CONFERMARE — Committente 4]',
-          city: 'Lucca',
-          sqm: '[DA CONFERMARE]',
-          type: 'hotel',
-          phone: '[DA CONFERMARE]',
-          profile: 'Boutique Hotel ([DA CONFERMARE])',
-          issue: '[DA CONFERMARE]',
-          step: 'M3'
-        },
-        {
-          name: '[DA CONFERMARE — Committente 5]',
-          city: 'Siena',
-          sqm: '[DA CONFERMARE]',
-          type: 'agriturismo',
-          phone: '[DA CONFERMARE]',
-          profile: 'Investitore Immobiliare ([DA CONFERMARE])',
-          issue: '[DA CONFERMARE]',
-          step: 'S3'
-        }
-      ];
+      var defaultColdInvestors = [];
 
       var coldInvestors = defaultColdInvestors;
       try {
         var savedCold = JSON.parse(localStorage.getItem(CRM_COLD_KEY) || 'null');
-        if (Array.isArray(savedCold) && savedCold.length > 0) {
-          coldInvestors = savedCold;
+        if (Array.isArray(savedCold)) {
+          coldInvestors = savedCold.filter(function(item) {
+            return item && typeof item === 'object' && String(item.name || '').trim().charAt(0) !== '[';
+          });
         }
       } catch (e) {}
 
@@ -1458,24 +1439,78 @@
       function renderColdTable() {
         var tbody = document.getElementById('crm-cold-tbody');
         if (!tbody) return;
-        tbody.innerHTML = '';
+        tbody.replaceChildren();
+        if (!coldInvestors.length) {
+          var emptyTr = document.createElement('tr');
+          var emptyTd = document.createElement('td');
+          emptyTd.colSpan = 6;
+          emptyTd.style.cssText = 'text-align:center;color:var(--muted);padding:18px;';
+          emptyTd.textContent = 'Nessun committente reale inserito in locale: utilizza il modulo qui sopra per registrare un nuovo proprietario o albergatore.';
+          emptyTr.appendChild(emptyTd);
+          tbody.appendChild(emptyTr);
+          return;
+        }
         coldInvestors.forEach(function(inv, idx) {
           var sm = stepMeta[inv.step] || stepMeta.M1;
           var tr = document.createElement('tr');
-          tr.innerHTML =
-            '<td><strong>' + inv.name + '</strong><br><span style="font-size:0.76rem;color:var(--muted);">' + (inv.phone || 'Tel da inserire') + '</span></td>' +
-            '<td>' + inv.profile + '<br><span style="font-size:0.78rem;color:var(--muted);">' + inv.city + ' · <strong>' + inv.sqm + ' m²</strong></span></td>' +
-            '<td style="font-size:0.82rem;max-width:220px;">' + inv.issue + '</td>' +
-            '<td><span style="display:inline-block;padding:4px 8px;background:rgba(158,66,27,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);">' + sm.badge + '</span></td>' +
-            '<td style="font-size:0.8rem;"><a href="' + sm.blogUrl + '" target="_blank" style="color:var(--terracotta);font-weight:600;text-decoration:underline;">' + sm.blogTitle + '</a></td>' +
-            '<td>' +
-              '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
-                '<button type="button" class="chip-btn" data-cold-load="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">1 · Carica in Console</button>' +
-                '<button type="button" class="btn btn-primary" data-cold-wa="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">2 · Invia Step ' + inv.step + ' + Blog</button>' +
-                '<button type="button" class="btn btn-olive" data-cold-member="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">3 · Abilita Portale 5 SAL</button>' +
-                '<button type="button" class="btn btn-secondary" data-cold-upsell="' + idx + '" style="min-height:48px;padding:8px 12px;font-size:0.85rem;">4 · Esito Call (-150 € Scontati)</button>' +
-              '</div>' +
-            '</td>';
+
+          var tdName = document.createElement('td');
+          var stName = document.createElement('strong');
+          stName.textContent = inv.name || '';
+          var spPhone = document.createElement('span');
+          spPhone.style.cssText = 'font-size:0.76rem;color:var(--muted);';
+          spPhone.textContent = inv.phone || 'Tel da inserire';
+          tdName.append(stName, document.createElement('br'), spPhone);
+
+          var tdProf = document.createElement('td');
+          var spCity = document.createElement('span');
+          spCity.style.cssText = 'font-size:0.78rem;color:var(--muted);';
+          var stSqm = document.createElement('strong');
+          stSqm.textContent = (inv.sqm ? inv.sqm + ' m²' : 'su rilievo');
+          spCity.append(document.createTextNode((inv.city || '') + ' · '), stSqm);
+          tdProf.append(document.createTextNode(inv.profile || ''), document.createElement('br'), spCity);
+
+          var tdIssue = document.createElement('td');
+          tdIssue.style.cssText = 'font-size:0.82rem;max-width:220px;';
+          tdIssue.textContent = inv.issue || '';
+
+          var tdStep = document.createElement('td');
+          var spBadge = document.createElement('span');
+          spBadge.style.cssText = 'display:inline-block;padding:4px 8px;background:rgba(158,66,27,0.12);border:1px solid var(--terracotta);border-radius:2px;font-size:0.76rem;font-weight:600;color:var(--ink);';
+          spBadge.textContent = sm.badge;
+          tdStep.appendChild(spBadge);
+
+          var tdBlog = document.createElement('td');
+          tdBlog.style.cssText = 'font-size:0.8rem;';
+          var aBlog = document.createElement('a');
+          aBlog.href = sm.blogUrl;
+          aBlog.target = '_blank';
+          aBlog.rel = 'noopener noreferrer';
+          aBlog.style.cssText = 'color:var(--terracotta);font-weight:600;text-decoration:underline;';
+          aBlog.textContent = sm.blogTitle;
+          tdBlog.appendChild(aBlog);
+
+          var tdAct = document.createElement('td');
+          var actWrap = document.createElement('div');
+          actWrap.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;';
+          var makeBtn = function(cls, attr, label) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = cls;
+            b.setAttribute(attr, String(idx));
+            b.style.cssText = 'min-height:48px;padding:8px 12px;font-size:0.85rem;';
+            b.textContent = label;
+            return b;
+          };
+          actWrap.append(
+            makeBtn('chip-btn', 'data-cold-load', '1 · Carica in Console'),
+            makeBtn('btn btn-primary', 'data-cold-wa', '2 · Invia Step ' + inv.step + ' + Blog'),
+            makeBtn('btn btn-olive', 'data-cold-member', '3 · Abilita Portale 5 SAL'),
+            makeBtn('btn btn-secondary', 'data-cold-upsell', '4 · Esito Call (-150 € Scontati)')
+          );
+          tdAct.appendChild(actWrap);
+
+          tr.append(tdName, tdProf, tdIssue, tdStep, tdBlog, tdAct);
           tbody.appendChild(tr);
         });
 
@@ -1578,7 +1613,10 @@
           chip.classList.add('is-active');
           activeStepCode = chip.getAttribute('data-step-code') || 'M1';
           var sm = stepMeta[activeStepCode] || stepMeta.M1;
-          document.getElementById('crm-ladder-desc').innerHTML = '<strong>' + sm.desc + '</strong>';
+          var descEl = document.getElementById('crm-ladder-desc');
+          var bDesc = document.createElement('strong');
+          bDesc.textContent = sm.desc;
+          descEl.replaceChildren(bDesc);
         });
       });
 

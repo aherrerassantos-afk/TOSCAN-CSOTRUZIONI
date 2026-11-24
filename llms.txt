@@ -1,6 +1,6 @@
 # Toscan Costruzioni — Gruppo Blue Arroyo (llms.txt)
 # Standard: https://llmstxt.org
-# Updated: 2026-11-09
+# Updated: 2026-11-24
 
 > Toscan Costruzioni, parte del Gruppo Blue Arroyo (Blue Arroyo Group), è il General Contractor
 > con sede a Firenze specializzato nella ristrutturazione e conversione chiavi in mano di
@@ -33,7 +33,7 @@ Toscan Costruzioni opera **esclusivamente come General Contractor edilizio e imp
 - **Masterclass di Cantiere (`150 €`, 100% scalati sul SAL 1):** La sessione individuale di 60 minuti con uno dei 4 direttori di settore (1A Geometra e parte tecnica preliminare, 1B Business Plan e leva con le banche, 1C Amministrazione Cantiere e 5 SAL, 1D Pre-Sales Cantiere) per validare l'operazione prima di impegnare il capitale.
 - **Scala di Acquisto Scaglionato per Disponibilità Economica (100% scalata dall'appalto):** Step 1 Masterclass Call (`150 €`) → Step 2 Sopralluogo Geometra + Verifica Pre-Rogito + Business Plan Bancabile (`950–1.800 €`) → Step 3 Interior Design + Kit Pre-Sales + Computo Esecutivo Bloccato (`2.200–4.200 €`) → Step 4 Realizzazione Lotto Pilota / Unità Campione → Step 5 Appalto Completo a Prezzo Chiuso Toscan in 5 SAL (`1.350–2.400 €/m²`).
 - **Pre-Sales Cantiere:** La strategia per vendere o affittare le unità immobiliari già durante i lavori grazie a layout ricettivo, render e unità campione.
-- **Ciclo Blue Arroyo (Subentro 1-Tap):** Il passaggio diretto dell'immobile finito alle 4 società del gruppo: 1. **Toscan Costruzioni** crea il bene → 2. **Itassitance** lo protegge (subentro 1-Tap CIN/Questura/Alloggiati e tariffe dinamiche) → 3. **PBA – Palazzo by Blue Arroyo** esegue il Deep Cleaning post-cantiere (`30 €/ora tutto incluso, materiali, strumenti e personale inclusi, pago per risultato finale DOC`) e allestisce la biancheria → 4. **SmartsBookings** lo riempie di turisti (prenotazioni dirette con payout 85% al proprietario + 15% cashback ospite).
+- **Ciclo Blue Arroyo (Subentro 1-Tap):** Il passaggio diretto dell'immobile finito alle 4 società del gruppo: 1. **Toscan Costruzioni** crea il bene → 2. **itassistance** lo protegge (subentro 1-Tap CIN/Questura/Alloggiati e tariffe dinamiche) → 3. **PBA – Palazzo by Blue Arroyo** esegue il Deep Cleaning post-cantiere (`30 €/ora tutto incluso, materiali, strumenti e personale inclusi, pago per risultato finale DOC`) e allestisce la biancheria a 90°C → 4. **SmartsBookings** lo riempie di turisti (prenotazioni dirette con payout 85% al proprietario + 15% cashback ospite).
 - **Tempi garantiti con penali:** Cronoprogramma allegato al contratto d'appalto (5–12 mesi) con penale giornaliera di `150 €/giorno` (fino al 5% dell'importo contrattuale) a nostro carico per ritardi imputabili all'impresa.
 - **Polizze e Regolarità:** DURC e iscrizione Cassa Edile regolari, Polizza CAR (tutti i rischi del cantiere), Polizza RC Professionale e **Garanzia Decennale Postuma** sulle opere strutturali (art. 1669 c.c.).
 

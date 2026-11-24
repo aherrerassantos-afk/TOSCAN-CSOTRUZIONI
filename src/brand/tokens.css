@@ -1,0 +1,283 @@
+/* ==========================================================================
+   FONTE UNICA DEL BRAND: PALAZZO BY BLUE ARROYO (src/brand/tokens.css)
+   Valori ufficiali estratti dal sito pubblico palazzobluearroyo.it.
+   REGOLA NON NEGOZIABILE: vietati colori fuori palette o blu elettrici.
+   ========================================================================== */
+
+:root {
+  /* Palette Primaria Brand (Sito Pubblico palazzobluearroyo.it) */
+  --brand-navy:          #112239;   /* Blu notte dei testi del logo e dei bottoni primari */
+  --brand-navy-mid:      #1A314F;   /* Blu notte hover */
+  --brand-navy-deep:     #0D1B2A;   /* Sfondo barre scure / console / sidebar */
+  --brand-gold:          #8F6F32;   /* Oro brunito di "TURNOVER CASE VACANZE · FIRENZE" e "LOG IN DIPENDENTI" */
+  --brand-gold-soft:     #B8924A;   /* Oro goccia ricamata del logo */
+  --brand-gold-light:    #E5C378;   /* Oro chiaro per accenti su sfondo scuro (--brand-navy-deep) */
+  --brand-gold-tint:     rgba(184, 146, 74, 0.14); /* Sfondo oro morbido */
+  --brand-cream:         #FAF7F2;   /* Sfondo crema Lino naturale al sole */
+  --brand-cream-alt:     #F3EFE6;   /* Travertino / Carta cotone fiorentina */
+  --brand-cream-deep:    #E9E2D4;   /* Sabbia calda */
+  --brand-white:         #FFFFFF;   /* Cotone 90°C */
+
+  /* Testi & Bordi */
+  --brand-ink:           #1A1817;   /* Carbone caldo editoriale */
+  --brand-muted:         #5A554E;   /* Grigio pietra per lettura riposante */
+  --brand-muted-light:   #857F76;   /* Grigio pietra chiaro */
+  --brand-border:        rgba(26, 24, 23, 0.09);
+  --brand-border-strong: rgba(26, 24, 23, 0.16);
+  --brand-border-gold:   rgba(184, 146, 74, 0.28);
+
+  /* Stati Operativi Coerenti col Brand (Niente colori neon/framework di default) */
+  --brand-success:       #1E4D3B;   /* Verde salvia / foglia fiorentina */
+  --brand-success-bg:    #EFF6F2;
+  --brand-success-border:#B7D7C8;
+  --brand-warning:       #8F6F32;   /* Ottone brunito */
+  --brand-warning-bg:    #FAF3E3;
+  --brand-warning-border:#E5C378;
+  --brand-danger:        #7F231C;   /* Rosso mattone fiorentino */
+  --brand-danger-bg:     #FDF2F1;
+  --brand-danger-border: #EAC0BC;
+
+  /* Tipografia Ufficiale */
+  --font-display:        'Cormorant Garamond', Georgia, serif;
+  --font-body:           'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Raggi, Ombre & Transizioni */
+  --radius-btn:          999px;
+  --radius-btn-compact:  10px;
+  --radius-card:         14px;
+  --radius-soft:         18px;
+  --shadow-card:         0 20px 50px -15px rgba(26, 24, 23, 0.08);
+  --shadow-float:        0 24px 60px -12px rgba(17, 34, 57, 0.15);
+  --shadow-btn:          0 10px 28px -6px rgba(17, 34, 57, 0.28);
+  --ease-brand:          cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out:            cubic-bezier(0.23, 1, 0.32, 1);       /* entrate, feedback */
+  --ease-in-out:         cubic-bezier(0.77, 0, 0.175, 1);      /* spostamenti sullo schermo */
+  --ease-drawer:         cubic-bezier(0.32, 0.72, 0, 1);       /* pannelli laterali */
+
+  /* Mapping retro-compatibile per eliminare ogni blu elettrico legacy */
+  --color-linen:           var(--brand-cream);
+  --color-travertino:      var(--brand-cream-alt);
+  --color-travertino-deep: var(--brand-cream-deep);
+  --color-white:           var(--brand-white);
+  --color-arroyo-navy:     var(--brand-navy);
+  --color-arroyo-navy-mid: var(--brand-navy-mid);
+  --color-ink:             var(--brand-ink);
+  --color-stone:           var(--brand-muted);
+  --color-stone-light:     var(--brand-muted-light);
+  --color-gold:            var(--brand-gold-soft);
+  --color-gold-deep:       var(--brand-gold);
+  --color-gold-soft:       var(--brand-gold-tint);
+  --color-sage:            var(--brand-success);
+  --color-sage-bg:         var(--brand-success-bg);
+  --color-line:            var(--brand-border);
+  --color-line-gold:       var(--brand-border-gold);
+  --font-serif:            var(--font-display);
+  --font-sans:             var(--font-body);
+
+  /* Console & Login Variable Overrides (Zero Electric Blue) */
+  --ct-blue:               var(--brand-navy);
+  --ct-blue-hover:         var(--brand-navy-mid);
+  --ct-blue-subtle:        var(--brand-cream-alt);
+  --ct-blue-border:        var(--brand-border-gold);
+  --color-action-primary:  var(--brand-navy);
+  --color-action-hover:    var(--brand-navy-mid);
+  --color-navy-deep:       var(--brand-navy-deep);
+  --color-gold-brass:      var(--brand-gold);
+}
+
+/* ==========================================================================
+   COMPONENTE UNICO LOGO: <BrandLogo /> / <brand-logo> (.pba-brand-logo)
+   Vietato incorniciare la goccia in quadrati o cerchi o aggiungere suffissi al nome.
+   ========================================================================== */
+brand-logo {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.pba-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.pba-brand-logo__drop {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.pba-brand-logo--sm .pba-brand-logo__drop {
+  width: 28px;
+  height: 28px;
+}
+
+.pba-brand-logo--lg .pba-brand-logo__drop {
+  width: 40px;
+  height: 40px;
+}
+
+.pba-brand-logo__text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pba-brand-logo__name {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.2rem, 3.8vw, 1.45rem);
+  font-weight: 600 !important;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--brand-navy);
+}
+
+.pba-brand-logo--sm .pba-brand-logo__name {
+  font-size: clamp(1.12rem, 3.2vw, 1.28rem);
+}
+
+.pba-brand-logo--lg .pba-brand-logo__name {
+  font-size: clamp(1.35rem, 4.2vw, 1.65rem);
+}
+
+.pba-brand-logo--dark .pba-brand-logo__name {
+  color: var(--brand-cream) !important;
+}
+
+.pba-brand-logo--light .pba-brand-logo__name {
+  color: var(--brand-navy) !important;
+}
+
+.pba-brand-logo__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(0.54rem, 1.6vw, 0.62rem);
+  font-weight: 500;
+  letter-spacing: clamp(0.05em, 0.8vw, 0.15em);
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.pba-brand-logo--dark .pba-brand-logo__tagline {
+  color: var(--brand-gold-light);
+}
+
+/* Regola Mobile Brand (≤768px mostra solo Blue Arroyo) */
+.ba-d, .brand-desktop-only, .brand-desktop { display: inline; }
+.ba-m, .brand-mobile-only, .brand-mobile { display: none; }
+@media (max-width: 768px) {
+  .ba-d, .brand-desktop-only, .brand-desktop { display: none !important; }
+  .ba-m, .brand-mobile-only, .brand-mobile { display: inline !important; }
+}
+
+/* ==========================================================================
+   COMPONENTE UNICO BOTTONI: <Button variant="primary|secondary|ghost">
+   ========================================================================== */
+.pba-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 160ms var(--ease-out), background-color 200ms var(--ease-out), border-color 200ms var(--ease-out), color 200ms var(--ease-out);
+  text-decoration: none;
+  text-align: center;
+  max-width: 100%;
+}
+
+.pba-btn--compact {
+  min-height: 36px;
+  padding: 7px 14px;
+  border-radius: var(--radius-btn-compact);
+  font-size: 0.78rem;
+}
+
+.pba-btn--primary {
+  background-color: var(--brand-navy) !important;
+  color: var(--brand-cream) !important;
+  border-color: var(--brand-navy) !important;
+  box-shadow: var(--shadow-btn);
+}
+
+.pba-btn--primary:hover {
+  background-color: var(--brand-navy-mid) !important;
+  color: var(--brand-white) !important;
+  transform: translateY(-1px);
+}
+
+.pba-btn--secondary {
+  background-color: var(--brand-white) !important;
+  color: var(--brand-navy) !important;
+  border: 1px solid var(--brand-navy) !important;
+}
+
+.pba-btn--secondary:hover {
+  background-color: var(--brand-cream-alt) !important;
+  border-color: var(--brand-gold) !important;
+}
+
+.pba-btn--ghost {
+  background-color: transparent !important;
+  color: var(--brand-navy) !important;
+  border: 1px solid transparent !important;
+}
+
+.pba-btn--ghost:hover {
+  background-color: var(--brand-gold-tint) !important;
+  color: var(--brand-gold) !important;
+}
+
+/* ==========================================================================
+   BADGE SEPARATO RUOLO CONSOLE INTERNA (FUORI DAL LOGO)
+   ========================================================================== */
+.pba-console-context-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(250, 247, 242, 0.16);
+}
+
+.pba-role-pill {
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 3px 9px;
+  border-radius: var(--radius-btn);
+  background: var(--brand-gold-tint);
+  color: var(--brand-gold-light);
+  border: 1px solid var(--brand-border-gold);
+}
+
+.pba-console-caption {
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.68);
+}

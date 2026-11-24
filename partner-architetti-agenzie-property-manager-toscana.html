@@ -349,7 +349,11 @@
         var docUrl = '/kit-commerciale?cliente=' + encodeURIComponent(name + ' (' + role + ')') + '&city=' + encodeURIComponent(city) + '#accordo-partner';
         var st = document.getElementById('p-status');
         st.style.display = 'block';
-        st.innerHTML = 'Richiesta registrata. <a href="' + docUrl + '" style="text-decoration:underline;color:var(--terracotta);margin-left:6px;">Clicca qui per stampare il tuo Accordo Partner intestato</a>';
+        var link = document.createElement('a');
+        link.href = docUrl;
+        link.style.cssText = 'text-decoration:underline;color:var(--terracotta);margin-left:6px;';
+        link.textContent = 'Clicca qui per stampare il tuo Accordo Partner intestato';
+        st.replaceChildren(document.createTextNode('Richiesta registrata. '), link);
 
         var waMsg = 'Buongiorno Toscan Costruzioni, sono ' + name + ' (' + role + ' — ' + city + '). Vorrei attivare l\'accordo di segnalazione partner / valutare un immobile.';
         window.open('https://wa.me/393510380392?text=' + encodeURIComponent(waMsg), '_blank');

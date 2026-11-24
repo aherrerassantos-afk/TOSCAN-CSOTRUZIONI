@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" fill="none" role="img" aria-label="Goccia Palazzo by Blue Arroyo">
+  <g stroke="#C5A567" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Contorno esterno goccia -->
+    <path d="M99 14 C68 54, 24 114, 24 164 C24 205, 58 228, 100 228 C142 228, 176 205, 176 164 C176 114, 132 54, 99 14 Z" stroke-width="5.2"/>
+    <!-- Filigrana organica sinistra -> basso -->
+    <path d="M99 16 C75 60, 32 118, 34 166 C36 202, 68 225, 112 224" stroke-width="3.4"/>
+    <path d="M99 18 C80 64, 42 120, 46 166 C50 200, 80 222, 122 220" stroke-width="3.2"/>
+    <path d="M99 20 C84 68, 54 118, 60 164 C65 196, 92 218, 130 215" stroke-width="3.1"/>
+    <path d="M99 22 C88 72, 66 116, 76 160 C83 190, 104 214, 136 210" stroke-width="3.0"/>
+    <path d="M99 24 C91 74, 78 114, 94 154 C106 184, 116 208, 140 205" stroke-width="3.0"/>
+    <!-- Onde interne secondarie -->
+    <path d="M30 144 C42 168, 54 198, 92 224" stroke-width="2.8"/>
+    <path d="M36 126 C52 154, 66 190, 104 222" stroke-width="2.8"/>
+    <path d="M44 108 C64 140, 80 182, 116 218" stroke-width="2.8"/>
+    <!-- Filigrana organica destra -> vortice interno -->
+    <path d="M100 16 C104 64, 126 106, 152 146 C166 168, 168 194, 146 212" stroke-width="3.2"/>
+    <path d="M101 18 C110 62, 136 104, 160 146 C172 168, 170 192, 150 210" stroke-width="3.1"/>
+    <path d="M102 20 C118 60, 146 102, 166 146 C175 166, 172 190, 154 208" stroke-width="3.0"/>
+    <path d="M98 26 C94 74, 108 112, 138 142 C158 162, 164 188, 144 212" stroke-width="3.1"/>
+    <path d="M96 32 C86 78, 98 116, 130 144 C152 164, 160 188, 142 212" stroke-width="3.1"/>
+  </g>
+</svg>

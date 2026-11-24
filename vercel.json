@@ -1,32 +1,70 @@
 {
   "version": 2,
-  "routes": [
-    { "src": "/villa-claudia", "dest": "/villa-claudia.html" },
-    { "src": "/foglio-lavori", "dest": "/foglio-lavori.html" },
-    { "src": "/data-room", "dest": "/data-room.html" },
-    { "src": "/preventivo-tipo", "dest": "/preventivo-tipo.html" },
-    { "src": "/stato-cantiere", "dest": "/stato-cantiere.html" },
-    { "src": "/blog", "dest": "/blog.html" },
-    { "src": "/partner", "dest": "/partner-architetti-agenzie-property-manager-toscana.html" },
-    { "src": "/partner-architetti-agenzie-property-manager-toscana", "dest": "/partner-architetti-agenzie-property-manager-toscana.html" },
-    { "src": "/kit-commerciale", "dest": "/kit-commerciale.html" },
-    { "src": "/styleguide", "dest": "/styleguide.html" },
-    { "src": "/arredo-contract-ffe-domotica-hotel-short-term-toscana", "dest": "/arredo-contract-ffe-domotica-hotel-short-term-toscana.html" },
-    { "src": "/cambio-destinazione-uso-hotel-short-term-toscana", "dest": "/cambio-destinazione-uso-hotel-short-term-toscana.html" },
-    { "src": "/tuscany-hospitality-investment-general-contractor", "dest": "/tuscany-hospitality-investment-general-contractor.html" },
-    { "src": "/agriturismo-resort-arezzo-maremma-grosseto", "dest": "/agriturismo-resort-arezzo-maremma-grosseto.html" },
-    { "src": "/crowdfunding-immobiliare-chiuso-unico-investitore-toscana", "dest": "/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html" },
-    { "src": "/hotel-ville-short-term-lucca-versilia", "dest": "/hotel-ville-short-term-lucca-versilia.html" },
-    { "src": "/sviluppo-immobili-short-medium-term-firenze", "dest": "/sviluppo-immobili-short-medium-term-firenze.html" },
-    { "src": "/costruzione-hotel-student-housing-toscana", "dest": "/costruzione-hotel-student-housing-toscana.html" },
-    { "src": "/agriturismo-wine-resort-siena-val-dorcia", "dest": "/agriturismo-wine-resort-siena-val-dorcia.html" },
-    { "src": "/student-housing-pbsa-firenze-pisa", "dest": "/student-housing-pbsa-firenze-pisa.html" },
-    { "src": "/affitti-brevi-toscana", "dest": "/affitti-brevi-toscana.html" },
-    { "src": "/general-contractor-firenze", "dest": "/general-contractor-firenze.html" },
-    { "src": "/ristrutturazione-casale-toscano", "dest": "/ristrutturazione-casale-toscano.html" },
-    { "src": "/ristrutturazione-toscana", "dest": "/ristrutturazione-toscana.html" },
-    { "src": "/bonus-ristrutturazione-2026", "dest": "/bonus-ristrutturazione-2026.html" },
-    { "src": "/tuscany-renovation-contractor", "dest": "/tuscany-renovation-contractor.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/villa-claudia", "destination": "/villa-claudia.html" },
+    { "source": "/foglio-lavori", "destination": "/foglio-lavori.html" },
+    { "source": "/data-room", "destination": "/data-room.html" },
+    { "source": "/preventivo-tipo", "destination": "/preventivo-tipo.html" },
+    { "source": "/stato-cantiere", "destination": "/stato-cantiere.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/crm", "destination": "/crm.html" },
+    { "source": "/partner", "destination": "/partner-architetti-agenzie-property-manager-toscana.html" },
+    { "source": "/partner-architetti-agenzie-property-manager-toscana", "destination": "/partner-architetti-agenzie-property-manager-toscana.html" },
+    { "source": "/kit-commerciale", "destination": "/kit-commerciale.html" },
+    { "source": "/styleguide", "destination": "/styleguide.html" },
+    { "source": "/arredo-contract-ffe-domotica-hotel-short-term-toscana", "destination": "/arredo-contract-ffe-domotica-hotel-short-term-toscana.html" },
+    { "source": "/cambio-destinazione-uso-hotel-short-term-toscana", "destination": "/cambio-destinazione-uso-hotel-short-term-toscana.html" },
+    { "source": "/tuscany-hospitality-investment-general-contractor", "destination": "/tuscany-hospitality-investment-general-contractor.html" },
+    { "source": "/agriturismo-resort-arezzo-maremma-grosseto", "destination": "/agriturismo-resort-arezzo-maremma-grosseto.html" },
+    { "source": "/crowdfunding-immobiliare-chiuso-unico-investitore-toscana", "destination": "/crowdfunding-immobiliare-chiuso-unico-investitore-toscana.html" },
+    { "source": "/hotel-ville-short-term-lucca-versilia", "destination": "/hotel-ville-short-term-lucca-versilia.html" },
+    { "source": "/sviluppo-immobili-short-medium-term-firenze", "destination": "/sviluppo-immobili-short-medium-term-firenze.html" },
+    { "source": "/costruzione-hotel-student-housing-toscana", "destination": "/costruzione-hotel-student-housing-toscana.html" },
+    { "source": "/agriturismo-wine-resort-siena-val-dorcia", "destination": "/agriturismo-wine-resort-siena-val-dorcia.html" },
+    { "source": "/student-housing-pbsa-firenze-pisa", "destination": "/student-housing-pbsa-firenze-pisa.html" },
+    { "source": "/affitti-brevi-toscana", "destination": "/affitti-brevi-toscana.html" },
+    { "source": "/general-contractor-firenze", "destination": "/general-contractor-firenze.html" },
+    { "source": "/ristrutturazione-casale-toscano", "destination": "/ristrutturazione-casale-toscano.html" },
+    { "source": "/ristrutturazione-toscana", "destination": "/ristrutturazione-toscana.html" },
+    { "source": "/bonus-ristrutturazione-2026", "destination": "/bonus-ristrutturazione-2026.html" },
+    { "source": "/tuscany-renovation-contractor", "destination": "/tuscany-renovation-contractor.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://wa.me mailto:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.supabase.co https://www.google-analytics.com https://www.googletagmanager.com; connect-src 'self' https://aherreras.app.n8n.cloud https://aunnoivzjeiyiczsxzbp.supabase.co wss://aunnoivzjeiyiczsxzbp.supabase.co https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com http://localhost:3000; worker-src 'self' blob:;"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": ".*\\.vercel\\.app$" }
+      ],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/(crm|crm\\.html|kit-commerciale|kit-commerciale\\.html|stato-cantiere|stato-cantiere\\.html|styleguide|styleguide\\.html)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
+      ]
+    }
   ]
 }
